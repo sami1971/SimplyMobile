@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6728B276-7979-48E4-92DA-D11B070160FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceTests", "Tests\DeviceTests\DeviceTests.csproj", "{019132C0-4A0B-456E-9013-0E58436D2B9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Core", "SimplyMobile.Core\SimplyMobile.Core.csproj", "{D80BE32E-29A9-47D6-A791-984B933E9CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Device", "SimplyMobile.Device\SimplyMobile.Device.csproj", "{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{019132C0-4A0B-456E-9013-0E58436D2B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019132C0-4A0B-456E-9013-0E58436D2B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019132C0-4A0B-456E-9013-0E58436D2B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019132C0-4A0B-456E-9013-0E58436D2B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80BE32E-29A9-47D6-A791-984B933E9CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80BE32E-29A9-47D6-A791-984B933E9CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80BE32E-29A9-47D6-A791-984B933E9CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80BE32E-29A9-47D6-A791-984B933E9CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{019132C0-4A0B-456E-9013-0E58436D2B9D} = {6728B276-7979-48E4-92DA-D11B070160FE}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SimplyMobile.Core\SimplyMobile.Core.csproj
+	EndGlobalSection
+EndGlobal
