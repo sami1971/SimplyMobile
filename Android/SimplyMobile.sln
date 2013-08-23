@@ -32,6 +32,6 @@ Global
 		{019132C0-4A0B-456E-9013-0E58436D2B9D} = {6728B276-7979-48E4-92DA-D11B070160FE}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = SimplyMobile.Core\SimplyMobile.Core.csproj
+		StartupItem = Tests\DeviceTests\DeviceTests.csproj
 	EndGlobalSection
 EndGlobal

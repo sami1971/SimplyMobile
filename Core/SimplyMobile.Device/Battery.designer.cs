@@ -21,7 +21,7 @@ namespace SimplyMobile.Device
 {
     public static partial class Battery
     {
-        private static event EventHandler<EventArgs<float>> onLevelChange;
+        private static event EventHandler<EventArgs<int>> onLevelChange;
         private static event EventHandler<EventArgs<bool>> onChargerStatusChanged;
 
         static partial void StartLevelMonitoring();
@@ -33,7 +33,7 @@ namespace SimplyMobile.Device
         /// <summary>
         ///  Occurs when level changes. 
         /// </summary>
-        public static event EventHandler<EventArgs<float>> OnLevelChange
+        public static event EventHandler<EventArgs<int>> OnLevelChange
         {
             add
             {

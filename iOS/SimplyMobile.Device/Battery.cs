@@ -36,7 +36,7 @@ namespace SimplyMobile.Device
                 {
                     if (onLevelChange != null)
                     {
-                        onLevelChange(onLevelChange, new EventArgs<float>(Level));
+                        onLevelChange(onLevelChange, new EventArgs<int>(Level));
                     }
                 }
             );
@@ -83,15 +83,20 @@ namespace SimplyMobile.Device
         /// <summary>
         ///  Gets the battery level. 
         /// </summary>
-        public static float Level
+		/// <returns>Battery level in percentage, 0-100</returns>
+        public static int Level
         {
             get
             {
 				UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
-                return UIDevice.CurrentDevice.BatteryLevel;
+				return (int)(UIDevice.CurrentDevice.BatteryLevel * 100);
             }
         }
 
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="SimplyMobile.Device.Battery"/> is charging.
+		/// </summary>
+		/// <value><c>true</c> if charging; otherwise, <c>false</c>.</value>
         public static bool Charging
         {
             get 

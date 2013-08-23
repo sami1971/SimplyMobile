@@ -13,11 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
-using System;
 using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
 using SimplyMobile.Device;
@@ -74,7 +70,7 @@ namespace DeviceTests
 			this.chargerState.Checked = e.Value;
 		}
 
-		void HandleOnLevelChange (object sender, SimplyMobile.Core.EventArgs<float> e)
+		void HandleOnLevelChange (object sender, SimplyMobile.Core.EventArgs<int> e)
 		{
 			this.batteryLevel.Text = e.Value.ToString();
 		}

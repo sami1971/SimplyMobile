@@ -74,8 +74,8 @@
   </Target>
   -->
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>

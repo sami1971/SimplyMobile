@@ -21,9 +21,12 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
 {
+	/// <summary>
+	/// Battery information class.
+	/// </summary>
     public static partial class Battery
     {
-        private static float level;
+        private static int level;
         private static LevelMonitor levelMonitor;
         private static ChargerMonitor chargerMonitor;
 
@@ -67,7 +70,7 @@ namespace SimplyMobile.Device
         /// <value>
         /// The level.
         /// </value>
-        public static float Level
+        public static int Level
         {
             get { return GetLevel(); }
             private set
@@ -75,11 +78,15 @@ namespace SimplyMobile.Device
                 level = value;
                 if (onLevelChange != null)
                 {
-                    onLevelChange(onLevelChange, new EventArgs<float>(level));
+                    onLevelChange(onLevelChange, new EventArgs<int>(level));
                 }
             }
         }
 
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="SimplyMobile.Device.Battery"/> is charging.
+		/// </summary>
+		/// <value><c>true</c> if charging; otherwise, <c>false</c>.</value>
         public static bool Charging
         {
             get
@@ -96,14 +103,18 @@ namespace SimplyMobile.Device
             }
         }
 
-        private static float GetLevel()
+		/// <summary>
+		/// Gets the level.
+		/// </summary>
+		/// <returns>The level.</returns>
+        private static int GetLevel()
         {
             if (levelMonitor != null && levelMonitor.Active)
             {
                 return level;
             }
 
-            float f = -1;
+            var f = -1;
             var intent = f.RegisterReceiver(null, new IntentFilter(Intent.ActionBatteryChanged));
             if (intent != null)
             {
@@ -113,6 +124,10 @@ namespace SimplyMobile.Device
             return f;
         }
 
+		/// <summary>
+		/// Gets the state of the charger.
+		/// </summary>
+		/// <returns><c>true</c>, if charger state was gotten, <c>false</c> otherwise.</returns>
         private static bool GetChargerState()
         {
             if (chargerMonitor != null && chargerMonitor.Active)
@@ -138,14 +153,14 @@ namespace SimplyMobile.Device
                 get { return new IntentFilter(Intent.ActionBatteryChanged); }
             }
 
-            public static float GetLevel(Intent intent)
+            public static int GetLevel(Intent intent)
             {
                 var rawlevel = intent.GetIntExtra(BatteryManager.ExtraLevel, -1);
                 var scale = intent.GetIntExtra(BatteryManager.ExtraScale, -1);
-                float lvl = -1;
+                var lvl = -1;
                 if (rawlevel >= 0 && scale > 0)
                 {
-					lvl = (float)rawlevel / (float)scale;
+					lvl = rawlevel * 100 / scale;
                 }
                 return lvl;
             }
