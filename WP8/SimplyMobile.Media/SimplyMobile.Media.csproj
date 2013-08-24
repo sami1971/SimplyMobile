@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0746722C-147B-4481-AD24-90BB84605585}</ProjectGuid>
+    <ProjectGuid>{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimplyMobile.Core</RootNamespace>
-    <AssemblyName>SimplyMobile.Core</AssemblyName>
+    <RootNamespace>SimplyMobile.Media</RootNamespace>
+    <AssemblyName>SimplyMobile.Media</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -83,25 +83,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Core\DependencyResolver.cs">
-      <Link>DependencyResolver.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\EventArgs.cs">
-      <Link>EventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\IDependencyResolver.cs">
-      <Link>IDependencyResolver.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\IMonitor.cs">
-      <Link>IMonitor.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\MobileApp.designer.cs">
-      <Link>MobileApp.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\Monitor.cs">
-      <Link>Monitor.cs</Link>
-    </Compile>
-    <Compile Include="MobileApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

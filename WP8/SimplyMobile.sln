@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{25FD5BB3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceTests", "Tests\DeviceTests\DeviceTests.csproj", "{591BA7D5-F7E5-4136-B059-2E91A377D052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Media", "SimplyMobile.Media\SimplyMobile.Media.csproj", "{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,18 @@ Global
 		{591BA7D5-F7E5-4136-B059-2E91A377D052}.Release|x86.ActiveCfg = Release|x86
 		{591BA7D5-F7E5-4136-B059-2E91A377D052}.Release|x86.Build.0 = Release|x86
 		{591BA7D5-F7E5-4136-B059-2E91A377D052}.Release|x86.Deploy.0 = Release|x86
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|ARM.Build.0 = Debug|ARM
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|x86.ActiveCfg = Debug|x86
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Debug|x86.Build.0 = Debug|x86
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|ARM.ActiveCfg = Release|ARM
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|ARM.Build.0 = Release|ARM
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|x86.ActiveCfg = Release|x86
+		{65A0AD06-A0BD-46B3-AF7D-835D6A76601D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

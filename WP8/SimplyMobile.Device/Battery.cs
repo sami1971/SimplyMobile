@@ -22,6 +22,29 @@ namespace SimplyMobile.Device
 {
     public static partial class Battery
     {
+        /// <summary>
+        /// Gets the level.
+        /// </summary>
+        /// <value>
+        /// The level in percentage 0-100.
+        /// </value>
+        public static int Level
+        {
+            get { return Windows.Phone.Devices.Power.Battery.GetDefault().RemainingChargePercent; }
+        }
+
+        /// <summary>
+        /// Gets the charging status
+        /// </summary>
+        public static bool Charging
+        {
+            get
+            {
+                return DeviceStatus.PowerSource == PowerSource.External;
+            }
+        }
+
+        #region partial implementations
         static partial void StartLevelMonitoring()
         {
             Windows.Phone.Devices.Power.Battery.GetDefault().RemainingChargePercentChanged += OnRemainingChargePercentChanged;
@@ -34,32 +57,14 @@ namespace SimplyMobile.Device
 
         static partial void StartChargerMonitoring()
         {
-            DeviceStatus.PowerSourceChanged += DeviceStatusOnPowerSourceChanged;
+            DeviceStatus.PowerSourceChanged += OnPowerSourceChanged;
         }
 
         static partial void StopChargerMonitoring()
         {
-            DeviceStatus.PowerSourceChanged -= DeviceStatusOnPowerSourceChanged;
+            DeviceStatus.PowerSourceChanged -= OnPowerSourceChanged;
         }
-
-        /// <summary>
-        /// Gets the level.
-        /// </summary>
-        /// <value>
-        /// The level.
-        /// </value>
-        public static float Level
-        {
-            get { return Windows.Phone.Devices.Power.Battery.GetDefault().RemainingChargePercent / 100f; }
-        }
-
-        public static bool Charging
-        {
-            get
-            {
-                return DeviceStatus.PowerSource == PowerSource.External;
-            }
-        }
+        #endregion
 
         private static void OnRemainingChargePercentChanged(object sender, object o)
         {
@@ -69,7 +74,7 @@ namespace SimplyMobile.Device
             }
         }
 
-        private static void DeviceStatusOnPowerSourceChanged(object sender, EventArgs eventArgs)
+        private static void OnPowerSourceChanged(object sender, EventArgs eventArgs)
         {
             if (onChargerStatusChanged != null)
             {
