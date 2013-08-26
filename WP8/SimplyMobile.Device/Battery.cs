@@ -70,7 +70,7 @@ namespace SimplyMobile.Device
         {
             if (onLevelChange != null)
             {
-                onLevelChange(sender, new EventArgs<float>(Level));
+                onLevelChange(sender, new EventArgs<int>(Level));
             }
         }
 

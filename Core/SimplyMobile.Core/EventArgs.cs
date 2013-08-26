@@ -17,10 +17,21 @@ using System;
 
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Generic event argument class
+    /// </summary>
+    /// <typeparam name="T">Type of the argument</typeparam>
     public class EventArgs<T> : EventArgs
     {
+        /// <summary>
+        /// Gets the value of the event argument
+        /// </summary>
         public T Value { get; private set; }
 
+        /// <summary>
+        /// Constructs an event argument
+        /// </summary>
+        /// <param name="value">Value of the argument</param>
         public EventArgs(T value)
         {
             this.Value = value;

@@ -20,10 +20,10 @@ using SimplyMobile.Device;
 
 namespace DeviceTests
 {
-    public partial class MainPage
+    public partial class BatteryView
     {
         // Constructor
-        public MainPage()
+        public BatteryView()
         {
             InitializeComponent();
 
@@ -35,6 +35,7 @@ namespace DeviceTests
             Battery.OnLevelChange += BatteryOnOnLevelChange;
 
             this.chargerStatus.IsChecked = Battery.Charging;
+            this.chargerStatus.IsEnabled = false;
 
             Battery.OnChargerStatusChanged += BatteryChargerStatusChanged;
         }
@@ -47,28 +48,12 @@ namespace DeviceTests
             });
         }
 
-        private void BatteryOnOnLevelChange(object sender, EventArgs<float> eventArgs)
+        private void BatteryOnOnLevelChange(object sender, EventArgs<int> eventArgs)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
                 this.batteryLevel.Text = eventArgs.Value.ToString();
             });
         }
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }

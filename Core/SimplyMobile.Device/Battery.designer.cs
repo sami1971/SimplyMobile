@@ -31,7 +31,7 @@ namespace SimplyMobile.Device
         static partial void StopChargerMonitoring();
 
         /// <summary>
-        ///  Occurs when level changes. 
+        /// Event handler for battery level changes. 
         /// </summary>
         public static event EventHandler<EventArgs<int>> OnLevelChange
         {
@@ -54,7 +54,7 @@ namespace SimplyMobile.Device
         }
 
         /// <summary>
-        ///  Occurs when charger is connected or disconnected. 
+        ///  Event handler for charger connection changes. 
         /// </summary>
         public static event EventHandler<EventArgs<bool>> OnChargerStatusChanged
         {
@@ -75,5 +75,7 @@ namespace SimplyMobile.Device
                 }
             }
         }
+
+
     }
 }
