@@ -10,6 +10,7 @@ namespace DeviceTests
 	{
 		private UILabel batteryLevel;
 		private UISwitch chargerStatus;
+		private UISwitch audioCapture;
 
 		public MainViewController ()
 		{
@@ -19,20 +20,25 @@ namespace DeviceTests
 		{
 			base.ViewDidLoad ();
 
-			batteryLevel = new UILabel (new RectangleF (0, 0, this.View.Frame.Width, 20)) {
+			this.batteryLevel = new UILabel (new RectangleF (0, 0, this.View.Frame.Width, 20)) {
 				AutoresizingMask = UIViewAutoresizing.FlexibleWidth
 			};
 
 			this.View.AddSubview (batteryLevel);
 
-			chargerStatus = new UISwitch (new RectangleF (
-				(this.View.Frame.Width - 50) / 2, 25, 50, 20)) {
+			this.chargerStatus = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 25, 50, 20)) 
+			{
 				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
 			};
 
 			this.View.AddSubview (chargerStatus);
 
+			this.audioCapture = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 50, 50, 20)) 
+			{
+				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+			};
 
+			this.View.AddSubview (this.audioCapture);
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -44,6 +50,8 @@ namespace DeviceTests
 
 			this.chargerStatus.On = Battery.Charging;
 			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
+
+
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -60,7 +68,7 @@ namespace DeviceTests
 			this.chargerStatus.On = e.Value;
 		}
 
-		void HandleOnLevelChange (object sender, EventArgs<float> e)
+		void HandleOnLevelChange (object sender, EventArgs<int> e)
 		{
 			this.batteryLevel.Text = e.Value.ToString ();
 		}

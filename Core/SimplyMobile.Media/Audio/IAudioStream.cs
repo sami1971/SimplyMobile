@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright 2013, Sami M. Kallio
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,24 +13,38 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
-
 using System;
 using SimplyMobile.Core;
 
-namespace SimplyMobile.Device
+namespace SimplyMobile.Media
 {
-    public static partial class Battery
-    {
-        /// <summary>
-        /// Gets the level.
-        /// </summary>
-        /// <value>
-        /// The level.
-        /// </value>
-        public static int Level
-        {
-            get;
-            private set;
-        }
-    }
+	public interface IAudioStream : IMonitor
+	{
+		/// <summary>
+		/// Occurs when new audio has been streamed.
+		/// </summary>
+		event EventHandler<EventArgs<byte[]>> OnBroadcast;
+
+		/// <summary>
+		/// Gets the sample rate.
+		/// </summary>
+		/// <value>
+		/// The sample rate.
+		/// </value>
+		int SampleRate { get; }
+
+		/// <summary>
+		/// Gets the channel count.
+		/// </summary>
+		/// <value>
+		/// The channel count.
+		/// </value>
+		int ChannelCount { get; }
+
+		/// <summary>
+		/// Gets bits per sample.
+		/// </summary>
+		int BitsPerSample { get; }
+	}
 }
+
