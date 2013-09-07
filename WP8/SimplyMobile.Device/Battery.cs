@@ -34,7 +34,7 @@ namespace SimplyMobile.Device
         }
 
         /// <summary>
-        /// Gets the charging status
+        /// Gets a value indicating whether battery is charging
         /// </summary>
         public static bool Charging
         {

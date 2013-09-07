@@ -12,43 +12,61 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-//
+
 using System;
 
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Monitor class base implementation
+    /// </summary>
     public abstract class Monitor
     {
+        /// <summary>
+        /// Active flag
+        /// </summary>
         private bool active;
 
         /// <summary>
-        ///  Occurs on monitor status change. 
+        /// Event handler for active status changes
         /// </summary>
         public event EventHandler<EventArgs<bool>> OnActiveChanged;
 
+        /// <summary>
+        /// Event handler for exceptions
+        /// </summary>
         public event EventHandler<EventArgs<Exception>> OnException;
 
         /// <summary>
-        /// Gets a value indicating whether this <see cref="SimplyMobile.Core.IMonitor"/> is active.
+        /// Gets or sets a value indicating whether this <see cref="SimplyMobile.Core.IMonitor"/> is active.
         /// </summary>
         /// <value>
         /// <c>true</c> if active; otherwise, <c>false</c>.
         /// </value>
         public virtual bool Active
         {
-            get { return active; }
+            get
+            {
+                return this.active;
+            }
+
             protected set
             {
-                if (active == value) return;
-
-                active = value;
-                if (this.OnActiveChanged != null)
+                if (this.active != value)
                 {
-                    this.OnActiveChanged(this, new EventArgs<bool>(active));
+                    this.active = value;
+                    if (this.OnActiveChanged != null)
+                    {
+                        this.OnActiveChanged(this, new EventArgs<bool>(this.active));
+                    }
                 }
             }
         }
 
+        /// <summary>
+        /// Reports exceptions
+        /// </summary>
+        /// <param name="exception">Exception to report</param>
         protected void ReportException(Exception exception)
         {
             if (this.OnException != null)

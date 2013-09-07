@@ -15,13 +15,22 @@
 //
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Mobile application class
+    /// </summary>
     public partial class MobileApp
     {
-        private static DependencyResolver _resolver;
+        /// <summary>
+        /// Dependency resolver
+        /// </summary>
+        private static DependencyResolver resolver;
 
+        /// <summary>
+        /// Gets the dependency resolver
+        /// </summary>
         public static DependencyResolver Resolver
         {
-            get { return _resolver ?? (_resolver = new DependencyResolver()); }
+            get { return resolver ?? (resolver = new DependencyResolver()); }
         }
     }
 }

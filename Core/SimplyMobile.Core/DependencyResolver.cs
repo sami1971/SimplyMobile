@@ -1,4 +1,4 @@
-﻿//
+﻿// 
 //  Copyright 2013, Sami M. Kallio
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,15 +23,34 @@ namespace SimplyMobile.Core
     /// </summary>
     public class DependencyResolver : IDependencyResolver
     {
+        /// <summary>
+        /// Static instance handle
+        /// </summary>
         private static IDependencyResolver instance;
+
+        /// <summary>
+        /// List of services
+        /// </summary>
         private readonly List<object> services;
 
         /// <summary>
-        /// Default dependency resolver constructor
+        /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
         /// </summary>
         public DependencyResolver()
         {
             this.services = new List<object>();
+        }
+
+        /// <summary>
+        /// Gets or sets the current dependency resolver
+        /// </summary>
+        /// <remarks>
+        /// This was designed to allow us to use other dependency resolvers as well as the default
+        /// </remarks>
+        public static IDependencyResolver Current
+        {
+            get { return instance ?? (instance = new DependencyResolver()); }
+            set { instance = value; }
         }
 
         /// <summary>
@@ -62,18 +81,6 @@ namespace SimplyMobile.Core
         public void SetService<T>(T service) where T : class
         {
             this.services.Add(service);
-        }
-
-        /// <summary>
-        /// Gets or sets the current dependency resolver
-        /// </summary>
-        /// <remarks>
-        /// This was designed to allow us to use other dependency resolvers as well as the default
-        /// </remarks>
-        public static IDependencyResolver Current
-        {
-            get { return instance ?? (instance = new DependencyResolver()); }
-            set { instance = value; }
         }
     }
 }

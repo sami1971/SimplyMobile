@@ -17,9 +17,23 @@ using System.Collections.Generic;
 
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Dependency resolver interface
+    /// </summary>
     public interface IDependencyResolver
     {
+        /// <summary>
+        /// Gets the first available service
+        /// </summary>
+        /// <typeparam name="T">Type of service to get</typeparam>
+        /// <returns>First available service if there are any, otherwise null</returns>
         T GetService<T>() where T : class;
+
+        /// <summary>
+        /// Gets all available services for the type
+        /// </summary>
+        /// <typeparam name="T">Type of service to get</typeparam>
+        /// <returns>Enumerable list of available services</returns>
         IEnumerable<T> GetServices<T>() where T : class;
     }
 }

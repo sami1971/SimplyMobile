@@ -17,18 +17,30 @@ using System;
 
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Monitor interface
+    /// </summary>
     public interface IMonitor
     {
+        /// <summary>
+        /// Event handler for active status changes
+        /// </summary>
+        event EventHandler<EventArgs<bool>> OnActiveChanged;
 
-        event EventHandler<EventArgs<bool>>  OnActiveChanged;
-
+        /// <summary>
+        /// Event handler for exceptions
+        /// </summary>
         event EventHandler<EventArgs<Exception>> OnException;
  
+        /// <summary>
+        /// Gets a value indicating whether the monitor is active
+        /// </summary>
         bool Active { get; }
 
         /// <summary>
         /// Start monitoring.
         /// </summary>
+        /// <returns>True when monitor starts, otherwise false</returns>
         bool Start();
 
         /// <summary>

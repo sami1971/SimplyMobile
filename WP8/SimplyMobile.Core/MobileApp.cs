@@ -18,35 +18,33 @@ using Microsoft.Phone.Info;
 
 namespace SimplyMobile.Core
 {
+    /// <summary>
+    /// Mobile application class
+    /// </summary>
     public partial class MobileApp
     {
         /// <summary>
-        /// Returns the memory usage of the application in bytes.
+        /// Gets the memory usage of the application in bytes.
         /// </summary>
-        /// 
         /// <returns>
         /// Returns <see cref="T:System.Int64"/>.
         /// </returns>
         public static long CurrentMemoryUsage { get { return DeviceStatus.ApplicationCurrentMemoryUsage; } }
 
         /// <summary>
-        /// Returns the peak memory usage of the application in bytes.
+        /// Gets the peak memory usage of the application in bytes.
         /// </summary>
-        /// 
         /// <returns>
         /// Returns <see cref="T:System.Int64"/>.
         /// </returns>
         public static long PeakMemoryUsage { get { return DeviceStatus.ApplicationPeakMemoryUsage; } }
 
         /// <summary>
-        /// Returns the maximum amount of memory application process can allocate in bytes.
+        /// Gets the maximum amount of memory application process can allocate in bytes.
         /// </summary>
-        /// 
         /// <returns>
         /// Returns <see cref="T:System.Int64"/>.
         /// </returns>
         public static long MemoryUsageLimit { get { return DeviceStatus.ApplicationMemoryUsageLimit; } }
-        
-        
     }
 }
