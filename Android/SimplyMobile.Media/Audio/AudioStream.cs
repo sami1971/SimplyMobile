@@ -12,12 +12,12 @@ namespace SimplyMobile.Media
 		/// <summary>
 		/// The audio source.
 		/// </summary>
-		private AudioRecord audioSource;
+		private readonly AudioRecord audioSource;
 
 		/// <summary>
 		/// Occurs when new audio has been streamed.
 		/// </summary>
-		event EventHandler<EventArgs<byte[]>> OnBroadcast;
+		public event EventHandler<EventArgs<byte[]>> OnBroadcast;
 
 		/// <summary>
 		/// The default device.
@@ -74,7 +74,7 @@ namespace SimplyMobile.Media
 		/// <summary>
 		/// Start recording from the hardware audio source.
 		/// </summary>
-		public override bool Start()
+		public bool Start()
 		{
 			Android.OS.Process.SetThreadPriority (Android.OS.ThreadPriority.UrgentAudio);
 
@@ -93,13 +93,13 @@ namespace SimplyMobile.Media
 		/// <summary>
 		/// Stops recording.
 		/// </summary>
-		public override void Stop ()
+		public void Stop ()
 		{
 			this.audioSource.Stop();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SK.AV.AudioStream.AudioStream"/> class.
+        /// Initializes a new instance of the <see cref="SimplyMobile.Media.AudioStream"/> class.
 		/// </summary>
 		/// <param name="sampleRate">Sample rate.</param>
 		/// <param name="bufferSize">Buffer size.</param>
@@ -119,21 +119,25 @@ namespace SimplyMobile.Media
 		/// </summary>
 		private async void Record()
 		{
-			var buffer = new byte[this.bufferSize];
+            //var buffer = new byte[this.bufferSize];
 
-			var task = this.audioSource.ReadAsync (buffer, 0, this.bufferSize).ContinueWith (
-				() =>
-			{
-				if (this.OnBroadcast)
-				{
-					this.OnBroadcast(this, new EventArgs<byte[]>(buffer));
-				}
-				if (this.Active)
-				{
-					Record();
-				}
-			});
+            //var task = this.audioSource.ReadAsync (buffer, 0, this.bufferSize).ContinueWith (
+            //    () =>
+            //{
+            //    if (this.OnBroadcast != null)
+            //    {
+            //        this.OnBroadcast(this, new EventArgs<byte[]>(buffer));
+            //    }
+            //    if (this.Active)
+            //    {
+            //        Record();
+            //    }
+            //});
 		}
-	}
+
+        public event EventHandler<EventArgs<bool>> OnActiveChanged;
+
+        public event EventHandler<EventArgs<Exception>> OnException;
+    }
 }
 

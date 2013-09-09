@@ -54,16 +54,9 @@
       <Link>WifiMonitor.designer.cs</Link>
       <DependentUpon>WifiMonitor.cs</DependentUpon>
     </Compile>
-    <None Include="Resources\Resource.Designer.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WifiMonitor.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
