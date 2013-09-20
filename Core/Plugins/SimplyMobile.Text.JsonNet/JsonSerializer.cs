@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 
 namespace SimplyMobile.Text.JsonNet
 {
@@ -36,6 +37,15 @@ namespace SimplyMobile.Text.JsonNet
         public T Deserialize<T>(string data)
         {
             return JsonConvert.DeserializeObject<T>(data);
+        }
+
+        public T DeserializeFromStream<T>(Stream stream)
+        {
+            using (var streamReader = new StreamReader(stream))
+            {
+                var text = streamReader.ReadToEnd();
+                return Deserialize<T>(text);
+            }
         }
     }
 }

@@ -35,6 +35,11 @@ namespace DeviceTests
 		{
 			base.OnCreate ();
 		}
+
+        public override void OnTerminate()
+        {
+            base.OnTerminate();
+        }
 	}
 }
 

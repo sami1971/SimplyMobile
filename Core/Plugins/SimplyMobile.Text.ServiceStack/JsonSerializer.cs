@@ -1,4 +1,5 @@
 ﻿
+using System.IO;
 using Serializer = ServiceStack.Text.JsonSerializer;
 
 namespace SimplyMobile.Text.ServiceStack
@@ -38,6 +39,11 @@ namespace SimplyMobile.Text.ServiceStack
         public T Deserialize<T>(string data)
         {
             return Serializer.DeserializeFromString<T>(data);
+        }
+
+        public T DeserializeFromStream<T>(Stream stream)
+        {
+            return Serializer.DeserializeFromStream<T>(stream);
         }
     }
 }

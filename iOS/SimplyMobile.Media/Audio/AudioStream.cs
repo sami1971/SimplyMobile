@@ -62,7 +62,7 @@ namespace SimplyMobile.Media
 
 		public bool Start ()
 		{
-			return (this.Active = this.audioQueue.Start() == AudioQueueStatus.Ok);
+			return (this.audioQueue.Start() == AudioQueueStatus.Ok);
 		}
 
 		public void Stop ()
@@ -74,7 +74,7 @@ namespace SimplyMobile.Media
 		{
 			get
 			{
-				this.audioQueue.IsRunning;
+				return this.audioQueue.IsRunning;
 			}
 		}
 

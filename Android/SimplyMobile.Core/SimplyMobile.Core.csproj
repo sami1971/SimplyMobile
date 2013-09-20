@@ -59,6 +59,7 @@
       <Link>MobileApp.designer.cs</Link>
       <DependentUpon>MobileApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActivityCore.cs" />
     <Compile Include="ContextExtension.cs" />
     <Compile Include="MobileApp.cs" />
     <Compile Include="Monitor.cs" />

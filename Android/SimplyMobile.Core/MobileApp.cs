@@ -21,6 +21,37 @@ namespace SimplyMobile.Core
 {
     public partial class MobileApp : Application
     {
+        private static DateTime activityTransitionTime;
+
+        /// <summary>
+        /// Gets maximum time in ms for activity to transit before application 
+        /// is considered to be backgrounded
+        /// </summary>
+        protected virtual long MaximumActivityTransitionTime
+        {
+            get { return 2000; }
+        }
+
+        public bool WasBackgrounded
+        {
+            get
+            {
+                var ret = (DateTime.UtcNow - activityTransitionTime).TotalMilliseconds > MaximumActivityTransitionTime;
+
+                if (ret)
+                {
+                    this.OnResumeFromBackground();
+                }
+
+                return ret;
+            }
+        }
+
+        public void StartActivityTransition(Activity activity)
+        {
+            activityTransitionTime = DateTime.UtcNow;
+        }
+
         public MobileApp(IntPtr javaReference, JniHandleOwnership transfer)
         : base(javaReference, transfer)
         {
@@ -32,6 +63,12 @@ namespace SimplyMobile.Core
 			base.OnCreate ();
 			DependencyResolver.Current = Resolver;
 			Resolver.SetService(this);
+            activityTransitionTime = DateTime.UtcNow;
 		}
+
+        protected virtual void OnResumeFromBackground()
+        {
+            
+        }
     }
 }

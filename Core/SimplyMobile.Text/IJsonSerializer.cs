@@ -14,6 +14,8 @@
 //    limitations under the License.
 //
 
+using System.IO;
+
 namespace SimplyMobile.Text
 {
     /// <summary>
@@ -35,5 +37,8 @@ namespace SimplyMobile.Text
         /// <param name="data">Serialized object</param>
         /// <returns>Object of type T</returns>
         T Deserialize<T>(string data);
+
+
+        T DeserializeFromStream<T>(Stream stream);
     }
 }
