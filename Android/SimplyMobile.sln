@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.JsonNet",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.ServiceStack", "Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj", "{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Data", "SimplyMobile.Data\SimplyMobile.Data.csproj", "{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,17 @@ Global
 		{F6319465-28A8-4D53-933F-AD85DA3E3A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6319465-28A8-4D53-933F-AD85DA3E3A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6319465-28A8-4D53-933F-AD85DA3E3A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{019132C0-4A0B-456E-9013-0E58436D2B9D} = {6728B276-7979-48E4-92DA-D11B070160FE}

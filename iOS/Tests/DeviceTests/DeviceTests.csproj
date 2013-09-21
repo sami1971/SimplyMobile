@@ -76,6 +76,9 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ServiceStack.Text.MonoTouch">
+      <HintPath>..\..\..\..\ServiceStack.OrmLite\lib\ServiceStack.Text.MonoTouch.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -88,12 +91,24 @@
     <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Core\Tests\DeviceTests\DeviceApp.designer.cs">
+      <Link>DeviceApp.designer.cs</Link>
+    </Compile>
+    <Compile Include="BatteryStatusViewModel.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
+    <Compile Include="DeviceApp.cs" />
     <Compile Include="MainViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{9becf79a-0632-40f7-9f63-ba810ef686dd}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
+      <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Device\SimplyMobile.Device.csproj">
       <Project>{E51F775C-15CB-4A9D-9278-4F0FB72480A5}</Project>
       <Name>SimplyMobile.Device</Name>
@@ -101,6 +116,10 @@
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
       <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{214b3f4a-33ec-4a8e-be42-c9cc3da60cdf}</Project>
+      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
