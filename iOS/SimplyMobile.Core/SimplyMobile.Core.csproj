@@ -46,9 +46,13 @@
     <Compile Include="..\..\Core\SimplyMobile.Core\IMonitor.cs">
       <Link>IMonitor.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Core\MobileApp.designer.cs">
+      <Link>MobileApp.designer.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\Monitor.cs">
       <Link>Monitor.cs</Link>
     </Compile>
+    <Compile Include="MobileApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

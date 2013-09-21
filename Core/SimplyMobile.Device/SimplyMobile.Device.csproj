@@ -36,10 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{5fed3e45-9f40-4afe-8153-8f952ebec90f}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery.cs" />
     <Compile Include="Battery.designer.cs" />
+    <Compile Include="BatteryStatus.cs" />
     <Compile Include="IBatteryMonitor.cs" />
     <Compile Include="IWifiMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

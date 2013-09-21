@@ -27,7 +27,7 @@ namespace DeviceTests
     public partial class BatteryStatus
     {
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="BatteryStatus"/> class. 
         /// </summary>
         public BatteryStatus()
         {
@@ -39,22 +39,34 @@ namespace DeviceTests
             // WP runtime components
             if (!DesignerProperties.IsInDesignTool)
             {
-                Init();
+                this.Init();
             }
         }
 
+        /// <summary>
+        /// The init.
+        /// </summary>
         private void Init()
         {
             this.batteryLevel.Text = string.Format("{0:00}%", Battery.Level);
 
-            Battery.OnLevelChange += OnBatteryLevelChanged;
+            Battery.OnLevelChange += this.OnBatteryLevelChanged;
 
             this.chargerStatus.IsChecked = Battery.Charging;
             this.chargerStatus.IsEnabled = false;
 
-            Battery.OnChargerStatusChanged += OnChargerStatusChanged;
+            Battery.OnChargerStatusChanged += this.OnChargerStatusChanged;
         }
 
+        /// <summary>
+        /// Charger status changed event handler.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="eventArgs">
+        /// The event args.
+        /// </param>
         private void OnChargerStatusChanged(object sender, EventArgs<bool> eventArgs)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
@@ -63,6 +75,15 @@ namespace DeviceTests
             });
         }
 
+        /// <summary>
+        /// Battery level changed event handler.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="eventArgs">
+        /// The event args.
+        /// </param>
         private void OnBatteryLevelChanged(object sender, EventArgs<int> eventArgs)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>

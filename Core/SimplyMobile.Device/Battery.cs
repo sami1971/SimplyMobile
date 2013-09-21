@@ -32,5 +32,7 @@ namespace SimplyMobile.Device
             get;
             private set;
         }
+
+        public static bool Charging { get { return true; } }
     }
 }

@@ -1,19 +1,26 @@
 using System;
+using System.Collections.ObjectModel;
 using MonoTouch.UIKit;
 using System.Drawing;
 using SimplyMobile.Core;
+using SimplyMobile.Data;
 using SimplyMobile.Device;
 
 namespace DeviceTests
 {
-	public class MainViewController : UIViewController
+    /// <summary>
+    /// The main view controller.
+    /// </summary>
+    public class MainViewController : UIViewController
 	{
 		private UILabel batteryLevel;
 		private UISwitch chargerStatus;
 		private UISwitch audioCapture;
-
-		public MainViewController ()
+        private UITableView tableView;
+		
+        public MainViewController ()
 		{
+
 		}
 
 		public override void ViewDidLoad ()
@@ -39,6 +46,14 @@ namespace DeviceTests
 			};
 
 			this.View.AddSubview (this.audioCapture);
+
+            this.tableView = new UITableView(new RectangleF(0, 75, this.View.Frame.Width, this.View.Frame.Height - 80))
+            {
+                AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+            };
+
+            this.View.AddSubview(this.tableView);
+            DeviceApp.BatteryStatus.Bind(this.tableView);
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -50,8 +65,6 @@ namespace DeviceTests
 
 			this.chargerStatus.On = Battery.Charging;
 			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
-
-
 		}
 
 		public override void ViewDidDisappear (bool animated)
