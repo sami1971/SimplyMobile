@@ -19,7 +19,7 @@ using System.IO;
 namespace SimplyMobile.Text
 {
     /// <summary>
-    /// Json Serializer interface defines JSON (de)serialization functionality
+    /// JSON Serializer interface defines JSON (de)serialization functionality
     /// </summary>
     public interface IJsonSerializer
     {

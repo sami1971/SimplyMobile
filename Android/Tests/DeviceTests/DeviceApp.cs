@@ -23,15 +23,27 @@ namespace DeviceTests
 	[Application(Debuggable = true,
 	             Label = "DeviceApp",
 	             ManageSpaceActivity = typeof(Activity))]
-	public class DeviceApp : MobileApp
+	public partial class DeviceApp
 	{
-		public DeviceApp(IntPtr javaReference, JniHandleOwnership transfer)
+	    /// <summary>
+	    /// Initializes a new instance of the <see cref="DeviceApp"/> class.
+	    /// </summary>
+	    /// <param name="javaReference">
+	    /// The java reference.
+	    /// </param>
+	    /// <param name="transfer">
+	    /// The transfer.
+	    /// </param>
+	    public DeviceApp(IntPtr javaReference, JniHandleOwnership transfer)
 			: base(javaReference, transfer)
 		{
 
 		}
 
-		public override void OnCreate ()
+	    /// <summary>
+	    /// The on create.
+	    /// </summary>
+	    public override void OnCreate ()
 		{
 			base.OnCreate ();
 		}

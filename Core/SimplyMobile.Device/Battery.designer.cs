@@ -71,6 +71,22 @@ namespace SimplyMobile.Device
         }
 
         /// <summary>
+        /// Gets the status.
+        /// </summary>
+        public static BatteryStatus Status
+        {
+            get
+            {
+                return new BatteryStatus()
+                    {
+                        Time = new DateTimeOffset(DateTime.UtcNow),
+                        ChargerConnected = Battery.Charging,
+                        Level = Battery.Level
+                    };
+            }
+        }
+
+        /// <summary>
         /// Private event handler for battery level changes. 
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]

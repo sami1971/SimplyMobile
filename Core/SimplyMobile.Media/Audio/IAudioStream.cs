@@ -18,7 +18,10 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Media
 {
-	public interface IAudioStream : IMonitor
+    /// <summary>
+    /// The AudioStream interface.
+    /// </summary>
+    public interface IAudioStream : IMonitor
 	{
 		/// <summary>
 		/// Occurs when new audio has been streamed.
