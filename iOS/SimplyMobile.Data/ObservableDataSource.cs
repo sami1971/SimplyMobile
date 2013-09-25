@@ -94,7 +94,7 @@ namespace SimplyMobile.Data
         {
             foreach (var tableView in this.observers.OfType<UITableView>())
             {
-                tableView.InvokeOnMainThread(() => tableView.ReloadData());
+				tableView.InvokeOnMainThread (tableView.ReloadData);
             }
         }
 
@@ -116,7 +116,7 @@ namespace SimplyMobile.Data
                 foreach (var tableView in notifyCollectionChangedEventArgs.NewItems.OfType<UITableView>())
                 {
                     tableView.DataSource = this;
-                    tableView.InvokeOnMainThread(() => tableView.ReloadData());
+					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
             }
             else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
@@ -124,7 +124,7 @@ namespace SimplyMobile.Data
                 foreach (var tableView in notifyCollectionChangedEventArgs.OldItems.OfType<UITableView>())
                 {
                     tableView.DataSource = null;
-                    tableView.InvokeOnMainThread(() => tableView.ReloadData());
+					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
             }
         }

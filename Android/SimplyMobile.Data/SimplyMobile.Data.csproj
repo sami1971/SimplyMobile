@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -47,6 +49,13 @@
     <Compile Include="ObservableDataSource.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Data\ObservableDataSections.designer.cs">
+      <Link>ObservableDataSections.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Data\ObservableSection.cs">
+      <Link>ObservableSection.cs</Link>
+    </Compile>
+    <Compile Include="ObservableDataSections.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -56,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{d80be32e-29a9-47d6-a791-984b933e9ce3}</Project>
+      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>
