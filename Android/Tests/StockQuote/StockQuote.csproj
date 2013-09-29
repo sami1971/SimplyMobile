@@ -15,6 +15,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>StockQuote</AssemblyName>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,7 @@
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -63,15 +65,15 @@
       <Name>SimplyMobile.Plugins.StockView.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.Android.csproj">
-      <Project>{f16741ad-ba50-4922-a018-d7b622758101}</Project>
+      <Project>{F16741AD-BA50-4922-A018-D7B622758101}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{d80be32e-29a9-47d6-a791-984b933e9ce3}</Project>
+      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
-      <Project>{f5d68828-c9ea-486e-bd8a-60d1406dccf7}</Project>
+      <Project>{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}</Project>
       <Name>SimplyMobile.Data</Name>
     </ProjectReference>
   </ItemGroup>

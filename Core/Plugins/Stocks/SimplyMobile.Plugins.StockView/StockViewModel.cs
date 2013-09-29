@@ -93,9 +93,9 @@ namespace SimplyMobile.Plugins.StockView
                     this.StockQuotes.Replace(existingQuote, quote);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // todo: add logging
+				System.Diagnostics.Debug.WriteLine (ex.Message);
             }
             return quote;
         }

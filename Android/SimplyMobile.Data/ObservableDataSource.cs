@@ -125,7 +125,7 @@ namespace SimplyMobile.Data
         {
             foreach (var listView in this.observers.OfType<ListView>())
             {
-
+				listView.InvalidateViews();
             }
         }
 
@@ -140,7 +140,10 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-
+			foreach (var listView in this.observers.OfType<ListView>())
+			{
+				listView.Adapter = this;
+			}
         }
     }
 }

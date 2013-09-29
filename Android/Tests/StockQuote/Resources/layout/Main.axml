@@ -10,7 +10,7 @@
         android:id="@+id/labelSymbol"
         android:text="Stock Symbol"
         android:editable="false" />
-    <TextView
+    <EditText
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

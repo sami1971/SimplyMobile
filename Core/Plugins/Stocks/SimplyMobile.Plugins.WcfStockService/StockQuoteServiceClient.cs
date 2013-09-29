@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Threading.Tasks;
 
 namespace SimplyMobile.Plugins.WcfStockService
 {
@@ -53,7 +54,8 @@ namespace SimplyMobile.Plugins.WcfStockService
 
         public System.Threading.Tasks.Task<StockQuote> GetStockQuoteAsync(string request)
         {
-            return base.Channel.GetStockQuoteAsync(request);
+            //return base.Channel.GetStockQuoteAsync(request);
+			return Task.Factory.StartNew (() => { return GetStockQuote(request); } );
         }
 
         public StockQuote[] GetWorldMajorIndices()
@@ -63,7 +65,7 @@ namespace SimplyMobile.Plugins.WcfStockService
 
         public System.Threading.Tasks.Task<StockQuote[]> GetWorldMajorIndicesAsync()
         {
-            return base.Channel.GetWorldMajorIndicesAsync();
+			return Task.Factory.StartNew ((Func<StockQuote[]>)GetWorldMajorIndices);
         }
     }
 
