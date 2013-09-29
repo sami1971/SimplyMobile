@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="StockDataAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="SimpleStockQuoteController.designer.cs">
       <DependentUpon>SimpleStockQuoteController.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockDataAdapter.cs" />
     <Compile Include="StockTableViewController.cs" />
     <Compile Include="StockTableViewController.designer.cs">
       <DependentUpon>StockTableViewController.cs</DependentUpon>

@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using SimplyMobile.Plugins.WcfStockService;
+using SimplyMobile.Data;
 
 
 namespace StockQuote
@@ -19,7 +20,7 @@ namespace StockQuote
 
 		private static IStockQuoteService stockClient;
 
-		public static StockDataAdapter Data
+		public static ObservableDataSource Data
 		{
 			get;
 			private set;
@@ -40,7 +41,7 @@ namespace StockQuote
 		public override bool FinishedLaunching (UIApplication app,
 		                                        NSDictionary options)
 		{
-			Data = new StockDataAdapter ();
+			Data = new ObservableDataSource ();
 
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
