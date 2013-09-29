@@ -37,7 +37,7 @@
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{5fed3e45-9f40-4afe-8153-8f952ebec90f}</Project>
+      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>

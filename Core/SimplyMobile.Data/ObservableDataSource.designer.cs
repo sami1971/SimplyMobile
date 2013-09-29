@@ -38,7 +38,7 @@ namespace SimplyMobile.Data
 
         public ObservableDataSource()
         {
-            this.data = new ObservableCollection<object>();
+            this.Data = new ObservableCollection<object>();
             this.observers = new ObservableCollection<object>();
             this.observers.CollectionChanged += ObserversChanged;
         }

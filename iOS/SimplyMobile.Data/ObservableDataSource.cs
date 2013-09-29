@@ -57,21 +57,17 @@ namespace SimplyMobile.Data
         /// </returns>
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var item = this.Data[indexPath.Row];
+			var item = this.Data[indexPath.Row];
+
+			var cellProvider = tableView as ITableCellProvider;
+
+			if (cellProvider != null)
+			{
+				return cellProvider.GetCell (item);
+			}
 
             var cell = tableView.DequeueReusableCell(this.CellId);
 
-            return this.SetCell(cell, item);
-        }
-
-        /// <summary>
-        /// Sets the cell.
-        /// </summary>
-        /// <param name="cell">Cell to set.</param>
-        /// <param name="item">Item object.</param>
-        /// <remarks>Override for custom cell implementations.</remarks>				
-        protected virtual UITableViewCell SetCell(UITableViewCell cell, object item)
-        {
             if (cell == null)
             {
                 cell = new UITableViewCell(UITableViewCellStyle.Value1, this.CellId);

@@ -6,7 +6,7 @@ namespace SimplyMobile.Plugins.WcfStockService
 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StockQuoteServiceClient : System.ServiceModel.ClientBase<IStockQuoteService>, IStockQuoteService
+    public partial class StockQuoteServiceClient : ClientBase<IStockQuoteService>, IStockQuoteService
     {
         public static EndpointAddress DefaultEndpoint
         {
@@ -41,7 +41,7 @@ namespace SimplyMobile.Plugins.WcfStockService
         {
         }
 
-        public StockQuoteServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
+        public StockQuoteServiceClient(Binding binding, EndpointAddress remoteAddress) :
             base(binding, remoteAddress)
         {
         }

@@ -47,6 +47,7 @@
     <Compile Include="..\..\Core\SimplyMobile.Data\ObservableSection.cs">
       <Link>ObservableSection.cs</Link>
     </Compile>
+    <Compile Include="ITableCellProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
