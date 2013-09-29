@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://GOTLServices.FaultContracts/2008/01" elementFormDefault="qualified" targetNamespace="http://GOTLServices.FaultContracts/2008/01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DefaultFaultContract">
+    <xs:sequence>
+      <xs:element name="ErrorId" type="xs:int" />
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element name="CorrelationId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DefaultFaultContract" nillable="true" type="tns:DefaultFaultContract" />
+</xs:schema>

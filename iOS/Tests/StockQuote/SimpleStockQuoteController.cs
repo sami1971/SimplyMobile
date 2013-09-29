@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using SimplyMobile.Plugins.StockView;
 using SimplyMobile.Plugins.WcfStockService;
 using System.Linq;
 
@@ -39,12 +40,12 @@ namespace StockQuote
 
 			if (UserInterfaceIdiomIsPhone)
 			{
-				AppDelegate.Data.Bind (this.tableViewStocks_iPhone);
+                StockViewModel.StockModel.StockQuotes.Bind(this.tableViewStocks_iPhone);
 				this.tableViewStocks_iPhone.Delegate = new StockTableDelegate ();
 			}
 			else
 			{
-				AppDelegate.Data.Bind (this.tableViewStocks);
+                StockViewModel.StockModel.StockQuotes.Bind(this.tableViewStocks);
 				this.tableViewStocks.Delegate = new StockTableDelegate ();
 			}
 
@@ -58,23 +59,11 @@ namespace StockQuote
 				this.activityIndicator.Hidden = false;
 				this.activityIndicator.StartAnimating();
 
-				try
-				{
-					this.textStockSymbol.Text = this.textStockSymbol.Text.ToUpper();
+				this.textStockSymbol.Text = this.textStockSymbol.Text.ToUpper();
 
-					var quote = await AppDelegate.StockClient.GetStockQuoteAsync(this.textStockSymbol.Text);
-					this.textStockPrice.Text = string.Format("${0}", quote.Last);
+                var quote = await StockViewModel.StockModel.RefreshOrAdd(this.textStockSymbol.Text);
 
-					if (!AppDelegate.Data.Data.Cast<Stock>().Any(a=>a.Name.Equals(quote.Name)))
-					{
-						AppDelegate.Data.Data.Add(quote);
-					}
-				}
-				catch (Exception ex)
-				{
-					this.textStockPrice.Text = ex.Message;
-				}
-
+				this.textStockPrice.Text = string.Format("${0}", quote.Last);
 
 				this.activityIndicator.StopAnimating();
 				this.buttonGetQuote.Enabled = true;
@@ -84,7 +73,6 @@ namespace StockQuote
 		private void SetControls()
 		{
 			this.buttonGetQuote.Enabled = !string.IsNullOrEmpty(this.textStockSymbol.Text);
-
 		}
 	}
 }

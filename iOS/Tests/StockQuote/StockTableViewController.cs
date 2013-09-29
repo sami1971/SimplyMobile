@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using SimplyMobile.Plugins.StockView;
 
 namespace StockQuote
 {
@@ -30,9 +31,8 @@ namespace StockQuote
 			base.ViewDidLoad ();
 
 			this.tableView.Delegate = new StockTableDelegate ();
-			AppDelegate.Data.Bind (this.tableView);
 
-
+            StockViewModel.StockModel.StockQuotes.Bind(this.tableView);
 		}
 	}
 }

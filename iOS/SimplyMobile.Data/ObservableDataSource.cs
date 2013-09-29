@@ -90,7 +90,7 @@ namespace SimplyMobile.Data
         {
             foreach (var tableView in this.observers.OfType<UITableView>())
             {
-				tableView.InvokeOnMainThread (tableView.ReloadData);
+				tableView.InvokeOnMainThread(tableView.ReloadData);
             }
         }
 
@@ -103,8 +103,6 @@ namespace SimplyMobile.Data
         /// <param name="notifyCollectionChangedEventArgs">
         /// The notify collection changed event args.
         /// </param>
-        /// <exception cref="NotImplementedException">
-        /// </exception>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)

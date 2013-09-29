@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.restfulwebservices.net/ServiceContracts/2008/01" elementFormDefault="qualified" targetNamespace="http://www.restfulwebservices.net/ServiceContracts/2008/01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd2" namespace="http://www.restfulwebservices.net/DataContracts/2008/01" />
+  <xs:element name="GetStockQuote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockQuoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.restfulwebservices.net/DataContracts/2008/01" minOccurs="0" name="GetStockQuoteResult" nillable="true" type="q1:StockQuote" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorldMajorIndices">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorldMajorIndicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.restfulwebservices.net/DataContracts/2008/01" minOccurs="0" name="GetWorldMajorIndicesResult" nillable="true" type="q2:ArrayOfStockQuote" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

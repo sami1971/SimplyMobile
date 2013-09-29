@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -85,9 +85,7 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="StockDataAdapter.cs" />
@@ -112,7 +110,7 @@
     <Compile Include="StockTableView_iPhone.cs" />
     <Compile Include="StockTableView_iPad.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <InterfaceDefinition Include="SimpleStockQuoteController_iPhone.xib" />
     <InterfaceDefinition Include="SimpleStockQuoteController_iPad.xib" />
@@ -125,13 +123,17 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.StockView\SimplyMobile.Plugins.StockView.iOS.csproj">
+      <Project>{1549afbd-753d-4c14-876d-531fcdb9c9a4}</Project>
+      <Name>SimplyMobile.Plugins.StockView.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.iOS.csproj">
+      <Project>{11ac1268-5a69-45b7-b5bd-5d459b582024}</Project>
+      <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
       <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.iOS.csproj">
-      <Project>{11AC1268-5A69-45B7-B5BD-5D459B582024}</Project>
-      <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>

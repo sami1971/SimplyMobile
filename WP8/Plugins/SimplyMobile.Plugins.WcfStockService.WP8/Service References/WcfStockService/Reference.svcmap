@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="85a08be7-e3cc-4973-a96d-621cebbb6e11" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.restfulwebservices.net/wcf/StockQuoteService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StockQuoteService.xsd" MetadataType="Schema" ID="81ebc59f-d9f3-47d3-b62b-29a1ddeb2c88" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd2" />
+    <MetadataFile FileName="StockQuoteService1.xsd" MetadataType="Schema" ID="b2e0102a-0741-4cca-98f7-4b125a3782ea" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd1" />
+    <MetadataFile FileName="StockQuoteService2.xsd" MetadataType="Schema" ID="feedeb27-3785-4dcb-ae8c-61040032d226" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd3" />
+    <MetadataFile FileName="StockQuoteService.wsdl" MetadataType="Wsdl" ID="fd0517d0-c3a0-424f-bdad-f1782a3409f1" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?wsdl" />
+    <MetadataFile FileName="StockQuoteService.disco" MetadataType="Disco" ID="b69c0eee-4cf9-4592-84bd-fbcbf5c20b35" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?disco" />
+    <MetadataFile FileName="StockQuoteService3.xsd" MetadataType="Schema" ID="6edd848e-ac80-4ba3-a7b3-899fc0b38926" SourceId="1" SourceUrl="http://www.restfulwebservices.net/wcf/StockQuoteService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

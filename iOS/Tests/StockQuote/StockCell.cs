@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-
+using SimplyMobile.Plugins.StockView;
 using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
 
 namespace StockQuote
@@ -29,12 +29,14 @@ namespace StockQuote
 						this.switchMonitor.Enabled = false;
 						this.activityUpdating.StartAnimating();
 
-						try
-						{
-							var s = await AppDelegate.StockClient.GetStockQuoteAsync(this.stock.Symbol);
-							this.labelLast.Text = s.Last;
-						}
-						catch{}
+					    await StockViewModel.StockModel.RefreshOrAdd(this.stock.Symbol);
+                        ////StockModel.
+                        //try
+                        //{
+                        //    var s = await AppDelegate.StockClient.GetStockQuoteAsync(this.stock.Symbol);
+                        //    this.labelLast.Text = s.Last;
+                        //}
+                        //catch{}
 
 						this.activityUpdating.StopAnimating();
 						this.switchMonitor.On = false;

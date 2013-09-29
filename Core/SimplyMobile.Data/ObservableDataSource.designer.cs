@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using SimplyMobile.Core;
@@ -36,11 +37,14 @@ namespace SimplyMobile.Data
         /// </summary>
         private ObservableCollection<object> observers;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObservableDataSource"/> class.
+        /// </summary>
         public ObservableDataSource()
         {
             this.Data = new ObservableCollection<object>();
             this.observers = new ObservableCollection<object>();
-            this.observers.CollectionChanged += ObserversChanged;
+            this.observers.CollectionChanged += this.ObserversChanged;
         }
 
         /// <summary>
@@ -76,7 +80,7 @@ namespace SimplyMobile.Data
         }
 
         /// <summary>
-        /// Binds datasource to an object
+        /// Binds data source to an object
         /// </summary>
         /// <param name="observer">
         /// The observer.
@@ -87,6 +91,43 @@ namespace SimplyMobile.Data
             {
                 this.observers.Add(observer);
             }
+        }
+
+        /// <summary>
+        /// Add items to data collection.
+        /// </summary>
+        /// <param name="item">
+        /// The item.
+        /// </param>
+        public void Add(object item)
+        {
+            this.Data.Add(item);
+        }
+
+        /// <summary>
+        /// Replaces an object in collection.
+        /// </summary>
+        /// <param name="original">
+        /// The original object.
+        /// </param>
+        /// <param name="replacement">
+        /// The replacement object.
+        /// </param>
+        /// <returns>
+        /// <see cref="bool"/>, true if replacement was successful, false if original object was not found.
+        /// </returns>
+        public bool Replace(object original, object replacement)
+        {
+            var index = this.Data.IndexOf(original);
+
+            if (index < 0)
+            {
+                return false;
+            }
+
+            this.Data[index] = replacement;
+
+            return true;
         }
 
         /// <summary>

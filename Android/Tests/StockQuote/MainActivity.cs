@@ -5,13 +5,17 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using SimplyMobile.Plugins.StockView;
 
 namespace StockQuote
 {
 	[Activity (Label = "StockQuote", MainLauncher = true)]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+	    private TextView textSymbol;
+        private TextView textCurrent;
+	    private Button buttonGet;
+	    private ListView listStocks;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -20,14 +24,13 @@ namespace StockQuote
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate
-			{
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
+		    this.textSymbol = FindViewById<TextView>(Resource.Id.textSymbol);
+		    this.textCurrent = FindViewById<TextView>(Resource.Id.textCurrent);
+		    this.buttonGet = FindViewById<Button>(Resource.Id.buttonGetQuote);
+		    this.listStocks = FindViewById<ListView>(Resource.Id.listViewStocks);
+
+            StockViewModel.StockModel.StockQuotes.Bind(this.listStocks);
+
 		}
 	}
 }

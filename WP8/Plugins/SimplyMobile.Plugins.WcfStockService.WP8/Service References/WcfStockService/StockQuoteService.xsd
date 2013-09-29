@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.restfulwebservices.net/DataContracts/2008/01" elementFormDefault="qualified" targetNamespace="http://www.restfulwebservices.net/DataContracts/2008/01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="StockQuote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Last" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Change" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Open" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="High" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Low" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Volume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MktCap" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreviousClose" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PercentageChange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnnRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Earns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockQuote" nillable="true" type="tns:StockQuote" />
+  <xs:complexType name="ArrayOfStockQuote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockQuote" nillable="true" type="tns:StockQuote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStockQuote" nillable="true" type="tns:ArrayOfStockQuote" />
+</xs:schema>

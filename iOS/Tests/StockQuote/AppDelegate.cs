@@ -18,18 +18,18 @@ namespace StockQuote
 		// class-level declarations
 		UIWindow window;
 
-		private static IStockQuoteService stockClient;
+        //private static IStockQuoteService stockClient;
 
-		public static ObservableDataSource Data
-		{
-			get;
-			private set;
-		}
+        //public static ObservableDataSource Data
+        //{
+        //    get;
+        //    private set;
+        //}
 
-		public static IStockQuoteService StockClient
-		{
-			get { return stockClient ?? (stockClient = new StockQuoteServiceClient()); }
-		}
+        //public static IStockQuoteService StockClient
+        //{
+        //    get { return stockClient ?? (stockClient = new StockQuoteServiceClient()); }
+        //}
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -41,7 +41,7 @@ namespace StockQuote
 		public override bool FinishedLaunching (UIApplication app,
 		                                        NSDictionary options)
 		{
-			Data = new ObservableDataSource ();
+            //Data = new ObservableDataSource ();
 
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
