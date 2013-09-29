@@ -77,8 +77,15 @@ namespace SimplyMobile.Data
 
         public virtual View GetView(int position, View convertView, ViewGroup parent)
         {
+			var item = this.Data [position];
+			var cellProvider = parent as ITableCellProvider;
+			if (cellProvider != null)
+			{
+				return cellProvider.GetView (item, convertView);
+			}
+
             var v = convertView as TextView ?? new TextView(parent.Context);
-            v.Text = this.Data[position].ToString();
+            v.Text = item.ToString();
             return v;
         }
 

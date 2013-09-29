@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockViewModel.cs" />
+    <Compile Include="StockViewTable.cs" />
+    <Compile Include="StockView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Android\SimplyMobile.Core\SimplyMobile.Core.csproj">

@@ -57,6 +57,7 @@
       <Link>ObservableSection.cs</Link>
     </Compile>
     <Compile Include="ObservableDataSections.cs" />
+    <Compile Include="ITableCellProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
