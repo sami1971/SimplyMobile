@@ -79,6 +79,11 @@ namespace SimplyMobile.Plugins.StockView
         {
             var quote = new StockQuote();
 
+            if (string.IsNullOrEmpty(symbol))
+            {
+                return quote;
+            }
+
             try
             {
                 quote = await this.stockQuoteService.GetStockQuoteAsync(symbol);
