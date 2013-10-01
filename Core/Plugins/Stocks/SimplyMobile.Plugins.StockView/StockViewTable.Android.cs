@@ -5,7 +5,7 @@ using Android.Content;
 using Android.Views;
 using SimplyMobile.Plugins.WcfStockService;
 
-namespace SimplyMobile.Plugins.StockView.Android
+namespace SimplyMobile.Plugins.StockView
 {
 	/// <summary>
 	/// Stock view table.
@@ -31,13 +31,12 @@ namespace SimplyMobile.Plugins.StockView.Android
 		{
 			var stock = item as StockQuote;
 
-			var view = convertView as StockView ?? new StockView(this.Context);
+			var view = convertView as StockViewCell ?? new StockViewCell(this.Context);
 
 			view.Bind (stock);
 
 			return view;
 		}
-
 		#endregion
 	}
 }

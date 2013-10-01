@@ -9,6 +9,7 @@ using MonoTouch.UIKit;
 namespace SimplyMobile.Data
 {
     public partial class ObservableDataSource : UITableViewDataSource
+		// todo: investigate UITableViewSource as an altenative to UITableViewDataSource
     {
         /// <summary>
         /// The cell identifier. 

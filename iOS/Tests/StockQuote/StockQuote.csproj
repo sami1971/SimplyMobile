@@ -46,9 +46,11 @@
     <MtouchDebug>true</MtouchDebug>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName />
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -121,14 +123,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.StockView\SimplyMobile.Plugins.StockView.iOS.csproj">
-      <Project>{1549afbd-753d-4c14-876d-531fcdb9c9a4}</Project>
+      <Project>{1549AFBD-753D-4C14-876D-531FCDB9C9A4}</Project>
       <Name>SimplyMobile.Plugins.StockView.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.iOS.csproj">
-      <Project>{11ac1268-5a69-45b7-b5bd-5d459b582024}</Project>
+      <Project>{11AC1268-5A69-45B7-B5BD-5D459B582024}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">

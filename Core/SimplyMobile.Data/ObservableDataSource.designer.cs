@@ -93,6 +93,15 @@ namespace SimplyMobile.Data
             }
         }
 
+		/// <summary>
+		/// Unbind the specified observer.
+		/// </summary>
+		/// <param name="observer">Observer to unbind.</param>
+		public bool Unbind(object observer)
+		{
+			return this.observers.Remove (observer);
+		}
+
         /// <summary>
         /// Add items to data collection.
         /// </summary>

@@ -7,6 +7,9 @@ using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
 
 namespace StockQuote
 {
+	/// <summary>
+	/// Stock Quote cell view for iOS devices.
+	/// </summary>
 	public partial class StockCell : UITableViewCell
 	{
 		private Stock stock;

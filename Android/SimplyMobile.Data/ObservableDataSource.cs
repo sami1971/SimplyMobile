@@ -1,20 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
 namespace SimplyMobile.Data
 {
     /// <summary>
-    /// Observable data source.
+    /// Observable data source Android portion.
     /// </summary>
     public partial class ObservableDataSource : Java.Lang.Object, IListAdapter, ISpinnerAdapter
     {
@@ -147,9 +141,32 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-			foreach (var listView in this.observers.OfType<ListView>())
+			if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
 			{
-				listView.Adapter = this;
+				foreach (var newListView in notifyCollectionChangedEventArgs.NewItems.OfType<ListView>())
+				{
+					newListView.Adapter = this;
+				}
+
+				foreach (var newSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())
+				{
+					newSpinner.Adapter = this;
+				}
+//				foreach (var listView in this.observers.OfType<ListView>())
+//				{
+//					listView.Adapter = this;
+//				}
+			}
+			else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
+			{
+				foreach (var removedListView in notifyCollectionChangedEventArgs.OldItems.OfType<ListView>())
+				{
+					removedListView.Adapter = null;
+				}
+				foreach (var removedSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())
+				{
+					removedSpinner.Adapter = null;
+				}
 			}
         }
     }

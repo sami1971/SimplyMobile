@@ -3,16 +3,23 @@ using Android.Widget;
 using Android.Content;
 using SimplyMobile.Plugins.WcfStockService;
 
-namespace SimplyMobile.Plugins.StockView.Android
+namespace SimplyMobile.Plugins.StockView
 {
-	public sealed class StockView : LinearLayout
+	/// <summary>
+	/// Stock view for Android.
+	/// </summary>
+	public sealed class StockViewCell : LinearLayout
 	{
 		private TextView textName;
 		private TextView textLast;
 		private ToggleButton toggleUpdate;
 		private StockQuote stockQuote;
 
-		public StockView (Context context) : base(context)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="SimplyMobile.Plugins.StockView.Android.StockView"/> class.
+		/// </summary>
+		/// <param name="context">Context.</param>
+		public StockViewCell (Context context) : base(context)
 		{
 			this.Orientation = Orientation.Vertical;
 
@@ -41,6 +48,10 @@ namespace SimplyMobile.Plugins.StockView.Android
 			};
 		}
 
+		/// <summary>
+		/// Bind the specified stock.
+		/// </summary>
+		/// <param name="stock">Stock.</param>
 		public void Bind(StockQuote stock)
 		{
 			this.stockQuote = stock;

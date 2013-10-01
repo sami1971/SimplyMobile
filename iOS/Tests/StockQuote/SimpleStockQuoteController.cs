@@ -53,18 +53,22 @@ namespace StockQuote
 
 			this.buttonGetQuote.TouchUpInside += async (object sender, EventArgs e) => 
 			{
-				this.buttonGetQuote.Enabled = false;
-
+				// close keyboard by resigning the text view responder
 				this.textStockSymbol.ResignFirstResponder();
+				// start activity indicator and disable update control
 				this.activityIndicator.Hidden = false;
 				this.activityIndicator.StartAnimating();
+				this.buttonGetQuote.Enabled = false;
 
 				this.textStockSymbol.Text = this.textStockSymbol.Text.ToUpper();
 
+				// get stock quote asyncronously
                 var quote = await StockViewModel.StockModel.RefreshOrAdd(this.textStockSymbol.Text);
 
+				// async call has finished, lets update the last stock price
+				// NOTE: table view will update automatically through the view model
 				this.textStockPrice.Text = string.Format("${0}", quote.Last);
-
+				// stop the activity indicator and enable update control
 				this.activityIndicator.StopAnimating();
 				this.buttonGetQuote.Enabled = true;
 			};
