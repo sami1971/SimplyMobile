@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Windows.Controls;
 
 namespace SimplyMobile.Data
 {
@@ -34,7 +35,13 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            
+            //if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
+            //{
+            //    foreach (var itemsControl in notifyCollectionChangedEventArgs.NewItems.OfType<ItemsControl>())
+            //    {
+            //        itemsControl.ItemsSource = this.Data;
+            //    }
+            //}
         }
 
     }
