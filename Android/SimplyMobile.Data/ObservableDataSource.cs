@@ -163,7 +163,7 @@ namespace SimplyMobile.Data
 				{
 					removedListView.Adapter = null;
 				}
-				foreach (var removedSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())
+				foreach (var removedSpinner in notifyCollectionChangedEventArgs.OldItems.OfType<Spinner>())
 				{
 					removedSpinner.Adapter = null;
 				}
