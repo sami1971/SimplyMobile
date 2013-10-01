@@ -52,10 +52,6 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yCh-a4-elg">
-                        <rect key="frame" x="245" y="82" width="24" height="49"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pChange" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H1Q-uI-kLx">
                         <rect key="frame" x="155" y="96" width="70" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,7 +72,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityUpdating" destination="Xi6-1g-hkX" id="Joc-u1-l2d"/>
-                <outlet property="imageTrend" destination="yCh-a4-elg" id="vXA-mb-0iH"/>
                 <outlet property="labelHighLow" destination="4Gr-mk-ECe" id="iEQ-Dl-hVg"/>
                 <outlet property="labelLast" destination="n7o-Ft-bX5" id="ic3-uz-efq"/>
                 <outlet property="labelPercentageChange" destination="H1Q-uI-kLx" id="6yQ-TH-jhv"/>

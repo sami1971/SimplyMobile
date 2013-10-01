@@ -31,10 +31,18 @@ namespace StockQuote
 		MonoTouch.UIKit.UILabel labelStockName { get; set; }
 
 		[Outlet]
+		StockQuote.PlotView plotView { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UISwitch switchMonitor { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (plotView != null) {
+				plotView.Dispose ();
+				plotView = null;
+			}
+
 			if (activityUpdating != null) {
 				activityUpdating.Dispose ();
 				activityUpdating = null;

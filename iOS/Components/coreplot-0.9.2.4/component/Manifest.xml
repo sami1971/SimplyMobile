@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="coreplot">
+  <name>Core Plot</name>
+  <publisher>Drew McCormack</publisher>
+  <publisher-url>http://code.google.com/p/core-plot/</publisher-url>
+  <version>0.9.2.4</version>
+  <summary>Create stunning, interactive, high-performance graphs for iOS.</summary>
+  <screenshots>
+    <img src="screenshots/screenshot1.png" title="screenshot1" />
+  </screenshots>
+  <samples>
+    <sample id="CorePlotiOSSample">
+      <name>iOS Sample</name>
+      <summary>iOS Sample</summary>
+    </sample>
+  </samples>
+</component>

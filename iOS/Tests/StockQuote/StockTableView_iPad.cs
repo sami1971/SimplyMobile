@@ -15,6 +15,7 @@ namespace StockQuote
 
 		public StockTableView_iPad ()
 		{
+
 		}
 
 		public StockTableView_iPad (IntPtr handle) : base (handle)

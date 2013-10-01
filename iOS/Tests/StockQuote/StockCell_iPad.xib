@@ -63,15 +63,16 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="E29-FD-Fxl">
-                        <rect key="frame" x="390" y="41" width="187" height="66"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="AK8-pJ-Mup">
                         <rect key="frame" x="301" y="55" width="37" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </activityIndicatorView>
+                    <view contentMode="scaleToFill" restorationIdentifier="plotView" id="td4-56-VJb" customClass="PlotView">
+                        <rect key="frame" x="416" y="35" width="264" height="87"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -80,6 +81,7 @@
                 <outlet property="labelLast" destination="rL3-8L-Lhd" id="5Km-mg-jS8"/>
                 <outlet property="labelPercentageChange" destination="avx-fk-zvO" id="wVL-PX-5NC"/>
                 <outlet property="labelStockName" destination="uw2-at-gdH" id="5iY-eg-O57"/>
+                <outlet property="plotView" destination="td4-56-VJb" id="VUh-bh-ekm"/>
                 <outlet property="switchMonitor" destination="qeE-Qv-kdx" id="nb3-xA-eYN"/>
             </connections>
         </tableViewCell>

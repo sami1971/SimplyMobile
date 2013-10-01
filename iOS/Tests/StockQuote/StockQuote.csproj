@@ -86,6 +86,9 @@
     <Reference Include="monotouch" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="CorePlotiOS">
+      <HintPath>..\..\Components\coreplot-0.9.2.4\lib\ios\CorePlotiOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -111,6 +114,7 @@
     <Compile Include="StockTableDelegate.cs" />
     <Compile Include="StockTableView_iPhone.cs" />
     <Compile Include="StockTableView_iPad.cs" />
+    <Compile Include="PlotView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -142,5 +146,12 @@
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
       <Name>SimplyMobile.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="coreplot">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>0.9.2.4</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>
