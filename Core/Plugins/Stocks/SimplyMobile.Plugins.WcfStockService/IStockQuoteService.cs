@@ -1,6 +1,6 @@
 ﻿namespace SimplyMobile.Plugins.WcfStockService
 {
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", ConfigurationName = "IStockQuoteService")]
     public interface IStockQuoteService
     {

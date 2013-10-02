@@ -30,7 +30,7 @@ namespace StockQuote
 		{
 			base.ViewDidLoad ();
 
-			this.tableView.Delegate = new StockTableDelegate ();
+//			this.tableView.Delegate = new StockTableDelegate ();
 
             StockViewModel.StockModel.StockQuotes.Bind(this.tableView);
 		}

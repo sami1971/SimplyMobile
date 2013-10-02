@@ -25,12 +25,12 @@ namespace SimplyMobile.Data
     /// <summary>
     /// The observable data source.
     /// </summary>
-    public partial class ObservableDataSource
+    public partial class ObservableDataSource<T>
     {
         /// <summary>
         /// The data.
         /// </summary>
-        private ObservableCollection<object> data;
+        private ObservableCollection<T> data;
 
         /// <summary>
         /// The observers.
@@ -42,7 +42,7 @@ namespace SimplyMobile.Data
         /// </summary>
         public ObservableDataSource()
         {
-            this.Data = new ObservableCollection<object>();
+            this.Data = new ObservableCollection<T>();
             this.observers = new ObservableCollection<object>();
             this.observers.CollectionChanged += this.ObserversChanged;
         }
@@ -55,13 +55,13 @@ namespace SimplyMobile.Data
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
-        public ObservableCollection<object> Data
+        public ObservableCollection<T> Data
         {
             get
             {
                 if (this.data == null)
                 {
-                    this.Data = new ObservableCollection<object>();
+                    this.Data = new ObservableCollection<T>();
                 }
 
                 return this.data;
@@ -85,6 +85,9 @@ namespace SimplyMobile.Data
         /// <param name="observer">
         /// The observer.
         /// </param>
+		/// <remarks>
+		/// The observer should implement <see cref="ITableCellProvider"/> interface.
+		/// </remarks>
         public void Bind(object observer)
         {
             if (!this.observers.Contains(observer))
@@ -108,7 +111,7 @@ namespace SimplyMobile.Data
         /// <param name="item">
         /// The item.
         /// </param>
-        public void Add(object item)
+        public void Add(T item)
         {
             this.Data.Add(item);
         }
@@ -125,7 +128,7 @@ namespace SimplyMobile.Data
         /// <returns>
         /// <see cref="bool"/>, true if replacement was successful, false if original object was not found.
         /// </returns>
-        public bool Replace(object original, object replacement)
+        public bool Replace(T original, T replacement)
         {
             var index = this.Data.IndexOf(original);
 

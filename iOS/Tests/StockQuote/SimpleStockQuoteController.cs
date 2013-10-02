@@ -41,12 +41,12 @@ namespace StockQuote
 			if (UserInterfaceIdiomIsPhone)
 			{
                 StockViewModel.StockModel.StockQuotes.Bind(this.tableViewStocks_iPhone);
-				this.tableViewStocks_iPhone.Delegate = new StockTableDelegate ();
+//				this.tableViewStocks_iPhone.Delegate = new StockTableDelegate ();
 			}
 			else
 			{
                 StockViewModel.StockModel.StockQuotes.Bind(this.tableViewStocks);
-				this.tableViewStocks.Delegate = new StockTableDelegate ();
+//				this.tableViewStocks.Delegate = new StockTableDelegate ();
 			}
 
 			this.textStockSymbol.EditingChanged += (sender, e) => SetControls();

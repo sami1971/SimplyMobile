@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Plugins.WcfStockService
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class StockQuoteServiceClient : ClientBase<IStockQuoteService>, IStockQuoteService
     {
         public static EndpointAddress DefaultEndpoint

@@ -20,6 +20,8 @@ using System.Threading.Tasks;
 using SimplyMobile.Data;
 using SimplyMobile.Plugins.WcfStockService;
 
+using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
+
 namespace SimplyMobile.Plugins.StockView
 {
     /// <summary>
@@ -46,7 +48,7 @@ namespace SimplyMobile.Plugins.StockView
         public StockViewModel(IStockQuoteService stockQuoteService)
         {
             this.stockQuoteService = stockQuoteService;
-            this.StockQuotes = new ObservableDataSource();
+            this.StockQuotes = new ObservableDataSource<Stock>();
         }
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace SimplyMobile.Plugins.StockView
         /// <summary>
         /// Gets the stock quotes.
         /// </summary>
-        public ObservableDataSource StockQuotes
+        public ObservableDataSource<Stock> StockQuotes
         {
             get;
             private set;

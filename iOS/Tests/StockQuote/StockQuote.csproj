@@ -94,6 +94,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="StockDataAdapter.cs" />
+    <None Include="StockTableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="StockCell.designer.cs">
       <DependentUpon>StockCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockTableDelegate.cs" />
     <Compile Include="StockTableView_iPhone.cs" />
     <Compile Include="StockTableView_iPad.cs" />
     <Compile Include="PlotView.cs" />
@@ -149,7 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="coreplot">
-      <InstallationInProgress>True</InstallationInProgress>
+      <InstallationInProgress>False</InstallationInProgress>
       <Version>0.9.2.4</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>

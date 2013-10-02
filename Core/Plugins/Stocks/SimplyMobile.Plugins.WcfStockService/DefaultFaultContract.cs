@@ -1,11 +1,10 @@
 ﻿namespace SimplyMobile.Plugins.WcfStockService
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "DefaultFaultContract", Namespace = "http://GOTLServices.FaultContracts/2008/01")]
     public partial class DefaultFaultContract : object, System.Runtime.Serialization.IExtensibleDataObject
     {
-
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
 
         private int ErrorIdField;
