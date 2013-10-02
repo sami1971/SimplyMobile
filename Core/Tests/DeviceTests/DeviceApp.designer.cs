@@ -11,16 +11,16 @@ namespace DeviceTests
         /// <summary>
         /// The battery status.
         /// </summary>
-        private static ObservableDataSource batteryStatus;
+        private static ObservableDataSource<BatteryStatus> batteryStatus;
 
         /// <summary>
         /// Gets the battery status.
         /// </summary>
-        public static ObservableDataSource BatteryStatus
+        public static ObservableDataSource<BatteryStatus> BatteryStatus
         {
             get
             {
-                return batteryStatus ?? (batteryStatus = new ObservableDataSource());
+                return batteryStatus ?? (batteryStatus = new ObservableDataSource<BatteryStatus>());
             }
         }
 

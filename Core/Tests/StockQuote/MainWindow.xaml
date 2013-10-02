@@ -8,11 +8,7 @@
         <Label Content="Symbol" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="84"/>
         <Button x:Name="buttonGetQuote" Content="Get Quote" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Width="114" Click="buttonGetQuote_Click"/>
         <ListBox x:Name="listStockQuotes" HorizontalAlignment="Left" Height="261" Margin="27,85,0,0" VerticalAlignment="Top" Width="642"/>
-        <DataGrid x:Name="dataGridQuotes" HorizontalAlignment="Left" Margin="27,388,0,0" VerticalAlignment="Top" Height="252" Width="642">
-            <DataGrid.DataContext>
-                <Data:ObservableDataSource/>
-            </DataGrid.DataContext>
-        </DataGrid>
+        <DataGrid x:Name="dataGridQuotes" HorizontalAlignment="Left" Margin="27,388,0,0" VerticalAlignment="Top" Height="252" Width="642"/>
         <Button x:Name="buttonRefresh" Content="Refresh All" HorizontalAlignment="Left" Margin="27,60,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>

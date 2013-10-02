@@ -27,7 +27,7 @@ namespace StockQuote
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             this.buttonGetQuote.IsEnabled = this.buttonRefresh.IsEnabled = false;
-            var stockSymbols = StockViewModel.StockModel.StockQuotes.Data.Cast<Stock>().Select(a => a.Symbol).ToList();
+            var stockSymbols = StockViewModel.StockModel.StockQuotes.Data.Select(a => a.Symbol).ToList();
 
             foreach (var stockSymbol in stockSymbols)
             {
