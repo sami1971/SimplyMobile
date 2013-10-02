@@ -114,6 +114,21 @@ namespace SimplyMobile.Data
         }
 
         /// <summary>
+        /// Handles the item selected.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        private void HandleItemClicked(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            this.InvokeItemSelectedEvent(this.Data[e.Position]);
+        }
+
+        private void HandleItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            this.InvokeItemSelectedEvent(this.Data[e.Position]);
+        }
+
+        /// <summary>
         /// The collection changed partial method Android implementation.
         /// </summary>
         /// <param name="sender">
@@ -146,6 +161,8 @@ namespace SimplyMobile.Data
 				foreach (var newListView in notifyCollectionChangedEventArgs.NewItems.OfType<ListView>())
 				{
 					newListView.Adapter = this;
+                    newListView.ItemClick -= HandleItemClicked;
+                    newListView.ItemClick += HandleItemClicked;
 				}
 
 				foreach (var newSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())

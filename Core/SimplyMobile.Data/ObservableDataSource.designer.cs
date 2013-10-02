@@ -143,6 +143,18 @@ namespace SimplyMobile.Data
         }
 
         /// <summary>
+        /// Invokes the item selected event.
+        /// </summary>
+        /// <param name="item">Item.</param>
+        private void InvokeItemSelectedEvent(object item)
+        {
+            if (this.OnSelected != null)
+            {
+                this.OnSelected(this, new EventArgs<object>(item));
+            }
+        }
+
+        /// <summary>
         /// The collection changed partial method must be implemented in the OS specific code.
         /// </summary>
         /// <param name="sender">
