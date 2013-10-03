@@ -13,7 +13,7 @@ namespace SimplyMobile.Data
 	/// NOTE: Implementing this in other than the table view bind to the
 	/// data source will not have any effect.
 	/// </description>
-	public interface ITableCellProvider
+	public interface ITableCellProvider<T>
 	{
 		/// <summary>
 		/// Gets the Android View cell to display in your list/spinner view.
@@ -21,7 +21,7 @@ namespace SimplyMobile.Data
 		/// <returns>The view.</returns>
 		/// <param name="item">Item to bind with.</param>
 		/// <param name="convertView">Convert view.</param>
-		View GetView(object item, View convertView);
+		View GetView(T item, View convertView);
 	}
 }
 

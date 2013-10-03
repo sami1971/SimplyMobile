@@ -49,6 +49,8 @@ namespace ObservableCollectionTest
 		public EditableTextViewModel ()
 		{
 			this.Items = new ObservableDataSource<EditableText> ();
+			this.latestTextChange = new EditableText ();
+			this.latestCheckChange = new EditableText ();
 		}
 
 		public static EditableTextViewModel Instance 
