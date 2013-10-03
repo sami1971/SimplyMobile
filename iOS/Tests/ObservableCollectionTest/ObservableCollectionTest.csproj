@@ -23,6 +23,8 @@
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -44,6 +46,7 @@
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -78,6 +81,42 @@
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataCollectionViewController.cs" />
+    <Compile Include="DataCollectionViewController.designer.cs">
+      <DependentUpon>DataCollectionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimeDetailedTable.cs" />
+    <Compile Include="DateTimeTableCell.cs" />
+    <Compile Include="DateTimeTableCell.designer.cs">
+      <DependentUpon>DateTimeTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimeCollectionCell.cs" />
+    <Compile Include="DateTimeCollectionCell.designer.cs">
+      <DependentUpon>DateTimeCollectionCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditableTextViewController.cs" />
+    <Compile Include="EditableTextViewController.designer.cs">
+      <DependentUpon>EditableTextViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditableTextTableCell.cs" />
+    <Compile Include="EditableTextTableCell.designer.cs">
+      <DependentUpon>EditableTextTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditableTextCollectionCell.cs" />
+    <Compile Include="EditableTextCollectionCell.designer.cs">
+      <DependentUpon>EditableTextCollectionCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditableTextTable.cs" />
+    <Compile Include="..\..\..\Core\Tests\ObservableCollectionTest\EditableText.cs">
+      <Link>EditableText.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\ObservableCollectionTest\EditableTextViewModel.cs">
+      <Link>EditableTextViewModel.cs</Link>
+    </Compile>
+    <Compile Include="EditableTextCollectionView.cs" />
+    <Compile Include="AppDelegate.designer.cs">
+      <DependentUpon>AppDelegate.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -90,4 +129,27 @@
     <Reference Include="monotouch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <InterfaceDefinition Include="DataCollectionViewController_iPhone.xib" />
+    <InterfaceDefinition Include="DataCollectionViewController_iPad.xib" />
+    <InterfaceDefinition Include="DateTimeTableCell_iPhone.xib" />
+    <InterfaceDefinition Include="DateTimeTableCell_iPad.xib" />
+    <InterfaceDefinition Include="DateTimeCollectionCell_iPhone.xib" />
+    <InterfaceDefinition Include="DateTimeCollectionCell_iPad.xib" />
+    <InterfaceDefinition Include="EditableTextViewController_iPhone.xib" />
+    <InterfaceDefinition Include="EditableTextViewController_iPad.xib" />
+    <InterfaceDefinition Include="EditableTextTableCell_iPhone.xib" />
+    <InterfaceDefinition Include="EditableTextTableCell_iPad.xib" />
+    <InterfaceDefinition Include="EditableTextCollectionCell_iPhone.xib" />
+    <InterfaceDefinition Include="EditableTextCollectionCell_iPad.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
+      <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
 </Project>
