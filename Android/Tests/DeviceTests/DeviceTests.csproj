@@ -16,6 +16,7 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>DeviceTests</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,10 @@
     <ProjectReference Include="..\..\SimplyMobile.Device\SimplyMobile.Device.csproj">
       <Project>{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}</Project>
       <Name>SimplyMobile.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}</Project>
+      <Name>SimplyMobile.Data</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

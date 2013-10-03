@@ -28,14 +28,14 @@ namespace SimplyMobile.Data
 	/// NOTE: Implementing this in other than the table view bind to the
 	/// data source will not have any effect.
 	/// </description>
-	public interface ITableCellProvider
+	public interface ITableCellProvider<T>
 	{
 		/// <summary>
 		/// Gets the custom cell.
 		/// </summary>
 		/// <returns><see cref="MonoTouch.UIKit.UITableViewCell"/></returns>
 		/// <param name="item">Item.</param>
-		UITableViewCell GetCell(object item);
+		UITableViewCell GetCell(T item);
 
 		/// <summary>
 		/// Gets the height for row.

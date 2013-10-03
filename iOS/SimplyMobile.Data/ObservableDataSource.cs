@@ -12,25 +12,40 @@ namespace SimplyMobile.Data
 	/// Observable data source iOS portion. Implements <see cref="UITableViewDataSource"/>
 	/// </summary>
 	public partial class ObservableDataSource<T>
-		// todo: investigate UITableViewSource as an altenative to UITableViewDataSource
     {
         private float defaultRowHeight = 22;
 
-        private BaseDelegate eventDelegate;
+		private TableViewDelegate tableDelegate;
+
+		private CollectionViewDelegate collectionDelegate;
 
 		private TableDataSource tableSource;
+
+		private CollectionDataSource collectionDataSource;
 
 		/// <summary>
 		/// Gets the table delegate.
 		/// </summary>
 		/// <value>The table delegate.</value>
-        private BaseDelegate TableDelegate
+		private TableViewDelegate TableDelegate
         {
             get
             {
-                return this.eventDelegate ?? (this.eventDelegate = new BaseDelegate(this.RowSelected, defaultRowHeight));
+				return this.tableDelegate ?? (this.tableDelegate = new TableViewDelegate(this.RowSelected, defaultRowHeight));
             }
         }
+
+		/// <summary>
+		/// Gets the collection delegate.
+		/// </summary>
+		/// <value>The collection delegate.</value>
+		private CollectionViewDelegate CollectionDelegate
+		{
+			get
+			{
+				return this.collectionDelegate ?? (this.collectionDelegate = new CollectionViewDelegate(this.RowSelected));
+			}
+		}
 
 		/// <summary>
 		/// Gets the table source.
@@ -41,6 +56,18 @@ namespace SimplyMobile.Data
 			get
 			{
 				return this.tableSource ?? (this.tableSource = new TableDataSource(this));
+			}
+		}
+
+		/// <summary>
+		/// Gets the collection source.
+		/// </summary>
+		/// <value>The collection source.</value>
+		private CollectionDataSource CollectionSource
+		{
+			get
+			{
+				return this.collectionDataSource ?? (this.collectionDataSource = new CollectionDataSource(this));
 			}
 		}
 
@@ -98,6 +125,10 @@ namespace SimplyMobile.Data
             {
 				tableView.InvokeOnMainThread(tableView.ReloadData);
             }
+			foreach (var collectionView in this.observers.OfType<UICollectionView>())
+			{
+				collectionView.InvokeOnMainThread(collectionView.ReloadData);
+			}
         }
 
         /// <summary>
@@ -119,6 +150,13 @@ namespace SimplyMobile.Data
                     tableView.Delegate = this.TableDelegate;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
+
+				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>().Where(a=>a is ICollectionCellProvider<T>))
+				{
+					collectionView.DataSource = this.CollectionSource;
+					collectionView.Delegate = this.CollectionDelegate;
+					collectionView.InvokeOnMainThread(collectionView.ReloadData);
+				}
             }
             else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
             {
@@ -128,8 +166,41 @@ namespace SimplyMobile.Data
                     tableView.Delegate = null;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
+
+				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>())
+				{
+					collectionView.DataSource = null;
+					collectionView.Delegate = null;
+					collectionView.InvokeOnMainThread(collectionView.ReloadData);
+				}
             }
         }
+
+		private class CollectionDataSource : UICollectionViewDataSource
+		{
+			private readonly ObservableDataSource<T> source;
+
+			internal CollectionDataSource(ObservableDataSource<T> source)
+			{
+				this.source = source;
+			}
+
+			#region implemented abstract members of UICollectionViewDataSource
+
+			public override int GetItemsCount (UICollectionView collectionView, int section)
+			{
+				return this.source.Data.Count;
+			}
+
+			public override UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
+			{
+				var cellProvider = collectionView as ICollectionCellProvider<T>;
+
+				return cellProvider.GetCell (this.source.Data.ElementAt(indexPath.Row), indexPath);
+			}
+
+			#endregion
+		}
 
 		private class TableDataSource : UITableViewDataSource
 		{
@@ -173,7 +244,7 @@ namespace SimplyMobile.Data
 			{
 				var item = this.source.Data[indexPath.Row];
 
-				var cellProvider = tableView as ITableCellProvider;
+				var cellProvider = tableView as ITableCellProvider<T>;
 
 				if (cellProvider != null)
 				{
@@ -193,7 +264,7 @@ namespace SimplyMobile.Data
 		}
 
         /// <summary>Private UITableViewDelegate to capture row selected events</summary>
-        private class BaseDelegate : UITableViewDelegate
+        private class TableViewDelegate : UITableViewDelegate
         {
             /// <summary>
             /// Occurs when on selection.
@@ -204,7 +275,7 @@ namespace SimplyMobile.Data
 
             public override float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
             {
-                var cellProvider = tableView as ITableCellProvider;
+                var cellProvider = tableView as ITableCellProvider<T>;
 
                 if (cellProvider != null)
                 {
@@ -224,15 +295,63 @@ namespace SimplyMobile.Data
                 this.OnSelected(tableView, new EventArgs<int>(indexPath.Item));
             }
 
+			public override void RowDeselected (UITableView tableView, NSIndexPath indexPath)
+			{
+
+			}
+
+			public override void RowHighlighted (UITableView tableView, NSIndexPath rowIndexPath)
+			{
+
+			}
+
+			public override void RowUnhighlighted (UITableView tableView, NSIndexPath rowIndexPath)
+			{
+
+			}
+
             /// <summary>
             /// Initializes a new instance of the <see cref="WK.ComplyTrack.Mobile.UI.DataItemSelected"/> class.
             /// </summary>
             /// <param name="itemDelegate">Item delegate.</param>
-            public BaseDelegate(EventHandler<EventArgs<int>> itemDelegate, float defaultRowHeight = 22)
+			public TableViewDelegate(EventHandler<EventArgs<int>> itemDelegate, float defaultRowHeight = 22)
             {
                 this.OnSelected = itemDelegate;
                 this.defaultRowHeight = defaultRowHeight;
             }
         }
+
+		private class CollectionViewDelegate : UICollectionViewDelegate
+		{
+			/// <summary>
+			/// Occurs when on selection.
+			/// </summary>
+			private EventHandler<EventArgs<int>> OnSelected;
+
+			public CollectionViewDelegate(EventHandler<EventArgs<int>> itemDelegate)
+			{
+				this.OnSelected = itemDelegate;
+			}
+
+			public override void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
+			{
+				this.OnSelected (this, new EventArgs<int> (indexPath.Row));
+			}
+
+			public override void ItemDeselected (UICollectionView collectionView, NSIndexPath indexPath)
+			{
+
+			}
+
+			public override void ItemHighlighted (UICollectionView collectionView, NSIndexPath indexPath)
+			{
+
+			}
+
+			public override void ItemUnhighlighted (UICollectionView collectionView, NSIndexPath indexPath)
+			{
+
+			}
+		}
     }
 }

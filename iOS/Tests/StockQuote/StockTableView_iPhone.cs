@@ -3,10 +3,12 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using SimplyMobile.Data;
 
+using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
+
 namespace StockQuote
 {
 	[Register("StockTableView_iPhone")]
-	public class StockTableView_iPhone : UITableView, ITableCellProvider
+	public class StockTableView_iPhone : UITableView, ITableCellProvider<Stock>
 	{
 		private const string CellId = "StockTableView_iPhone";
 
@@ -21,7 +23,7 @@ namespace StockQuote
 
 		#region ITableCellProvider implementation
 
-		public UITableViewCell GetCell (object item)
+		public UITableViewCell GetCell (Stock item)
 		{
 			var cell = this.DequeueReusableCell(CellId);
 

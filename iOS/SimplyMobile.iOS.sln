@@ -436,7 +436,7 @@ Global
 		{1549AFBD-753D-4C14-876D-531FCDB9C9A4} = {EB8603DD-2462-4F6A-9958-01119C170534}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\StockQuote\StockQuote.csproj
+		StartupItem = Tests\ObservableCollectionTest\ObservableCollectionTest.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

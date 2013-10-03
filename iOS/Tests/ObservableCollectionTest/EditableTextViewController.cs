@@ -30,6 +30,34 @@ namespace ObservableCollectionTest
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
+
+			EditableTextViewModel.Instance.Items.Bind (this.tableView);
+			EditableTextViewModel.Instance.Items.Bind (this.collectionView);
+
+			this.buttonAdd.TouchUpInside += (sender, e) => 
+			{
+				EditableTextViewModel.Instance.AddItem(new EditableText());
+			};
+
+			EditableTextViewModel.Instance.PropertyChanged += HandlePropertyChanged;
+		}
+
+		void HandlePropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			var model = sender as EditableTextViewModel;
+			if (model == null)
+			{
+				return;
+			}
+
+			if (e.PropertyName == "LatestTextChange")
+			{
+				this.labelLastText.Text = model.LatestTextChange.Text;
+			}
+			else
+			{
+				this.labelLastChecked.Text = model.LatestCheckChange.Text;
+			}
 		}
 	}
 }
