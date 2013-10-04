@@ -47,6 +47,13 @@ namespace SimplyMobile.Data
             this.observers.CollectionChanged += this.ObserversChanged;
         }
 
+        public ObservableDataSource(IEnumerable<T> data)
+        {
+            this.Data = new ObservableCollection<T>(data);
+            this.observers = new ObservableCollection<object>();
+            this.observers.CollectionChanged += this.ObserversChanged;
+        }
+
         /// <summary>
         /// Occurs when item is selected.
         /// </summary>
