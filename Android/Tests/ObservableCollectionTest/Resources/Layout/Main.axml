@@ -9,18 +9,48 @@
         android:layout_width="fill_parent"
         android:layout_height="36.0dp"
         android:text="Add New Item" />
-    <TextView
-        android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textLastText" />
-    <TextView
-        android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:text="Last text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="70.7dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textLastText"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textColor="#ffffffff" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textLastCheck" />
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Last check"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="70.7dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textLastCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textColor="#ffffffff" />
+    </LinearLayout>
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

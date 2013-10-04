@@ -23,6 +23,8 @@ namespace ObservableCollectionTest
         {
             base.OnCreate(bundle);
 
+			this.RequestedOrientation = Android.Content.PM.ScreenOrientation.Portrait;
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 

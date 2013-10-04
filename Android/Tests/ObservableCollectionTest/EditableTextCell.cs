@@ -1,17 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
-using Android.Views;
 using Android.Widget;
 
 namespace ObservableCollectionTest
 {
+	/// <summary>
+	/// Editable text cell for Android view.
+	/// </summary>
 	public class EditableTextCell : LinearLayout
 	{
 		private Switch switchCheck;
@@ -36,6 +32,10 @@ namespace ObservableCollectionTest
 			Initialize ();
 		}
 
+		/// <summary>
+		/// Bind the specified editableText.
+		/// </summary>
+		/// <param name="editableText">Editable text.</param>
 		public void Bind(EditableText editableText)
 		{
 			if (this.editableText != null)
@@ -46,7 +46,7 @@ namespace ObservableCollectionTest
 			}
 
 			this.textField.Text = editableText.Text;
-			this.switchCheck.Checked = editableText.Checked;
+			this.switchCheck.Checked = this.textField.Enabled =  editableText.Checked;
 
 			this.editableText = editableText;
 			this.editableText.PropertyChanged += HandlePropertyChanged;
@@ -77,12 +77,18 @@ namespace ObservableCollectionTest
 			}
 		}
 
-		void Initialize ()
+		private void Initialize ()
 		{
+			this.LayoutParameters = new Android.Views.ViewGroup.LayoutParams (LayoutParams.FillParent, 50);
 			this.switchCheck = new Switch (this.Context);
 			this.AddView (this.switchCheck);
 
-			this.textField = new EditText (this.Context) { Enabled = false };
+			this.textField = new EditText (this.Context) 
+			{ 
+				Enabled = false,
+				LayoutParameters = new LayoutParams(LayoutParams.FillParent, LayoutParams.FillParent)
+			};
+
 			this.AddView (this.textField);
 		}
 	}

@@ -76,6 +76,10 @@ namespace ObservableCollectionTest
 			if (e.PropertyName == "Text")
 			{
 				this.LatestTextChange = editableText;
+				if (editableText == this.LatestCheckChange)
+				{
+					this.LatestCheckChange = editableText;
+				}
 			}
 			else
 			{
