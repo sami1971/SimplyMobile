@@ -47,6 +47,10 @@ namespace ObservableCollectionTest
 			}
 		}
 
+		public override string ToString ()
+		{
+			return string.Format ("[Checked={1}, Text={0}]", Text, Checked);
+		}
 		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
 		{
 			if (PropertyChanged != null)

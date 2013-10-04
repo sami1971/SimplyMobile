@@ -38,15 +38,15 @@ namespace ObservableCollectionTest
 
 		public void Bind(EditableText editableText)
 		{
-			this.textField.Text = editableText.Text;
-			this.switchCheck.Checked = editableText.Checked;
-
 			if (this.editableText != null)
 			{
 				this.editableText.PropertyChanged -= HandlePropertyChanged;
 				this.switchCheck.CheckedChange -= HandleValueChanged;
 				this.textField.AfterTextChanged -= HandleEditingChanged;
 			}
+
+			this.textField.Text = editableText.Text;
+			this.switchCheck.Checked = editableText.Checked;
 
 			this.editableText = editableText;
 			this.editableText.PropertyChanged += HandlePropertyChanged;
