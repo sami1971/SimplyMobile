@@ -98,16 +98,13 @@ namespace SimplyMobile.Data
         }
 
         /// <summary>
-        /// Rows the selected.
+        /// Row selected from delegate.
         /// </summary>
-        /// <param name="tableView">Table view.</param>
-        /// <param name="indexPath">Index path.</param>
+        /// <param name="sender">Sender view.</param>
+		/// <param name="args">Event arguments with index path.</param>
         private void RowSelected(object sender, EventArgs<int> args)
         {
-            if (this.OnSelected != null)
-            {
-                this.OnSelected(sender, new EventArgs<object>(this.Data[args.Value]));
-            }
+			this.InvokeItemSelectedEvent (sender, this.Data[args.Value]);
         }
 
         /// <summary>
@@ -242,6 +239,8 @@ namespace SimplyMobile.Data
 			/// </returns>
 			public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 			{
+				this.source.InvokeItemRequestedEvent (tableView, indexPath.Row);
+
 				var item = this.source.Data[indexPath.Row];
 
 				var cellProvider = tableView as ITableCellProvider<T>;

@@ -11,6 +11,8 @@
     <AssemblyName>SimplyMobile.Plugins.StockView</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,15 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{5fed3e45-9f40-4afe-8153-8f952ebec90f}</Project>
+      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
-      <Project>{ecc8ba50-7423-4be3-9196-5840550b8195}</Project>
+      <Project>{ECC8BA50-7423-4BE3-9196-5840550B8195}</Project>
       <Name>SimplyMobile.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.csproj">
-      <Project>{89826d7a-aa44-4088-8ac2-1420e19a353e}</Project>
+      <Project>{89826D7A-AA44-4088-8AC2-1420E19A353E}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService</Name>
     </ProjectReference>
   </ItemGroup>

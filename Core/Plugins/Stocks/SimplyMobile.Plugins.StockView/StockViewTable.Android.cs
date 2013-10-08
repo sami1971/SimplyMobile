@@ -10,7 +10,7 @@ namespace SimplyMobile.Plugins.StockView
 	/// <summary>
 	/// Stock view table.
 	/// </summary>
-	public class StockViewTable : ListView, ITableCellProvider
+	public class StockViewTable : ListView, ITableCellProvider<StockQuote>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SimplyMobile.Plugins.StockView.Android.StockViewTable"/> class.
@@ -27,10 +27,8 @@ namespace SimplyMobile.Plugins.StockView
 		/// <returns>The view.</returns>
 		/// <param name="item">Item for the view.</param>
 		/// <param name="convertView">Convert view.</param>
-		public View GetView (object item, View convertView)
+		public View GetView (StockQuote stock, View convertView)
 		{
-			var stock = item as StockQuote;
-
 			var view = convertView as StockViewCell ?? new StockViewCell(this.Context);
 
 			view.Bind (stock);

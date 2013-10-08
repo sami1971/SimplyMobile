@@ -24,6 +24,12 @@ namespace SimplyMobile.Device
     {
         #region IWifiMonitor Members
 
+		public event EventHandler<EventArgs<bool>> OnActiveChanged;
+
+        public event EventHandler<EventArgs<Exception>> OnException;
+
+        public bool Active { get; private set; }
+
         public bool Enabled
         {
             get { throw new NotImplementedException(); }

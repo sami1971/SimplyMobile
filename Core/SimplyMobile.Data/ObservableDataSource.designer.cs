@@ -57,7 +57,14 @@ namespace SimplyMobile.Data
         /// <summary>
         /// Occurs when item is selected.
         /// </summary>
-        public EventHandler<EventArgs<object>> OnSelected;
+        public EventHandler<EventArgs<T>> OnSelected;
+
+		/// <summary>
+		/// The requested event occurs when an observer requests an item.
+		/// </summary>
+		/// <remarks>The sender will be the requesting observer, f.e. a ListView in Android
+		/// or UITableView in iOS.</remarks>
+		public EventHandler<EventArgs<int>> OnRequested;
 
         /// <summary>
         /// Gets or sets the data.
@@ -153,13 +160,22 @@ namespace SimplyMobile.Data
         /// Invokes the item selected event.
         /// </summary>
         /// <param name="item">Item.</param>
-        private void InvokeItemSelectedEvent(object item)
+        private void InvokeItemSelectedEvent(object sender, T item)
         {
-            if (this.OnSelected != null)
-            {
-                this.OnSelected(this, new EventArgs<object>(item));
-            }
+			this.OnSelected.Invoke (sender, item);
         }
+
+		/// <summary>
+		/// Invokes the item requested event.
+		/// </summary>
+		/// <param name="index">Index of the requested item.</param>
+		private void InvokeItemRequestedEvent(object sender, int index)
+		{
+			if (this.OnRequested != null)
+			{
+				this.OnRequested (sender, new EventArgs<int> (index));
+			}
+		}
 
         /// <summary>
         /// The collection changed partial method must be implemented in the OS specific code.

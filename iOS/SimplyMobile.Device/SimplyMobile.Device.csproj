@@ -50,6 +50,13 @@
     <Compile Include="Battery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WifiMonitor.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Device\Accelometer.designer.cs">
+      <Link>Accelometer.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\AccelometerStatus.cs">
+      <Link>AccelometerStatus.cs</Link>
+    </Compile>
+    <Compile Include="Accelometer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

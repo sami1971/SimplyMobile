@@ -22,8 +22,6 @@ namespace SimplyMobile.Device
 {
     public static partial class Battery
     {
-
-
         /// <summary>
         /// Event handler for battery level changes. 
         /// </summary>

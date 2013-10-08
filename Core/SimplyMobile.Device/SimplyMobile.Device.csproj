@@ -50,6 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WifiMonitor.cs" />
     <Compile Include="WifiMonitor.designer.cs" />
+    <Compile Include="AccelometerStatus.cs" />
+    <Compile Include="Accelometer.designer.cs" />
+    <Compile Include="Accelometer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

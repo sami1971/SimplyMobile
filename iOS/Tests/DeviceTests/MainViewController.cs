@@ -14,10 +14,12 @@ namespace DeviceTests
     public class MainViewController : UIViewController
 	{
 		private UILabel batteryLevel;
-		private UISwitch chargerStatus;
-		private UISwitch audioCapture;
-        private UITableView tableView;
-		
+//		private UISwitch chargerStatus;
+//		private UISwitch audioCapture;
+//        private UITableView tableView;
+
+		private UILabel accelerometerStatus;
+
         public MainViewController ()
 		{
 
@@ -27,44 +29,59 @@ namespace DeviceTests
 		{
 			base.ViewDidLoad ();
 
-			this.batteryLevel = new UILabel (new RectangleF (0, 0, this.View.Frame.Width, 20)) {
-				AutoresizingMask = UIViewAutoresizing.FlexibleWidth
+			this.batteryLevel = new UILabel (new RectangleF (0, 25, this.View.Frame.Width, 20)) {
+				AutoresizingMask = UIViewAutoresizing.FlexibleWidth,
+				BackgroundColor = UIColor.White
 			};
 
 			this.View.AddSubview (batteryLevel);
 
-			this.chargerStatus = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 25, 50, 20)) 
-			{
-				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+//			this.chargerStatus = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 50, 50, 20)) 
+//			{
+//				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+//			};
+//
+//			this.View.AddSubview (chargerStatus);
+
+			this.accelerometerStatus = new UILabel (new RectangleF (0, 250, this.View.Frame.Width, 20)) {
+				AutoresizingMask = UIViewAutoresizing.FlexibleWidth,
+				BackgroundColor = UIColor.White
 			};
 
-			this.View.AddSubview (chargerStatus);
+			this.View.AddSubview (accelerometerStatus);
 
-			this.audioCapture = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 50, 50, 20)) 
-			{
-				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
-			};
+//			this.audioCapture = new UISwitch (new RectangleF ((this.View.Frame.Width - 50) / 2, 50, 50, 20)) 
+//			{
+//				AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+//			};
+//
+//			this.View.AddSubview (this.audioCapture);
 
-			this.View.AddSubview (this.audioCapture);
-
-            this.tableView = new UITableView(new RectangleF(0, 75, this.View.Frame.Width, this.View.Frame.Height - 80))
-            {
-                AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
-            };
-
-            this.View.AddSubview(this.tableView);
-            DeviceApp.BatteryStatus.Bind(this.tableView);
+//            this.tableView = new UITableView(new RectangleF(0, 75, this.View.Frame.Width, this.View.Frame.Height - 80))
+//            {
+//                AutoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin
+//            };
+//
+//            this.View.AddSubview(this.tableView);
+//            DeviceApp.BatteryStatus.Bind(this.tableView);
 		}
 
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
-			this.batteryLevel.Text = Battery.Level.ToString ();
+			this.batteryLevel.Text = Battery.Status.ToString();
 			Battery.OnLevelChange += HandleOnLevelChange;
 
-			this.chargerStatus.On = Battery.Charging;
+//			this.chargerStatus.On = Battery.Charging;
 			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
+
+			Accelometer.ReadingAvailable += HandleReadingAvailable;
+		}
+
+		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
+		{
+			this.accelerometerStatus.Text = e.Value.ToString ();
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -74,16 +91,17 @@ namespace DeviceTests
 			Battery.OnLevelChange -= HandleOnLevelChange;
 
 			Battery.OnChargerStatusChanged -= HandleOnChargerStatusChanged;
+			Accelometer.ReadingAvailable -= HandleReadingAvailable;
 		}
 
 		void HandleOnChargerStatusChanged (object sender, EventArgs<bool> e)
 		{
-			this.chargerStatus.On = e.Value;
+			this.batteryLevel.Text = Battery.Status.ToString ();
 		}
 
 		void HandleOnLevelChange (object sender, EventArgs<int> e)
 		{
-			this.batteryLevel.Text = e.Value.ToString ();
+			this.batteryLevel.Text = Battery.Status.ToString ();
 		}
 	}
 }

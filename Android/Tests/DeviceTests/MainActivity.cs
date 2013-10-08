@@ -25,6 +25,8 @@ namespace DeviceTests
 	{
 		private TextView batteryLevel;
 		private ToggleButton chargerState;
+		private TextView accelerometerStatus;
+		private ToggleButton acceleroMeterState;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -44,12 +46,32 @@ namespace DeviceTests
 
 			layout.AddView (this.batteryLevel);
 
-			chargerState = new ToggleButton (this) {
-				Enabled = false
+			chargerState = new ToggleButton (this) 
+			{
+				Enabled = false,
+				TextOff = "Charger disconnected",
+				TextOn = "Charger connected"
 			};
 
 			layout.AddView (chargerState);
 
+			var accelometerLabel = new TextView (this) 
+			{
+				Text = "Accelerometer status"
+			};
+
+			layout.AddView (accelometerLabel);
+
+			this.accelerometerStatus = new TextView (this);
+			layout.AddView (this.accelerometerStatus);
+
+//			this.acceleroMeterState = new ToggleButton (this) 
+//			{
+//				TextOn = "Accelerometer ON",
+//				TextOff = "Accelerometer OFF"
+//			};
+//
+//			layout.AddView (this.acceleroMeterState);
 		}
 
 		protected override void OnResume ()
@@ -60,9 +82,22 @@ namespace DeviceTests
 
 			Battery.OnLevelChange += HandleOnLevelChange;
 
+			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
+
 			this.chargerState.Checked = Battery.Charging;
 
-			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
+			Accelometer.ReadingAvailable += HandleReadingAvailable;
+
+			if (Accelometer.LatestStatus != null)
+			{
+				this.accelerometerStatus.Text = Accelometer.LatestStatus.ToString ();
+			}
+
+		}
+
+		void HandleReadingAvailable (object sender, SimplyMobile.Core.EventArgs<AccelometerStatus> e)
+		{
+			this.accelerometerStatus.Text = e.Value.ToString ();
 		}
 
 		void HandleOnChargerStatusChanged (object sender, SimplyMobile.Core.EventArgs<bool> e)
@@ -81,6 +116,7 @@ namespace DeviceTests
 			base.OnPause ();
 			Battery.OnLevelChange -= HandleOnLevelChange;
 			Battery.OnChargerStatusChanged -= HandleOnChargerStatusChanged;
+			Accelometer.ReadingAvailable -= HandleReadingAvailable;
 		}
 	}
 }

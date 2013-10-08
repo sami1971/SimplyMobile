@@ -76,13 +76,13 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.Text.MonoTouch">
-      <HintPath>..\..\..\..\ServiceStack.OrmLite\lib\ServiceStack.Text.MonoTouch.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="ServiceStack.Text.MonoTouch">
+      <HintPath>..\..\Plugins\SimplyMobile.Text.ServiceStack\libs\ServiceStack.Text.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

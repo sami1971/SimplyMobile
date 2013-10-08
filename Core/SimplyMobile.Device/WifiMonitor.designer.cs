@@ -21,14 +21,14 @@ namespace SimplyMobile.Device
 {
     public partial class WifiMonitor : IWifiMonitor
     {
-        public event EventHandler<EventArgs<bool>> OnActiveChanged;
+//        public event EventHandler<EventArgs<bool>> OnActiveChanged;
 
         public event EventHandler<EventArgs<bool>> OnStatusChange;
 
 
-        public event EventHandler<EventArgs<Exception>> OnException;
+//        public event EventHandler<EventArgs<Exception>> OnException;
 
-        public bool Active { get; private set; }
+//        public bool Active { get; private set; }
 
 
     }

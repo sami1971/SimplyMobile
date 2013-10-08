@@ -26,11 +26,11 @@ namespace SimplyMobile.Device
 	/// </summary>
     public static partial class Battery
     {
-        private static int level;
+        private static int? level;
         private static LevelMonitor levelMonitor;
         private static ChargerMonitor chargerMonitor;
 
-        private static bool chargerConnected;
+        private static bool? chargerConnected;
 
         static partial void StartLevelMonitoring()
         {
@@ -76,10 +76,7 @@ namespace SimplyMobile.Device
             private set
             {
                 level = value;
-                if (onLevelChange != null)
-                {
-                    onLevelChange(onLevelChange, new EventArgs<int>(level));
-                }
+				onLevelChange.Invoke (onLevelChange, level.Value);
             }
         }
 
@@ -96,10 +93,7 @@ namespace SimplyMobile.Device
             private set
             {
                 chargerConnected = value;
-                if (onChargerStatusChanged != null)
-                {
-                    onChargerStatusChanged(onChargerStatusChanged, new EventArgs<bool>(chargerConnected));
-                }
+				onChargerStatusChanged.Invoke (onChargerStatusChanged, chargerConnected.Value);
             }
         }
 
@@ -109,9 +103,9 @@ namespace SimplyMobile.Device
 		/// <returns>The level.</returns>
         private static int GetLevel()
         {
-            if (levelMonitor != null && levelMonitor.Active)
+            if (levelMonitor != null && level.HasValue)
             {
-                return level;
+                return level.Value;
             }
 
             var f = -1;
@@ -130,15 +124,21 @@ namespace SimplyMobile.Device
 		/// <returns><c>true</c>, if charger state was gotten, <c>false</c> otherwise.</returns>
         private static bool GetChargerState()
         {
-            if (chargerMonitor != null && chargerMonitor.Active)
+            if (chargerMonitor != null && chargerConnected.HasValue)
             {
-                return chargerConnected;
+                return chargerConnected.Value;
             }
 
             var o = new object();
 
-            var intent = o.RegisterReceiver(null, new IntentFilter(Intent.ActionPowerConnected));
-            return intent != null;
+			var intent = o.RegisterReceiver(null, new IntentFilter(Intent.ActionBatteryChanged));
+            if (intent == null)
+			{
+				return false;
+			}
+
+			int status = intent.GetIntExtra(BatteryManager.ExtraStatus, -1);
+			return (status == (int)Android.OS.BatteryPlugged.Ac || status == (int)Android.OS.BatteryPlugged.Usb);
         }
 
         private class LevelMonitor : Monitor
@@ -157,6 +157,7 @@ namespace SimplyMobile.Device
             {
                 var rawlevel = intent.GetIntExtra(BatteryManager.ExtraLevel, -1);
                 var scale = intent.GetIntExtra(BatteryManager.ExtraScale, -1);
+
                 var lvl = -1;
                 if (rawlevel >= 0 && scale > 0)
                 {

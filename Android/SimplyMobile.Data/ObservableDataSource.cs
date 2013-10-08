@@ -71,6 +71,8 @@ namespace SimplyMobile.Data
 
         public virtual View GetView(int position, View convertView, ViewGroup parent)
         {
+			this.InvokeItemRequestedEvent (parent, position);
+
 			var item = this.Data [position];
 			var cellProvider = parent as ITableCellProvider<T>;
 			if (cellProvider != null)
@@ -120,12 +122,12 @@ namespace SimplyMobile.Data
         /// <param name="e">E.</param>
         private void HandleItemClicked(object sender, AdapterView.ItemClickEventArgs e)
         {
-            this.InvokeItemSelectedEvent(this.Data[e.Position]);
+            this.InvokeItemSelectedEvent(sender, this.Data[e.Position]);
         }
 
         private void HandleItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            this.InvokeItemSelectedEvent(this.Data[e.Position]);
+			this.InvokeItemSelectedEvent(sender, this.Data[e.Position]);
         }
 
         /// <summary>
@@ -161,13 +163,17 @@ namespace SimplyMobile.Data
 				foreach (var newListView in notifyCollectionChangedEventArgs.NewItems.OfType<ListView>())
 				{
 					newListView.Adapter = this;
-                    newListView.ItemClick -= HandleItemClicked;
-                    newListView.ItemClick += HandleItemClicked;
+					newListView.ItemSelected -= HandleItemSelected;
+					newListView.ItemSelected += HandleItemSelected;
+					newListView.ItemClick -= HandleItemClicked;
+					newListView.ItemClick += HandleItemClicked;
 				}
 
 				foreach (var newSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())
 				{
 					newSpinner.Adapter = this;
+					newSpinner.ItemSelected -= HandleItemSelected;
+					newSpinner.ItemSelected += HandleItemSelected;
 				}
 //				foreach (var listView in this.observers.OfType<ListView>())
 //				{
@@ -179,10 +185,13 @@ namespace SimplyMobile.Data
 				foreach (var removedListView in notifyCollectionChangedEventArgs.OldItems.OfType<ListView>())
 				{
 					removedListView.Adapter = null;
+					removedListView.ItemSelected -= HandleItemSelected;
+					removedListView.ItemClick -= HandleItemClicked;
 				}
 				foreach (var removedSpinner in notifyCollectionChangedEventArgs.OldItems.OfType<Spinner>())
 				{
 					removedSpinner.Adapter = null;
+					removedSpinner.ItemSelected -= HandleItemSelected;
 				}
 			}
         }
