@@ -74,6 +74,9 @@ namespace ObservableCollectionTest
 			// aapt resource value: 0x7f050002
 			public const int linearLayout2 = 2131034114;
 			
+			// aapt resource value: 0x7f050008
+			public const int listView1 = 2131034120;
+			
 			// aapt resource value: 0x7f050007
 			public const int spinnerView = 2131034119;
 			

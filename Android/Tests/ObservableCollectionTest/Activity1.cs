@@ -33,9 +33,10 @@ namespace ObservableCollectionTest
 			this.textLastText = FindViewById<TextView> (Resource.Id.textLastText);
 			this.textLastCheck = FindViewById<TextView> (Resource.Id.textLastCheck);
 			this.spinner = FindViewById<Spinner> (Resource.Id.spinnerView);
+			this.listView = FindViewById<EditableTextTable> (Resource.Id.listView1);
 
-			this.listView = new EditableTextTable (this);
-			this.layout.AddView (this.listView);
+//			this.listView = new EditableTextTable (this);
+//			this.layout.AddView (this.listView);
 
 			this.buttonAdd.Click += (sender, e) => 
 			{

@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using SimplyMobile.Data;
+using Android.Util;
 
 namespace ObservableCollectionTest
 {
@@ -16,6 +17,16 @@ namespace ObservableCollectionTest
 	{
 		public EditableTextTable(Context context) : base(context)
 		{
+		}
+
+		public EditableTextTable(Context context, IAttributeSet attrs) :  base(context, attrs) 
+		{
+
+		}
+
+		public EditableTextTable(Context context, IAttributeSet attrs, int defStyle) : base(context, attrs, defStyle) 
+		{
+
 		}
 
 		#region ITableCellProvider implementation

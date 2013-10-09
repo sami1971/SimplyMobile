@@ -25,9 +25,10 @@ namespace StockQuote
 			this.textSymbol = FindViewById<EditText>(Resource.Id.textStockSymbol);
 		    this.textCurrent = FindViewById<TextView>(Resource.Id.textCurrent);
 		    this.buttonGet = FindViewById<Button>(Resource.Id.buttonGetQuote);
-			this.listStocks = new StockViewTable (this);
-
-			this.mainLayout.AddView (this.listStocks);
+			this.listStocks = FindViewById<StockViewTable> (Resource.Id.listView1);
+//			this.listStocks = new StockViewTable (this);
+//
+//			this.mainLayout.AddView (this.listStocks);
 
             StockViewModel.StockModel.StockQuotes.Bind(this.listStocks);
 

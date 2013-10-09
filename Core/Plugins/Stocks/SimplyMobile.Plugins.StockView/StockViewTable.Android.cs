@@ -4,12 +4,15 @@ using SimplyMobile.Data;
 using Android.Content;
 using Android.Views;
 using SimplyMobile.Plugins.WcfStockService;
+using Android.Runtime;
+using Android.Util;
 
 namespace SimplyMobile.Plugins.StockView
 {
 	/// <summary>
 	/// Stock view table.
 	/// </summary>
+	[Register("StockViewTable")]
 	public class StockViewTable : ListView, ITableCellProvider<StockQuote>
 	{
 		/// <summary>
@@ -18,6 +21,21 @@ namespace SimplyMobile.Plugins.StockView
 		/// <param name="context">Context.</param>
 		public StockViewTable (Context context) : base(context)
 		{
+		}
+
+		public StockViewTable(Context context, IAttributeSet attrs) :  base(context, attrs) 
+		{
+
+		}
+
+		public StockViewTable(Context context, IAttributeSet attrs, int defStyle) : base(context, attrs, defStyle) 
+		{
+
+		}
+
+		protected StockViewTable(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+		{
+
 		}
 
 		#region ITableCellProvider implementation
