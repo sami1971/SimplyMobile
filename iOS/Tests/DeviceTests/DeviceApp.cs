@@ -48,7 +48,7 @@ namespace DeviceTests
 			// make the window visible
             this.window.MakeKeyAndVisible();
 			
-            this.OnLoadFinished();
+            this.OnStart();
 			return true;
 		}
 	}

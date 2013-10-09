@@ -2,6 +2,7 @@ using System;
 using Android.Hardware;
 using SimplyMobile.Core;
 using Android.Content;
+using Android.App;
 
 namespace SimplyMobile.Device
 {
@@ -68,14 +69,7 @@ namespace SimplyMobile.Device
 					return this.Active;
 				}
 
-				var context = DependencyResolver.Current.GetService<MobileApp> ();
-				if (context == null)
-				{
-					this.OnException.Invoke (this, new Exception ("Mobile App has not been started."));
-					return false;
-				}
-
-				this.sensorManager = context.ApplicationContext.GetSystemService(Context.SensorService) as SensorManager;
+				this.sensorManager = Application.Context.GetSystemService(Context.SensorService) as SensorManager;
 				if (this.sensorManager == null)
 				{
 					this.OnException.Invoke (this, new Exception ("Unable to get sensor manager."));

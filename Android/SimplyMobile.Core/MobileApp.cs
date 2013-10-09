@@ -61,8 +61,8 @@ namespace SimplyMobile.Core
 		public override void OnCreate ()
 		{
 			base.OnCreate ();
-			DependencyResolver.Current = Resolver;
-			Resolver.SetService(this);
+//			DependencyResolver.Current = Resolver;
+//			Resolver.SetService(this);
             activityTransitionTime = DateTime.UtcNow;
 		}
 

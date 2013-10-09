@@ -27,10 +27,16 @@ namespace DeviceTests
         /// <summary>
         /// Call this when the application has finished loading.
         /// </summary>
-        private void OnLoadFinished()
+        private void OnStart()
         {
             Battery.OnChargerStatusChanged += (s, a) => BatteryStatus.Data.Add(Battery.Status);
             Battery.OnLevelChange += (s, a) => BatteryStatus.Data.Add(Battery.Status);
+
         }
+
+		private void OnStop()
+		{
+
+		}
     }
 }

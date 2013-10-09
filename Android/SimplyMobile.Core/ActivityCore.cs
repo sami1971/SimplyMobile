@@ -8,7 +8,7 @@ namespace SimplyMobile.Core
         protected override void OnPause()
         {
             base.OnPause();
-            var app = DependencyResolver.Current.GetService<MobileApp>();
+			var app = Application.Context as MobileApp;
             if (app != null)
             {
                 app.StartActivityTransition(this);
@@ -19,7 +19,7 @@ namespace SimplyMobile.Core
         {
             base.OnResume();
 
-            var app = DependencyResolver.Current.GetService<MobileApp>();
+			var app = Application.Context as MobileApp;
             if (app != null && app.WasBackgrounded)
             {
                 OnResumeFromBackground();

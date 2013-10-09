@@ -67,6 +67,9 @@
       <Link>AccelometerStatus.cs</Link>
     </Compile>
     <Compile Include="Accelometer.cs" />
+    <Compile Include="BT\AdapterStatus.cs" />
+    <Compile Include="BT\IBtAdapter.cs" />
+    <Compile Include="BT\BluetoothAdapterMonitor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -81,5 +84,8 @@
       <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BT\" />
   </ItemGroup>
 </Project>

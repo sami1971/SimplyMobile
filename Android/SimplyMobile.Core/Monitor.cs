@@ -73,7 +73,8 @@ namespace SimplyMobile.Core
         /// </summary>
         public virtual void Stop()
         {
-            this.Active = this.UnregisterReceiver();
+            this.UnregisterReceiver();
+			this.Active = false;
         }
 
         protected void ReportException(Exception exception)

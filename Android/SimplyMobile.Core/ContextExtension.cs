@@ -23,19 +23,12 @@ namespace SimplyMobile.Core
     {
         public static Intent RegisterReceiver(this object o, BroadcastReceiver receiver, IntentFilter intentFilter)
         {
-            var context = DependencyResolver.Current.GetService<Application>();
-            return context == null ? null : context.RegisterReceiver(receiver, intentFilter);
+			return Application.Context.RegisterReceiver(receiver, intentFilter);
         }
 
-        public static bool UnregisterReceiver(this Monitor monitor)
+		public static void UnregisterReceiver(this BroadcastReceiver receiver)
         {
-            var context = DependencyResolver.Current.GetService<Application>();
-            if (context != null)
-            {
-                context.UnregisterReceiver(monitor);
-                return true;
-            }
-            return false;
+			Application.Context.UnregisterReceiver(receiver);
         }
     }
 }

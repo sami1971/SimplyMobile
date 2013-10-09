@@ -81,7 +81,7 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="ServiceStack.Text.MonoTouch">
-      <HintPath>..\..\Plugins\SimplyMobile.Text.ServiceStack\libs\ServiceStack.Text.MonoTouch.dll</HintPath>
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.MonoTouch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

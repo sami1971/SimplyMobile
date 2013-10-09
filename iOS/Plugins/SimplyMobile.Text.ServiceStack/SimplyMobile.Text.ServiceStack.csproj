@@ -46,14 +46,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.Text.MonoTouch">
-      <HintPath>libs\ServiceStack.Text.MonoTouch.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="ServiceStack.Text.MonoTouch">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

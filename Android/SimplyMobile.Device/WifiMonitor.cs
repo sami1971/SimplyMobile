@@ -23,8 +23,7 @@ namespace SimplyMobile.Device
 {
     public partial class WifiMonitor : Monitor
     {
-        private Context context;
-        private WifiManager wifiManager;
+//        private WifiManager wifiManager;
 
         private const string Intent = "android.net.wifi.WIFI_STATE_CHANGED";
 
@@ -32,11 +31,7 @@ namespace SimplyMobile.Device
         {
             get
             {
-                wifiManager = wifiManager ?? DependencyResolver.Current.GetService<WifiManager>();
-                if (wifiManager == null && (context = context ?? DependencyResolver.Current.GetService<Application>()) != null)
-                {
-                    wifiManager = context.GetSystemService(Context.WifiService) as WifiManager;
-                }
+                var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
                 return wifiManager != null && wifiManager.IsWifiEnabled;
             }
         }
@@ -50,8 +45,8 @@ namespace SimplyMobile.Device
 
             try
             {
-                var localWifiManager = context.GetSystemService(Context.WifiService) as WifiManager;
-                return localWifiManager != null && localWifiManager.SetWifiEnabled(enabled);
+				var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
+				return wifiManager != null && wifiManager.SetWifiEnabled(enabled);
             }
             catch (Exception exception)
             {
@@ -62,9 +57,9 @@ namespace SimplyMobile.Device
 
         public override void OnReceive(Context context, Intent intent)
         {
-            if (intent.Action.Equals(Intent) && this.OnStatusChange != null)
+            if (intent.Action.Equals(Intent))
             {
-                this.OnStatusChange(this, new EventArgs<bool>(this.Enabled));
+                this.OnStatusChange.Invoke(this, this.Enabled);
             }
         }
 

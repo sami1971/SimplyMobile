@@ -37,14 +37,13 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="ServiceStack.Text">
-      <HintPath>libs\ServiceStack.Text.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ServiceStack\JsonSerializer.cs">
