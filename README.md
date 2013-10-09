@@ -11,7 +11,7 @@ Example use of the static Battery class is the same from iOS, Android and WP8:
 
 	var currentBatteryLevel = Battery.Level; // returns a unified 0-100 based on the battery level
 
-	BatteryLevel.OnLevelChange += (sender, level) => {...subscribes to level change events...};
+	Battery.OnLevelChange += (sender, level) => {...subscribes to level change events...};
 
 One of the most helpful classes is a data source designed to work with the base data observers (UITableView, ListView etc).
 On Windows platforms many controls already use ObservableCollection as their data source so it was the natural base for
