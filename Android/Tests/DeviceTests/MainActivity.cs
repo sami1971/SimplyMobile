@@ -78,13 +78,17 @@ namespace DeviceTests
 		{
 			base.OnResume ();
 
+			// Get initial level, 0-100
 			this.batteryLevel.Text = Battery.Level.ToString();
 
+			// Subscribe to level changes. 
 			Battery.OnLevelChange += HandleOnLevelChange;
 
-			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
-
+			// Get the initial charger connection status
 			this.chargerState.Checked = Battery.Charging;
+
+			// Subscribe to charger status changes.
+			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
 
 			Accelometer.ReadingAvailable += HandleReadingAvailable;
 

@@ -65,7 +65,7 @@ namespace SimplyMobile.Device
         }
 
         /// <summary>
-        /// Gets the level.
+        /// Gets the level percentage from 0-100.
         /// </summary>
         /// <value>
         /// The level.

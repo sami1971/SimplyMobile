@@ -29,6 +29,7 @@ namespace SimplyMobile.Device
         {
             add
             {
+				// if this is the first subscriber lets start the monitoring
                 if (onLevelChange == null)
                 {
                     StartLevelMonitoring();
@@ -38,6 +39,7 @@ namespace SimplyMobile.Device
             remove 
             { 
                 onLevelChange -= value;
+				// if this is the last client then we want to stop monitoring
                 if (onLevelChange == null)
                 {
                     StopLevelMonitoring();
@@ -87,13 +89,11 @@ namespace SimplyMobile.Device
         /// <summary>
         /// Private event handler for battery level changes. 
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
         private static event EventHandler<EventArgs<int>> onLevelChange;
 
         /// <summary>
         /// Private event handler for charger connection changes. 
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
         private static event EventHandler<EventArgs<bool>> onChargerStatusChanged;
 
         /// <summary>

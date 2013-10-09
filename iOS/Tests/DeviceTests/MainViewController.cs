@@ -73,15 +73,9 @@ namespace DeviceTests
 			this.batteryLevel.Text = Battery.Status.ToString();
 			Battery.OnLevelChange += HandleOnLevelChange;
 
-//			this.chargerStatus.On = Battery.Charging;
 			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
 
 			Accelometer.ReadingAvailable += HandleReadingAvailable;
-		}
-
-		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
-		{
-			this.accelerometerStatus.Text = e.Value.ToString ();
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -102,6 +96,11 @@ namespace DeviceTests
 		void HandleOnLevelChange (object sender, EventArgs<int> e)
 		{
 			this.batteryLevel.Text = Battery.Status.ToString ();
+		}
+
+		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
+		{
+			this.accelerometerStatus.Text = e.Value.ToString ();
 		}
 	}
 }
