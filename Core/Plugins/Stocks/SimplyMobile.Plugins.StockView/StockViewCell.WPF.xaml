@@ -1,0 +1,18 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WcfStockService="clr-namespace:SimplyMobile.Plugins.WcfStockService;assembly=SimplyMobile.Plugins.WcfStockService" x:Class="SimplyMobile.Plugins.StockView.StockViewCell" 
+             mc:Ignorable="d" Height="82.129" Width="469.962">
+    <Grid Margin="0,0,0,10">
+        <Grid.DataContext>
+            <WcfStockService:StockQuote/>
+        </Grid.DataContext>
+        <Label x:Name="labelName" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="449"/>
+        <Label Content="Last" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelLastPrice" Content="Label" HorizontalAlignment="Left" Margin="61,41,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="300,41,0,0" VerticalAlignment="Top" Width="159"/>
+
+    </Grid>
+</UserControl>
