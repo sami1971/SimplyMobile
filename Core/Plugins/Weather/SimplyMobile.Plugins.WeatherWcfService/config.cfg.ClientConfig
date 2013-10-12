@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IWeatherForecastService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.restfulwebservices.net/wcf/WeatherForecastService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWeatherForecastService"
+                contract="SimplyMobile.Plugins.WeatherWcfService.IWeatherForecastService"
+                name="BasicHttpBinding_IWeatherForecastService" />
+        </client>
+        <extensions />
+    </system.serviceModel>
+</configuration>
