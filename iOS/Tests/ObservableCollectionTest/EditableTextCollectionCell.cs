@@ -66,7 +66,7 @@ namespace ObservableCollectionTest
 			}
 			else if (e.PropertyName == "Checked" && this.switchCheck.On != this.editableText.Checked)
 			{
-				this.switchCheck.On = this.editableText.Checked;
+				this.textField.Enabled = this.switchCheck.On = this.editableText.Checked;
 			}
 		}
 	}

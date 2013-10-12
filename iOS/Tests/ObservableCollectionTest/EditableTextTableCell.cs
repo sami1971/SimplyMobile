@@ -1,5 +1,4 @@
 using System;
-using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
@@ -67,7 +66,7 @@ namespace ObservableCollectionTest
 			}
 			else if (e.PropertyName == "Checked" && this.switchCheck.On != this.editableText.Checked)
 			{
-				this.switchCheck.On = this.editableText.Checked;
+				this.textField.Enabled = this.switchCheck.On = this.editableText.Checked;
 			}
 		}
 	}

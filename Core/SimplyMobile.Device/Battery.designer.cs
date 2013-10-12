@@ -15,7 +15,6 @@
 //
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
