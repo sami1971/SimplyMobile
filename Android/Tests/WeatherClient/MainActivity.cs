@@ -11,7 +11,7 @@ using System.Threading;
 namespace WeatherClient
 {
 	[Activity (Label = "WeatherClient", MainLauncher = true)]
-	public class MainActivity : Activity
+	public class MainActivity : Activity, IProgress<Exception>
 	{
 
 		protected override void OnCreate (Bundle bundle)
@@ -43,18 +43,35 @@ namespace WeatherClient
 
 		async void HandleClick (object sender, EventArgs e)
 		{
-
 			var weatherService = new WeatherService();
 			var country = "FINLAND";
-			var cities = await weatherService.GetCitiesByCountryAsync(country);
+			var cities = await weatherService.GetCitiesByCountryAsync(country, this);
 
 			foreach (var city in cities)
 			{
-				Console.WriteLine(city);
-//				var weather = await weatherService.GetWeatherAsync (country, city);		
-//				System.Diagnostics.Debug.WriteLine(weather);
+				System.Diagnostics.Debug.WriteLine(city);
+				var weather = await weatherService.GetWeatherAsync (country, city, this);
+				if (weather != null)
+				{
+					System.Diagnostics.Debug.WriteLine(weather);
+				}
 			}
 		}
+
+		#region IProgress implementation
+
+		public void Report (Exception value)
+		{
+			var e = value;
+
+			while (e != null)
+			{
+				Console.WriteLine (e.Message);
+				e = e.InnerException;
+			}
+		}
+
+		#endregion
 	}
 }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SimplyMobile.Plugins.WeatherWcfService
 {
@@ -7,25 +8,44 @@ namespace SimplyMobile.Plugins.WeatherWcfService
 	{
 		public static void Main (string[] args)
 		{
-			IWeatherForecastService service = WeatherForecastServiceClient.Default;
-
-            AutoResetEvent e = new AutoResetEvent(false);
-
-			service.BeginGetCitiesByCountry (
-                "FINLAND", 
-                (r) =>
-				{
-					var cities = service.EndGetCitiesByCountry (r);
-                    foreach (var city in cities)
-                    {
-                        Console.WriteLine(city);
-                    }
-                    e.Set();
-				}, 
-				null);
-
-            e.WaitOne();								
+            MainAsync(args).Wait();								
 		}
-	
+
+        static async Task MainAsync(string[] args)
+        {
+			var eHandler = new ExceptionHandler ();
+
+            IWeatherService service = new WeatherService();
+
+            var w = await service.GetWeatherAsync("TAMPA", "USA", eHandler);
+
+            var country = "USA";
+			var cities = await service.GetCitiesByCountryAsync(country, eHandler);
+
+            foreach (var city in cities)
+            {
+				var weather = await service.GetWeatherAsync(city, country, eHandler);
+                if (weather != null)
+                {
+                    Console.WriteLine(weather.Time);
+                }
+            }
+        }
+
+		private class ExceptionHandler : IProgress<Exception>
+		{
+			#region IProgress implementation
+			public void Report (Exception value)
+			{
+				var e = value;
+
+				while (e != null)
+				{
+					Console.WriteLine (e.Message);
+					e = e.InnerException;
+				}
+			}
+			#endregion
+		}
 	}
 }

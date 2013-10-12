@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System;
 
 namespace SimplyMobile.Plugins.WeatherWcfService
 {
@@ -7,7 +8,7 @@ namespace SimplyMobile.Plugins.WeatherWcfService
     /// </summary>
     public interface IWeatherService
     {
-        Task<string[]> GetCitiesByCountryAsync(string country);
-        Task<Weather> GetWeatherAsync(string city, string country);
+        Task<string[]> GetCitiesByCountryAsync(string country, IProgress<Exception> progress);
+        Task<Weather> GetWeatherAsync(string city, string country, IProgress<Exception> progress);
     }
 }
