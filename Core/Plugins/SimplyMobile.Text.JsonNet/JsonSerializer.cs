@@ -33,6 +33,14 @@ namespace SimplyMobile.Text.JsonNet
     public class JsonSerializer : IJsonSerializer
     {
         /// <summary>
+        /// Gets the format.
+        /// </summary>
+        public Format Format
+        {
+            get { return Format.Json; }
+        }
+
+        /// <summary>
         /// Serializes object to a string
         /// </summary>
         /// <param name="obj">Object to serialize</param>

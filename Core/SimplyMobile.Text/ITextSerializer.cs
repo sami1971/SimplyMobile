@@ -13,43 +13,24 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
-using Serializer = ServiceStack.Text.JsonSerializer;
-
-namespace SimplyMobile.Text.ServiceStack
+namespace SimplyMobile.Text
 {
     /// <summary>
-    /// JSON serializer using ServiceStack.Text library
+    /// The TextSerializer interface.
     /// </summary>
-    /// <remarks>
-    /// 
-    /// ServiceStack.Text copyright information
-    /// 
-    /// Copyright (c) 2007-2011, Demis Bellot, ServiceStack.
-    /// http://www.servicestack.net
-    /// All rights reserved.
-    /// 
-    /// https://github.com/ServiceStack/ServiceStack.Text/blob/master/LICENSE
-    /// 
-    /// </remarks>
-    public class JsonSerializer : IJsonSerializer
+    public interface ITextSerializer
     {
         /// <summary>
-        /// Gets the format.
+        /// Text format
         /// </summary>
-        public Format Format
-        {
-            get { return Format.Json; }
-        }
+        Format Format { get; }
 
         /// <summary>
         /// Serializes object to a string
         /// </summary>
         /// <param name="obj">Object to serialize</param>
         /// <returns>Serialized string of the object</returns>
-        public string Serialize(object obj)
-        {
-            return Serializer.SerializeToString(obj);
-        }
+        string Serialize(object obj);
 
         /// <summary>
         /// Deserializes string into an object
@@ -57,9 +38,6 @@ namespace SimplyMobile.Text.ServiceStack
         /// <typeparam name="T">Type of object to serialize to</typeparam>
         /// <param name="data">Serialized object</param>
         /// <returns>Object of type T</returns>
-        public T Deserialize<T>(string data)
-        {
-            return Serializer.DeserializeFromString<T>(data);
-        }
+        T Deserialize<T>(string data);
     }
 }

@@ -16,10 +16,23 @@
 namespace SimplyMobile.Text
 {
     /// <summary>
-    /// JSON Serializer interface defines JSON (de)serialization functionality
+    /// The format.
     /// </summary>
-    public interface IJsonSerializer : ITextSerializer
+    public enum Format
     {
+        /// <summary>
+        /// XML format
+        /// </summary>
+        Xml,
 
+        /// <summary>
+        /// JSON format
+        /// </summary>
+        Json,
+
+        /// <summary>
+        /// Protocol Buffer format
+        /// </summary>
+        ProtoBuf
     }
 }

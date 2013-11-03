@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -5,16 +7,25 @@ using SimplyMobile.Plugins.StockView;
 
 namespace StockQuote
 {
-	[Activity (Label = "StockQuote", MainLauncher = true)]
-	public class MainActivity : Activity
-	{
+    /// <summary>
+    /// The main activity.
+    /// </summary>
+    [Activity (Label = "StockQuote", MainLauncher = true)]
+	public class MainActivity : Activity, IProgress<string>
+    {
 		private LinearLayout mainLayout;
 		private EditText textSymbol;
         private TextView textCurrent;
 	    private Button buttonGet;
 		private StockViewTable listStocks;
 
-		protected override void OnCreate (Bundle bundle)
+	    /// <summary>
+	    /// The on create.
+	    /// </summary>
+	    /// <param name="bundle">
+	    /// The bundle.
+	    /// </param>
+	    protected async override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
@@ -40,9 +51,8 @@ namespace StockQuote
 					this.textCurrent.Text = quote.Last;
 				}
 			};
-
 		}
-	}
+    }
 }
 
 
