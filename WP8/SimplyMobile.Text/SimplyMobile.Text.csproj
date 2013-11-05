@@ -83,8 +83,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Text\Format.cs">
+      <Link>Format.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Text\IJsonSerializer.cs">
       <Link>IJsonSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\ITextSerializer.cs">
+      <Link>ITextSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\JsonSerializerExtensions.cs">
+      <Link>JsonSerializerExtensions.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

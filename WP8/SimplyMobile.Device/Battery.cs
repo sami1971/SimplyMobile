@@ -20,6 +20,9 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
 {
+    /// <summary>
+    /// The battery class.
+    /// </summary>
     public static partial class Battery
     {
         /// <summary>

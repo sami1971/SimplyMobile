@@ -86,6 +86,9 @@
     <Compile Include="..\..\Core\SimplyMobile.Device\Battery.designer.cs">
       <Link>Battery.designer.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\BatteryStatus.cs">
+      <Link>BatteryStatus.cs</Link>
+    </Compile>
     <Compile Include="Battery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

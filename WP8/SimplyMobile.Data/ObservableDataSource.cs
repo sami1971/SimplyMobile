@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Data
 {
-    public partial class ObservableDataSource
+    public partial class ObservableDataSource<T>
     {
         /// <summary>
         /// The collection changed partial method must be implemented in the OS specific code.
