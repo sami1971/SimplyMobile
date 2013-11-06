@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F27E0D44-77AC-43F3-947C-75830043CEAD}</ProjectGuid>
+    <ProjectGuid>{676EC567-FCA1-4995-BA1B-119E35D92622}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimplyMobile.Text</RootNamespace>
-    <AssemblyName>SimplyMobile.Text</AssemblyName>
+    <RootNamespace>SimplyMobile.Text.ProtoBuffer</RootNamespace>
+    <AssemblyName>SimplyMobile.Text.ProtoBuffer</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -83,22 +83,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Text\Format.cs">
-      <Link>Format.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\IJsonSerializer.cs">
-      <Link>IJsonSerializer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\IProtoBufSerializer.cs">
-      <Link>IProtoBufSerializer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\ITextSerializer.cs">
-      <Link>ITextSerializer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\JsonSerializerExtensions.cs">
-      <Link>JsonSerializerExtensions.cs</Link>
+    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\ProtoBufferSerializer.cs">
+      <Link>ProtoBufferSerializer.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F27E0D44-77AC-43F3-947C-75830043CEAD}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\libs\protobuf-net\pcl\protobuf-net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

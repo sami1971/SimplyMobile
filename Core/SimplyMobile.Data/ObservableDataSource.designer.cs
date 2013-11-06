@@ -114,6 +114,7 @@ namespace SimplyMobile.Data
 		/// Unbind the specified observer.
 		/// </summary>
 		/// <param name="observer">Observer to unbind.</param>
+		/// <returns>true when unbind is successful, otherwise false</returns>
 		public bool Unbind(object observer)
 		{
 			return this.observers.Remove (observer);
