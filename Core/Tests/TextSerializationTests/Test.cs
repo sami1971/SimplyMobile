@@ -16,16 +16,16 @@ namespace TextSerializationTests
 				LastName = "Last"
 			};
 
-			person.Pets.Add (new Dog () { Name = "Shorthaired German Pointer" });
-			person.Pets.Add (new Cat () { Name = "Siamese" });
+//			person.Pets.Add (new Dog () { Name = "Shorthaired German Pointer" });
+//			person.Pets.Add (new Cat () { Name = "Siamese" });
 
 			var text = serializer.Serialize (person);
 
-//			Console.WriteLine (text);
+			Console.WriteLine (text);
 
 			var obj = serializer.Deserialize<Person> (text);
 
-//			Console.WriteLine (obj);
+			Console.WriteLine (obj);
 
 			return (obj.Equals(person));
 		}
@@ -65,6 +65,35 @@ namespace TextSerializationTests
 			for (var n = 0; n < numberOfIterations; n++)
 			{
 				serializer.Deserialize<Person> (str);
+			}
+			stopWatch.Stop ();
+			return stopWatch.ElapsedMilliseconds;
+		}
+
+		public static long GetSerializationSpeed(int numberOfIterations, ITextSerializer serializer, object o, out string text)
+		{
+			text = string.Empty;
+
+			var stopWatch = new Stopwatch ();
+			stopWatch.Start ();
+			for (var n = 0; n < numberOfIterations; n++)
+			{
+				text = serializer.Serialize (o);
+			}
+			stopWatch.Stop ();
+			return stopWatch.ElapsedMilliseconds;
+		}
+
+		public static long GetDeserializationSpeed<T>(int numberOfIterations, ITextSerializer serializer, T o, out T deserialized)
+		{
+			deserialized = default(T);
+			var str = serializer.Serialize (o);
+
+			var stopWatch = new Stopwatch ();
+			stopWatch.Start ();
+			for (var n = 0; n < numberOfIterations; n++)
+			{
+				deserialized = serializer.Deserialize<T> (str);
 			}
 			stopWatch.Stop ();
 			return stopWatch.ElapsedMilliseconds;

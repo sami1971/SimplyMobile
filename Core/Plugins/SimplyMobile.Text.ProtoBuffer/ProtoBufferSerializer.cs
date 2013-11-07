@@ -60,6 +60,7 @@ namespace SimplyMobile.Text.ProtoBuffer
             {
                 Model.Serialize(memStream, obj);
                 var buffer = new byte[memStream.Length];
+				memStream.Position = 0;
                 var count = memStream.Read(buffer, 0, buffer.Length);
                 return Encoding.UTF8.GetString(buffer, 0, count);
             }
@@ -82,6 +83,7 @@ namespace SimplyMobile.Text.ProtoBuffer
             {
                 var bytes = Encoding.UTF8.GetBytes(data);
                 memStream.Write(bytes, 0, bytes.Length);
+				memStream.Position = 0;
                 return (T)Model.Deserialize(memStream, null, typeof(T));
             }
         }

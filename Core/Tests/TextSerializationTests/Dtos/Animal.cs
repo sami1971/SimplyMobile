@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.Serialization;
 
 namespace TextSerializationTests
 {
+	[DataContract]
 	public abstract class Animal : IAnimal
 	{
+		[DataMemberAttribute(Order=1)]
 		public string Name { get; set; }
 
 		public abstract string MakeSound ();

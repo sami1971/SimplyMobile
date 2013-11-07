@@ -1,25 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace TextSerializationTests
 {
+	[DataContract]
 	public class Person : IEquatable<Person>
 	{
+		[DataMember(Order = 1)]
 		public long Id { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
 
-		public List<IAnimal> Pets { get; set; }
+		[DataMember(Order = 2)]
+		public string FirstName { get; set; }
+
+		[DataMember(Order = 3)]
+		public string LastName { get; set; }
 
 		public Person()
 		{
-			this.Pets = new List<IAnimal> ();
+
 		}		
 
 		public override string ToString ()
 		{
-			return string.Format ("[Person: Id={0}, FirstName={1}, LastName={2}, Pets={3}]", Id, FirstName, LastName, Pets);
+			return string.Format ("[Person: Id={0}, FirstName={1}, LastName={2}", Id, FirstName, LastName);
 		}
 
 		#region IEquatable implementation
@@ -34,7 +39,7 @@ namespace TextSerializationTests
 			return this.Id.GetHashCode () 
 				^ this.FirstName.GetHashCode ()
 					^ this.LastName.GetHashCode () 
-					^ this.Pets.GetHashCode ()
+//					^ this.Pets.GetHashCode ()
 					;
 		}
 
@@ -43,7 +48,7 @@ namespace TextSerializationTests
 			return this.Id == other.Id 
 				&& this.FirstName == other.FirstName 
 				&& this.LastName == other.LastName 
-					&& this.Pets.SequenceEqual(other.Pets)
+//					&& this.Pets.SequenceEqual(other.Pets)
 					;
 		}
 

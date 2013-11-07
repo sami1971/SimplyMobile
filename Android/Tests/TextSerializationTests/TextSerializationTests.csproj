@@ -83,6 +83,9 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackTests.cs">
       <Link>ServiceStackTests.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
+      <Link>ProtoBufTests.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -105,6 +108,10 @@
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
+      <Project>{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}</Project>
+      <Name>SimplyMobile.Text.ProtoBuffer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

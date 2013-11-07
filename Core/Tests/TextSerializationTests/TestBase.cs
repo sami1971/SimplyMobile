@@ -9,11 +9,11 @@ namespace TextSerializationTests
 	{
 		protected abstract ITextSerializer Serializer { get; }
 
-//		[Test ()]
-//		public void CanSerializeInterface ()
-//		{
-//			Assert.IsTrue(Test.CanSerialize(this.Serializer));
-//		}
+		[Test ()]
+		public void CanSerializeSimple ()
+		{
+			Assert.IsTrue(Test.CanSerialize(this.Serializer));
+		}
 
 		[Test()]
 		public void SerializationSpeed()
