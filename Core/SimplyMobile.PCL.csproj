@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{92561D40-441F-45BD-8148-06B510FFB37A}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SimplyMobile</RootNamespace>
+    <AssemblyName>SimplyMobile.PCL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile49</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Collections" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="SimplyMobile.Core\" />
+    <Folder Include="SimplyMobile.Text\" />
+    <Folder Include="SimplyMobile.Web\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SimplyMobile.Core\DependencyResolver.cs" />
+    <Compile Include="SimplyMobile.Core\EventArgs.cs" />
+    <Compile Include="SimplyMobile.Core\EventExtensions.cs" />
+    <Compile Include="SimplyMobile.Core\IDependencyResolver.cs" />
+    <Compile Include="SimplyMobile.Core\IMonitor.cs" />
+    <Compile Include="SimplyMobile.Core\MobileApp.designer.cs" />
+    <Compile Include="SimplyMobile.Core\Monitor.cs" />
+    <Compile Include="SimplyMobile.Text\Format.cs" />
+    <Compile Include="SimplyMobile.Text\IJsonSerializer.cs" />
+    <Compile Include="SimplyMobile.Text\IProtoBufSerializer.cs" />
+    <Compile Include="SimplyMobile.Text\ITextSerializer.cs" />
+    <Compile Include="SimplyMobile.Text\JsonSerializerExtensions.cs" />
+    <Compile Include="SimplyMobile.Web\JsonHttpClient.cs" />
+    <Compile Include="SimplyMobile.Web\RestClient.cs" />
+    <Compile Include="SimplyMobile.Web\ServiceResponse.cs" />
+  </ItemGroup>
+</Project>

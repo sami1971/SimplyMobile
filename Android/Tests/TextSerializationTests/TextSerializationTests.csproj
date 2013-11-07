@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3B1EC46-1514-4201-9938-D5F0A3259FD6}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{F278D4AB-4730-4720-B08E-FE5E31564D9E};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TextSerializationTests</RootNamespace>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>TextSerializationTests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Android.NUnitLite" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.Data" />
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="Mono.Data.Tds" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetTests.cs">
+      <Link>JsonNetTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Test.cs">
+      <Link>Test.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\TestBase.cs">
+      <Link>TestBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Animal.cs">
+      <Link>Dtos\Animal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Cat.cs">
+      <Link>Dtos\Cat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Dog.cs">
+      <Link>Dtos\Dog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\IAnimal.cs">
+      <Link>Dtos\IAnimal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Person.cs">
+      <Link>Dtos\Person.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackTests.cs">
+      <Link>ServiceStackTests.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{8FA34108-1479-4C5F-A598-1FDE42CEB02F}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+  </ItemGroup>
+</Project>

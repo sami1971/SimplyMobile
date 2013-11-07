@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
-      <InstallationInProgress>False</InstallationInProgress>
       <Version>4.5.11</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>

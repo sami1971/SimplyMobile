@@ -39,10 +39,8 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.Android.dll</HintPath>
+      <HintPath>..\..\..\libs\ServiceStack\Android\ServiceStack.Text.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,7 @@ namespace SimplyMobile.Text
 		/// </summary>
 		/// <param name="obj">Object to serialize.</param>
 		/// <param name="stream">Stream.</param>
-		public static void SerializeToStream (this IJsonSerializer serializer, object obj, Stream stream)
+		public static void SerializeToStream (this ITextSerializer serializer, object obj, Stream stream)
 		{
 			using (var streamWriter = new StreamWriter(stream))
 			{
@@ -42,7 +42,7 @@ namespace SimplyMobile.Text
 		/// <returns>The from stream.</returns>
 		/// <param name="stream">Stream.</param>
 		/// <typeparam name="T">The type of object to deserialize.</typeparam>
-		public static T DeserializeFromStream<T>(this IJsonSerializer serializer, Stream stream)
+		public static T DeserializeFromStream<T>(this ITextSerializer serializer, Stream stream)
 		{
 			using (var streamReader = new StreamReader(stream))
 			{
@@ -56,7 +56,7 @@ namespace SimplyMobile.Text
 		/// </summary>
 		/// <param name="obj">Object to serialize.</param>
 		/// <param name="writer">Writer.</param>
-		public static void SerializeToWriter(this IJsonSerializer serializer, object obj, TextWriter writer)
+		public static void SerializeToWriter(this ITextSerializer serializer, object obj, TextWriter writer)
 		{
 			writer.Write (serializer.Serialize (obj));
 		}
@@ -66,7 +66,7 @@ namespace SimplyMobile.Text
 		/// </summary>
 		/// <returns>The serialized object from reader.</returns>
 		/// <param name="reader">Reader to deserialize from.</param>
-		public static T DeserializeFromReader<T>(this IJsonSerializer serializer, TextReader reader)
+		public static T DeserializeFromReader<T>(this ITextSerializer serializer, TextReader reader)
 		{
 			return serializer.Deserialize<T> (reader.ReadToEnd ());
 		}
