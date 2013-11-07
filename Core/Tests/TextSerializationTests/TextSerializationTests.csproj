@@ -48,6 +48,8 @@
     <Compile Include="ServiceStackTests.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="ProtoBufTests.cs" />
+    <Compile Include="Dtos\Primitives.cs" />
+    <Compile Include="Dtos\DateTimeDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

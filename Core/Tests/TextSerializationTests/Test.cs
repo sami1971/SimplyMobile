@@ -7,27 +7,20 @@ namespace TextSerializationTests
 {
 	public static class Test
 	{
-		public static bool CanSerialize (ITextSerializer serializer)
+		public static bool CanSerialize<T> (ITextSerializer serializer, T item)
 		{
-			var person = new Person () 
-			{
-				Id = 0,
-				FirstName = "First",
-				LastName = "Last"
-			};
-
 //			person.Pets.Add (new Dog () { Name = "Shorthaired German Pointer" });
 //			person.Pets.Add (new Cat () { Name = "Siamese" });
 
-			var text = serializer.Serialize (person);
+			var text = serializer.Serialize (item);
 
 			Console.WriteLine (text);
 
-			var obj = serializer.Deserialize<Person> (text);
+			var obj = serializer.Deserialize<T> (text);
 
 			Console.WriteLine (obj);
 
-			return (obj.Equals(person));
+			return (obj.Equals(item));
 		}
 
 		public static long GetSerializationSpeed(int numberOfIterations, ITextSerializer serializer)
