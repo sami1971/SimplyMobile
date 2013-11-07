@@ -47,6 +47,9 @@
     <Compile Include="..\..\Core\SimplyMobile.Text\JsonSerializerExtensions.cs">
       <Link>JsonSerializerExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\IProtoBufSerializer.cs">
+      <Link>IProtoBufSerializer.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

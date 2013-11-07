@@ -40,8 +40,6 @@ namespace TextSerializationTests
 
 		public bool Equals (Person other)
 		{
-			Console.WriteLine (this);
-			Console.WriteLine (other);
 			return this.Id == other.Id 
 				&& this.FirstName == other.FirstName 
 				&& this.LastName == other.LastName 

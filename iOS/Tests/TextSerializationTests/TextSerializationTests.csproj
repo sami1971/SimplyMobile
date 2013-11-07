@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CBA66080-43E4-4F7A-83DA-D51B1C43C650}</ProjectGuid>
+    <ProjectGuid>{9FC56C0E-42CE-41AF-9999-1DDFCF36F64A}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StockQuote</RootNamespace>
+    <RootNamespace>TextSerializationTests</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>StockQuote</AssemblyName>
+    <AssemblyName>TextSerializationTests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,12 +20,10 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchI18n>
-    </MtouchI18n>
-    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -35,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,9 +43,12 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchDebug>true</MtouchDebug>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Info.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseThumb>true</MtouchUseThumb>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchI18n>
@@ -58,8 +60,13 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
     <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseThumb>true</MtouchUseThumb>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -67,10 +74,11 @@
     <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <BuildIpa>true</BuildIpa>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>full</DebugType>
@@ -79,6 +87,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <ConsolePause>false</ConsolePause>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
@@ -87,73 +96,59 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="CorePlotiOS">
-      <HintPath>..\..\Components\coreplot-0.9.2.4\lib\ios\CorePlotiOS.dll</HintPath>
-    </Reference>
+    <Reference Include="MonoTouch.NUnitLite" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Dtos\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="StockDataAdapter.cs" />
-    <None Include="StockTableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="NavigationController.cs" />
-    <Compile Include="SimpleStockQuoteController.cs" />
-    <Compile Include="SimpleStockQuoteController.designer.cs">
-      <DependentUpon>SimpleStockQuoteController.cs</DependentUpon>
+    <Compile Include="UnitTestAppDelegate.cs" />
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetTests.cs">
+      <Link>JsonNetTests.cs</Link>
     </Compile>
-    <Compile Include="StockTableViewController.cs" />
-    <Compile Include="StockTableViewController.designer.cs">
-      <DependentUpon>StockTableViewController.cs</DependentUpon>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackTests.cs">
+      <Link>ServiceStackTests.cs</Link>
     </Compile>
-    <Compile Include="StockCell.cs" />
-    <Compile Include="StockCell.designer.cs">
-      <DependentUpon>StockCell.cs</DependentUpon>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Test.cs">
+      <Link>Test.cs</Link>
     </Compile>
-    <Compile Include="StockTableView_iPhone.cs" />
-    <Compile Include="StockTableView_iPad.cs" />
-    <Compile Include="PlotView.cs" />
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\TestBase.cs">
+      <Link>TestBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Animal.cs">
+      <Link>Dtos\Animal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Cat.cs">
+      <Link>Dtos\Cat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Dog.cs">
+      <Link>Dtos\Dog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\IAnimal.cs">
+      <Link>Dtos\IAnimal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Person.cs">
+      <Link>Dtos\Person.cs</Link>
+    </Compile>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <InterfaceDefinition Include="SimpleStockQuoteController_iPhone.xib" />
-    <InterfaceDefinition Include="SimpleStockQuoteController_iPad.xib" />
-    <InterfaceDefinition Include="StockTableViewController_iPhone.xib" />
-    <InterfaceDefinition Include="StockTableViewController_iPad.xib" />
-    <InterfaceDefinition Include="StockCell_iPhone.xib" />
-    <InterfaceDefinition Include="StockCell_iPad.xib" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\.DS_Store" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.StockView\SimplyMobile.Plugins.StockView.iOS.csproj">
-      <Project>{1549AFBD-753D-4C14-876D-531FCDB9C9A4}</Project>
-      <Name>SimplyMobile.Plugins.StockView.iOS</Name>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</Project>
+      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\Stocks\SimplyMobile.Plugins.WcfStockService\SimplyMobile.Plugins.WcfStockService.iOS.csproj">
-      <Project>{11AC1268-5A69-45B7-B5BD-5D459B582024}</Project>
-      <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{27EEB861-E72C-4190-9928-B8FBE6450909}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
-      <Name>SimplyMobile.Core</Name>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
-      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
-      <Name>SimplyMobile.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="coreplot">
-      <Version>0.9.2.4</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
   </ItemGroup>
 </Project>
