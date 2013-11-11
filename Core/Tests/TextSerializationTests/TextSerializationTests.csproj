@@ -50,6 +50,10 @@
     <Compile Include="ProtoBufTests.cs" />
     <Compile Include="Dtos\Primitives.cs" />
     <Compile Include="Dtos\DateTimeDto.cs" />
+    <Compile Include="SanityCheckTests.cs" />
+    <Compile Include="JsonNetSanity.cs" />
+    <Compile Include="ServiceStackSanityTests.cs" />
+    <Compile Include="ProtoBufSanityTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

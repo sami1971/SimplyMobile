@@ -77,16 +77,15 @@ namespace TextSerializationTests
 			return stopWatch.ElapsedMilliseconds;
 		}
 
-		public static long GetDeserializationSpeed<T>(int numberOfIterations, ITextSerializer serializer, T o, out T deserialized)
+		public static long GetDeserializationSpeed<T>(int numberOfIterations, ITextSerializer serializer, string text, out T deserialized)
 		{
 			deserialized = default(T);
-			var str = serializer.Serialize (o);
 
 			var stopWatch = new Stopwatch ();
 			stopWatch.Start ();
 			for (var n = 0; n < numberOfIterations; n++)
 			{
-				deserialized = serializer.Deserialize<T> (str);
+				deserialized = serializer.Deserialize<T> (text);
 			}
 			stopWatch.Stop ();
 			return stopWatch.ElapsedMilliseconds;

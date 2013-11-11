@@ -14,6 +14,8 @@
 //    limitations under the License.
 //
 using Serializer = ServiceStack.Text.JsonSerializer;
+using JsConfig = ServiceStack.Text.JsConfig;
+using JsonDateHandler = ServiceStack.Text.JsonDateHandler;
 
 namespace SimplyMobile.Text.ServiceStack
 {
@@ -40,6 +42,11 @@ namespace SimplyMobile.Text.ServiceStack
         {
             get { return Format.Json; }
         }
+
+		public JsonSerializer()
+		{
+			JsConfig.DateHandler = JsonDateHandler.ISO8601;
+		}
 
         /// <summary>
         /// Serializes object to a string

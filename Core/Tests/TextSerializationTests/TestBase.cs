@@ -10,18 +10,6 @@ namespace TextSerializationTests
 	{
 		protected abstract ITextSerializer Serializer { get; }
 
-		[Test ()]
-		public void CanSerializeSimple ()
-		{
-			var person = new Person () 
-			{
-				Id = 0,
-				FirstName = "First",
-				LastName = "Last"
-			};
-			Assert.IsTrue(Test.CanSerialize<Person>(this.Serializer, person));
-		}
-		
 		[Test()]
 		public void SerializationSpeed()
 		{
@@ -47,33 +35,27 @@ namespace TextSerializationTests
 		}
 
 		[Test()]
-		public void CanSerializePrimitive()
-		{
-			var p = Primitives.Create (10);
-			Assert.IsTrue(Test.CanSerialize<Primitives>(this.Serializer, p));
-		}
-
-		[Test()]
-		public void CanSerializeDates()
-		{
-			var p = DateTimeDto.Create (101);
-			Assert.IsTrue(Test.CanSerialize<DateTimeDto>(this.Serializer, p));
-		}
-
-		[Test()]
 		public void SerializationSpeedPrimitives()
 		{
 			string ret;
 			var serializer = this.Serializer;
 			var count = 1;
 			var o = new List<Primitives> ();
-			for (int n = int.MinValue; n < int.MaxValue; n++)
+			for (int n = 100; n < 100000; n++)
 			{
 				o.Add (Primitives.Create (n));
 			}
 
 			var elapsedMs = Test.GetSerializationSpeed (count, serializer, o, out ret);
 			Console.WriteLine ("{0} took {1}ms serializing {2} iterations.",
+			                   serializer,
+			                   elapsedMs,
+			                   count);
+
+			List<Primitives> outValue;
+
+			elapsedMs = Test.GetDeserializationSpeed<List<Primitives>> (count, serializer, ret, out outValue);
+			Console.WriteLine ("{0} took {1}ms deserializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
 			                   count);
@@ -86,13 +68,21 @@ namespace TextSerializationTests
 			var serializer = this.Serializer;
 			var count = 1;
 			var o = new List<DateTimeDto> ();
-			for (int n = int.MinValue; n < int.MaxValue; n++)
+			for (int n = 100; n < 10000; n++)
 			{
 				o.Add (DateTimeDto.Create (n));
 			}
 
 			var elapsedMs = Test.GetSerializationSpeed (count, serializer, o, out ret);
 			Console.WriteLine ("{0} took {1}ms serializing {2} iterations.",
+			                   serializer,
+			                   elapsedMs,
+			                   count);
+
+			List<DateTimeDto> outValue;
+
+			elapsedMs = Test.GetDeserializationSpeed<List<DateTimeDto>> (count, serializer, ret, out outValue);
+			Console.WriteLine ("{0} took {1}ms deserializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
 			                   count);

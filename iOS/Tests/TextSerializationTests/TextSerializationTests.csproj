@@ -139,6 +139,24 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
       <Link>ProtoBufTests.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DateTimeDto.cs">
+      <Link>Dtos\DateTimeDto.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Primitives.cs">
+      <Link>Dtos\Primitives.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
+      <Link>JsonNetSanity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
+      <Link>ProtoBufSanityTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\SanityCheckTests.cs">
+      <Link>SanityCheckTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSanityTests.cs">
+      <Link>ServiceStackSanityTests.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
