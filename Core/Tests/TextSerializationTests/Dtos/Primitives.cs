@@ -39,7 +39,7 @@ namespace TextSerializationTests
 				Boolean = i % 2 == 0,
 			};
 
-			p.String = p.ToString ();
+			p.String = p.ToString();
 
 			return p;
 		}

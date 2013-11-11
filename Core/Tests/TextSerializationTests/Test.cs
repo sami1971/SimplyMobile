@@ -1,11 +1,10 @@
-using NUnit.Framework;
 using System;
-using SimplyMobile.Text;
 using System.Diagnostics;
+using SimplyMobile.Text;
 
 namespace TextSerializationTests
 {
-	public static class Test
+	public static class TestMethods
 	{
 		public static bool CanSerialize<T> (ITextSerializer serializer, T item)
 		{

@@ -1,21 +1,34 @@
-using NUnit.Framework;
 using System;
 using SimplyMobile.Text;
 using System.Collections.Generic;
 
+#if WINDOWS_PHONE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
+using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
+#else
+using NUnit.Framework;
+#endif
+
 namespace TextSerializationTests
 {
-	[TestFixture ()]
+    /// <summary>
+    /// The test base to use with custom serializers.
+    /// </summary>
+    [TestFixture ()]
 	public abstract class TestBase
 	{
-		protected abstract ITextSerializer Serializer { get; }
+	    /// <summary>
+	    /// Gets the serializer to use.
+	    /// </summary>
+	    protected abstract ITextSerializer Serializer { get; }
 
 		[Test()]
 		public void SerializationSpeed()
 		{
 			var serializer = this.Serializer;
 			var count = 10000;
-			var elapsedMs = Test.GetSerializationSpeed (count, serializer);
+			var elapsedMs = TestMethods.GetSerializationSpeed (count, serializer);
 			Console.WriteLine ("{0} took {1}ms serializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
@@ -27,7 +40,7 @@ namespace TextSerializationTests
 		{
 			var serializer = this.Serializer;
 			var count = 10000;
-			var elapsedMs = Test.GetDeserializationSpeed (count, serializer);
+			var elapsedMs = TestMethods.GetDeserializationSpeed (count, serializer);
 			Console.WriteLine ("{0} took {1}ms deserializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
@@ -41,12 +54,12 @@ namespace TextSerializationTests
 			var serializer = this.Serializer;
 			var count = 1;
 			var o = new List<Primitives> ();
-			for (int n = 100; n < 100000; n++)
+			for (int n = 100; n < 1000; n++)
 			{
 				o.Add (Primitives.Create (n));
 			}
 
-			var elapsedMs = Test.GetSerializationSpeed (count, serializer, o, out ret);
+			var elapsedMs = TestMethods.GetSerializationSpeed (count, serializer, o, out ret);
 			Console.WriteLine ("{0} took {1}ms serializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
@@ -54,7 +67,7 @@ namespace TextSerializationTests
 
 			List<Primitives> outValue;
 
-			elapsedMs = Test.GetDeserializationSpeed<List<Primitives>> (count, serializer, ret, out outValue);
+			elapsedMs = TestMethods.GetDeserializationSpeed<List<Primitives>> (count, serializer, ret, out outValue);
 			Console.WriteLine ("{0} took {1}ms deserializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
@@ -67,13 +80,13 @@ namespace TextSerializationTests
 			string ret;
 			var serializer = this.Serializer;
 			var count = 1;
-			var o = new List<DateTimeDto> ();
-			for (int n = 100; n < 10000; n++)
+			var o = new List<DateTimeDto>();
+			for (var n = 100; n < 1000; n++)
 			{
-				o.Add (DateTimeDto.Create (n));
+				o.Add(DateTimeDto.Create(n));
 			}
 
-			var elapsedMs = Test.GetSerializationSpeed (count, serializer, o, out ret);
+			var elapsedMs = TestMethods.GetSerializationSpeed (count, serializer, o, out ret);
 			Console.WriteLine ("{0} took {1}ms serializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,
@@ -81,7 +94,7 @@ namespace TextSerializationTests
 
 			List<DateTimeDto> outValue;
 
-			elapsedMs = Test.GetDeserializationSpeed<List<DateTimeDto>> (count, serializer, ret, out outValue);
+			elapsedMs = TestMethods.GetDeserializationSpeed<List<DateTimeDto>> (count, serializer, ret, out outValue);
 			Console.WriteLine ("{0} took {1}ms deserializing {2} iterations.",
 			                   serializer,
 			                   elapsedMs,

@@ -1,6 +1,13 @@
 using System;
-using NUnit.Framework;
 using SimplyMobile.Text;
+
+#if WINDOWS_PHONE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
+using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
+#else
+using NUnit.Framework;
+#endif
 
 namespace TextSerializationTests
 {
@@ -13,17 +20,31 @@ namespace TextSerializationTests
 		public void CanSerializePrimitive()
 		{
 			var p = Primitives.Create (10);
-			Assert.IsTrue(Test.CanSerialize<Primitives>(this.Serializer, p));
+			Assert.IsTrue(TestMethods.CanSerialize<Primitives>(this.Serializer, p));
 		}
+
+        [Test()]
+        public void CanSerializeDateTime()
+        {
+            var p = DateTime.Now;
+            Assert.IsTrue(TestMethods.CanSerialize<DateTime>(this.Serializer, p));
+        }
+
+        [Test()]
+        public void CanSerializeDateTimeOffset()
+        {
+            var p = new DateTimeOffset(DateTime.Now);
+            Assert.IsTrue(TestMethods.CanSerialize<DateTimeOffset>(this.Serializer, p));
+        }
 
 		[Test()]
 		public void CanSerializeDates()
 		{
 			var p = DateTimeDto.Create (101);
-			Assert.IsTrue(Test.CanSerialize<DateTimeDto>(this.Serializer, p));
+			Assert.IsTrue(TestMethods.CanSerialize<DateTimeDto>(this.Serializer, p));
 		}
 
-		[Test ()]
+		[Test()]
 		public void CanSerializeSimple ()
 		{
 			var person = new Person () 
@@ -32,7 +53,7 @@ namespace TextSerializationTests
 				FirstName = "First",
 				LastName = "Last"
 			};
-			Assert.IsTrue(Test.CanSerialize<Person>(this.Serializer, person));
+			Assert.IsTrue(TestMethods.CanSerialize<Person>(this.Serializer, person));
 		}
 	}
 }

@@ -104,7 +104,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WcfStockService\StockQuoteService.disco" />
-    <Content Include="ServiceReferences.ClientConfig" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Service References\WcfStockService\StockQuoteService3.xsd">
       <SubType>Designer</SubType>
     </None>

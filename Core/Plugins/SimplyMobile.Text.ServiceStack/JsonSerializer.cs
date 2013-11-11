@@ -43,7 +43,10 @@ namespace SimplyMobile.Text.ServiceStack
             get { return Format.Json; }
         }
 
-		public JsonSerializer()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonSerializer"/> class.
+        /// </summary>
+        public JsonSerializer()
 		{
 			JsConfig.DateHandler = JsonDateHandler.ISO8601;
 		}
