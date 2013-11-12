@@ -17,6 +17,8 @@ namespace TextSerializationTests
 	public class ProtoBufSanityTests : SanityCheckTests
 	{
 		protected override ITextSerializer Serializer { get { return new ProtoBufferSerializer (); } }
+
+        protected override ITextSerializer Deserializer { get { return new ProtoBufferSerializer(); } }
 	}
 }
 

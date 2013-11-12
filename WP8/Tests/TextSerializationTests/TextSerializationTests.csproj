@@ -94,6 +94,9 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
       <Link>JsonNetSanity.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSerializerServiceStackDeserializer.cs">
+      <Link>JsonNetSerializerServiceStackDeserializer.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetTests.cs">
       <Link>JsonNetTests.cs</Link>
     </Compile>
@@ -109,6 +112,9 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSanityTests.cs">
       <Link>ServiceStackSanityTests.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSerializerJsonNetDeserializer.cs">
+      <Link>ServiceStackSerializerJsonNetDeserializer.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackTests.cs">
       <Link>ServiceStackTests.cs</Link>
     </Compile>
@@ -122,7 +128,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -15,6 +15,8 @@ namespace TextSerializationTests
 	public class ServiceStackTests : TestBase
 	{
 		protected override  ITextSerializer Serializer { get { return new JsonSerializer (); } }
+
+        protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
 	}
 }
 
