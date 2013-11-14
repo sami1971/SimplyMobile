@@ -54,8 +54,7 @@ namespace SimplyMobile.Plugins.WcfStockService
 
         public System.Threading.Tasks.Task<StockQuote> GetStockQuoteAsync(string request)
         {
-            //return base.Channel.GetStockQuoteAsync(request);
-			return Task.Factory.StartNew (() => { return GetStockQuote(request); } );
+            return Task.Factory.StartNew(() => this.GetStockQuote(request));
         }
 
         public StockQuote[] GetWorldMajorIndices()
@@ -65,7 +64,7 @@ namespace SimplyMobile.Plugins.WcfStockService
 
         public System.Threading.Tasks.Task<StockQuote[]> GetWorldMajorIndicesAsync()
         {
-			return Task.Factory.StartNew ((Func<StockQuote[]>)GetWorldMajorIndices);
+            return Task.Factory.StartNew((Func<StockQuote[]>)this.GetWorldMajorIndices);
         }
     }
 

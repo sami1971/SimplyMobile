@@ -3,13 +3,21 @@ using System.Net;
 
 namespace SimplyMobile.Web
 {
-	public class ServiceResponse<T>
+    /// <summary>
+    /// The service response.
+    /// </summary>
+    /// <typeparam name="T">
+    /// Type of DTO to expect from service
+    /// </typeparam>
+    public class ServiceResponse<T>
 	{
 		public HttpStatusCode StatusCode { get; private set; }
 
-		public T Value { get; private set; }
+		public T Value { get; internal set; }
 
-		public Exception Error { get; private set; }
+        public string Content { get; internal set; }
+
+        public Exception Error { get; internal set; }
 
 		public ServiceResponse (T value, HttpStatusCode statusCode)
 		{

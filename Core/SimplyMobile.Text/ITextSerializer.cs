@@ -21,7 +21,7 @@ namespace SimplyMobile.Text
     public interface ITextSerializer
     {
         /// <summary>
-        /// Text format
+        /// Gets the text format
         /// </summary>
         Format Format { get; }
 

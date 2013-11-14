@@ -1,5 +1,4 @@
-﻿//
-//  Copyright 2013, Sami M. Kallio
+﻿//  Copyright 2013, Sami M. Kallio
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,10 +11,9 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-//
-using Serializer = ServiceStack.Text.JsonSerializer;
 using JsConfig = ServiceStack.Text.JsConfig;
 using JsonDateHandler = ServiceStack.Text.JsonDateHandler;
+using Serializer = ServiceStack.Text.JsonSerializer;
 
 namespace SimplyMobile.Text.ServiceStack
 {
@@ -36,20 +34,20 @@ namespace SimplyMobile.Text.ServiceStack
     public class JsonSerializer : IJsonSerializer
     {
         /// <summary>
-        /// Gets the format.
-        /// </summary>
-        public Format Format
-        {
-            get { return Format.Json; }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="JsonSerializer"/> class.
         /// </summary>
         public JsonSerializer()
 		{
 			JsConfig.DateHandler = JsonDateHandler.ISO8601;
 		}
+
+        /// <summary>
+        /// Gets the format.
+        /// </summary>
+        public Format Format
+        {
+            get { return Format.Json; }
+        }
 
         /// <summary>
         /// Serializes object to a string

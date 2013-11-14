@@ -32,11 +32,14 @@ namespace SimplyMobile.Core
             get { return 2000; }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether application was backgrounded.
+        /// </summary>
         public bool WasBackgrounded
         {
             get
             {
-                var ret = (DateTime.UtcNow - activityTransitionTime).TotalMilliseconds > MaximumActivityTransitionTime;
+                var ret = (DateTime.UtcNow - activityTransitionTime).TotalMilliseconds > this.MaximumActivityTransitionTime;
 
                 if (ret)
                 {

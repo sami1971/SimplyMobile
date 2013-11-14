@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -39,11 +39,7 @@
     <Reference Include="System.Collections" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="SimplyMobile.Core\" />
-    <Folder Include="SimplyMobile.Text\" />
-    <Folder Include="SimplyMobile.Web\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="SimplyMobile.Core\DependencyResolver.cs" />
     <Compile Include="SimplyMobile.Core\EventArgs.cs" />
@@ -57,8 +53,7 @@
     <Compile Include="SimplyMobile.Text\IProtoBufSerializer.cs" />
     <Compile Include="SimplyMobile.Text\ITextSerializer.cs" />
     <Compile Include="SimplyMobile.Text\JsonSerializerExtensions.cs" />
-    <Compile Include="SimplyMobile.Web\JsonHttpClient.cs" />
-    <Compile Include="SimplyMobile.Web\RestClient.cs" />
+    <Compile Include="SimplyMobile.Web\IRestClient.cs" />
     <Compile Include="SimplyMobile.Web\ServiceResponse.cs" />
   </ItemGroup>
 </Project>
