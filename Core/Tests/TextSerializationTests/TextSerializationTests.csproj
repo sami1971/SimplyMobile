@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -38,6 +38,9 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboJsonTests.cs" />
+    <Compile Include="JsonNetSerializerServiceStackDeserializer.cs" />
+    <Compile Include="ServiceStackSerializerJsonNetDeserializer.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Dtos\Person.cs" />
     <Compile Include="Dtos\IAnimal.cs" />
@@ -74,7 +77,5 @@
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

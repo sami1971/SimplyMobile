@@ -89,16 +89,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\protobuf-net\protobuf-net_Portable\protobuf-net_Portable.csproj">
+      <Project>{24AB5D8D-8161-4BA8-B643-BAB10402D766}</Project>
+      <Name>protobuf-net_Portable</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F27E0D44-77AC-43F3-947C-75830043CEAD}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\libs\protobuf-net\pcl\protobuf-net.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

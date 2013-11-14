@@ -15,17 +15,17 @@ namespace TextSerializationTests
 		public override bool Equals (object obj)
 		{
 			var animal = obj as IAnimal;
-			return animal != null && Equals (animal);
+			return animal != null && this.Equals (animal);
 		}
 
 		public override int GetHashCode ()
 		{
-			return this.MakeSound ().GetHashCode () ^ this.Name.GetHashCode ();
+			return this.MakeSound().GetHashCode () ^ this.Name.GetHashCode();
 		}
 
 		public bool Equals (IAnimal other)
 		{
-			return other.MakeSound ().Equals (this.MakeSound ()) && other.Name.Equals (this.Name);
+			return other.MakeSound() == this.MakeSound () && other.Name == this.Name;
 		}
 		#endregion
 	}

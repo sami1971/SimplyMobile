@@ -18,6 +18,8 @@ namespace TextSerializationTests
 	public class JsonNetTests : TestBase
 	{
 		protected override ITextSerializer Serializer { get { return new JsonSerializer (); } }
+
+        protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
 	}
 }
 
