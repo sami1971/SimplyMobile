@@ -11,7 +11,7 @@ namespace StockQuote
     /// The main activity.
     /// </summary>
     [Activity (Label = "StockQuote", MainLauncher = true)]
-	public class MainActivity : Activity, IProgress<string>
+	public class MainActivity : Activity
     {
 		private LinearLayout mainLayout;
 		private EditText textSymbol;
@@ -25,7 +25,7 @@ namespace StockQuote
 	    /// <param name="bundle">
 	    /// The bundle.
 	    /// </param>
-	    protected async override void OnCreate (Bundle bundle)
+	    protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
