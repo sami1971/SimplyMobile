@@ -180,21 +180,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
+      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
+      <Name>SimplyMobile.Text.ProtoBuffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
       <Project>{799CA059-8A4F-465E-96DC-B302F836F82C}</Project>
       <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{676EC567-FCA1-4995-BA1B-119E35D92622}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F27E0D44-77AC-43F3-947C-75830043CEAD}</Project>
-      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

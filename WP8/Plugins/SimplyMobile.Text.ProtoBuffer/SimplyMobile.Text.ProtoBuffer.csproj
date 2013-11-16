@@ -93,8 +93,8 @@
       <Project>{24AB5D8D-8161-4BA8-B643-BAB10402D766}</Project>
       <Name>protobuf-net_Portable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F27E0D44-77AC-43F3-947C-75830043CEAD}</Project>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>

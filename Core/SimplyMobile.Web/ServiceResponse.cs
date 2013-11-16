@@ -11,21 +11,51 @@ namespace SimplyMobile.Web
     /// </typeparam>
     public class ServiceResponse<T>
 	{
-		public HttpStatusCode StatusCode { get; private set; }
+        /// <summary>
+        /// Gets the status code.
+        /// </summary>
+        public HttpStatusCode StatusCode { get; private set; }
 
-		public T Value { get; internal set; }
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
+        public T Value { get; internal set; }
 
+        /// <summary>
+        /// Gets the content.
+        /// </summary>
         public string Content { get; internal set; }
 
+        /// <summary>
+        /// Gets the error.
+        /// </summary>
         public Exception Error { get; internal set; }
 
-		public ServiceResponse (T value, HttpStatusCode statusCode)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.
+        /// </summary>
+        /// <param name="value">
+        /// The value.
+        /// </param>
+        /// <param name="statusCode">
+        /// The status code.
+        /// </param>
+        public ServiceResponse (T value, HttpStatusCode statusCode)
 		{
 			this.Value = value;
 			this.StatusCode = statusCode;
 		}
 
-		public ServiceResponse (HttpStatusCode statusCode, Exception error = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.
+        /// </summary>
+        /// <param name="statusCode">
+        /// The status code.
+        /// </param>
+        /// <param name="error">
+        /// The error.
+        /// </param>
+        public ServiceResponse (HttpStatusCode statusCode, Exception error = null)
 		{
 			this.StatusCode = statusCode;
 			this.Error = error;
