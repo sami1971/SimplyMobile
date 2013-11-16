@@ -5,13 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1ECE2E10-BEEA-4A00-8D65-26186782EA6A}</ProjectGuid>
-    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{31C7FF2A-68E6-4AD0-B7CF-673D30586CA2}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Web</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SimplyMobile.Web.iOS</AssemblyName>
-    <newfilesearch>OnLoadAutoInsert</newfilesearch>
+    <RootNamespace>SimplyMobile.Plugins.LinkedIn</RootNamespace>
+    <AssemblyName>SimplyMobile.Plugins.LinkedIn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,26 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\libs\Xamarin\Auth\Xamarin.Auth.dll</HintPath>
+    </Reference>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="IRestClient.cs" />
-    <Compile Include="RestClient.cs" />
-    <Compile Include="ServiceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings.StyleCop" />
-    <None Include="JsonHttpClient.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\iOS\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

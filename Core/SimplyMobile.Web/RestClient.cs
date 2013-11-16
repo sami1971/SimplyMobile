@@ -54,6 +54,15 @@ namespace SimplyMobile.Web
             }
         }
 
+        /// <summary>
+        /// Gets or sets the base address.
+        /// </summary>
+        public Uri BaseAddress
+        {
+            get { return this.client.BaseAddress; }
+            set { this.client.BaseAddress = value; }
+        }
+
         public void AddHeader(string key, string value)
         {
             this.client.DefaultRequestHeaders.Add(key, value);
@@ -62,6 +71,12 @@ namespace SimplyMobile.Web
         public void RemoveHeader(string key)
         {
             this.client.DefaultRequestHeaders.Remove(key);
+        }
+
+        public void SetSerializer(ITextSerializer serializer)
+        {
+            this.serializers.Remove(serializer.Format);
+            this.serializers.Add(serializer.Format, serializer);
         }
 
         /// <summary>

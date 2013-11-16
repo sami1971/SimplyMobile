@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Media", "Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Messaging", "SimplyMobile.Messaging\SimplyMobile.Messaging.csproj", "{A47FDAFF-7826-43F8-9887-0207666878B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text", "SimplyMobile.Text\SimplyMobile.Text.csproj", "{8FA34108-1479-4C5F-A598-1FDE42CEB02F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.JsonNet", "Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj", "{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}"
@@ -37,13 +35,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Plugins.WcfSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Plugins.StockView.Android", "..\Core\Plugins\Stocks\SimplyMobile.Plugins.StockView\SimplyMobile.Plugins.StockView.Android.csproj", "{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Data.OrmLite", "Plugins\SimplyMobile.Data.OrmLite\SimplyMobile.Data.OrmLite.csproj", "{7444C208-ECD8-4D59-B3BB-58864CDC25B9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.ProtoBuffer", "Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj", "{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Data", "SimplyMobile.Data\SimplyMobile.Data.csproj", "{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Web", "SimplyMobile.Web\SimplyMobile.Web.csproj", "{72B3CB51-2F72-4755-8D9E-E7B54773F824}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text", "..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj", "{F367F89E-E79F-4332-AD93-85E7CFF7391C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Web", "..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj", "{00636A5F-DA3A-4E3E-B673-D483834684E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.ProtoBuffer", "..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj", "{256E4D6E-0252-405E-B516-4CEAF129A5F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,10 +91,6 @@ Global
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FA34108-1479-4C5F-A598-1FDE42CEB02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FA34108-1479-4C5F-A598-1FDE42CEB02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FA34108-1479-4C5F-A598-1FDE42CEB02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FA34108-1479-4C5F-A598-1FDE42CEB02F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -113,22 +107,22 @@ Global
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7444C208-ECD8-4D59-B3BB-58864CDC25B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7444C208-ECD8-4D59-B3BB-58864CDC25B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7444C208-ECD8-4D59-B3BB-58864CDC25B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7444C208-ECD8-4D59-B3BB-58864CDC25B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72B3CB51-2F72-4755-8D9E-E7B54773F824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72B3CB51-2F72-4755-8D9E-E7B54773F824}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72B3CB51-2F72-4755-8D9E-E7B54773F824}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72B3CB51-2F72-4755-8D9E-E7B54773F824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F367F89E-E79F-4332-AD93-85E7CFF7391C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F367F89E-E79F-4332-AD93-85E7CFF7391C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F367F89E-E79F-4332-AD93-85E7CFF7391C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F367F89E-E79F-4332-AD93-85E7CFF7391C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00636A5F-DA3A-4E3E-B673-D483834684E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00636A5F-DA3A-4E3E-B673-D483834684E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00636A5F-DA3A-4E3E-B673-D483834684E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00636A5F-DA3A-4E3E-B673-D483834684E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256E4D6E-0252-405E-B516-4CEAF129A5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256E4D6E-0252-405E-B516-4CEAF129A5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256E4D6E-0252-405E-B516-4CEAF129A5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256E4D6E-0252-405E-B516-4CEAF129A5F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,8 +137,7 @@ Global
 		{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{3F6029D3-3E54-4915-98CA-94431B4C774D} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
-		{7444C208-ECD8-4D59-B3BB-58864CDC25B9} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
-		{AFF0754F-F6DE-405D-9B19-19770B7A7CD9} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
+		{256E4D6E-0252-405E-B516-4CEAF129A5F5} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{F16741AD-BA50-4922-A018-D7B622758101} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 	EndGlobalSection

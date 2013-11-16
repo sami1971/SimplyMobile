@@ -50,8 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{8FA34108-1479-4C5F-A598-1FDE42CEB02F}</Project>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>

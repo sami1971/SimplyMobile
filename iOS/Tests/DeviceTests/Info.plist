@@ -14,13 +14,18 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<array/>
 	<key>MinimumOSVersion</key>
 	<string>6.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Device Tests</string>
+	<key>CFBundleIdentifier</key>
+	<string>www.simplymobile.devicetests</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>NSMainNibFile</key>
+	<string></string>
+	<key>NSMainNibFile~ipad</key>
+	<string></string>
 </dict>
 </plist>

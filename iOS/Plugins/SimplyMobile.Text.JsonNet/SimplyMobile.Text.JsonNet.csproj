@@ -55,8 +55,8 @@
     <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</Project>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>

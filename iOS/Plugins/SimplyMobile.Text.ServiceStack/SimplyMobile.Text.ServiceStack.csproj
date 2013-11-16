@@ -40,12 +40,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -53,6 +47,12 @@
     <Reference Include="ServiceStack.Text.MonoTouch">
       <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.MonoTouch.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

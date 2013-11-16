@@ -1,6 +1,6 @@
 using System;
-#if WINDOWS_PHONE
 using System.Collections.Generic;
+#if WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
 using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;

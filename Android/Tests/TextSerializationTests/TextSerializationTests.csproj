@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -115,8 +115,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{8FA34108-1479-4C5F-A598-1FDE42CEB02F}</Project>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
+      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
+      <Name>SimplyMobile.Text.ProtoBuffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
@@ -127,12 +131,6 @@
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{AFF0754F-F6DE-405D-9B19-19770B7A7CD9}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

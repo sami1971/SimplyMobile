@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -158,10 +157,14 @@
       <Link>ServiceStackSanityTests.cs</Link>
     </Compile>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</Project>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
+      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
+      <Name>SimplyMobile.Text.ProtoBuffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
@@ -171,10 +174,6 @@
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{AA8AAAF8-8111-4341-9E24-C237E71DE12D}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
