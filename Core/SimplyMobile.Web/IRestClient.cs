@@ -30,9 +30,9 @@ namespace SimplyMobile.Web
         TimeSpan Timeout { get; set; }
 
         /// <summary>
-        /// Gets or sets the base address.
+        /// Gets the base address.
         /// </summary>
-        Uri BaseAddress { get; set; }
+        //Uri BaseAddress { get; }
 
         /// <summary>
         /// Add request header.

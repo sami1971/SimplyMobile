@@ -47,12 +47,15 @@ namespace SimplyMobile.Web
         /// <summary>
         /// Initializes a new instance of the <see cref="RestClient"/> class.
         /// </summary>
-        public RestClient()
-		{
+        public RestClient(Uri baseAddress)
+        {
 			this.serializers = new Dictionary<Format, ITextSerializer>();
 			this.customSerializers = new Dictionary<Type, ITextSerializer>();
-			this.client = new HttpClient();
-		}
+            this.client = new HttpClient()
+                {
+                    BaseAddress = baseAddress
+                };
+        }
 
         /// <summary>
         /// Gets or sets timeout in milliseconds
@@ -68,15 +71,6 @@ namespace SimplyMobile.Web
             {
                this.client.Timeout = value;
             }
-        }
-
-        /// <summary>
-        /// Gets or sets the base address.
-        /// </summary>
-        public Uri BaseAddress
-        {
-            get { return this.client.BaseAddress; }
-            set { this.client.BaseAddress = value; }
         }
 
         public void AddHeader(string key, string value)
@@ -159,10 +153,21 @@ namespace SimplyMobile.Web
 
             //// serialize DTO to string
 			var content = serializer.Serialize(dto);
+            HttpResponseMessage response = null;
             //// post asyncronously
-			var response = await this.client.PostAsync(
-				address, 
-				new StringContent(content, UTF8Encoding.UTF8, GetTextFormat(format)));
+            try
+            {
+                response = await this.client.PostAsync(
+                    address,
+                    new StringContent(content, UTF8Encoding.UTF8, GetTextFormat(format)));
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.InternalServerError,
+                    ex);
+            }
+
 
             return await this.GetResponse<T>(response, serializer);
 		}
@@ -183,8 +188,19 @@ namespace SimplyMobile.Web
                     HttpStatusCode.NotAcceptable,
                     new Exception(string.Format("No serializers found for {0}", format)));
             }
-            
-            var response = await this.client.GetAsync(address);
+
+            HttpResponseMessage response;
+
+            try
+            {
+                response = await this.client.GetAsync(address);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.InternalServerError,
+                    ex);
+            }
 
             return await this.GetResponse<T>(response, serializer);
         }
