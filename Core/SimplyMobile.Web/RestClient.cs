@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace SimplyMobile.Web
 {
@@ -149,7 +150,7 @@ namespace SimplyMobile.Web
         public async Task<ServiceResponse<T>> PostAsync<T>(string address, object dto, Format format = Format.Json)
 		{
 			ITextSerializer serializer;
-			if (this.serializers.TryGetValue(format, out serializer) == false)
+			if (!this.serializers.TryGetValue(format, out serializer))
 			{
 			    return new ServiceResponse<T>(
 			        HttpStatusCode.NotAcceptable,
@@ -161,7 +162,7 @@ namespace SimplyMobile.Web
             //// post asyncronously
 			var response = await this.client.PostAsync(
 				address, 
-				new StringContent(content));
+				new StringContent(content, UTF8Encoding.UTF8, GetTextFormat(format)));
 
             return await this.GetResponse<T>(response, serializer);
 		}
@@ -187,6 +188,19 @@ namespace SimplyMobile.Web
 
             return await this.GetResponse<T>(response, serializer);
         }
+
+		private static string GetTextFormat(Format format)
+		{
+			switch (format)
+			{
+			case Format.Json:
+				return "text/json";
+			case Format.Xml:
+				return "text/xml";
+			default:
+				throw new NotImplementedException ();
+			}
+		}
 
         private async Task<ServiceResponse<T>> GetResponse<T>(HttpResponseMessage response, ITextSerializer serializer)
         {
