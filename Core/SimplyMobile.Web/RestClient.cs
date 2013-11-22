@@ -143,8 +143,9 @@ namespace SimplyMobile.Web
         /// </exception>
         public async Task<ServiceResponse<T>> PostAsync<T>(string address, object dto, Format format = Format.Json)
 		{
-			ITextSerializer serializer;
-			if (!this.serializers.TryGetValue(format, out serializer))
+			ITextSerializer serializer = null, postSerializer = null, responseSerializer = null;
+			if ((!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) || !this.customSerializers.TryGetValue(dto.GetType(), out postSerializer)) && 
+                !this.serializers.TryGetValue(format, out serializer))
 			{
 			    return new ServiceResponse<T>(
 			        HttpStatusCode.NotAcceptable,
@@ -152,14 +153,15 @@ namespace SimplyMobile.Web
 			}
 
             //// serialize DTO to string
-			var content = serializer.Serialize(dto);
-            HttpResponseMessage response = null;
+			var content = (postSerializer ?? serializer).Serialize(dto);
+
             //// post asyncronously
             try
             {
-                response = await this.client.PostAsync(
+                var response = await this.client.PostAsync(
                     address,
                     new StringContent(content, UTF8Encoding.UTF8, GetTextFormat(format)));
+                return await this.GetResponse<T>(response, responseSerializer ?? serializer);
             }
             catch (Exception ex)
             {
@@ -167,9 +169,6 @@ namespace SimplyMobile.Web
                     HttpStatusCode.InternalServerError,
                     ex);
             }
-
-
-            return await this.GetResponse<T>(response, serializer);
 		}
 
         /// <summary>
@@ -181,19 +180,18 @@ namespace SimplyMobile.Web
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         public async Task<ServiceResponse<T>> GetAsync<T>(string address, Format format)
         {
-            ITextSerializer serializer;
-            if (this.serializers.TryGetValue(format, out serializer) == false)
+            ITextSerializer serializer = null, responseSerializer = null;
+            if (!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) && !this.serializers.TryGetValue(format, out serializer))
             {
                 return new ServiceResponse<T>(
                     HttpStatusCode.NotAcceptable,
                     new Exception(string.Format("No serializers found for {0}", format)));
             }
 
-            HttpResponseMessage response;
-
             try
             {
-                response = await this.client.GetAsync(address);
+                var response = await this.client.GetAsync(address);
+                return await this.GetResponse<T>(response, responseSerializer ?? serializer);
             }
             catch (Exception ex)
             {
@@ -201,8 +199,6 @@ namespace SimplyMobile.Web
                     HttpStatusCode.InternalServerError,
                     ex);
             }
-
-            return await this.GetResponse<T>(response, serializer);
         }
 
 		private static string GetTextFormat(Format format)
