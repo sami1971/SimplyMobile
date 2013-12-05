@@ -11,10 +11,10 @@ namespace SimplyMobile.Location
 			{
 				Latitude = location.Latitude,
 				Longitude = location.Longitude,
-				Accuracy = location.HasAccuracy ? location.Accuracy : null,
-				Altitude = location.HasAltitude ? location.Altitude : null,
-				Bearing = location.HasBearing ? location.Bearing : null,
-				Speed = location.HasSpeed ? location.Speed : null,
+				Accuracy = location.HasAccuracy ? (double?)location.Accuracy : null,
+                Altitude = location.HasAltitude ? (double?)location.Altitude : null,
+                Bearing = location.HasBearing ? (double?)location.Bearing : null,
+                Speed = location.HasSpeed ? (double?)location.Speed : null,
 			};
 		}
 	}
