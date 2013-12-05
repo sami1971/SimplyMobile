@@ -16,6 +16,7 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using SimplyMobile.Core;
 using SimplyMobile.Device;
 
 namespace DeviceTests
@@ -65,6 +66,12 @@ namespace DeviceTests
 			this.accelerometerStatus = new TextView (this);
 			layout.AddView (this.accelerometerStatus);
 
+			var textScreenSize = new TextView (this) 
+			{
+				Text = string.Format ("Screen size is {0}in.", this.ScreenSizeInches ())
+			};
+
+			layout.AddView (textScreenSize);
 //			this.acceleroMeterState = new ToggleButton (this) 
 //			{
 //				TextOn = "Accelerometer ON",

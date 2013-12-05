@@ -70,6 +70,8 @@
     <Compile Include="BT\AdapterStatus.cs" />
     <Compile Include="BT\IBtAdapter.cs" />
     <Compile Include="BT\BluetoothAdapterMonitor.cs" />
+    <Compile Include="Display.cs" />
+    <Compile Include="Info.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

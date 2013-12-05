@@ -5,13 +5,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.Threading.Tasks;
 
 namespace WebClientTest
 {
 	[Activity (Label = "WebClientTest", MainLauncher = true)]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		private Button button;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -22,13 +23,38 @@ namespace WebClientTest
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
+			button = FindViewById<Button> (Resource.Id.myButton);
 			
-			button.Click += delegate
+			button.Click += async delegate
 			{
-				button.Text = string.Format ("{0} clicks!", count++);
+				await this.VeryLongTask();
 			};
 		}
+
+		protected override void OnResume ()
+		{
+			base.OnResume ();
+			button.Click += HandleClick;
+		}
+
+		protected override void OnPause ()
+		{
+			base.OnPause ();
+			button.Click -= HandleClick;
+		}
+
+		private void HandleClick (object sender, EventArgs e)
+		{
+
+		}
+
+		private async Task VeryLongTask()
+		{
+			await Task.Factory.StartNew (() =>
+				{
+					// long running code here
+				});
+		} 
 	}
 }
 

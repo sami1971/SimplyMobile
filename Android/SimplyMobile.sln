@@ -152,7 +152,7 @@ Global
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\WebClientTest\WebClientTest.csproj
+		StartupItem = Tests\DeviceTests\DeviceTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
