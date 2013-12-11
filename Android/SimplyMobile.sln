@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Web", "..\Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Location", "SimplyMobile.Location\SimplyMobile.Location.csproj", "{7E4AA2E4-C8BD-45EA-86CC-10A3302518B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Web.Android", "..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj", "{69953254-EE9D-471F-8D94-E7239C68F88C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{3AA0C944-881A-48AE-9C6A-0B88FE5B285F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA0C944-881A-48AE-9C6A-0B88FE5B285F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA0C944-881A-48AE-9C6A-0B88FE5B285F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69953254-EE9D-471F-8D94-E7239C68F88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69953254-EE9D-471F-8D94-E7239C68F88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69953254-EE9D-471F-8D94-E7239C68F88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69953254-EE9D-471F-8D94-E7239C68F88C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -152,7 +158,7 @@ Global
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\DeviceTests\DeviceTests.csproj
+		StartupItem = Tests\ObservableCollectionTest\ObservableCollectionTest.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

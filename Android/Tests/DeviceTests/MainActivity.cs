@@ -68,7 +68,7 @@ namespace DeviceTests
 
 			var textScreenSize = new TextView (this) 
 			{
-				Text = string.Format ("Screen size is {0}in.", this.ScreenSizeInches ())
+				Text = string.Format ("Screen size is {0}in.", Display.ScreenSizeInches)
 			};
 
 			layout.AddView (textScreenSize);

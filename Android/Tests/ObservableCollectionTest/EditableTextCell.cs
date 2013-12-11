@@ -79,7 +79,7 @@ namespace ObservableCollectionTest
 
 		private void Initialize ()
 		{
-			this.LayoutParameters = new Android.Views.ViewGroup.LayoutParams (LayoutParams.FillParent, 50);
+			this.LayoutParameters = new LayoutParams (LayoutParams.FillParent, 50);
 			this.switchCheck = new Switch (this.Context);
 			this.AddView (this.switchCheck);
 

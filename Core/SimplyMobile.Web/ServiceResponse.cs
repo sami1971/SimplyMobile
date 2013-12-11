@@ -19,17 +19,17 @@ namespace SimplyMobile.Web
         /// <summary>
         /// Gets the value.
         /// </summary>
-        public T Value { get; internal set; }
+        public T Value { get; set; }
 
         /// <summary>
         /// Gets the content.
         /// </summary>
-        public string Content { get; internal set; }
+        public string Content { get; set; }
 
         /// <summary>
         /// Gets the error.
         /// </summary>
-        public Exception Error { get; internal set; }
+        public Exception Error { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.

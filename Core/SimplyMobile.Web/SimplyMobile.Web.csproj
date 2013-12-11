@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRestClient.cs" />
-    <Compile Include="RestClient.cs" />
     <Compile Include="ServiceResponse.cs" />
   </ItemGroup>
   <ItemGroup>

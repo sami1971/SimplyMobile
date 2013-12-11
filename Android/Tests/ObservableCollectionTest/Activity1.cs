@@ -65,7 +65,7 @@ namespace ObservableCollectionTest
 		protected override void OnResume ()
 		{
 			base.OnResume ();
-			EditableTextViewModel.Instance.Items.Bind (this.spinner);
+			//EditableTextViewModel.Instance.Items.Bind (this.spinner);
 			EditableTextViewModel.Instance.Items.Bind (this.listView);
 
 			this.textLastText.Text = EditableTextViewModel.Instance.LatestTextChange.Text;
