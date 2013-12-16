@@ -6,6 +6,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
+using SimplyMobile.Web;
+using Android.Webkit;
+using SimplyMobile.Text;
 
 namespace WebClientTest
 {
@@ -13,6 +16,7 @@ namespace WebClientTest
 	public class MainActivity : Activity
 	{
 		private Button button;
+		private WebHybrid webHybrid;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -24,10 +28,36 @@ namespace WebClientTest
 			// Get our button from the layout resource,
 			// and attach an event to it
 			button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += async delegate
+
+			var serializer = new SimplyMobile.Text.ServiceStack.JsonSerializer();
+
+
+
+			var webView = FindViewById<WebView> (Resource.Id.webView1);
+
+			this.webHybrid = new WebHybrid (webView, serializer);
+
+			this.webHybrid.RegisterCallback("test", (data) => 
+				{
+					Console.WriteLine(data);
+				}
+			);
+
+			webView.LoadUrl("file:///android_asset/Content/home.html");
+
+			button.Click += delegate
 			{
-				await this.VeryLongTask();
+				var data = new Data()
+				{
+					Name = "Sami",
+					Count = 99
+				};
+
+				this.webHybrid.InjectJavaScript(string.Format("Native(\"test\", {0})", serializer.Serialize(data)));
+
+				this.webHybrid.CallJsFunction("Native", "test", data);
+
+				this.webHybrid.CallJsFunction("alert", "test");
 			};
 		}
 

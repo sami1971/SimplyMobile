@@ -36,13 +36,17 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="RestClient.cs" />
+    <Compile Include="WebHybrid.cs" />
+    <Compile Include="WebHybrid.iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SimplyMobile.Web.csproj">

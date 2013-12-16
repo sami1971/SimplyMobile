@@ -16,6 +16,7 @@
 using System;
 using System.Threading.Tasks;
 using SimplyMobile.Text;
+using System.Collections.Generic;
 
 namespace SimplyMobile.Web
 {
@@ -61,7 +62,7 @@ namespace SimplyMobile.Web
 		/// <param name="dto">DTO to post.</param>
         /// <param name="format">Format of the request.</param>
 		/// <typeparam name="T">The type of object to be returned.</typeparam>
-        Task<ServiceResponse<T>> PostAsync<T>(string address, object dto, Format format);
+		Task<ServiceResponse<T>> PostAsync<T>(string address, object dto, Format format);
 
 		/// <summary>
 		/// Async GET method
@@ -71,5 +72,11 @@ namespace SimplyMobile.Web
 		/// <param name="format">Format of the request.</param>
         /// <typeparam name="T">The type of object to be returned.</typeparam>
         Task<ServiceResponse<T>> GetAsync<T>(string address, Format format);
+
+		Task<ServiceResponse<T>> GetAsync<T> (string address, Dictionary<string, string> values, Format format);
+
+		void SetCustomSerializer<T>(ICustomSerializer<T> serializer);
+
+		bool RemoveCustomSerializer (Type type);
     }
 }

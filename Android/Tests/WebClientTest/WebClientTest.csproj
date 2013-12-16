@@ -50,6 +50,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -71,5 +72,21 @@
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
+      <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
+      <Name>SimplyMobile.Web.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\..\..\iOS\Tests\WebClientTests\Content\home.html">
+      <Link>Assets\Content\home.html</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>
