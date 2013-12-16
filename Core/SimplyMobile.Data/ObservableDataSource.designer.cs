@@ -163,7 +163,10 @@ namespace SimplyMobile.Data
         /// <param name="item">Item.</param>
         private void InvokeItemSelectedEvent(object sender, T item)
         {
-			this.OnSelected.Invoke (sender, new EventArgs<T>(item));
+            if (this.OnSelected != null)
+            {
+                this.OnSelected.Invoke(sender, new EventArgs<T>(item));
+            }
         }
 
 		/// <summary>
