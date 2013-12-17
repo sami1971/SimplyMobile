@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Text;
 using SimplyMobile.Text;
@@ -28,25 +29,29 @@ namespace SimplyMobile.Web
 
 		public void CallJsFunction(string funcName, params object[] parameters)
 		{
-			var builder = new StringBuilder ();
+#if WINDOWS_PHONE
+		    this.webView.InvokeScript(funcName, parameters.Select(a => this.Serializer.Serialize(a)).ToArray());
+#else
+			var builder = new StringBuilder();
 
-			builder.Append (funcName);
-			builder.Append ("(");
+			builder.Append(funcName);
+			builder.Append("(");
 
 			for (var n = 0; n < parameters.Length; n++)
 			{
 				builder.Append (this.Serializer.Serialize (parameters[n]));
 				if (n < parameters.Length - 1) 
 				{
-					builder.Append (", ");
+					builder.Append(", ");
 				}
 			}
 
-			builder.Append (");");
+			builder.Append(");");
 
 			this.Inject(builder.ToString());
+#endif
 		}
-
+#if !WINDOWS_PHONE
 		private bool CheckRequest(string request)
 		{
 			var m = Expression.Match(request);
@@ -69,12 +74,13 @@ namespace SimplyMobile.Web
 
 		private void InjectNativeFunctionScript()
 		{
-			var builder = new StringBuilder ();
-			builder.Append("function Native(action, data){ ");
-			builder.Append("window.location = \"//LOCAL/Action=\" + action + \"/\" + JSON.stringify(data);");
+			var builder = new StringBuilder();
+            builder.Append("function window.external.notify(data){ ");
+			builder.Append("window.location = \"//LOCAL/Action=\" + data;");
 			builder.Append(" }");
-			Inject(builder.ToString());
+			this.Inject(builder.ToString());
 		}
-	}
+#endif
+    }
 }
 
