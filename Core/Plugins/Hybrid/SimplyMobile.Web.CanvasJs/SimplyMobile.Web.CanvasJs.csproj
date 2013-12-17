@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0934ED52-309E-4EE1-90E1-0E4ED3D1372C}</ProjectGuid>
+    <ProjectGuid>{BAC28DBC-5059-4BDA-8BF6-E3BF0ECEB2C4}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Web.Net45</RootNamespace>
-    <AssemblyName>SimplyMobile.Web.Net45</AssemblyName>
+    <RootNamespace>SimplyMobile.Web.CanvasJs</RootNamespace>
+    <AssemblyName>SimlyMobile.Web.CanvasJs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,19 +31,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RestClient.cs" />
-    <Compile Include="BasicClient.cs" />
-    <Compile Include="ServiceResponse.cs" />
-    <Compile Include="WebHybrid.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CanvasView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
+    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.Net45.csproj">
+      <Project>{0934ED52-309E-4EE1-90E1-0E4ED3D1372C}</Project>
+      <Name>SimplyMobile.Web.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{0854603B-BBB7-4AE6-A3CE-598803AC1214}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
