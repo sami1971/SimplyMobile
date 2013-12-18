@@ -2,8 +2,10 @@ using System;
 using MonoTouch.UIKit;
 using SimplyMobile.Text;
 using SimplyMobile.Web;
+using System.IO;
+using MonoTouch.Foundation;
 
-namespace SimlyMobile.Web.CanvasJs
+namespace SimplyMobile.Web.CanvasJs
 {
 	public partial class CanvasView : WebHybrid
 	{
@@ -14,8 +16,18 @@ namespace SimlyMobile.Web.CanvasJs
 		public CanvasView(UIWebView webView, IJsonSerializer serializer)
 			: base(webView, serializer)
 		{
+			
+		}
 
-			this.InjectJavaScript();
+		public void Load()
+		{
+			var fileName = "chart.html"; // remember case-sensitive
+			string localHtmlUrl = Path.Combine(NSBundle.MainBundle.BundlePath, fileName);
+
+			if (File.Exists (localHtmlUrl)) 
+			{
+				this.webView.LoadRequest(new NSUrlRequest(new NSUrl(localHtmlUrl, false)));
+			}
 		}
 	}
 }

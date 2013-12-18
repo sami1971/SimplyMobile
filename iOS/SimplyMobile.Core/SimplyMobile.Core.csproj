@@ -57,6 +57,12 @@
     <Compile Include="..\..\Core\SimplyMobile.Core\EventExtensions.cs">
       <Link>EventExtensions.cs</Link>
     </Compile>
+    <Compile Include="Extensions\ButtonExtensions.cs" />
+    <Compile Include="Extensions\LabelExtensions.cs" />
+    <Compile Include="Extensions\TextFieldExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Core\Extensions\NotifyExtensions.cs">
+      <Link>Extensions\NotifyExtensions.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -67,4 +73,7 @@
     <Reference Include="monotouch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>

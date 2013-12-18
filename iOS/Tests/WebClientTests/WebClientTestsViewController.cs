@@ -4,6 +4,9 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using SimplyMobile.Web;
 using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.Web.CanvasJs;
+using System.Collections.ObjectModel;
+using SimplyMobile.Core;
 
 namespace WebClientTests
 {
@@ -36,7 +39,8 @@ namespace WebClientTests
 
 			string homePageUrl = NSBundle.MainBundle.BundlePath + "/Content/home.html";
 
-			this.webHybrid = new WebHybrid (this.webView, new JsonSerializer ());
+			var serializer = new JsonSerializer ();
+			this.webHybrid = new WebHybrid (this.webView, serializer);
 
 			this.webHybrid.RegisterCallback ("test", (data) => 
 				{
@@ -50,7 +54,32 @@ namespace WebClientTests
 				this.webHybrid.CallJsFunction("alert", "test");
 			};
 
+			this.buttonSendScript.OnClick ((s, e) => {
+			});
+
 			this.webView.LoadRequest (new NSUrlRequest (new NSUrl (homePageUrl, false)));
+
+			if (this.canvasView != null) 
+			{
+				var canvas = new CanvasView (this.canvasView, serializer);
+				canvas.Load ();
+
+				var model = new ColumnModel () {
+					theme = "theme2",
+					title = new Title()
+					{
+						text = "Canvas Demo"
+					},
+					data = new ColumnData()
+					{
+						dataPoints = new ObservableCollection<DataPoint>(
+							new[] {new DataPoint() { label = "Banana", y = 10 }}
+						)
+					}
+				};
+
+				canvas.SetModel (model);
+			}
 		}
 	}
 }

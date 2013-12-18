@@ -8,7 +8,7 @@
     <ProjectGuid>{C6F895D4-ABE1-4FC3-A6C2-B75C143F83EA}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Web.CanvasJs.iOS</RootNamespace>
+    <RootNamespace>SimplyMobile.Web.CanvasJs</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>SimplyMobile.Web.CanvasJs.iOS</AssemblyName>
   </PropertyGroup>
@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="CanvasView.cs" />
     <Compile Include="CanvasView.iOS.cs" />
+    <Compile Include="ColumnModel.cs" />
+    <Compile Include="Title.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="ColumnData.cs" />
+    <Compile Include="DataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.iOS.csproj">
@@ -59,6 +64,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="canvasjs.min.js" />
+    <BundleResource Include="Resources\canvasjs.min.js" />
+    <BundleResource Include="Resources\chart.html" />
   </ItemGroup>
 </Project>

@@ -58,4 +58,7 @@
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Native.js" />
+  </ItemGroup>
 </Project>

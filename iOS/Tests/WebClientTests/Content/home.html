@@ -7,24 +7,18 @@
     <body>
         Test 123
     </body>
-    <input type="button"  value="Click to send sami" onclick="window.external.notify('sami')"/>
     <input type="button"  value="Click to send item" onclick="OnButtonClick()"/>
 <script language="javascript">
     function RunMyItem() {
         alert("Testing");
         var item = { name: "sami", count: 10 };
-        window.external.notify(JSON.stringify(item));
+        Native("test", item);
     }
 
     function OnButtonClick() {
         alert("Testing");
         var item = { name: "sami", count: 10 };
-        Native('test', item);
-    }
-		
-    function Native(action, data) {
-        var text = action + "/" + JSON.stringify(data);
-        window.external.notify(text);
+        Native("test", item);
     }
 </script>
     </html>

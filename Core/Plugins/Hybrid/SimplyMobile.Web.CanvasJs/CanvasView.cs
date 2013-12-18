@@ -5,7 +5,10 @@ namespace SimplyMobile.Web.CanvasJs
 {
 	public partial class CanvasView
 	{
-
+		public void SetModel(Model model)
+		{
+			this.CallJsFunction("loadModel", model);
+		}
 	}
 }
 

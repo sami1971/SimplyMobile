@@ -8,7 +8,7 @@ namespace SimplyMobile.Web
 {
 	public partial class WebHybrid
 	{
-		private UIWebView webView;
+		protected UIWebView webView;
 
 		public WebHybrid (UIWebView webView)
 		{

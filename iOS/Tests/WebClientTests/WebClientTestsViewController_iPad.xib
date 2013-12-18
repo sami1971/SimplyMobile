@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebClientTestsViewController">
             <connections>
                 <outlet property="buttonSendScript" destination="a9z-ot-Myc" id="dgE-La-Np5"/>
+                <outlet property="canvasView" destination="iSF-gu-hlQ" id="LfE-G7-KBG"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="webView" destination="gXP-7Q-G29" id="A1i-Ry-neF"/>
             </connections>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <webView contentMode="scaleToFill" id="gXP-7Q-G29">
-                    <rect key="frame" x="106" y="168" width="390" height="418"/>
+                    <rect key="frame" x="106" y="168" width="599" height="282"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                 </webView>
@@ -28,6 +29,11 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <webView contentMode="scaleToFill" id="iSF-gu-hlQ">
+                    <rect key="frame" x="106" y="470" width="599" height="486"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>

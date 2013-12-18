@@ -75,8 +75,8 @@ namespace SimplyMobile.Web
 		private void InjectNativeFunctionScript()
 		{
 			var builder = new StringBuilder();
-            builder.Append("function window.external.notify(data){ ");
-			builder.Append("window.location = \"//LOCAL/Action=\" + data;");
+			builder.Append("function Native(action, data){ ");
+			builder.Append("window.location = \"//LOCAL/Action=\" + action + \"/\" + JSON.stringify(data);");
 			builder.Append(" }");
 			this.Inject(builder.ToString());
 		}

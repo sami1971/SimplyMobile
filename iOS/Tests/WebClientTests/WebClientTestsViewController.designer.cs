@@ -16,6 +16,9 @@ namespace WebClientTests
 		MonoTouch.UIKit.UIButton buttonSendScript { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UIWebView canvasView { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIWebView webView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -28,6 +31,11 @@ namespace WebClientTests
 			if (webView != null) {
 				webView.Dispose ();
 				webView = null;
+			}
+
+			if (canvasView != null) {
+				canvasView.Dispose ();
+				canvasView = null;
 			}
 		}
 	}
