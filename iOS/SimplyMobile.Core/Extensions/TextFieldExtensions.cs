@@ -7,15 +7,27 @@ namespace SimplyMobile.Core
 {
 	public static class TextFieldExtensions
 	{
+		public static void SetText(this UITextField textField, object source, PropertyInfo property)
+		{
+			var text = property.GetValue(source).ToString();
+
+			if (textField.Text != text)
+			{
+				textField.Text = text;
+			}
+		}
+
 		public static void Bind(this UITextField textField, INotifyPropertyChanged source, string propertyName)
 		{
 			var property = source.GetProperty(propertyName);
 
-			source.PropertyChanged += (sender, e) =>
+			textField.SetText(source, property);
+
+			source.PropertyChanged += (s, e) =>
 			{
 				if (e.PropertyName == propertyName)
 				{
-					textField.Text = property.GetValue(source) as String;
+					textField.SetText(source, property);
 				}
 			};
 

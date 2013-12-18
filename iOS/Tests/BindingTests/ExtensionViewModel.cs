@@ -8,7 +8,7 @@ namespace BindingTests
 	{
 		private long count;
 
-		private string textField = string.Empty;
+		private string textField = "Empty string";
 
 		public string TextField 
 		{
@@ -26,9 +26,27 @@ namespace BindingTests
 			}
 		}
 
+		private string buttonTitle = "Click me";
+
+		public string ButtonTitle 
+		{
+			get 
+			{
+				return buttonTitle;
+			}
+			set 
+			{
+				if (buttonTitle != value) 
+				{
+					buttonTitle = value;
+					NotifyPropertyChanged ();
+				}
+			}
+		}
+
 		public void OnButtonClick(object sender, EventArgs e)
 		{
-			this.TextField = string.Format ("Button pressed {0} times.", ++count);
+			this.ButtonTitle = string.Format ("Button pressed {0} times.", ++count);
 		}
 
 		#region INotifyPropertyChanged implementation

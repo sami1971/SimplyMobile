@@ -69,6 +69,12 @@
     <Compile Include="..\..\Core\SimplyMobile.Core\EventExtensions.cs">
       <Link>EventExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Core\Extensions\NotifyExtensions.cs">
+      <Link>Extensions\NotifyExtensions.cs</Link>
+    </Compile>
+    <Compile Include="Extensions\ButtonExtensions.cs" />
+    <Compile Include="Extensions\TextViewExtensions.cs" />
+    <Compile Include="Extensions\EditTextExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -78,4 +84,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 using System;
 using MonoTouch.UIKit;
+using System.Reflection;
+using System.ComponentModel;
 
 namespace SimplyMobile.Core
 {
@@ -8,6 +10,35 @@ namespace SimplyMobile.Core
 		public static void OnClick(this UIButton button, EventHandler handler)
 		{
 			button.TouchUpInside += handler;
+		}
+
+		public static void SetTitle(this UIButton button, object source, PropertyInfo property,
+			UIControlState state = UIControlState.Normal)
+		{
+			var text = property.GetValue(source).ToString();
+
+			if (button.Title(state) != text)
+			{
+				button.SetTitle(text, state);
+			}
+		}
+
+		public static void BindTitle(this UIButton button, 
+					INotifyPropertyChanged source, 
+					string propertyName,
+					UIControlState state = UIControlState.Normal)
+		{
+			var property = source.GetProperty(propertyName);
+
+			button.SetTitle (source, property, state);
+
+			source.PropertyChanged += (s, e) =>
+			{
+				if (e.PropertyName == propertyName)
+				{
+					button.SetTitle (source, property, state);
+				}
+			};
 		}
 	}
 }

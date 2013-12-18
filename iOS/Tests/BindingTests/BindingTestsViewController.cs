@@ -37,7 +37,8 @@ namespace BindingTests
 			this.label.Bind (model, "TextField");
 			this.textField.Bind (model, "TextField");
 
-			this.button.OnClick (model.OnButtonClick);
+			this.button.OnClick(model.OnButtonClick);
+			this.button.BindTitle(model, "ButtonTitle");
 		}
 	}
 }
