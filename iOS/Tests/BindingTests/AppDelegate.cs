@@ -26,7 +26,7 @@ namespace BindingTests
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			viewController = new BindingTestsViewController ();
+			viewController = new BindingTestsViewController (null);
 			window.RootViewController = viewController;
 			window.MakeKeyAndVisible ();
 			

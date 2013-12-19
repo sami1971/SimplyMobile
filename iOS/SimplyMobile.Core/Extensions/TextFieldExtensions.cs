@@ -17,21 +17,23 @@ namespace SimplyMobile.Core
 			}
 		}
 
-		public static void Bind(this UITextField textField, INotifyPropertyChanged source, string propertyName)
+		public static PropertyChangedEventHandler Bind(this UITextField textField, INotifyPropertyChanged source, string propertyName)
 		{
 			var property = source.GetProperty(propertyName);
 
 			textField.SetText(source, property);
-
-			source.PropertyChanged += (s, e) =>
-			{
-				if (e.PropertyName == propertyName)
+			var handler = new PropertyChangedEventHandler((s, e) =>
 				{
-					textField.SetText(source, property);
-				}
-			};
+					if (e.PropertyName == propertyName)
+					{
+						textField.SetText(source, property);
+					}
+				});
 
+			source.PropertyChanged += handler;
 			textField.EditingChanged += (sender, e) => property.GetSetMethod().Invoke(source, new []{textField.Text});
+
+			return handler;
 		}
 	}
 }

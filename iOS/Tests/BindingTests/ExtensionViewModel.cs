@@ -1,14 +1,17 @@
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using SimplyMobile.Core;
+using System.ComponentModel.DataAnnotations;
 
 namespace BindingTests
 {
-	public class ExtensionViewModel : INotifyPropertyChanged
+	public class ExtensionViewModel : ViewModel
 	{
 		private long count;
-
+		private bool toggleOn;
+		private double sliderValue;
 		private string textField = "Empty string";
+		private string buttonTitle = "Click me";
+		private string sliderValueText = string.Empty;
 
 		public string TextField 
 		{
@@ -26,11 +29,9 @@ namespace BindingTests
 			}
 		}
 
-		private string buttonTitle = "Click me";
-
 		public string ButtonTitle 
 		{
-			get 
+			get
 			{
 				return buttonTitle;
 			}
@@ -44,23 +45,57 @@ namespace BindingTests
 			}
 		}
 
+
+		[Range (0, 1000)]
+		public double SliderValue 
+		{
+			get
+			{
+				return sliderValue;
+			}
+			set
+			{
+				if (sliderValue != value && this.IsValid (value))
+				{
+					sliderValue = value;
+					this.NotifyPropertyChanged ();
+					this.SliderValueText = string.Format ("Slider value is {0}", sliderValue);
+				}
+			}
+		}
+
+		public string SliderValueText 
+		{
+			get
+			{
+				return sliderValueText;
+			}
+			private set
+			{
+				sliderValueText = value;
+				NotifyPropertyChanged ();
+			}
+		}
+
+		public bool ToggleOn 
+		{
+			get
+			{
+				return toggleOn;
+			}
+			set
+			{
+				if (toggleOn != value)
+				{
+					toggleOn = value;
+					this.NotifyPropertyChanged ();
+				}
+			}
+		}
+
 		public void OnButtonClick(object sender, EventArgs e)
 		{
 			this.ButtonTitle = string.Format ("Button pressed {0} times.", ++count);
-		}
-
-		#region INotifyPropertyChanged implementation
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		#endregion
-
-		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

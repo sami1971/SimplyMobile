@@ -7,7 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BindingTestsViewController">
             <connections>
                 <outlet property="button" destination="rle-6y-rzV" id="cVo-iN-71C"/>
+                <outlet property="buttonClose" destination="MLk-aq-CtN" id="Rwe-Kj-VUV"/>
+                <outlet property="buttonNewView" destination="wiR-GF-kwg" id="zcz-rn-7h2"/>
                 <outlet property="label" destination="V0c-C0-0yn" id="vzz-uK-HUd"/>
+                <outlet property="navBar" destination="gcs-E6-GnJ" id="G4j-09-WIK"/>
                 <outlet property="textField" destination="LxS-Zx-kBL" id="ZdN-QC-ogV"/>
                 <outlet property="view" destination="6" id="7"/>
             </connections>
@@ -18,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V0c-C0-0yn">
-                    <rect key="frame" x="20" y="38" width="288" height="21"/>
+                    <rect key="frame" x="20" y="69" width="288" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -37,6 +40,27 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wiR-GF-kwg">
+                    <rect key="frame" x="87" y="282" width="147" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Open new View">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <navigationBar contentMode="scaleToFill" id="gcs-E6-GnJ">
+                    <rect key="frame" x="0.0" y="16" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="14x-n9-hXG"/>
+                    </items>
+                </navigationBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MLk-aq-CtN">
+                    <rect key="frame" x="137" y="320" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Close">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

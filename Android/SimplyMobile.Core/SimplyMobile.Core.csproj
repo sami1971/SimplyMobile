@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Core\SimplyMobile.Core\DependencyResolver.cs">
@@ -75,6 +76,11 @@
     <Compile Include="Extensions\ButtonExtensions.cs" />
     <Compile Include="Extensions\TextViewExtensions.cs" />
     <Compile Include="Extensions\EditTextExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Core\ViewModel.cs">
+      <Link>ViewModel.cs</Link>
+    </Compile>
+    <Compile Include="Extensions\CompoundButtonExtensions.cs" />
+    <Compile Include="Extensions\SeekBarExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,7 +23,7 @@ namespace SimplyMobile.Core
 			}
 		}
 
-		public static void BindTitle(this UIButton button, 
+		public static PropertyChangedEventHandler BindTitle(this UIButton button, 
 					INotifyPropertyChanged source, 
 					string propertyName,
 					UIControlState state = UIControlState.Normal)
@@ -31,14 +31,19 @@ namespace SimplyMobile.Core
 			var property = source.GetProperty(propertyName);
 
 			button.SetTitle (source, property, state);
-
-			source.PropertyChanged += (s, e) =>
-			{
-				if (e.PropertyName == propertyName)
+			var handler = new PropertyChangedEventHandler(
+				(s, e) =>
 				{
-					button.SetTitle (source, property, state);
+					if (e.PropertyName == propertyName)
+					{
+						button.SetTitle (source, property, state);
+					}
 				}
-			};
+			);
+
+			source.PropertyChanged += handler;
+
+			return handler;
 		}
 	}
 }

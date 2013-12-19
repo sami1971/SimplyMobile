@@ -26,65 +26,9 @@ namespace SimplyMobile.Data
 	/// <summary>
 	/// Observable data source iOS portion. Implements <see cref="UITableViewDataSource"/>
 	/// </summary>
-	public partial class ObservableDataSource<T>
+	public partial class ObservableDataSource<T> : NSObject
     {
         private float defaultRowHeight = 22;
-
-		private TableViewDelegate tableDelegate;
-
-		private CollectionViewDelegate collectionDelegate;
-
-		private TableDataSource tableSource;
-
-		private CollectionDataSource collectionDataSource;
-
-		/// <summary>
-		/// Gets the table delegate.
-		/// </summary>
-		/// <value>The table delegate.</value>
-		private TableViewDelegate TableDelegate
-        {
-            get
-            {
-				return this.tableDelegate ?? (this.tableDelegate = new TableViewDelegate(this.RowSelected, defaultRowHeight));
-            }
-        }
-
-		/// <summary>
-		/// Gets the collection delegate.
-		/// </summary>
-		/// <value>The collection delegate.</value>
-		private CollectionViewDelegate CollectionDelegate
-		{
-			get
-			{
-				return this.collectionDelegate ?? (this.collectionDelegate = new CollectionViewDelegate(this.RowSelected));
-			}
-		}
-
-		/// <summary>
-		/// Gets the table source.
-		/// </summary>
-		/// <value>The table source.</value>
-		private TableDataSource TableSource
-		{
-			get
-			{
-				return this.tableSource ?? (this.tableSource = new TableDataSource(this));
-			}
-		}
-
-		/// <summary>
-		/// Gets the collection source.
-		/// </summary>
-		/// <value>The collection source.</value>
-		private CollectionDataSource CollectionSource
-		{
-			get
-			{
-				return this.collectionDataSource ?? (this.collectionDataSource = new CollectionDataSource(this));
-			}
-		}
 
         /// <summary>
         /// The cell identifier. 
@@ -110,16 +54,6 @@ namespace SimplyMobile.Data
         {
             get { return this.cellId; }
             set { this.cellId = value; }
-        }
-
-        /// <summary>
-        /// Row selected from delegate.
-        /// </summary>
-        /// <param name="sender">Sender view.</param>
-		/// <param name="args">Event arguments with index path.</param>
-        private void RowSelected(object sender, EventArgs<int> args)
-        {
-			this.InvokeItemSelectedEvent (sender, this.Data[args.Value]);
         }
 
         /// <summary>
@@ -158,15 +92,15 @@ namespace SimplyMobile.Data
             {
                 foreach (var tableView in notifyCollectionChangedEventArgs.NewItems.OfType<UITableView>())
                 {
-                    tableView.DataSource = this.TableSource;
-                    tableView.Delegate = this.TableDelegate;
+					tableView.WeakDataSource = this;
+					tableView.WeakDelegate = this;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>().Where(a=>a is ICollectionCellProvider<T>))
+				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>().Where(a => a is ICollectionCellProvider<T>))
 				{
-					collectionView.DataSource = this.CollectionSource;
-					collectionView.Delegate = this.CollectionDelegate;
+					collectionView.WeakDataSource = this;
+					collectionView.WeakDelegate = this;
 					collectionView.InvokeOnMainThread(collectionView.ReloadData);
 				}
             }
@@ -188,184 +122,102 @@ namespace SimplyMobile.Data
             }
         }
 
-		private class CollectionDataSource : UICollectionViewDataSource
+		#region UITableView weak delegate
+		[Export("tableView:cellForRowAtIndexPath:")]
+		/// <summary>
+		/// Gets cell for UITableView
+		/// </summary>
+		/// <param name="tableView">
+		/// The table view.
+		/// </param>
+		/// <param name="indexPath">
+		/// The index path.
+		/// </param>
+		/// <returns>
+		/// The <see cref="UITableViewCell"/>.
+		/// </returns>
+		public UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			private readonly ObservableDataSource<T> source;
+			this.InvokeItemRequestedEvent (tableView, indexPath.Row);
 
-			internal CollectionDataSource(ObservableDataSource<T> source)
+			var item = this.Data[indexPath.Row];
+
+			var cellProvider = tableView as ITableCellProvider<T>;
+
+			if (cellProvider != null)
 			{
-				this.source = source;
+				return cellProvider.GetCell (item);
 			}
 
-			#region implemented abstract members of UICollectionViewDataSource
+			var cell = tableView.DequeueReusableCell(this.CellId);
 
-			public override int GetItemsCount (UICollectionView collectionView, int section)
+			if (cell == null)
 			{
-				return this.source.Data.Count;
+				cell = new UITableViewCell(UITableViewCellStyle.Value1, this.CellId);
 			}
 
-			public override UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
-			{
-				var cellProvider = collectionView as ICollectionCellProvider<T>;
-
-				return cellProvider.GetCell (this.source.Data.ElementAt(indexPath.Row), indexPath);
-			}
-
-			#endregion
+			cell.TextLabel.Text = item.ToString();
+			return cell;
 		}
 
-		private class TableDataSource : UITableViewDataSource
+		[Export("tableView:numberOfRowsInSection:")]
+		/// <summary>
+		/// The rows in section.
+		/// </summary>
+		/// <param name="tableView">
+		/// The table view.
+		/// </param>
+		/// <param name="section">
+		/// The section.
+		/// </param>
+		/// <returns>
+		/// The <see cref="int"/>.
+		/// </returns>
+		public int RowsInSection(UITableView tableView, int section)
 		{
-			private readonly ObservableDataSource<T> source;
-
-			internal TableDataSource(ObservableDataSource<T> source)
-			{
-				this.source = source;
-			}
-
-			/// <summary>
-			/// The rows in section.
-			/// </summary>
-			/// <param name="tableView">
-			/// The table view.
-			/// </param>
-			/// <param name="section">
-			/// The section.
-			/// </param>
-			/// <returns>
-			/// The <see cref="int"/>.
-			/// </returns>
-			public override int RowsInSection(UITableView tableView, int section)
-			{
-				return this.source.Data.Count;
-			}
-
-			/// <summary>
-			/// The get cell.
-			/// </summary>
-			/// <param name="tableView">
-			/// The table view.
-			/// </param>
-			/// <param name="indexPath">
-			/// The index path.
-			/// </param>
-			/// <returns>
-			/// The <see cref="UITableViewCell"/>.
-			/// </returns>
-			public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
-			{
-				this.source.InvokeItemRequestedEvent (tableView, indexPath.Row);
-
-				var item = this.source.Data[indexPath.Row];
-
-				var cellProvider = tableView as ITableCellProvider<T>;
-
-				if (cellProvider != null)
-				{
-					return cellProvider.GetCell (item);
-				}
-
-				var cell = tableView.DequeueReusableCell(this.source.CellId);
-
-				if (cell == null)
-				{
-					cell = new UITableViewCell(UITableViewCellStyle.Value1, this.source.CellId);
-				}
-
-				cell.TextLabel.Text = item.ToString();
-				return cell;
-			}
+			return this.Data.Count;
 		}
 
-        /// <summary>Private UITableViewDelegate to capture row selected events</summary>
-        private class TableViewDelegate : UITableViewDelegate
-        {
-            /// <summary>
-            /// Occurs when on selection.
-            /// </summary>
-            private EventHandler<EventArgs<int>> OnSelected;
-
-            private float defaultRowHeight;
-
-            public override float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
-            {
-                var cellProvider = tableView as ITableCellProvider<T>;
-
-                if (cellProvider != null)
-                {
-                    return cellProvider.GetHeightForRow(indexPath);
-                }
-
-				return defaultRowHeight;
-            }
-
-            /// <summary>
-            /// Rows the selected.
-            /// </summary>
-            /// <param name="tableView">Table view.</param>
-            /// <param name="indexPath">Index path.</param>
-            public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
-            {
-                this.OnSelected(tableView, new EventArgs<int>(indexPath.Item));
-            }
-
-			public override void RowDeselected (UITableView tableView, NSIndexPath indexPath)
-			{
-
-			}
-
-			public override void RowHighlighted (UITableView tableView, NSIndexPath rowIndexPath)
-			{
-
-			}
-
-			public override void RowUnhighlighted (UITableView tableView, NSIndexPath rowIndexPath)
-			{
-
-			}
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="WK.ComplyTrack.Mobile.UI.DataItemSelected"/> class.
-            /// </summary>
-            /// <param name="itemDelegate">Item delegate.</param>
-			public TableViewDelegate(EventHandler<EventArgs<int>> itemDelegate, float defaultRowHeight = 22)
-            {
-                this.OnSelected = itemDelegate;
-                this.defaultRowHeight = defaultRowHeight;
-            }
-        }
-
-		private class CollectionViewDelegate : UICollectionViewDelegate
+		[Export("tableView:didSelectRowAtIndexPath:")]
+		public void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
-			/// <summary>
-			/// Occurs when on selection.
-			/// </summary>
-			private EventHandler<EventArgs<int>> OnSelected;
-
-			public CollectionViewDelegate(EventHandler<EventArgs<int>> itemDelegate)
-			{
-				this.OnSelected = itemDelegate;
-			}
-
-			public override void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
-			{
-				this.OnSelected (this, new EventArgs<int> (indexPath.Row));
-			}
-
-			public override void ItemDeselected (UICollectionView collectionView, NSIndexPath indexPath)
-			{
-
-			}
-
-			public override void ItemHighlighted (UICollectionView collectionView, NSIndexPath indexPath)
-			{
-
-			}
-
-			public override void ItemUnhighlighted (UICollectionView collectionView, NSIndexPath indexPath)
-			{
-
-			}
+			this.InvokeItemSelectedEvent(tableView, this.Data[indexPath.Item]);
 		}
+
+		[Export("tableView:heightForRowAtIndexPath:")]
+		public float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+		{
+			var cellProvider = tableView as ITableCellProvider<T>;
+
+			if (cellProvider != null)
+			{
+				return cellProvider.GetHeightForRow(indexPath);
+			}
+
+			return this.DefaultRowHeight;
+		}
+		#endregion
+
+		#region UICollectionView weak delegate
+		[Export("collectionView:didSelectItemAtIndexPath:")]
+		public void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			this.InvokeItemSelectedEvent(collectionView, this.Data[indexPath.Item]);
+		}
+
+		[Export("collectionView:numberOfItemsInSection:")]
+		public int RowsInSection(UICollectionView tableView, int section)
+		{
+			return this.Data.Count;
+		}
+
+		[Export("collectionView:cellForItemAtIndexPath:")]
+		public UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			var cellProvider = collectionView as ICollectionCellProvider<T>;
+
+			return cellProvider.GetCell (this.Data[indexPath.Row], indexPath);
+		}
+		#endregion
     }
 }

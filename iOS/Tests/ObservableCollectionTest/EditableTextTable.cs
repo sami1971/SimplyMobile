@@ -20,12 +20,8 @@ namespace ObservableCollectionTest
 
 		public UITableViewCell GetCell (EditableText item)
 		{
-			var newCell = this.DequeueReusableCell(EditableTextTableCell.Key) as EditableTextTableCell;
-
-			if (newCell == null)
-			{
-				newCell = EditableTextTableCell.Create();
-			}
+			var newCell = this.DequeueReusableCell(EditableTextTableCell.Key) 
+			              as EditableTextTableCell ?? EditableTextTableCell.Create();
 
 			newCell.Bind (item);
 

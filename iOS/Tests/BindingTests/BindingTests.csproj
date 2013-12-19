@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -106,10 +107,16 @@
       <DependentUpon>BindingTestsViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtensionViewModel.cs" />
+    <Compile Include="PassBindingController.cs" />
+    <Compile Include="PassBindingController.designer.cs">
+      <DependentUpon>PassBindingController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="BindingTestsViewController_iPhone.xib" />
     <InterfaceDefinition Include="BindingTestsViewController_iPad.xib" />
+    <InterfaceDefinition Include="PassBindingController_iPhone.xib" />
+    <InterfaceDefinition Include="PassBindingController_iPad.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

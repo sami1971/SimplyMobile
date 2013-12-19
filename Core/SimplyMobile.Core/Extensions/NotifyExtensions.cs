@@ -2,11 +2,20 @@ using System;
 using System.Reflection;
 using System.ComponentModel;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SimplyMobile.Core
 {
 	public static class NotifyExtensions
 	{
+		public static void RemoveHandlers(this INotifyPropertyChanged source, IEnumerable<PropertyChangedEventHandler> handlers)
+		{
+			foreach (var handler in handlers)
+			{
+				source.PropertyChanged -= handler;
+			}
+		}
+
 		public static PropertyInfo GetProperty(this INotifyPropertyChanged source, string propertyName)
 		{
 			var t = source.GetType ();

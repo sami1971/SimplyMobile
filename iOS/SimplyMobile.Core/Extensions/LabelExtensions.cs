@@ -18,19 +18,23 @@ namespace SimplyMobile.Core
 			}
 		}
 
-		public static void Bind(this UILabel label, INotifyPropertyChanged source, string propertyName)
+		public static PropertyChangedEventHandler Bind(this UILabel label, INotifyPropertyChanged source, string propertyName)
 		{
 			var property = source.GetProperty(propertyName);
 
 			label.SetText(source, property);
 
-			source.PropertyChanged += (s, e) =>
+			var handler = new PropertyChangedEventHandler((s, e) =>
 			{
 				if (e.PropertyName == propertyName)
 				{
 					label.SetText(source, property);
 				}
-			};
+			});
+
+			source.PropertyChanged += handler;
+
+			return handler;
 		}
 	}
 }

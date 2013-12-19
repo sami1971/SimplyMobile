@@ -63,6 +63,11 @@
     <Compile Include="..\..\Core\SimplyMobile.Core\Extensions\NotifyExtensions.cs">
       <Link>Extensions\NotifyExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Core\ViewModel.cs">
+      <Link>ViewModel.cs</Link>
+    </Compile>
+    <Compile Include="Extensions\SwitchExtensions.cs" />
+    <Compile Include="Extensions\SliderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -71,6 +76,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
