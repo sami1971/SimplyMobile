@@ -42,7 +42,7 @@ namespace SimplyMobile.Core
 		/// <exception cref=""></exception>
 		protected void Validate(object value, [CallerMemberName] string propertyName = "")
 		{
-			var validationContext = new ValidationContext( this, null, null )
+			var validationContext = new ValidationContext( this )
 			{
 				MemberName = propertyName
 			};
@@ -57,7 +57,7 @@ namespace SimplyMobile.Core
 		/// <param name="propertyName">Property name.</param>
 		protected bool IsValid(object value, [CallerMemberName] string propertyName = "")
 		{
-			var validationContext = new ValidationContext( this, null, null )
+			var validationContext = new ValidationContext( this )
 			{
 				MemberName = propertyName
 			};

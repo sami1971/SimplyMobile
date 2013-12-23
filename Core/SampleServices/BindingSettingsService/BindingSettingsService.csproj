@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9000E30D-23C8-433A-B464-FF45F29043E2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>ObservableCollectionTest</RootNamespace>
-    <AssemblyName>ObservableCollectionTest</AssemblyName>
+    <ProjectGuid>{8F34819D-3C5B-42EC-AD80-443BBA4F7947}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BindingSettingsService</RootNamespace>
+    <AssemblyName>BindingSettingsService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -19,7 +19,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -27,25 +27,36 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EditableTextViewModel.cs" />
-    <Compile Include="EditableText.cs" />
+    <Compile Include="..\..\..\iOS\Tests\BindingTests\ExtensionViewModel.cs">
+      <Link>ExtensionViewModel.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
-      <Project>{ECC8BA50-7423-4BE3-9196-5840550B8195}</Project>
-      <Name>SimplyMobile.Data</Name>
+    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
+      <Name>SimplyMobile.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
 </Project>

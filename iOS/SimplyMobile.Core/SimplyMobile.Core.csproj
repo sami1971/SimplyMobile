@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Extensions\SwitchExtensions.cs" />
     <Compile Include="Extensions\SliderExtensions.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

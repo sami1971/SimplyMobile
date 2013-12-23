@@ -3,14 +3,15 @@ using MonoTouch.UIKit;
 using System.ComponentModel;
 using System.Reflection;
 using System.Linq;
+using System.Globalization;
 
 namespace SimplyMobile.Core
 {
 	public static class LabelExtensions
 	{
-		public static void SetText(this UILabel textField, object source, PropertyInfo property)
+		public static void SetText(this UILabel textField, object source, PropertyInfo property, IFormatProvider formatProvider = null)
 		{
-			var text = property.GetValue(source).ToString();
+			var text = string.Format (formatProvider ?? CultureInfo.CurrentCulture, "{0}", property.GetValue (source));
 
 			if (textField.Text != text)
 			{
@@ -18,7 +19,11 @@ namespace SimplyMobile.Core
 			}
 		}
 
-		public static PropertyChangedEventHandler Bind(this UILabel label, INotifyPropertyChanged source, string propertyName)
+		public static PropertyChangedEventHandler Bind(
+			this UILabel label, 
+			INotifyPropertyChanged source, 
+			string propertyName, 
+			IFormatProvider formatProvider = null)
 		{
 			var property = source.GetProperty(propertyName);
 

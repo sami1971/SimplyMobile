@@ -1,6 +1,7 @@
 using System;
-using SimplyMobile.Core;
 using System.ComponentModel.DataAnnotations;
+using System.Windows.Input;
+using SimplyMobile.Core;
 
 namespace BindingTests
 {
@@ -12,6 +13,9 @@ namespace BindingTests
 		private string textField = "Empty string";
 		private string buttonTitle = "Click me";
 		private string sliderValueText = string.Empty;
+
+		//Command command;
+		private ICommand command;
 
 		public string TextField 
 		{

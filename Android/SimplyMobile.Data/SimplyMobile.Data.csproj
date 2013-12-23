@@ -47,7 +47,6 @@
       <Link>ObservableDataSource.designer.cs</Link>
     </Compile>
     <Compile Include="ObservableDataSource.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\Core\SimplyMobile.Data\ObservableDataSections.designer.cs">
       <Link>ObservableDataSections.designer.cs</Link>
@@ -57,12 +56,7 @@
     </Compile>
     <Compile Include="ObservableDataSections.cs" />
     <Compile Include="ITableCellProvider.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <Compile Include="Extensions\ListViewBindings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
@@ -78,4 +72,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>

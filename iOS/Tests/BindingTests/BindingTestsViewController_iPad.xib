@@ -13,7 +13,6 @@
                 <outlet property="datePicker2" destination="3je-b4-HIN" id="pGH-3G-sVY"/>
                 <outlet property="label" destination="6bS-bq-mI3" id="I6M-yd-xgu"/>
                 <outlet property="labelSliderValue" destination="uY2-mJ-sjc" id="I8j-jP-TM2"/>
-                <outlet property="navBar" destination="qJV-cX-xdm" id="SlB-fn-rNE"/>
                 <outlet property="slider1" destination="3Ql-a0-SHu" id="cke-up-Hbm"/>
                 <outlet property="slider2" destination="bSc-RU-m5b" id="EJe-ml-NbM"/>
                 <outlet property="textField" destination="yV4-jH-HAL" id="CjQ-jQ-uDh"/>
@@ -53,13 +52,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <navigationBar contentMode="scaleToFill" id="qJV-cX-xdm">
-                    <rect key="frame" x="0.0" y="-3" width="768" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="Sgf-Ye-MqL"/>
-                    </items>
-                </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SfA-rx-P0f">
                     <rect key="frame" x="390" y="278" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -140,12 +132,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </timeZone>
                 </datePicker>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uY2-mJ-sjc">
-                    <rect key="frame" x="89" y="319" width="643" height="21"/>
+                    <rect key="frame" x="89" y="319" width="538" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Slider Value" minimumFontSize="17" id="3q6-TV-Wg1">
+                    <rect key="frame" x="635" y="316" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>

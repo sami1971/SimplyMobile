@@ -48,12 +48,6 @@
     <Compile Include="ObservableSection.cs" />
     <Compile Include="ObservableDataSections.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -62,4 +56,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
