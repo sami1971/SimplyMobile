@@ -14,6 +14,7 @@
 //    limitations under the License.
 //
 
+using System.Windows;
 using Microsoft.Phone.Info;
 
 namespace SimplyMobile.Core
@@ -21,7 +22,7 @@ namespace SimplyMobile.Core
     /// <summary>
     /// Mobile application class
     /// </summary>
-    public partial class MobileApp
+    public partial class MobileApp : Application
     {
         /// <summary>
         /// Gets the memory usage of the application in bytes.

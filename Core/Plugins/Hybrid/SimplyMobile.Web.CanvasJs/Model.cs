@@ -6,6 +6,7 @@ namespace SimplyMobile.Web.CanvasJs
 	{
 		public string theme { get; set; }
 		public Title title { get; set; }
+        public AxisY axisY { get; set; }
 	}
 }
 

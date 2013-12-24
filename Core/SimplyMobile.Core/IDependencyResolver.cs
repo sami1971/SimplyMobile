@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
+using System;
 using System.Collections.Generic;
 
 namespace SimplyMobile.Core
@@ -35,5 +36,7 @@ namespace SimplyMobile.Core
         /// <typeparam name="T">Type of service to get</typeparam>
         /// <returns>Enumerable list of available services</returns>
         IEnumerable<T> GetServices<T>() where T : class;
+
+        IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class;
     }
 }

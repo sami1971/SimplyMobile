@@ -10,7 +10,7 @@ namespace SimplyMobile.Web
 {
     public partial class WebHybrid
     {
-        private WebBrowser webView;
+        protected WebBrowser webView;
 
         public WebHybrid(WebBrowser webView) : this(webView, null)
         {
@@ -36,8 +36,6 @@ namespace SimplyMobile.Web
 
         private void WebViewOnScriptNotify(object sender, NotifyEventArgs notifyEventArgs)
         {
-            System.Diagnostics.Debug.WriteLine(notifyEventArgs.Value);
-
             Action<string> action;
             var values = notifyEventArgs.Value.Split('/');
             var name = values.FirstOrDefault();
@@ -56,7 +54,7 @@ namespace SimplyMobile.Web
 
         void webView_Navigating(object sender, NavigatingEventArgs e)
         {
-            e.Cancel = this.CheckRequest(e.Uri.AbsoluteUri);
+
         }
 
         partial void Inject(string script)

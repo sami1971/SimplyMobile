@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,12 +34,15 @@ namespace SimplyMobile.Core
         /// </summary>
         private readonly List<object> services;
 
+        private readonly Dictionary<Type, Func<object>> registeredServices;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
         /// </summary>
         public DependencyResolver()
         {
             this.services = new List<object>();
+            this.registeredServices = new Dictionary<Type, Func<object>>();
         }
 
         /// <summary>
@@ -60,7 +64,18 @@ namespace SimplyMobile.Core
         /// <returns>First available service if there are any, otherwise null</returns>
         public T GetService<T>() where T : class
         {
-            return this.services.OfType<T>().FirstOrDefault();
+            var service = this.services.OfType<T>().FirstOrDefault();
+
+            if (service == null)
+            {
+                Func<object> getter;
+                if (this.registeredServices.TryGetValue(typeof(T), out getter))
+                {
+                    service = getter.Invoke() as T;
+                }
+            }
+
+            return service;
         }
 
         /// <summary>
@@ -81,6 +96,12 @@ namespace SimplyMobile.Core
         public void SetService<T>(T service) where T : class
         {
             this.services.Add(service);
+        }
+
+        public IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class
+        {
+            this.registeredServices.Add(typeof(T), getter);
+            return this;
         }
     }
 }
