@@ -7,15 +7,18 @@ namespace SimplyMobile.Text.FastJson
 	{
 		#region ITextSerializer implementation
 
-//		public string Serialize (object obj)
-//		{
-//			return ServiceStack.Text.JsonSerializer.SerializeToString (obj);
-//		}
-
-		public string Serialize(object obj)
+		public string Serialize (object obj)
 		{
-			return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+			ServiceStack.Text.JsConfig.DateHandler = ServiceStack.Text.JsonDateHandler.ISO8601;
+			ServiceStack.Text.JsConfig.TimeSpanHandler = ServiceStack.Text.JsonTimeSpanHandler.StandardFormat;
+
+			return ServiceStack.Text.JsonSerializer.SerializeToString (obj);
 		}
+
+//		public string Serialize(object obj)
+//		{
+//			return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+//		}
 
 		public T Deserialize<T> (string data)
 		{
