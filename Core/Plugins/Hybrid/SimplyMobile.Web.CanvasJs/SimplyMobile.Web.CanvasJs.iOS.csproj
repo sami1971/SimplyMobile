@@ -48,6 +48,7 @@
     <Compile Include="Model.cs" />
     <Compile Include="ColumnData.cs" />
     <Compile Include="DataPoint.cs" />
+    <Compile Include="AxisY.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.iOS.csproj">

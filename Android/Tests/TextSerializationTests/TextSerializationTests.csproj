@@ -92,15 +92,14 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
       <Link>JsonNetSanity.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
-      <Link>ProtoBufSanityTests.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\SanityCheckTests.cs">
       <Link>SanityCheckTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSanityTests.cs">
       <Link>ServiceStackSanityTests.cs</Link>
     </Compile>
+    <Compile Include="FastJsonSanityTests.cs" />
+    <Compile Include="FastJsonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -130,6 +129,10 @@
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.Android.csproj">
+      <Project>{A14F3F44-A9B3-44EE-A5CF-990D91964177}</Project>
+      <Name>SimplyMobile.Text.FastJson.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

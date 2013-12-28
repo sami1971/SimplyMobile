@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Plugins.StockV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.ProtoBuffer", "..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj", "{256E4D6E-0252-405E-B516-4CEAF129A5F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.FastJson.Android", "..\Core\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.Android.csproj", "{A14F3F44-A9B3-44EE-A5CF-990D91964177}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Data", "SimplyMobile.Data\SimplyMobile.Data.csproj", "{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text", "..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj", "{F367F89E-E79F-4332-AD93-85E7CFF7391C}"
@@ -97,6 +99,10 @@ Global
 		{816E24FC-3485-42DA-9C0E-4B23D789C45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{816E24FC-3485-42DA-9C0E-4B23D789C45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{816E24FC-3485-42DA-9C0E-4B23D789C45F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14F3F44-A9B3-44EE-A5CF-990D91964177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14F3F44-A9B3-44EE-A5CF-990D91964177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14F3F44-A9B3-44EE-A5CF-990D91964177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14F3F44-A9B3-44EE-A5CF-990D91964177}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A47FDAFF-7826-43F8-9887-0207666878B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -161,11 +167,12 @@ Global
 		{7886EBA5-D091-4AA1-B5BE-37DBC892AD19} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{3F6029D3-3E54-4915-98CA-94431B4C774D} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{256E4D6E-0252-405E-B516-4CEAF129A5F5} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
+		{A14F3F44-A9B3-44EE-A5CF-990D91964177} = {50DFE1B3-A7F2-4FB5-806B-B896E87DAAB0}
 		{F16741AD-BA50-4922-A018-D7B622758101} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 		{152B6CB8-A54D-4CC1-B1C1-C0F5C8FB0064} = {3F6029D3-3E54-4915-98CA-94431B4C774D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\BindingTests\BindingTests.csproj
+		StartupItem = Tests\TextSerializationTests\TextSerializationTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

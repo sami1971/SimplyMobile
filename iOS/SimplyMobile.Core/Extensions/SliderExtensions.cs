@@ -74,9 +74,32 @@ namespace SimplyMobile.Core
 			}
 		}
 
+		public static void SetMinimum(this UISlider slider, object source, PropertyInfo property)
+		{
+			var value = (double)property.GetValue(source);
+			float f = (float)value;
+
+			if (slider.MinValue != f)
+			{
+				slider.MinValue = f;
+			}
+		}
+
+		public static void SetMaximum(this UISlider slider, object source, PropertyInfo property)
+		{
+			var value = (double)property.GetValue(source);
+			float f = (float)value;
+
+			if (slider.MaxValue != f)
+			{
+				slider.MaxValue = f;
+			}
+		}
+
+
 		public static PropertyChangedEventHandler Bind(this UISlider slider, INotifyPropertyChanged source, string propertyName)
 		{
-			var property = source.GetProperty(propertyName);
+			var property = GetProperty(source, propertyName);
 
 			var r = property.GetCustomAttribute<RangeAttribute> ();
 
@@ -85,28 +108,72 @@ namespace SimplyMobile.Core
 				slider.SetRange(r);
 			}
 
-			if (property.PropertyType == typeof(int) || property.PropertyType == typeof(double))
-			{
-				slider.SetValue(source, property);
-				var handler = new PropertyChangedEventHandler ((s, e) =>
+			slider.SetValue(source, property);
+			var handler = new PropertyChangedEventHandler ((s, e) =>
+				{
+					if (e.PropertyName == propertyName)
 					{
-						if (e.PropertyName == propertyName)
-						{
-							slider.SetValue(source, property);
-						}
-					});
+						slider.SetValue(source, property);
+					}
+				});
 
-				source.PropertyChanged += handler;
-				slider.ValueChanged += (sender, e) => property.GetSetMethod().Invoke (source, new object[]{ slider.Value });
+			source.PropertyChanged += handler;
+			slider.ValueChanged += (sender, e) => property.GetSetMethod().Invoke (source, new object[]{ slider.Value });
 
-				return handler;
-			} 
-			else
-			{
-				throw new InvalidCastException ("Binding property is not boolean");
-			}
+			return handler;
 		}
 
+		public static Tuple<PropertyChangedEventHandler,EventHandler> Bind(
+			this UISlider slider, 
+			INotifyPropertyChanged source, 
+			string valueName,
+			string minName,
+			string maxName)
+		{
+			var propertyValue = GetProperty(source, valueName);
+			var propertyMin = GetProperty(source, minName);
+			var propertyMax = GetProperty(source, maxName);
+
+			slider.SetValue(source, propertyValue);
+			slider.SetMinimum(source, propertyMin);
+			slider.SetMaximum(source, propertyMax);
+
+			var handler = new PropertyChangedEventHandler ((s, e) =>
+				{
+					if (e.PropertyName == valueName)
+					{
+						slider.SetValue(source, propertyValue);
+					}
+					else if (e.PropertyName == minName)
+					{
+						slider.SetMinimum(source, propertyMin);
+					}
+					else if (e.PropertyName == maxName)
+					{
+						slider.SetMinimum(source, propertyMax);
+					}
+				});
+
+			source.PropertyChanged += handler;
+
+			var sliderHandler = new EventHandler ((s, e) => propertyValue.GetSetMethod().Invoke (source, new object[]{ slider.Value }));
+			slider.ValueChanged += sliderHandler;
+
+			return new Tuple<PropertyChangedEventHandler, EventHandler>(handler, sliderHandler);
+		}
+
+		private static PropertyInfo GetProperty(INotifyPropertyChanged source, string propertyName)
+		{
+			var property = source.GetProperty(propertyName);
+
+			if (property.PropertyType == typeof(int) || property.PropertyType == typeof(double)
+			    || property.PropertyType == typeof(float))
+			{
+				return property;
+			}
+
+			throw new InvalidCastException ("Binding property is not valid");
+		}
 	}
 }
 

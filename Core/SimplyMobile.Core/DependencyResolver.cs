@@ -98,6 +98,12 @@ namespace SimplyMobile.Core
             this.services.Add(service);
         }
 
+		/// <summary>
+		/// Adds a dynamic getter for the service.
+		/// </summary>
+		/// <returns>The dependency resolver object</returns>
+		/// <param name="getter">Getter func for the service.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
         public IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class
         {
             this.registeredServices.Add(typeof(T), getter);
