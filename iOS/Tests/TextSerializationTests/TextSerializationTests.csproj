@@ -156,6 +156,18 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSanityTests.cs">
       <Link>ServiceStackSanityTests.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FileLoadTests.cs">
+      <Link>FileLoadTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetFileLoad.cs">
+      <Link>JsonNetFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackFileLoad.cs">
+      <Link>ServiceStackFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\HighlyNested.cs">
+      <Link>Dtos\HighlyNested.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -175,5 +187,25 @@
       <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\_oj-highly-nested.json.txt">
+      <Link>Resources\_oj-highly-nested.json.txt</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\boon-small.json.txt">
+      <Link>Resources\boon-small.json.txt</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\dicos.json.txt">
+      <Link>Resources\dicos.json.txt</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\fathers.json.txt">
+      <Link>Resources\fathers.json.txt</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\small.json.txt">
+      <Link>Resources\small.json.txt</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Core\Tests\TextSerializationTests\TestData\tiny.json.txt">
+      <Link>Resources\tiny.json.txt</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>

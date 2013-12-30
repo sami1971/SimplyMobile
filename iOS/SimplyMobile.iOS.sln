@@ -699,7 +699,7 @@ Global
 		{C6F895D4-ABE1-4FC3-A6C2-B75C143F83EA} = {57E7E426-1398-4274-9467-D998C2917255}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\BindingTests\BindingTests.csproj
+		StartupItem = Tests\TextSerializationTests\TextSerializationTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -60,8 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JilSanity.cs" />
-    <Compile Include="JilTests.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,8 +105,6 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackSanityTests.cs">
       <Link>ServiceStackSanityTests.cs</Link>
     </Compile>
-    <Compile Include="FastJsonSanityTests.cs" />
-    <Compile Include="FastJsonTests.cs" />
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DictionaryData.cs">
       <Link>Dtos\DictionaryData.cs</Link>
     </Compile>
@@ -118,12 +114,32 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FileLoadTests.cs">
       <Link>FileLoadTests.cs</Link>
     </Compile>
-    <Compile Include="JilFileLoad.cs" />
-    <Compile Include="FastJsonFileLoad.cs" />
-    <Compile Include="JsonNetFileLoad.cs" />
-    <Compile Include="ServiceStackFileLoad.cs" />
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\HighlyNested.cs">
       <Link>Dtos\HighlyNested.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonFileLoad.cs">
+      <Link>FastJsonFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonSanityTests.cs">
+      <Link>FastJsonSanityTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonTests.cs">
+      <Link>FastJsonTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilFileLoad.cs">
+      <Link>JilFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilSanity.cs">
+      <Link>JilSanity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilTests.cs">
+      <Link>JilTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetFileLoad.cs">
+      <Link>JsonNetFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackFileLoad.cs">
+      <Link>ServiceStackFileLoad.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
