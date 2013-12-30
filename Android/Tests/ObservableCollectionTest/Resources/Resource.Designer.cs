@@ -26,8 +26,6 @@ namespace ObservableCollectionTest
 		
 		public static void UpdateIdValues()
 		{
-			global::SimplyMobile.Data.Resource.String.ApplicationName = global::ObservableCollectionTest.Resource.String.ApplicationName;
-			global::SimplyMobile.Data.Resource.String.Hello = global::ObservableCollectionTest.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

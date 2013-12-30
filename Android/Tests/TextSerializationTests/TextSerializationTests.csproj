@@ -126,15 +126,6 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonTests.cs">
       <Link>FastJsonTests.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilFileLoad.cs">
-      <Link>JilFileLoad.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilSanity.cs">
-      <Link>JilSanity.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JilTests.cs">
-      <Link>JilTests.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetFileLoad.cs">
       <Link>JsonNetFileLoad.cs</Link>
     </Compile>
@@ -162,10 +153,6 @@
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.Jil\SimplyMobile.Text.Jil.csproj">
-      <Project>{07F40B53-A992-497F-B892-430B8B589DCD}</Project>
-      <Name>SimplyMobile.Text.Jil</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
       <Project>{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}</Project>

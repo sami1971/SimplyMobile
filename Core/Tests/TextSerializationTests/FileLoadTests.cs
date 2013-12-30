@@ -14,23 +14,23 @@ namespace TextSerializationTests
 		/// </summary>
 		protected abstract ITextSerializer Deserializer { get; }
 		
-//		[Test()]
-//		public void DicosTest()
-//		{
-//			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<DictionaryData>, GetDicosPath(), 10000);
-//		}
-//
-//		[Test()]
-//		public void TinyTest()
-//		{
-//			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<TinyPerson>, GetTinyPath(), 100000);
-//		}
+		[Test()]
+		public void DicosTest()
+		{
+			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<DictionaryData>, GetDicosPath(), 10000);
+		}
 
-//		[Test()]
-//		public void TinyTestSinDictionary()
-//		{
-//			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<TinyPersonNoDic>, GetTinyPath(), 100000);
-//		}
+		[Test()]
+		public void TinyTest()
+		{
+			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<TinyPerson>, GetTinyPath(), 100000);
+		}
+
+		[Test()]
+		public void TinyTestSinDictionary()
+		{
+			LoopTest (this.Deserializer.GetType().FullName, this.Deserializer.Deserialize<TinyPersonNoDic>, GetTinyPath(), 100000);
+		}
 
 		[Test()]
 		public void HighlyNestedTest()

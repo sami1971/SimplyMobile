@@ -168,6 +168,12 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\HighlyNested.cs">
       <Link>Dtos\HighlyNested.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DictionaryData.cs">
+      <Link>Dtos\DictionaryData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\SomeKey.cs">
+      <Link>Dtos\SomeKey.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>

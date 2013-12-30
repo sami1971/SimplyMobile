@@ -5,6 +5,8 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.NUnit.UI;
 
+using System.IO;
+
 namespace TextSerializationTests
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -32,6 +34,42 @@ namespace TextSerializationTests
 
 			// register every tests included in the main application/assembly
 			runner.Add (System.Reflection.Assembly.GetExecutingAssembly ());
+
+			var path = FileLoadTests.GetDicosPath ();
+
+			var dicos = Path.Combine (
+				NSBundle.MainBundle.BundlePath,
+				"dicos.json.txt");
+
+			using (var reader = new StreamReader(dicos))
+			using (var writer = new StreamWriter(path))
+			{
+				writer.Write(reader.ReadToEnd());
+			}
+
+			path = FileLoadTests.GetTinyPath ();
+
+			var tiny = Path.Combine (
+				NSBundle.MainBundle.BundlePath,
+				"tiny.json.txt");
+
+			using (var reader = new StreamReader(tiny))
+			using (var writer = new StreamWriter(path))
+			{
+				writer.Write(reader.ReadToEnd());
+			}
+
+			path = FileLoadTests.GetHighlyNestedPath ();
+
+			var nested = Path.Combine (
+				NSBundle.MainBundle.BundlePath,
+				"_oj-highly-nested.json.txt");
+
+			using (var reader = new StreamReader(nested))
+			using (var writer = new StreamWriter(path))
+			{
+				writer.Write(reader.ReadToEnd());
+			}
 
 			window.RootViewController = new UINavigationController (runner.GetViewController ());
 			

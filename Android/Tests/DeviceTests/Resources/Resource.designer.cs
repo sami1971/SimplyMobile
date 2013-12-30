@@ -26,8 +26,6 @@ namespace DeviceTests
 		
 		public static void UpdateIdValues()
 		{
-			global::SimplyMobile.Data.Resource.String.ApplicationName = global::DeviceTests.Resource.String.ApplicationName;
-			global::SimplyMobile.Data.Resource.String.Hello = global::DeviceTests.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
