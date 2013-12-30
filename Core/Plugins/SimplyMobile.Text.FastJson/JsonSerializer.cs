@@ -5,11 +5,18 @@ namespace SimplyMobile.Text.FastJson
 {
 	public class JsonSerializer : JsonParser, IJsonSerializer
 	{
-		#region ITextSerializer implementation
+	    private IJsonSerializer serializer;
 
+        public JsonSerializer(IJsonSerializer serializer)
+        {
+            this.serializer = serializer;
+        }
+
+		#region ITextSerializer implementation
 		public string Serialize<T>(T obj)
         {
-            return ServiceStack.Text.JsonSerializer.SerializeToString(obj);
+
+            return serializer.Serialize(obj);
         }
 
         //public string Serialize(object obj)

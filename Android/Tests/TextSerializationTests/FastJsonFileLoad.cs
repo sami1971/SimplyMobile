@@ -10,11 +10,9 @@ namespace TextSerializationTests
 	{
 		#region implemented abstract members of FileLoadTests
 
-		protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
+        protected override ITextSerializer Deserializer { get { return new JsonSerializer(new SimplyMobile.Text.ServiceStack.JsonSerializer()); } }
 
 		#endregion
-
-
 	}
 }
 
