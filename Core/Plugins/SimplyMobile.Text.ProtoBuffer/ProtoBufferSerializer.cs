@@ -54,7 +54,7 @@ namespace SimplyMobile.Text.ProtoBuffer
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        public string Serialize(object obj)
+		public string Serialize<T>(T obj)
         {
             using (var memStream = new MemoryStream())
             {

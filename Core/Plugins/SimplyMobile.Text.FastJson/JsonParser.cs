@@ -38,6 +38,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace System.Text.Json
@@ -142,7 +143,7 @@ namespace System.Text.Json
                 il.Emit(System.Reflection.Emit.OpCodes.Ret);
                 return (Func<object>)dyn.CreateDelegate(typeof(Func<object>));
             }
-
+#if !WINDOWS_PHONE
             private SortedList<string, EnumInfo> GetEnumInfos(Type type)
             {
                 var einfo = new SortedList<string, EnumInfo>();
@@ -150,6 +151,14 @@ namespace System.Text.Json
                     einfo.Add(name, new EnumInfo { Name = name, Value = Convert.ToInt64(System.Enum.Parse(type, name)) });
                 return einfo;
             }
+#else
+            private Dictionary<string, EnumInfo> GetEnumInfos(Type type)
+            {
+                var names = System.Enum.GetNames(type).ToList();
+                names.Sort();
+                return names.ToDictionary(name => name, name => new EnumInfo {Name = name, Value = Convert.ToInt64(System.Enum.Parse(type, name))});
+            }
+#endif
 
             private ItemInfo GetItemInfo(Type type, string name, System.Reflection.MethodInfo setter)
             {
@@ -222,18 +231,28 @@ namespace System.Text.Json
                 il.Emit(System.Reflection.Emit.OpCodes.Ret);
                 return new ItemInfo { Type = type, Name = String.Empty, Set = (Action<object, JsonParser, int, int>)method.CreateDelegate(typeof(Action<object, JsonParser, int, int>)) };
             }
-
+#if !WINDOWS_PHONE
             protected string GetParseName(Type type)
             {
                 var typeName = (!WellKnown.Contains(type) ? ((type.IsEnum && WellKnown.Contains(type.GetEnumUnderlyingType())) ? type.GetEnumUnderlyingType().Name : null) : type.Name);
                 return ((typeName != null) ? String.Concat("Parse", typeName) : null);
             }
+#else
+            protected string GetParseName(Type type)
+            {
+                var typeName = type.Name;
+                    //(!WellKnown.Contains(type) 
+                    //? (type.IsEnum ? ).Name : null) 
+                    //: );
+                return ((typeName != null) ? String.Concat("Parse", typeName) : null);
+            }
+#endif
 
             protected System.Reflection.MethodInfo GetParserParse(string pName)
             {
                 return typeof(JsonParser).GetMethod((pName ?? "Val"), System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             }
-
+#if !WINDOWS_PHONE
             protected TypeInfo(Type type, int outer, Type eType, Type kType, Type vType)
             {
                 var props = type.GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
@@ -243,11 +262,11 @@ namespace System.Text.Json
                 EType = eType;
                 Type = type;
                 Ctor = (((kType != null) && (vType != null)) ? GetCtor(Type, kType, vType) : GetCtor((EType ?? Type),  (EType != null)));
-                for (var i = 0; i < props.Length; i++)
+                foreach (var t in props)
                 {
-                    System.Reflection.PropertyInfo pi;
-                    System.Reflection.MethodInfo set;
-                    if ((pi = props[i]).CanWrite && ((set = pi.GetSetMethod()).GetParameters().Length == 1))
+                    PropertyInfo pi;
+                    MethodInfo set;
+                    if ((pi = t).CanWrite && ((set = pi.GetSetMethod()).GetParameters().Length == 1))
                         infos.Add(pi.Name, GetItemInfo(pi.PropertyType, pi.Name, set));
                 }
                 Dico = (((kType != null) && (vType != null)) ? GetItemInfo(Type, kType, vType, typeof(Dictionary<,>).MakeGenericType(kType, vType).GetMethod("Add", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)) : null);
@@ -255,6 +274,29 @@ namespace System.Text.Json
                 Enum = (IsEnum ? GetEnumInfos(Type).Values.ToArray() : null);
                 Prop = infos.Values.ToArray();
             }
+#else
+            protected TypeInfo(Type type, int outer, Type eType, Type kType, Type vType)
+            {
+                var props = type.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                var infos = new Dictionary<string, ItemInfo>();
+                IsEnum = type.IsEnum;
+                Outer = outer;
+                EType = eType;
+                Type = type;
+                Ctor = (((kType != null) && (vType != null)) ? GetCtor(Type, kType, vType) : GetCtor((EType ?? Type), (EType != null)));
+                foreach (var t in props)
+                {
+                    PropertyInfo pi;
+                    MethodInfo set;
+                    if ((pi = t).CanWrite && ((set = pi.GetSetMethod()).GetParameters().Length == 1))
+                        infos.Add(pi.Name, GetItemInfo(pi.PropertyType, pi.Name, set));
+                }
+                Dico = (((kType != null) && (vType != null)) ? GetItemInfo(Type, kType, vType, typeof(Dictionary<,>).MakeGenericType(kType, vType).GetMethod("Add", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)) : null);
+                List = ((EType != null) ? GetItemInfo(EType, String.Empty, typeof(List<>).MakeGenericType(EType).GetMethod("Add", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)) : null);
+                Enum = (IsEnum ? GetEnumInfos(Type).Values.ToArray() : null);
+                Prop = infos.Values.ToArray();
+            }
+#endif
         }
 
         internal class TypeInfo<T> : TypeInfo

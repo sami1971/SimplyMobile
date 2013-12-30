@@ -54,7 +54,7 @@ namespace SimplyMobile.Text.ServiceStack
         /// </summary>
         /// <param name="obj">Object to serialize</param>
         /// <returns>Serialized string of the object</returns>
-        public string Serialize(object obj)
+		public string Serialize<T>(T obj)
         {
             return Serializer.SerializeToString(obj);
         }

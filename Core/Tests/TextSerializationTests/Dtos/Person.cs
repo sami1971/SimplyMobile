@@ -54,5 +54,41 @@ namespace TextSerializationTests
 
 		#endregion
 	}
+
+	public enum Status
+	{
+		Single,
+		Married,
+		Divorced
+	}
+
+	public class TinyPerson
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		// Both string and integral enum value representations can be parsed:
+		public Status Status { get; set; }
+		public string Address { get; set; }
+		// Just to be sure we support that one, too:
+		public IEnumerable<int> Scores { get; set; }
+		public object Data { get; set; }
+		// Generic dictionaries are also supported; e.g.:
+		// '{
+		//    "Name": "F. Bastiat", ...
+		//    "History": [
+		//       { "key": "1801-06-30", "value": "Birth date" }, ...
+		//    ]
+		//  }'
+		public IDictionary<DateTime, string> History { get; set; }
+	}
+
+	public class TinyPersonNoDic
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public Status Status { get; set; }
+		public string Address { get; set; }
+		public List<int> Scores { get; set; }
+	}
 }
 

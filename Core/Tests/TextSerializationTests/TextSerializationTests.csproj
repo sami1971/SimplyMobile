@@ -20,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -28,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_Windows|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug_Windows</OutputPath>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -57,6 +64,10 @@
     <Compile Include="JsonNetSanity.cs" />
     <Compile Include="ServiceStackSanityTests.cs" />
     <Compile Include="ProtoBufSanityTests.cs" />
+    <Compile Include="Dtos\DictionaryData.cs" />
+    <Compile Include="Dtos\SomeKey.cs" />
+    <Compile Include="FileLoadTests.cs" />
+    <Compile Include="Dtos\HighlyNested.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

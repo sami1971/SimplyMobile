@@ -7,15 +7,15 @@ namespace SimplyMobile.Text.FastJson
 	{
 		#region ITextSerializer implementation
 
-//		public string Serialize (object obj)
-//		{
-//			return ServiceStack.Text.JsonSerializer.SerializeToString (obj);
-//		}
+		public string Serialize<T>(T obj)
+        {
+            return ServiceStack.Text.JsonSerializer.SerializeToString(obj);
+        }
 
-		public string Serialize(object obj)
-		{
-			return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
-		}
+        //public string Serialize(object obj)
+        //{
+        //    return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        //}
 
 		public T Deserialize<T> (string data)
 		{
