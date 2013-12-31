@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0934ED52-309E-4EE1-90E1-0E4ED3D1372C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Web.Net45</RootNamespace>
+    <RootNamespace>SimplyMobile.Web</RootNamespace>
     <AssemblyName>SimplyMobile.Web.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -44,6 +44,10 @@
     <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

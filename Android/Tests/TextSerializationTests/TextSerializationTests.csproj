@@ -132,6 +132,9 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ServiceStackFileLoad.cs">
       <Link>ServiceStackFileLoad.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\XmlSerializationTests.cs">
+      <Link>XmlSerializationTests.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

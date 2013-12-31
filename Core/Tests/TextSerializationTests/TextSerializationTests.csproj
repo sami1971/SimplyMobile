@@ -69,11 +69,9 @@
     <Compile Include="FastJsonFileLoad.cs" />
     <Compile Include="FastJsonSanityTests.cs" />
     <Compile Include="FastJsonTests.cs" />
-    <Compile Include="JilFileLoad.cs" />
-    <Compile Include="JilSanity.cs" />
-    <Compile Include="JilTests.cs" />
     <Compile Include="JsonNetFileLoad.cs" />
     <Compile Include="ServiceStackFileLoad.cs" />
+    <Compile Include="XmlSerializationTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -92,6 +90,10 @@
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{0854603B-BBB7-4AE6-A3CE-598803AC1214}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.csproj">
+      <Project>{A0DC06F3-1E79-42F1-A14C-544597305F53}</Project>
+      <Name>SimplyMobile.Text.FastJson</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
