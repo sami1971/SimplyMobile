@@ -83,12 +83,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Device\Accelometer.designer.cs">
+      <Link>Accelometer.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\AccelometerStatus.cs">
+      <Link>AccelometerStatus.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\Battery.designer.cs">
       <Link>Battery.designer.cs</Link>
     </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\BatteryStatus.cs">
       <Link>BatteryStatus.cs</Link>
     </Compile>
+    <Compile Include="Accelometer.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

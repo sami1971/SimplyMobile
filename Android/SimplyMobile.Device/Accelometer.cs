@@ -77,6 +77,7 @@ namespace SimplyMobile.Device
 				}
 
 				this.accelerometer = sensorManager.GetDefaultSensor(SensorType.Accelerometer);
+                
 				if (this.accelerometer == null)
 				{
 					this.sensorManager = null;

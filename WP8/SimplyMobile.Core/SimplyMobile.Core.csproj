@@ -89,6 +89,9 @@
     <Compile Include="..\..\Core\SimplyMobile.Core\EventArgs.cs">
       <Link>EventArgs.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Core\EventExtensions.cs">
+      <Link>EventExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\IDependencyResolver.cs">
       <Link>IDependencyResolver.cs</Link>
     </Compile>
