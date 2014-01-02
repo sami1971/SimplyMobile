@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{69953254-EE9D-471F-8D94-E7239C68F88C}</ProjectGuid>
+    <ProjectGuid>{52F5541C-015E-47D7-A16F-5888D04C21D2}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Web.Android</RootNamespace>
+    <RootNamespace>SimplyMobile.Location.Bing.Android</RootNamespace>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <AssemblyName>SimplyMobile.Web.Android</AssemblyName>
+    <AssemblyName>SimplyMobile.Location.Bing.Android</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,23 +48,25 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+    <Compile Include="BingClient.cs" />
+    <Compile Include="BingResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="RestClient.cs" />
-    <Compile Include="WebHybrid.cs" />
-    <Compile Include="WebHybrid.Android.cs" />
-    <Compile Include="CustomView.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-    <Folder Include="Assets\Content\" />
+    <ProjectReference Include="..\..\..\..\Android\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
+      <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
+      <Name>SimplyMobile.Web.Android</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
