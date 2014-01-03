@@ -55,5 +55,9 @@
       <Project>{0854603B-BBB7-4AE6-A3CE-598803AC1214}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{C8AC9389-64E8-4390-92C0-6670C777236F}</Project>
+      <Name>SimplyMobile.Location</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

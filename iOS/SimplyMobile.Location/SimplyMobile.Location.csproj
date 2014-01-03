@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C9D5DAD7-9FA5-4C5B-BA61-06E7879DEEBE}</ProjectGuid>
+    <ProjectGuid>{07B9D0E4-B633-4698-AC92-997A121949F4}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Location.Bing.iOS</RootNamespace>
+    <RootNamespace>SimplyMobile.Location</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SimplyMobile.Location.Bing.iOS</AssemblyName>
+    <AssemblyName>SimplyMobile.Location</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,35 +35,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\iOS\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
-      <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
-      <Name>SimplyMobile.Text.ServiceStack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.iOS.csproj">
-      <Project>{EE9B20C2-2D3B-48B4-8458-D2D7230D1583}</Project>
-      <Name>SimplyMobile.Web.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\iOS\SimplyMobile.Location\SimplyMobile.Location.csproj">
-      <Project>{07B9D0E4-B633-4698-AC92-997A121949F4}</Project>
-      <Name>SimplyMobile.Location</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BingClient.cs" />
-    <Compile Include="BingResponse.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Location\Coordinates.cs">
+      <Link>Coordinates.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>

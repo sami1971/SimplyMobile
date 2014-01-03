@@ -68,5 +68,9 @@
       <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
       <Name>SimplyMobile.Web.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Android\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{7E4AA2E4-C8BD-45EA-86CC-10A3302518B1}</Project>
+      <Name>SimplyMobile.Location</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

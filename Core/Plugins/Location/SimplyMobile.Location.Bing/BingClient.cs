@@ -25,6 +25,11 @@ namespace SimplyMobile.Location.Bing
 				string.Format("{0},{1}?o=json&key={2}",  latitude, longitude, this.key),
 				Format.Json);
 		}
+
+		public async Task<ServiceResponse<BingResponse>> Get(Coordinates coordinates)
+		{
+			return await Get(coordinates.Latitude, coordinates.Longitude);
+		}
 	}
 }
 
