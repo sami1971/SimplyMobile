@@ -1,17 +1,33 @@
 using System;
-using SimplyMobile.Web;
 using System.Threading.Tasks;
-using SimplyMobile.Text.ServiceStack;
 using SimplyMobile.Text;
+using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.Web;
 
 namespace SimplyMobile.Location.Bing
 {
-	public class BingClient
+    /// <summary>
+    /// The Bing client.
+    /// </summary>
+    public class BingClient
 	{
-		private IRestClient restClient;
-		private string key;
+        /// <summary>
+        /// The restful service client.
+        /// </summary>
+        private readonly IRestClient restClient;
 
-		public BingClient (string key)
+        /// <summary>
+        /// The application key for Bing mapping services.
+        /// </summary>
+        private string key;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BingClient"/> class.
+        /// </summary>
+        /// <param name="key">
+        /// The key.
+        /// </param>
+        public BingClient (string key)
 		{
 			this.key = key;
 			this.restClient = new RestClient(
@@ -19,16 +35,37 @@ namespace SimplyMobile.Location.Bing
 				new JsonSerializer());
 		}
 
-		public async Task<ServiceResponse<BingResponse>> Get(double latitude, double longitude)
+        /// <summary>
+        /// The get method.
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public async Task<ServiceResponse<BingResponse>> Get(double latitude, double longitude)
 		{
-			return await restClient.GetAsync<BingResponse>(
+			return await this.restClient.GetAsync<BingResponse>(
 				string.Format("{0},{1}?o=json&key={2}",  latitude, longitude, this.key),
 				Format.Json);
 		}
 
-		public async Task<ServiceResponse<BingResponse>> Get(Coordinates coordinates)
+        /// <summary>
+        /// The get method.
+        /// </summary>
+        /// <param name="coordinates">
+        /// The coordinates.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public async Task<ServiceResponse<BingResponse>> Get(Coordinates coordinates)
 		{
-			return await Get(coordinates.Latitude, coordinates.Longitude);
+			return await this.Get(coordinates.Latitude, coordinates.Longitude);
 		}
 	}
 }

@@ -1,62 +1,196 @@
-using System;
 using System.Collections.Generic;
 
 namespace SimplyMobile.Location.Bing
 {
-
-	public class BingResponse
+    /// <summary>
+    /// The bing response.
+    /// </summary>
+    public class BingResponse
 	{
-		public string AuthenticationResultCode { get; set; }
-		public string BrandLogoUri { get; set; }
-		public string Copyright { get; set; }
-		public List<ResourceSet> ResourceSets { get; set; }
-		public int StatusCode { get; set; }
-		public string StatusDescription { get; set; }
-		public string TraceId { get; set; }
+        /// <summary>
+        /// Gets or sets the authentication result code.
+        /// </summary>
+        public string AuthenticationResultCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the brand logo uri.
+        /// </summary>
+        public string BrandLogoUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets the copyright.
+        /// </summary>
+        public string Copyright { get; set; }
+
+        /// <summary>
+        /// Gets or sets the resource sets.
+        /// </summary>
+        public List<ResourceSet> ResourceSets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the status code.
+        /// </summary>
+        public int StatusCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the status description.
+        /// </summary>
+        public string StatusDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the trace id.
+        /// </summary>
+        public string TraceId { get; set; }
 	}
 
-	public class ResourceSet
+    /// <summary>
+    /// The resource set.
+    /// </summary>
+    public class ResourceSet
 	{
-		public int EstimatedTotal { get; set; }
-		public List<Resource> Resources { get; set; }
+        /// <summary>
+        /// Gets or sets the estimated total.
+        /// </summary>
+        public int EstimatedTotal { get; set; }
+
+        /// <summary>
+        /// Gets or sets the resources.
+        /// </summary>
+        public List<Resource> Resources { get; set; }
 	}
 
-	public class Resource
+    /// <summary>
+    /// The resource.
+    /// </summary>
+    public class Resource
 	{
-		public string Type { get; set; }
-		public List<double> Bbox { get; set; }
-		public string Name { get; set; }
-		public Point Point { get; set; }
-		public Address Address { get; set; }
-		public string Confidence { get; set; }
-		public string EntityType { get; set; }
-		public List<GeocodePoint> GeocodePoints { get; set; }
-		public List<string> MatchCodes { get; set; }
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bbox.
+        /// </summary>
+        public List<double> Bbox { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the point.
+        /// </summary>
+        public Point Point { get; set; }
+
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        public Address Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets the confidence.
+        /// </summary>
+        public string Confidence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the entity type.
+        /// </summary>
+        public string EntityType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the geocode points.
+        /// </summary>
+        public List<GeocodePoint> GeocodePoints { get; set; }
+
+        /// <summary>
+        /// Gets or sets the match codes.
+        /// </summary>
+        public List<string> MatchCodes { get; set; }
 	}
 
-	public class GeocodePoint
+    /// <summary>
+    /// The geocode point.
+    /// </summary>
+    public class GeocodePoint
 	{
-		public string Type { get; set; }
-		public List<double> Coordinates { get; set; }
-		public string CalculationMethod { get; set; }
-		public List<string> UsageTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the coordinates.
+        /// </summary>
+        public List<double> Coordinates { get; set; }
+
+        /// <summary>
+        /// Gets or sets the calculation method.
+        /// </summary>
+        public string CalculationMethod { get; set; }
+
+        /// <summary>
+        /// Gets or sets the usage types.
+        /// </summary>
+        public List<string> UsageTypes { get; set; }
 	}
 
-	public class Address
+    /// <summary>
+    /// The address.
+    /// </summary>
+    public class Address
 	{
-		public string AddressLine { get; set; }
-		public string AdminDistrict { get; set; }
-		public string AdminDistrict2 { get; set; }
-		public string CountryRegion { get; set; }
-		public string FormattedAddress { get; set; }
-		public string Locality { get; set; }
-		public string PostalCode { get; set; }
+        /// <summary>
+        /// Gets or sets the address line.
+        /// </summary>
+        public string AddressLine { get; set; }
+
+        /// <summary>
+        /// Gets or sets the admin district.
+        /// </summary>
+        public string AdminDistrict { get; set; }
+
+        /// <summary>
+        /// Gets or sets the admin district 2.
+        /// </summary>
+        public string AdminDistrict2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the country region.
+        /// </summary>
+        public string CountryRegion { get; set; }
+
+        /// <summary>
+        /// Gets or sets the formatted address.
+        /// </summary>
+        public string FormattedAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the locality.
+        /// </summary>
+        public string Locality { get; set; }
+
+        /// <summary>
+        /// Gets or sets the postal code.
+        /// </summary>
+        public string PostalCode { get; set; }
 	}
 
-	public class Point
+    /// <summary>
+    /// The point.
+    /// </summary>
+    public class Point
 	{
-		public string Type { get; set; }
-		public List<double> Coordinates { get; set; }
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the coordinates.
+        /// </summary>
+        public List<double> Coordinates { get; set; }
 	}
 }
 
