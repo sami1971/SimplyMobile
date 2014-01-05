@@ -80,7 +80,7 @@ namespace StackOverflowSamples
 								rgb [0] = x / (size - 1); // Red value
 								// Convert RGB to HSV
 								// You can find publicly available rgbToHSV functions on the Internet
-								ColorSpace.RGBtoHSV (rgb [0], rgb [1], rgb [3], out hsv [0], out hsv [1], out hsv [2]);
+								ColorSpace.RGBtoHSV (rgb [0], rgb [1], rgb [2], out hsv [0], out hsv [1], out hsv [2]);
 								// Use the hue value to determine which to make transparent
 								// The minimum and maximum hue angle depends on
 								// the color you want to remove
