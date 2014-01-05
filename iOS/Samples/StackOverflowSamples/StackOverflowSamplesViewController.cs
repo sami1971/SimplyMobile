@@ -4,6 +4,8 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Runtime.InteropServices;
 using MonoTouch.CoreImage;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace StackOverflowSamples
 {
@@ -26,6 +28,13 @@ namespace StackOverflowSamples
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
+
+			var filter = CreateFilter ();
+
+			if (filter != null)
+			{
+				System.Diagnostics.Debug.WriteLine(filter.ValueForKey (new NSString ("inputCubeDimension")));
+			}
 		}
 
 		private static CIFilter CreateFilter()
@@ -64,6 +73,7 @@ namespace StackOverflowSamples
 //					}
 //				}
 //			}
+			NSData data;
 			unsafe
 			{
 				fixed (float* ptr = cubeData)
@@ -94,25 +104,29 @@ namespace StackOverflowSamples
 							}
 						}
 					}
+					// Create memory with the cube data
+					//			NSData *data = [NSData dataWithBytesNoCopy:cubeData
+					//				length:cubeDataSize
+					//				freeWhenDone:YES];
+//					IntPtr pointer = (IntPtr)ptr;
+//					data = NSData.FromBytesNoCopy (pointer, (uint)cubeData.Length, true);
 				}
 			}
 
-// Create memory with the cube data
-//			NSData *data = [NSData dataWithBytesNoCopy:cubeData
-//				length:cubeDataSize
-//				freeWhenDone:YES];
-			GCHandle pinnedArray = GCHandle.Alloc(cubeData, GCHandleType.Pinned);
-			IntPtr pointer = pinnedArray.AddrOfPinnedObject();
-//do your stuff
-			var data = NSData.FromBytesNoCopy (pointer, (uint)cubeData.Length, true);
-			pinnedArray.Free();
+			// Create memory with the cube data
+			//			NSData *data = [NSData dataWithBytesNoCopy:cubeData
+			//				length:cubeDataSize
+			//				freeWhenDone:YES];
+			var bytes = new List<byte> ();
+			Array.ForEach(cubeData, a => bytes.AddRange(BitConverter.GetBytes(a)));
+			data = NSData.FromArray(bytes.ToArray());
 //			CIColorCube *colorCube = [CIFilter filterWithName:@"			CIColorCube"];
-			var colorCube = CIFilter.FromName("			CIColorCube");
+			var colorCube = CIFilter.FromName("CIColorCube");
 //			[colorCube setValue:@(size) forKey:@"			inputCubeDimension"];
-			colorCube.SetValueForKey (NSObject.FromObject(size), new NSString("			inputCubeDimension"));
+			colorCube.SetValueForKey (NSObject.FromObject(size), new NSString("inputCubeDimension"));
 // Set data for cube
 //			[colorCube setValue:data forKey:@"			inputCubeData"];
-			colorCube.SetValueForKey (data, new NSString ("			inputCubeData"));
+			colorCube.SetValueForKey (data, new NSString ("inputCubeData"));
 			return colorCube;
 		}
 
