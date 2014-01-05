@@ -32,8 +32,19 @@ namespace BingTests
 				if (response.StatusCode == System.Net.HttpStatusCode.OK)
 				{
 					System.Diagnostics.Debug.WriteLine(response.Value.Copyright);
+					CreateIntent(response.Value);
 				}
 			};
+		}
+
+		private void CreateIntent(BingResponse response)
+		{
+			var nMgr = this.GetSystemService(NotificationService) as NotificationManager;
+			var notification = new Notification(Resource.Drawable.Icon, "Incoming Location Info");
+			var intent = new Intent(this, typeof(NewActivity));
+			var pendingIntent = PendingIntent.GetActivity(this, 0, intent, 0);
+			notification.SetLatestEventInfo(this, "Your location has changed", "Location info", pendingIntent);
+			nMgr.Notify(0, notification);
 		}
 	}
 }
