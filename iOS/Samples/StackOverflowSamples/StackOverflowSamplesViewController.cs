@@ -7,6 +7,10 @@ using MonoTouch.CoreImage;
 using System.Linq;
 using System.Collections.Generic;
 
+using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.Web;
+using SimplyMobile.Text;
+
 namespace StackOverflowSamples
 {
 	public partial class StackOverflowSamplesViewController : UIViewController
@@ -23,7 +27,7 @@ namespace StackOverflowSamples
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		public override void ViewDidLoad ()
+		public async override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			
@@ -35,6 +39,8 @@ namespace StackOverflowSamples
 			{
 				System.Diagnostics.Debug.WriteLine(filter.ValueForKey (new NSString ("inputCubeDimension")));
 			}
+
+
 		}
 
 		private static CIFilter CreateFilter()

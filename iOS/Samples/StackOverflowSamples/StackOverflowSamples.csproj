@@ -111,9 +111,32 @@
     <Compile Include="StackOverflowSamplesViewController.designer.cs">
       <DependentUpon>StackOverflowSamplesViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reddit.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="StackOverflowSamplesViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{27EEB861-E72C-4190-9928-B8FBE6450909}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.iOS.csproj">
+      <Project>{EE9B20C2-2D3B-48B4-8458-D2D7230D1583}</Project>
+      <Name>SimplyMobile.Web.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
