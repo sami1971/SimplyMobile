@@ -47,6 +47,9 @@
     <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ServiceStack\JsonSerializer.cs">
       <Link>JsonSerializer.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ServiceStack\XmlSerializer.cs">
+      <Link>XmlSerializer.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
