@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -40,10 +40,27 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Location\Accuracy.cs">
+      <Link>Accuracy.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Location\Coordinates.cs">
       <Link>Coordinates.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Location\ILocationMonitor.cs">
+      <Link>ILocationMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitor.designer.cs">
+      <Link>LocationMonitor.designer.cs</Link>
+    </Compile>
+    <Compile Include="CoordinateExtensions.cs" />
+    <Compile Include="LocationMonitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{8e364285-031d-4049-94e7-385113738742}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

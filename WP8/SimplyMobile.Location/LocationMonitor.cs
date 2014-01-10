@@ -7,12 +7,12 @@ namespace SimplyMobile.Location
     public static partial class LocationMonitor
     {
         /// <summary>
-        /// The geolocator.
+        /// The geo-locator.
         /// </summary>
         private static Geolocator geolocator;
 
         /// <summary>
-        /// Gets the geolocator.
+        /// Gets the geo-locator.
         /// </summary>
         private static Geolocator Geolocator
         {

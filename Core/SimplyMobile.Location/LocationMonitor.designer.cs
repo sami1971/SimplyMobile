@@ -22,6 +22,7 @@ namespace SimplyMobile.Location
                 {
                     StartMonitoring();
                 }
+
                 locationChanged += value;
             }
 
