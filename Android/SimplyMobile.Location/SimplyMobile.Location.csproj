@@ -45,6 +45,13 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Location\ILocationMonitor.cs">
+      <Link>ILocationMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitor.designer.cs">
+      <Link>LocationMonitor.designer.cs</Link>
+    </Compile>
+    <Compile Include="LocationMonitor.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="..\..\Core\SimplyMobile.Location\Coordinates.cs">
       <Link>Coordinates.cs</Link>
@@ -56,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{d80be32e-29a9-47d6-a791-984b933e9ce3}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
