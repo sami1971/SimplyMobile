@@ -38,6 +38,7 @@ namespace SimplyMobile.Text.ServiceStack
         /// </summary>
         public JsonSerializer()
 		{
+			JsConfig.EmitCamelCaseNames = true;
 			JsConfig.DateHandler = JsonDateHandler.ISO8601;
 		}
 

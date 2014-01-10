@@ -16,7 +16,7 @@ namespace WebClientTests
 		MonoTouch.UIKit.UIButton buttonSendScript { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UIWebView canvasView { get; set; }
+		CanvasDemo.iOS.DataPointTable datapointTable { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIWebView webView { get; set; }
@@ -33,9 +33,9 @@ namespace WebClientTests
 				webView = null;
 			}
 
-			if (canvasView != null) {
-				canvasView.Dispose ();
-				canvasView = null;
+			if (datapointTable != null) {
+				datapointTable.Dispose ();
+				datapointTable = null;
 			}
 		}
 	}

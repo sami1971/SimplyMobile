@@ -7,6 +7,7 @@ using SimplyMobile.Text.ServiceStack;
 using SimplyMobile.Web.CanvasJs;
 using System.Collections.ObjectModel;
 using SimplyMobile.Core;
+using SimplyMobile.Data;
 
 namespace WebClientTests
 {
@@ -14,7 +15,7 @@ namespace WebClientTests
 	{
 		private WebHybrid webHybrid;
 
-		static bool UserInterfaceIdiomIsPhone {
+		public static bool UserInterfaceIdiomIsPhone {
 			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
 		}
 
@@ -50,36 +51,52 @@ namespace WebClientTests
 
 			this.buttonSendScript.TouchUpInside += (object sender, EventArgs e) => 
 			{
-				this.webHybrid.InjectJavaScript("RunMyItem();");
-				this.webHybrid.CallJsFunction("alert", "test");
+				//this.webHybrid.InjectJavaScript("RunMyItem();");
+				//this.webHybrid.CallJsFunction("alert", "test");
 			};
 
-			this.buttonSendScript.OnClick ((s, e) => {
-			});
+//			this.buttonSendScript.OnClick ((s, e) => {
+//
+//
+//				this.webHybrid.CallJsFunction ("onViewModelData", model);
+//
+//
+//			});
 
 			this.webView.LoadRequest (new NSUrlRequest (new NSUrl (homePageUrl, false)));
 
-			if (this.canvasView != null) 
+
+			var model = ChartViewModel.Dummy;
+
+			var dataSource = new ObservableDataSource<DataPoint> ()
 			{
-				var canvas = new CanvasView (this.canvasView, serializer);
-				canvas.Load ();
+				Data = model.DataPoints
+			};
 
-				var model = new ColumnModel () {
-					theme = "theme2",
-					title = new Title()
-					{
-						text = "Canvas Demo"
-					},
-					data = new ColumnData()
-					{
-						dataPoints = new ObservableCollection<DataPoint>(
-							new[] {new DataPoint() { label = "Banana", y = 10 }}
-						)
-					}
-				};
+			dataSource.Bind(this.datapointTable);
 
-				canvas.SetModel (model);
-			}
+			foreach( var point in model.DataPoints) point.PropertyChanged += (s,e) => this.webHybrid.CallJsFunction ("onViewModelData", model);
+//			if (this.canvasView != null) 
+//			{
+//				var canvas = new CanvasView (this.canvasView, serializer);
+//				canvas.Load ();
+//
+//				var model = new ColumnModel () {
+//					theme = "theme2",
+//					title = new Title()
+//					{
+//						text = "Canvas Demo"
+//					},
+//					data = new ColumnData()
+//					{
+//						dataPoints = new ObservableCollection<DataPoint>(
+//							new[] {new DataPoint() { label = "Banana", y = 10 }}
+//						)
+//					}
+//				};
+//
+//				canvas.SetModel (model);
+//			}
 		}
 	}
 }

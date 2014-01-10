@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -105,10 +106,17 @@
     <Compile Include="WebClientTestsViewController.designer.cs">
       <DependentUpon>WebClientTestsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChartViewModel.cs" />
+    <Compile Include="DataPoint.cs" />
+    <Compile Include="DataPointTable.cs" />
+    <Compile Include="LabelCell.cs" />
+    <Compile Include="LabelCell.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="WebClientTestsViewController_iPhone.xib" />
     <InterfaceDefinition Include="WebClientTestsViewController_iPad.xib" />
+    <InterfaceDefinition Include="LabelCell_iPad.xib" />
+    <InterfaceDefinition Include="LabelCell_iPhone.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -140,11 +148,16 @@
       <Project>{C6F895D4-ABE1-4FC3-A6C2-B75C143F83EA}</Project>
       <Name>SimplyMobile.Web.CanvasJs.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
+      <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\home.html" />
+    <Content Include="Content\canvasjs.min.js" />
   </ItemGroup>
 </Project>
