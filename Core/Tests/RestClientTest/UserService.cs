@@ -28,12 +28,9 @@ namespace RestClientTest
 
         public UserService()
         {
-            var client = new RestClient()
-                {
-                    BaseAddress = new Uri("http://servicestack.net/ServiceStack.Examples.Host.Web/ServiceStack/Json/SyncReply")
-                };
-            
-            client.SetSerializer(new JsonSerializer());
+			var client = new RestClient (
+				new Uri ("http://servicestack.net/ServiceStack.Examples.Host.Web/ServiceStack/Json/SyncReply"),
+				new JsonSerializer());
 
             this.client = client;
         }

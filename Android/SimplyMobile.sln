@@ -199,7 +199,7 @@ Global
 		{52F5541C-015E-47D7-A16F-5888D04C21D2} = {9FE02056-17B8-46F7-9B72-F3884DC3EF56}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\BingTests\BingTests.csproj
+		StartupItem = Tests\TextSerializationTests\TextSerializationTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

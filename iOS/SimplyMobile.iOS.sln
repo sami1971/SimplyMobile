@@ -878,7 +878,7 @@ Global
 		{1CCE258E-59E0-42ED-9588-580C93B499BD} = {D868CD0C-FDD3-4634-8163-1003C972222C}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Samples\StackOverflowSamples\StackOverflowSamples.csproj
+		StartupItem = Tests\WebClientTests\WebClientTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
