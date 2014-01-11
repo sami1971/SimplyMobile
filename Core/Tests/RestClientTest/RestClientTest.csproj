@@ -36,7 +36,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -60,6 +59,10 @@
     <ProjectReference Include="..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Web\SimplyMobile.Web.Net45.csproj">
+      <Project>{0934ED52-309E-4EE1-90E1-0E4ED3D1372C}</Project>
+      <Name>SimplyMobile.Web.Net45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

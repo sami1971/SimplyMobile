@@ -136,6 +136,10 @@
       <Link>XmlSerializationTests.cs</Link>
     </Compile>
     <Compile Include="ServiceStackXmlTests.cs" />
+    <Compile Include="ListSerializationSpeed.cs" />
+    <Compile Include="FastJsonList.cs" />
+    <Compile Include="ServiceStackList.cs" />
+    <Compile Include="JsonNetList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

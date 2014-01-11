@@ -51,7 +51,7 @@ namespace TextSerializationTests
 		public void SerializationSpeed()
 		{
 			var serializer = this.Serializer;
-			var count = 100000;
+			var count = 100;
 			var elapsedMs = TestMethods.GetSerializationSpeed(count, serializer);
             DebugWrite.WriteLine("{0} took {1}ms serializing {2} iterations.",
 			                   serializer,
@@ -66,7 +66,7 @@ namespace TextSerializationTests
 		public void DeserializationSpeed()
 		{
 			var serializer = this.Serializer;
-			var count = 100000;
+			var count = 100;
             var elapsedMs = TestMethods.GetDeserializationSpeed(count, serializer, serializer);
             DebugWrite.WriteLine(
                 "{0} took {1}ms deserializing {2} iterations.",

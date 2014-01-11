@@ -2,24 +2,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Test</title>
+		<title>Testing CanvasJS with Xamarin C# bridge</title>
 	</head>
-    <body>
-        Test 123
-    </body>
-    <input type="button"  value="Click to send item" onclick="OnButtonClick()"/>
-<script language="javascript">
-    function RunMyItem() {
-        alert("Testing");
-        var item = { name: "sami", count: 10 };
-        Native("test", item);
-    }
 
-    function OnButtonClick() {
-        alert("Testing");
-        var item = { name: "sami", count: 10 };
-        Native("test", item);
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+<script language="javascript">
+    function onViewModelData(model){
+    	var chart = new CanvasJS.Chart("chartContainer", {
+                  theme: "theme2",
+                  title: {
+                      text: model.title
+                  },
+                  data: [{ type: "column", dataPoints: model.dataPoints}]
+              });
+		chart.render();
     }
 </script>
+
+    <script type="text/javascript" src="canvasjs.min.js"></script>
     </html>
 </!DOCTYPE>
