@@ -6,20 +6,42 @@
 	</head>
 
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-<script language="javascript">
-    function onViewModelData(model){
-    	var chart = new CanvasJS.Chart("chartContainer", {
-                  theme: "theme2",
-                  title: {
-                      text: model.title
-                  },
-                  data: [{ type: "column", dataPoints: model.dataPoints}]
-              });
-		chart.render();
-    }
-</script>
-
     <script type="text/javascript" src="canvasjs.min.js"></script>
-    </html>
+    <script type="text/javascript" src="native.js"></script>
+    <script language="javascript">
+        function onViewModelData(model) {
+            var v;
+            if (model.title === undefined) {
+                v = JSON.parse(model);
+            } else {
+                v = model;
+            }
+            
+            Native("dataCallback", model.toString());
+            //Native("dataCallback", model.toJSON());
+            Native("dataCallback", v.dataPoints);
+            //Native("dataCallback", JSON.stringify(model));
+            
+            //Native("test", model);
+            
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "theme2",
+                title: {
+                    text: v.title
+                },
+                data: [{ type: "column", dataPoints: v.dataPoints }]
+            });
+            chart.render();
+        }
+        
+        function sendData(o) {
+            Native("dataCallback", o);
+        }
+        
+        function sendData(o,b) {
+            Native("dataCallback", [o, b]);
+        }
+    </script>
+    
+</html>
 </!DOCTYPE>

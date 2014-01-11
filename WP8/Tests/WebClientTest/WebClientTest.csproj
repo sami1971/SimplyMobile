@@ -93,8 +93,19 @@
     <Compile Include="..\..\..\Android\Tests\WebClientTest\Data.cs">
       <Link>Data.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\iOS\Tests\WebClientTests\ChartViewModel.cs">
+      <Link>ChartViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\WebClientTests\DataPoint.cs">
+      <Link>DataPoint.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="htmlGen.gen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>htmlGen.tt</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -118,6 +129,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="htmlGen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>htmlGen.gen.cs</LastGenOutput>
+    </None>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
@@ -125,13 +140,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\iOS\Tests\WebClientTests\Content\home.html">
-      <Link>Assets\home.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>HTML\home.html</Link>
     </Content>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML\canvasjs.min.js" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -147,6 +162,7 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML\native.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -167,6 +183,9 @@
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

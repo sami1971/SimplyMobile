@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if !WINDOWS_PHONE
 using System.Text.RegularExpressions;
 using System.Text;
+#endif
 using SimplyMobile.Text;
 
 namespace SimplyMobile.Web
 {
 	public partial class WebHybrid
 	{
+#if !WINDOWS_PHONE
 		private const string Format = "file://(local|LOCAL)/Action=(?<Action>[\\w]+)/";
 		private static readonly Regex Expression = new Regex(Format);
+#endif
 		private Dictionary<string, Action<string>> registeredActions;
 
 		partial void Inject(string script);
@@ -30,7 +34,15 @@ namespace SimplyMobile.Web
 		public void CallJsFunction(string funcName, params object[] parameters)
 		{
 #if WINDOWS_PHONE
-		    this.webView.InvokeScript(funcName, parameters.Select(a => this.Serializer.Serialize(a)).ToArray());
+		    try
+		    {
+                var args = parameters.Select(a => this.Serializer.Serialize(a)).ToArray();
+                var resp = this.webView.InvokeScript(funcName, args);
+		    }
+		    catch (Exception exception)
+		    {
+		        System.Diagnostics.Debug.WriteLine(exception.Message);
+		    }
 #else
 			var builder = new StringBuilder();
 
@@ -39,7 +51,7 @@ namespace SimplyMobile.Web
 
 			for (var n = 0; n < parameters.Length; n++)
 			{
-				builder.Append (this.Serializer.Serialize (parameters[n]));
+				builder.Append(this.Serializer.Serialize(parameters[n]));
 				if (n < parameters.Length - 1) 
 				{
 					builder.Append(", ");
@@ -59,12 +71,12 @@ namespace SimplyMobile.Web
 			if (m.Success) 
 			{
 				Action<string> action;
-				var name = m.Groups ["Action"].Value;
+				var name = m.Groups["Action"].Value;
 
 				if (this.registeredActions.TryGetValue(name, out action))
 				{
 					var data = Uri.UnescapeDataString(request.Remove(m.Index, m.Length));
-					action.Invoke (data);
+					action.Invoke(data);
 					return true;
 				}
 			}

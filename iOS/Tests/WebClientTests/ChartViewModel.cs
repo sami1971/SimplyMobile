@@ -12,24 +12,24 @@ namespace WebClientTests
 
 		public ObservableCollection<DataPoint> DataPoints { get; set; }
 
-		public string Data
-		{
-			get
-			{
-				var builder = new StringBuilder();
+        //public string Data
+        //{
+        //    get
+        //    {
+        //        var builder = new StringBuilder();
 
-				builder.Append("[");
-				foreach (var point in DataPoints)
-				{
-					builder.Append("{");
-					builder.Append(string.Format("label: \"{0}\", y: \"{1}\"", point.Label, point.Y));
-					builder.Append("},");
-				}
-				builder.Append("]");
+        //        builder.Append("[");
+        //        foreach (var point in DataPoints)
+        //        {
+        //            builder.Append("{");
+        //            builder.Append(string.Format("label: \"{0}\", y: \"{1}\"", point.Label, point.Y));
+        //            builder.Append("},");
+        //        }
+        //        builder.Append("]");
 
-				return builder.ToString();
-			}
-		}
+        //        return builder.ToString();
+        //    }
+        //}
 
 		public ChartViewModel()
 		{
