@@ -12,17 +12,6 @@ namespace SimplyMobile.Location
         private static Geolocator geolocator;
 
         /// <summary>
-        /// Gets the geo-locator.
-        /// </summary>
-        private static Geolocator Geolocator
-        {
-            get
-            {
-                return geolocator ?? (geolocator = new Geolocator());
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the desired accuracy.
         /// </summary>
         public static Accuracy DesiredAccuracy
@@ -49,6 +38,17 @@ namespace SimplyMobile.Location
         {
             get { return Geolocator.MovementThreshold; }
             set { Geolocator.MovementThreshold = value; }
+        }
+
+        /// <summary>
+        /// Gets the geo-locator.
+        /// </summary>
+        private static Geolocator Geolocator
+        {
+            get
+            {
+                return geolocator ?? (geolocator = new Geolocator());
+            }
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace SimplyMobile.Location
         }
 
         /// <summary>
-        /// The geolocator on position changed.
+        /// The position changed handler.
         /// </summary>
         /// <param name="sender">
         /// The sender.
