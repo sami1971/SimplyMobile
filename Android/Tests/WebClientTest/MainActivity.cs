@@ -37,7 +37,7 @@ namespace WebClientTest
 
 			this.webHybrid = new WebHybrid (webView, serializer);
 
-			this.webHybrid.RegisterCallback("test", (data) => 
+			this.webHybrid.RegisterCallback("dataCallback", (data) => 
 				{
 					Console.WriteLine(data);
 				}

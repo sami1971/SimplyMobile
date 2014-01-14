@@ -64,7 +64,7 @@ namespace TextSerializationTests
 		[Test()]
 		public void CanSerializeDates()
 		{
-			var p = DateTimeDto.Create (101);
+			var p = DateTimeDto.Create(101);
             Assert.IsTrue(TestMethods.CanSerialize<DateTimeDto>(this.Serializer, p, this.Deserializer));
 		}
 
@@ -105,9 +105,7 @@ namespace TextSerializationTests
         [Test()]
         public void CanSerializeListWithInterfaces()
         {
-            var animals = new List<IAnimal>();
-            animals.Add(new Cat() { Name = "Just some cat" });
-            animals.Add(new Dog() { Name = "GSP" });
+            var animals = new List<IAnimal> { new Cat() { Name = "Just some cat" }, new Dog() { Name = "GSP" } };
 
             Assert.IsTrue(TestMethods.CanSerializeEnumerable(this.Serializer, animals, this.Deserializer));
         }

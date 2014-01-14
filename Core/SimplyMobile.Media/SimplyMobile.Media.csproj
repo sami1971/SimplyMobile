@@ -51,6 +51,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\WaveRecorder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Audio\IAudioStream.cs" />
   </ItemGroup>
