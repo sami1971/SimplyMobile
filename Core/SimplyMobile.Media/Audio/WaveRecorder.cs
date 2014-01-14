@@ -30,7 +30,7 @@ namespace SimplyMobile.Media.Audio
             {
                 return false;
             }
-
+            this.byteCount = 0;
             this.stream.OnBroadcast += OnStreamBroadcast;
             this.stream.OnActiveChanged += StreamActiveChanged;
             if (!this.stream.Active)
