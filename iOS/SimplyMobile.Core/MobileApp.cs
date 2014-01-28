@@ -8,5 +8,12 @@ namespace SimplyMobile.Core
 {
     public partial class MobileApp : UIApplicationDelegate
     {
+		public static bool IsPhone 
+		{
+			get 
+			{
+				return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;
+			}
+		}
     }
 }

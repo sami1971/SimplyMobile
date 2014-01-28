@@ -1,16 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BAD35219-28E2-4655-BC61-E4D86FCF901A}</ProjectGuid>
-    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{99D52964-876F-4026-B360-5BC7AD4887D1}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Media</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SimplyMobile.Media</AssemblyName>
+    <RootNamespace>JavaScriptValidator</RootNamespace>
+    <AssemblyName>JavaScriptValidator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,29 +31,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentNode.cs" />
+    <Compile Include="CheckBoxNode.cs" />
+    <Compile Include="TextNode.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\IAudioStream.cs">
-      <Link>Audio\IAudioStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\WaveRecorder.cs">
-      <Link>Audio\WaveRecorder.cs</Link>
-    </Compile>
-    <Compile Include="Audio\AudioStream.cs" />
-    <Compile Include="Audio\AccRecorder.cs" />
-    <Compile Include="Audio\AudioPacketConverter.cs" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
+    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\textValidation.js" />
   </ItemGroup>
 </Project>

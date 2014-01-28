@@ -24,6 +24,11 @@ namespace SimplyMobile.Core
 
 			if (prop == null)
 			{
+				prop = t.GetProperties ().FirstOrDefault (a => a.Name == propertyName);
+			}
+
+			if (prop == null)
+			{
 				throw new Exception(
 					string.Format("Property {0} not found in {1}.", propertyName, t));
 			}

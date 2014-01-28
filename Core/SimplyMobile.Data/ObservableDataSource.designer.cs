@@ -42,9 +42,9 @@ namespace SimplyMobile.Data
         /// </summary>
         public ObservableDataSource()
         {
+			this.observers = new ObservableCollection<object>();
+			this.observers.CollectionChanged += this.ObserversChanged;
             this.Data = new ObservableCollection<T>();
-            this.observers = new ObservableCollection<object>();
-            this.observers.CollectionChanged += this.ObserversChanged;
         }
 
         public ObservableDataSource(IEnumerable<T> data)
@@ -90,6 +90,8 @@ namespace SimplyMobile.Data
 
                 this.data = value;
                 this.data.CollectionChanged += this.CollectionChanged;
+
+				this.CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Reset));
             }
         }
 

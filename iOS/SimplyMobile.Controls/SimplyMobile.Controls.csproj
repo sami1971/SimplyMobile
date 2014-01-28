@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{07B9D0E4-B633-4698-AC92-997A121949F4}</ProjectGuid>
+    <ProjectGuid>{0BA0320D-5C1C-49BA-9C59-6F302F5FE9E1}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Location</RootNamespace>
+    <RootNamespace>SimplyMobile.Controls</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SimplyMobile.Location</AssemblyName>
+    <AssemblyName>SimplyMobile.Controls</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,27 +35,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Location\Accuracy.cs">
-      <Link>Accuracy.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Location\Coordinates.cs">
-      <Link>Coordinates.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Location\ILocationMonitor.cs">
-      <Link>ILocationMonitor.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitor.designer.cs">
-      <Link>LocationMonitor.designer.cs</Link>
-    </Compile>
-    <Compile Include="CoordinateExtensions.cs" />
-    <Compile Include="LocationMonitor.cs" />
+    <Compile Include="SplitViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">

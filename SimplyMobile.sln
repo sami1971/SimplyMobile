@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObservableCollectionTest", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextSerializationTests", "Core\Tests\TextSerializationTests\TextSerializationTests.csproj", "{15517F8C-42DB-4D77-831D-5A6E815F3914}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptValidator", "Core\Tests\JavaScriptValidator\JavaScriptValidator.csproj", "{99D52964-876F-4026-B360-5BC7AD4887D1}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Media", "Core\SimplyMobile.Media\SimplyMobile.Media.csproj", "{5D13E8E7-0593-4640-B59A-D0D0860504E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text", "Core\SimplyMobile.Text\SimplyMobile.Text.csproj", "{F367F89E-E79F-4332-AD93-85E7CFF7391C}"
@@ -183,6 +185,14 @@ Global
 		{9000E30D-23C8-433A-B464-FF45F29043E2}.Windows_Debug|Any CPU.Build.0 = Windows_Debug|Any CPU
 		{9000E30D-23C8-433A-B464-FF45F29043E2}.Windows_Release|Any CPU.ActiveCfg = Windows_Release|Any CPU
 		{9000E30D-23C8-433A-B464-FF45F29043E2}.Windows_Release|Any CPU.Build.0 = Windows_Release|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Windows_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D52964-876F-4026-B360-5BC7AD4887D1}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
 		{9DA39E6F-2DC9-4D4E-9E86-10770D067136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DA39E6F-2DC9-4D4E-9E86-10770D067136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DA39E6F-2DC9-4D4E-9E86-10770D067136}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -263,6 +273,7 @@ Global
 		{29FA1C8B-53A3-41FC-AD90-4B6EBF143332} = {D24E736C-7E9A-4132-B762-6BAFA8FFB7BC}
 		{9000E30D-23C8-433A-B464-FF45F29043E2} = {C05F0E57-9628-43F1-9EE6-1C14C82C6F0D}
 		{15517F8C-42DB-4D77-831D-5A6E815F3914} = {C05F0E57-9628-43F1-9EE6-1C14C82C6F0D}
+		{99D52964-876F-4026-B360-5BC7AD4887D1} = {C05F0E57-9628-43F1-9EE6-1C14C82C6F0D}
 		{0854603B-BBB7-4AE6-A3CE-598803AC1214} = {0F7EA64E-5BA5-4E23-B755-6A77A503B6BB}
 		{167278C5-6A53-4276-AE66-80E1BF085F8B} = {0F7EA64E-5BA5-4E23-B755-6A77A503B6BB}
 		{6D289D39-DB45-43A5-B008-E9B5B3362569} = {0F7EA64E-5BA5-4E23-B755-6A77A503B6BB}
@@ -282,7 +293,7 @@ Global
 		{8F34819D-3C5B-42EC-AD80-443BBA4F7947} = {A0A841D3-8757-4B01-866F-4F241B81FC94}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Core\Tests\TextSerializationTests\TextSerializationTests.csproj
+		StartupItem = Core\Tests\JavaScriptValidator\JavaScriptValidator.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,126 +1,152 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{254FC42A-1D03-4137-A575-949BE03FFB04}</ProjectGuid>
+    <ProjectGuid>{00EA3397-C712-40D1-9259-410B9765AE36}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DeviceTests</RootNamespace>
+    <RootNamespace>JavaScriptValidator</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>DeviceTests</AssemblyName>
+    <AssemblyName>JavaScriptValidator</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchDebug>true</MtouchDebug>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <BuildIpa>true</BuildIpa>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="ServiceStack.Text.MonoTouch">
-      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.MonoTouch.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\Core\Tests\DeviceTests\DeviceApp.designer.cs">
-      <Link>DeviceApp.designer.cs</Link>
-    </Compile>
-    <Compile Include="BatteryStatusViewModel.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="DeviceApp.cs" />
-    <Compile Include="MainViewController.cs" />
-    <Compile Include="TabBarController.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="JavaScriptValidatorViewController.cs" />
+    <Compile Include="JavaScriptValidatorViewController.designer.cs">
+      <DependentUpon>JavaScriptValidatorViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\JavaScriptValidator\CheckBoxNode.cs">
+      <Link>CheckBoxNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\JavaScriptValidator\Document.cs">
+      <Link>Document.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\JavaScriptValidator\DocumentNode.cs">
+      <Link>DocumentNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\JavaScriptValidator\TextNode.cs">
+      <Link>TextNode.cs</Link>
+    </Compile>
+    <Compile Include="DocumentTable.cs" />
+    <Compile Include="CheckBoxCell.cs" />
+    <Compile Include="CheckBoxCell.designer.cs">
+      <DependentUpon>CheckBoxCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextCell.cs" />
+    <Compile Include="TextCell.designer.cs">
+      <DependentUpon>TextCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableCell.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
-      <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
-      <Name>SimplyMobile.Text.ServiceStack</Name>
+    <InterfaceDefinition Include="JavaScriptValidatorViewController.xib" />
+    <InterfaceDefinition Include="CheckBoxCell_iPhone.xib" />
+    <InterfaceDefinition Include="CheckBoxCell_iPad.xib" />
+    <InterfaceDefinition Include="TextCell_iPhone.xib" />
+    <InterfaceDefinition Include="TextCell_iPad.xib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
+      <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
       <Name>SimplyMobile.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Device\SimplyMobile.Device.csproj">
-      <Project>{E51F775C-15CB-4A9D-9278-4F0FB72480A5}</Project>
-      <Name>SimplyMobile.Device</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
   </ItemGroup>
 </Project>
