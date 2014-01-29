@@ -2,6 +2,7 @@ using System;
 using Android.Widget;
 using System.ComponentModel;
 using System.Reflection;
+using Android.App;
 
 namespace SimplyMobile.Core
 {
@@ -27,7 +28,12 @@ namespace SimplyMobile.Core
 			{
 				if (e.PropertyName == propertyName)
 				{
-					textField.SetText(source, property);
+                    var activity = textField.Context as Activity;
+
+                    if (activity != null)
+                    {
+                        activity.RunOnUiThread(() => textField.SetText(source, property));
+                    }
 				}
 				});
 

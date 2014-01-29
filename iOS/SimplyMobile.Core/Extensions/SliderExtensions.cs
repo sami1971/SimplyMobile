@@ -70,7 +70,7 @@ namespace SimplyMobile.Core
 
 			if (slider.Value != f)
 			{
-				slider.Value = f;
+				slider.InvokeOnMainThread (() => slider.Value = f);
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace SimplyMobile.Core
 
 			if (slider.MinValue != f)
 			{
-				slider.MinValue = f;
+				slider.InvokeOnMainThread (() => slider.MinValue = f);
 			}
 		}
 
@@ -92,7 +92,7 @@ namespace SimplyMobile.Core
 
 			if (slider.MaxValue != f)
 			{
-				slider.MaxValue = f;
+				slider.InvokeOnMainThread (() => slider.MaxValue = f);
 			}
 		}
 
@@ -139,20 +139,19 @@ namespace SimplyMobile.Core
 			slider.SetMaximum(source, propertyMax);
 
 			var handler = new PropertyChangedEventHandler ((s, e) =>
+				slider.InvokeOnMainThread (() =>
+			{
+				if (e.PropertyName == valueName)
 				{
-					if (e.PropertyName == valueName)
-					{
-						slider.SetValue(source, propertyValue);
-					}
-					else if (e.PropertyName == minName)
-					{
-						slider.SetMinimum(source, propertyMin);
-					}
-					else if (e.PropertyName == maxName)
-					{
-						slider.SetMinimum(source, propertyMax);
-					}
-				});
+					slider.SetValue (source, propertyValue);
+				} else if (e.PropertyName == minName)
+				{
+					slider.SetMinimum (source, propertyMin);
+				} else if (e.PropertyName == maxName)
+				{
+					slider.SetMinimum (source, propertyMax);
+				}
+			}));
 
 			source.PropertyChanged += handler;
 

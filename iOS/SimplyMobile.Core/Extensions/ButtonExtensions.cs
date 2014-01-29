@@ -36,7 +36,8 @@ namespace SimplyMobile.Core
 				{
 					if (e.PropertyName == propertyName)
 					{
-						button.SetTitle (source, property, state);
+						button.InvokeOnMainThread(()=>
+							button.SetTitle (source, property, state));
 					}
 				}
 			);

@@ -2,6 +2,7 @@ using System;
 using Android.Widget;
 using System.ComponentModel;
 using System.Reflection;
+using Android.App;
 
 namespace SimplyMobile.Core
 {
@@ -32,7 +33,12 @@ namespace SimplyMobile.Core
 			{
 				if (e.PropertyName == propertyName)
 				{
-					button.SetTitle (source, property);
+                    var activity = button.Context as Activity;
+
+                    if (activity != null)
+                    {
+                        activity.RunOnUiThread(() => button.SetTitle(source, property));
+                    }
 				}
 			};
 		}

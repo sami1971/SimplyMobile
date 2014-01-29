@@ -33,7 +33,7 @@ namespace SimplyMobile.Core
 			{
 				if (e.PropertyName == propertyName)
 				{
-					label.SetText(source, property);
+					label.InvokeOnMainThread(()=> label.SetText(source, property));
 				}
 			});
 

@@ -28,7 +28,8 @@ namespace SimplyMobile.Core
 				{
 					if (e.PropertyName == propertyName)
 					{
-						toggle.SetValue(source, property);
+							toggle.InvokeOnMainThread(()=>
+								toggle.SetValue(source, property));
 					}
 				});
 

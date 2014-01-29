@@ -2,6 +2,7 @@ using System;
 using Android.Widget;
 using System.Reflection;
 using System.ComponentModel;
+using Android.App;
 
 namespace SimplyMobile.Core
 {
@@ -28,7 +29,12 @@ namespace SimplyMobile.Core
 					{
 						if (e.PropertyName == propertyName)
 						{
-							toggle.SetValue(source, property);
+                            var activity = toggle.Context as Activity;
+
+                            if (activity != null)
+                            {
+                                activity.RunOnUiThread(() => toggle.SetValue(source, property));
+                            }
 						}
 					});
 

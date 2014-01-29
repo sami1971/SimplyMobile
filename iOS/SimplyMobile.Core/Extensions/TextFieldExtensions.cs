@@ -26,7 +26,8 @@ namespace SimplyMobile.Core
 				{
 					if (e.PropertyName == propertyName)
 					{
-						textField.SetText(source, property);
+						textField.InvokeOnMainThread(()=>
+							textField.SetText(source, property));
 					}
 				});
 
