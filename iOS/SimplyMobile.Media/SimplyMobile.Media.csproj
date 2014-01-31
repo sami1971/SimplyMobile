@@ -49,12 +49,14 @@
     </Compile>
     <Compile Include="Audio\AudioStream.cs" />
     <Compile Include="Audio\AccRecorder.cs" />
-    <Compile Include="Audio\AudioPacketConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Audio\AudioPacketConverter.cs" />
   </ItemGroup>
 </Project>

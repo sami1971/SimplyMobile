@@ -37,6 +37,18 @@ namespace SimplyMobile.Location
 		public double? Speed { get; set; }
 		#endregion
 
+		public DateTime TimeStamp { get; set; }
+
+		public Coordinates()
+		{
+		}
+
+		public Coordinates(double latitude, double longitude)
+		{
+			this.Latitude = latitude;
+			this.Longitude = longitude;
+		}
+
 		/// <summary>
 		/// Calculates distance between two locations.
 		/// </summary>

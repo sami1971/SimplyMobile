@@ -67,6 +67,7 @@ namespace SimplyMobile.Media.Audio
             {
                 this.WriteHeader();
                 this.streamWriter.Close();
+				this.streamWriter = null;
             }
 
             this.stream = null;

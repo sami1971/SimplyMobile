@@ -57,6 +57,8 @@
       <Link>AccelometerStatus.cs</Link>
     </Compile>
     <Compile Include="Accelometer.cs" />
+    <Compile Include="CurrentDevice.cs" />
+    <Compile Include="DeviceType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -21,7 +21,6 @@ namespace SimplyMobile.Media
 		void HandleOnBroadcast (object sender, SimplyMobile.Core.EventArgs<byte[]> e)
 		{
 			var desc = new AudioStreamBasicDescription (AudioFormatType.LinearPCM);
-			desc.BitsPerChannel = 
 		}
 	}
 }

@@ -28,7 +28,7 @@ namespace SimplyMobile.Web
     /// <summary>
     /// The rest client.
     /// </summary>
-    public class RestClient : IRestClient
+	public class RestClient : IRestClient
 	{
         /// <summary>
         /// The client.
@@ -52,9 +52,17 @@ namespace SimplyMobile.Web
         {
 			this.serializers = new Dictionary<Format, ITextSerializer>();
 			this.customSerializers = new Dictionary<Type, ITextSerializer>();
-            this.client = new HttpClient()
+
+			var handler = new HttpClientHandler();
+			if (handler.SupportsAutomaticDecompression)
+			{
+				handler.AutomaticDecompression = DecompressionMethods.GZip |
+				                     DecompressionMethods.Deflate;
+			}
+
+			this.client = new HttpClient(handler)
                 {
-                    BaseAddress = baseAddress
+				BaseAddress = baseAddress
                 };
 
 			if (defaultSerializer != null) 
@@ -70,7 +78,15 @@ namespace SimplyMobile.Web
 		{
 			this.serializers = new Dictionary<Format, ITextSerializer>();
 			this.customSerializers = new Dictionary<Type, ITextSerializer>();
-			this.client = new HttpClient()
+
+			var handler = new HttpClientHandler();
+			if (handler.SupportsAutomaticDecompression)
+			{
+				handler.AutomaticDecompression = DecompressionMethods.GZip |
+				                                 DecompressionMethods.Deflate;
+			}
+
+			this.client = new HttpClient(handler)
 			{
 				BaseAddress = baseAddress
 			};
