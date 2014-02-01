@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -42,29 +42,26 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Mono.Android" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net" />
+    <Reference Include="Mono.Android" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="IRestClient.cs" />
     <Compile Include="RestClient.cs" />
+    <Compile Include="ServiceResponse.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.Android.cs" />
     <Compile Include="CustomView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
     <Folder Include="Assets\Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Android\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{460D47EE-0215-4EE2-BFE1-749B72D29D6A}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

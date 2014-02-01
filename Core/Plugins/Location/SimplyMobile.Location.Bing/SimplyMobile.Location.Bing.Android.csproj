@@ -52,17 +52,9 @@
     <Compile Include="BingResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Android\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
       <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>

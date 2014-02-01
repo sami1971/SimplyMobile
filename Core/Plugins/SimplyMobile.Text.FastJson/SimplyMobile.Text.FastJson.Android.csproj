@@ -55,10 +55,4 @@
     <Compile Include="JsonSerializer.cs" />
     <Compile Include="JsonParser.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

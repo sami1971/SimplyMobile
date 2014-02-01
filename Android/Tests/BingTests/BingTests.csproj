@@ -16,7 +16,7 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>BingTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -68,10 +68,6 @@
     <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.Android.csproj">
       <Project>{52F5541C-015E-47D7-A16F-5888D04C21D2}</Project>
       <Name>SimplyMobile.Location.Bing.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
       <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>

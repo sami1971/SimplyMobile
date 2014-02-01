@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7E4AA2E4-C8BD-45EA-86CC-10A3302518B1}</ProjectGuid>
+    <ProjectGuid>{460D47EE-0215-4EE2-BFE1-749B72D29D6A}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Location</RootNamespace>
+    <RootNamespace>SimplyMobile.Text</RootNamespace>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AssemblyName>SimplyMobile.Location</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AssemblyName>SimplyMobile.Text</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,33 +42,33 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Location\ILocationMonitor.cs">
-      <Link>ILocationMonitor.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitor.designer.cs">
-      <Link>LocationMonitor.designer.cs</Link>
-    </Compile>
-    <Compile Include="LocationMonitor.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="..\..\Core\SimplyMobile.Location\Coordinates.cs">
-      <Link>Coordinates.cs</Link>
+    <Compile Include="..\..\Core\SimplyMobile.Text\Format.cs">
+      <Link>Format.cs</Link>
     </Compile>
-    <Compile Include="CoordinateExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Text\ICustomSerializer.cs">
+      <Link>ICustomSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\IJsonSerializer.cs">
+      <Link>IJsonSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\IProtoBufSerializer.cs">
+      <Link>IProtoBufSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\ITextSerializer.cs">
+      <Link>ITextSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Text\JsonSerializerExtensions.cs">
+      <Link>JsonSerializerExtensions.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
