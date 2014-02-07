@@ -4,13 +4,14 @@ using System.Linq;
 
 using Android.Views;
 using Android.Widget;
+using Android.App;
 
 namespace SimplyMobile.Data
 {
     /// <summary>
     /// Observable data source Android portion.
     /// </summary>
-    public partial class ObservableDataSource<T> : Java.Lang.Object, IListAdapter, ISpinnerAdapter
+	public partial class ObservableDataSource<T> : Java.Lang.Object, IListAdapter, ISpinnerAdapter
     {
         /// <summary>
         /// The are all items enabled.
@@ -143,7 +144,7 @@ namespace SimplyMobile.Data
         {
             foreach (var listView in this.observers.OfType<ListView>())
             {
-				listView.InvalidateViews();
+				((Activity)listView.Context).RunOnUiThread (listView.InvalidateViews);
             }
         }
 
@@ -174,6 +175,7 @@ namespace SimplyMobile.Data
 					newSpinner.Adapter = this;
 					newSpinner.ItemSelected -= HandleItemSelected;
 					newSpinner.ItemSelected += HandleItemSelected;
+					newSpinner.NothingSelected += HandleNothingSelected;
 				}
 //				foreach (var listView in this.observers.OfType<ListView>())
 //				{
@@ -194,6 +196,31 @@ namespace SimplyMobile.Data
 					removedSpinner.ItemSelected -= HandleItemSelected;
 				}
 			}
+        }
+
+        void HandleNothingSelected (object sender, AdapterView.NothingSelectedEventArgs e)
+        {
+			System.Diagnostics.Debug.WriteLine ("HandleNothingSelected");
+        }
+
+		public void OnItemSelected(AdapterView parent, View view, int position, long id)
+		{
+			this.HandleItemSelected (parent, new AdapterView.ItemSelectedEventArgs (parent, view, position, id));
+		}
+
+		public void OnNothingSelected(Android.Widget.AdapterView parent)
+		{
+//			throw new NotImplementedException ();
+		}
+
+        void HandleClick (object sender, EventArgs e)
+        {
+			System.Diagnostics.Debug.WriteLine ("HandleClick clicked");
+        }
+
+        void HandleItemClick (object sender, AdapterView.ItemClickEventArgs e)
+        {
+			System.Diagnostics.Debug.WriteLine ("HandleItemClick clicked");
         }
     }
 }
