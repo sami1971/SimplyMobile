@@ -38,10 +38,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="SplitViewController.cs" />
+    <Compile Include="Views\SignatureView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">

@@ -1,4 +1,4 @@
-﻿﻿//
+﻿//
 //  Copyright 2013, Sami M. Kallio
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -133,14 +133,14 @@ namespace SimplyMobile.Data
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>())
+				foreach (var collectionView in notifyCollectionChangedEventArgs.OldItems.OfType<UICollectionView>())
 				{
 					collectionView.WeakDataSource = null;
 					collectionView.Delegate = null;
 					collectionView.InvokeOnMainThread(collectionView.ReloadData);
 				}
 
-				foreach (var pickerView in notifyCollectionChangedEventArgs.NewItems.OfType<UIPickerView>())
+				foreach (var pickerView in notifyCollectionChangedEventArgs.OldItems.OfType<UIPickerView>())
 				{
 					pickerView.DataSource = null;
 					pickerView.WeakDelegate = null;

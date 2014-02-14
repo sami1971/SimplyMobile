@@ -40,7 +40,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__IOS___</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -67,6 +67,7 @@
     </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
     <MtouchUseLlvm>true</MtouchUseLlvm>
+    <DefineConstants>__IOS___</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -104,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
+      <Link>ProtoBufTests.cs</Link>
+    </None>
+    <None Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
+      <Link>ProtoBufSanityTests.cs</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -135,9 +142,6 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Person.cs">
       <Link>Dtos\Person.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
-      <Link>ProtoBufTests.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DateTimeDto.cs">
       <Link>Dtos\DateTimeDto.cs</Link>
     </Compile>
@@ -146,9 +150,6 @@
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
       <Link>JsonNetSanity.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
-      <Link>ProtoBufSanityTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\SanityCheckTests.cs">
       <Link>SanityCheckTests.cs</Link>
@@ -180,10 +181,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
