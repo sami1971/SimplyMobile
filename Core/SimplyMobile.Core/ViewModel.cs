@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace SimplyMobile.Core
 {
@@ -20,6 +21,22 @@ namespace SimplyMobile.Core
 		public void Unbind()
 		{
 			this.PropertyChanged = null;
+		}
+
+		/// <summary>
+		/// Changes the property if the value is different and invokes PropertyChangedEventHandler.
+		/// </summary>
+		/// <param name="property">Property.</param>
+		/// <param name="value">Value.</param>
+		/// <param name="propertyName">Property name.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		protected void ChangeAndNotify<T>(ref T property, T value,  [CallerMemberName] string propertyName = "")
+		{
+			if (!EqualityComparer<T>.Default.Equals(property, value))
+			{
+				property = value;
+				NotifyPropertyChanged (propertyName);
+			}
 		}
 
 		/// <summary>

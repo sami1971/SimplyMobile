@@ -54,7 +54,9 @@ namespace TextSerializationTests
                 {
                     new SimplyMobile.Text.JsonNet.JsonSerializer(),
                     new SimplyMobile.Text.ServiceStack.JsonSerializer(),
+				#if !__IOS__
                     new SimplyMobile.Text.FastJson.JsonSerializer(new SimplyMobile.Text.ServiceStack.JsonSerializer())
+				#endif
                 };
 
             foreach (var jsonSerializer in jsonSerializers)

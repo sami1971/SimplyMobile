@@ -30,6 +30,15 @@ namespace SimplyMobile.Data
     {
         private float defaultRowHeight = 22;
 
+		private PickerDelegate pickerDelegate;
+
+		private PickerDelegate PickerDelegate
+		{
+			get
+			{
+				return this.pickerDelegate ?? (this.pickerDelegate = new PickerDelegate ());
+			}
+		}
         /// <summary>
         /// The cell identifier. 
         /// </summary>
@@ -75,6 +84,10 @@ namespace SimplyMobile.Data
 			{
 				collectionView.InvokeOnMainThread(collectionView.ReloadData);
 			}
+			foreach(var pickerView in this.observers.OfType<UIPickerView>())
+			{
+				pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
+			}
         }
 
         /// <summary>
@@ -97,27 +110,41 @@ namespace SimplyMobile.Data
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>().Where(a => a is ICollectionCellProvider<T>))
+				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView> ().Where(a => a is ICollectionCellProvider<T>))
 				{
 					collectionView.WeakDataSource = this;
 					collectionView.WeakDelegate = this;
-					collectionView.InvokeOnMainThread(collectionView.ReloadData);
+					collectionView.InvokeOnMainThread (collectionView.ReloadData);
+				}
+
+				foreach (var pickerView in notifyCollectionChangedEventArgs.NewItems.OfType<UIPickerView>())
+				{
+					pickerView.DataSource = this;
+					pickerView.WeakDelegate = this;
+					pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
 				}
             }
             else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
             {
                 foreach (var tableView in notifyCollectionChangedEventArgs.OldItems.OfType<UITableView>())
                 {
-                    tableView.DataSource = null;
-                    tableView.Delegate = null;
+					tableView.WeakDataSource = null;
+					tableView.WeakDelegate = null;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView>())
+				foreach (var collectionView in notifyCollectionChangedEventArgs.OldItems.OfType<UICollectionView>())
 				{
-					collectionView.DataSource = null;
+					collectionView.WeakDataSource = null;
 					collectionView.Delegate = null;
 					collectionView.InvokeOnMainThread(collectionView.ReloadData);
+				}
+
+				foreach (var pickerView in notifyCollectionChangedEventArgs.OldItems.OfType<UIPickerView>())
+				{
+					pickerView.DataSource = null;
+					pickerView.WeakDelegate = null;
+					pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
 				}
             }
         }
@@ -220,4 +247,9 @@ namespace SimplyMobile.Data
 		}
 		#endregion
     }
+
+	internal class PickerDelegate : UIPickerViewDelegate
+	{
+
+	}
 }

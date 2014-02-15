@@ -60,4 +60,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{460D47EE-0215-4EE2-BFE1-749B72D29D6A}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

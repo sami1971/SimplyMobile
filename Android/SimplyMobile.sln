@@ -204,7 +204,7 @@ Global
 		{37FAF778-AB62-44FA-B25F-31324F0F31FB} = {FCA4F81D-34AD-4919-A8DD-5258517ED64D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\TextSerializationTests\TextSerializationTests.csproj
+		StartupItem = Samples\StackOverflowSamples\StackOverflowSamples.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

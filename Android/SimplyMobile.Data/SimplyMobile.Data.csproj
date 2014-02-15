@@ -59,12 +59,6 @@
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="Extensions\ListViewBindings.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -75,5 +69,11 @@
   -->
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
