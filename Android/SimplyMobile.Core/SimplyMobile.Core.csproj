@@ -46,14 +46,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Core\DependencyResolver.cs">
-      <Link>DependencyResolver.cs</Link>
-    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\EventArgs.cs">
       <Link>EventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\IDependencyResolver.cs">
-      <Link>IDependencyResolver.cs</Link>
     </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\IMonitor.cs">
       <Link>IMonitor.cs</Link>
@@ -81,6 +75,9 @@
     </Compile>
     <Compile Include="Extensions\CompoundButtonExtensions.cs" />
     <Compile Include="Extensions\SeekBarExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Core\Security\IPasswordStorage.cs">
+      <Link>Security\IPasswordStorage.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -92,5 +89,6 @@
   -->
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Security\" />
   </ItemGroup>
 </Project>

@@ -47,6 +47,7 @@
     <Compile Include="RestClient.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.iOS.cs" />
+    <Compile Include="Reachability.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SimplyMobile.Web.csproj">

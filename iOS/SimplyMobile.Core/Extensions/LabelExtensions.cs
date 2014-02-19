@@ -27,13 +27,15 @@ namespace SimplyMobile.Core
 		{
 			var property = source.GetProperty(propertyName);
 
+			var l = new WeakReference<UILabel> (label);
 			label.SetText(source, property);
 
 			var handler = new PropertyChangedEventHandler((s, e) =>
 			{
-				if (e.PropertyName == propertyName)
+				UILabel weakRef;
+				if (e.PropertyName == propertyName && l.TryGetTarget(out weakRef))
 				{
-					label.InvokeOnMainThread(()=> label.SetText(source, property));
+					weakRef.InvokeOnMainThread(()=> weakRef.SetText(source, property));
 				}
 			});
 

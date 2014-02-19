@@ -54,9 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <Private>False</Private>
-    </Reference>
+    <Reference Include="nunit.framework" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
@@ -74,13 +72,11 @@
     <Compile Include="Dtos\Animal.cs" />
     <Compile Include="ServiceStackTests.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="ProtoBufTests.cs" />
     <Compile Include="Dtos\Primitives.cs" />
     <Compile Include="Dtos\DateTimeDto.cs" />
     <Compile Include="SanityCheckTests.cs" />
     <Compile Include="JsonNetSanity.cs" />
     <Compile Include="ServiceStackSanityTests.cs" />
-    <Compile Include="ProtoBufSanityTests.cs" />
     <Compile Include="Dtos\DictionaryData.cs" />
     <Compile Include="Dtos\SomeKey.cs" />
     <Compile Include="FileLoadTests.cs" />
@@ -102,10 +98,6 @@
       <Project>{167278C5-6A53-4276-AE66-80E1BF085F8B}</Project>
       <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{0854603B-BBB7-4AE6-A3CE-598803AC1214}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
@@ -116,4 +108,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="ProtoBufTests.cs" />
+    <None Include="ProtoBufSanityTests.cs" />
+  </ItemGroup>
 </Project>

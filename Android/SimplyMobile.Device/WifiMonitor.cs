@@ -26,15 +26,42 @@ namespace SimplyMobile.Device
 //        private WifiManager wifiManager;
 
         private const string Intent = "android.net.wifi.WIFI_STATE_CHANGED";
+		private static WifiManager wifiManager;
+
+		public static WifiManager WifiManager
+		{
+			get
+			{
+				return wifiManager ?? 
+					(wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager);
+			}
+		}
 
         public bool Enabled
         {
             get
             {
-                var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
-                return wifiManager != null && wifiManager.IsWifiEnabled;
+//                var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
+				return WifiManager != null && WifiManager.IsWifiEnabled;
             }
         }
+
+		/// <summary>
+		/// Gets the current SSID.
+		/// </summary>
+		/// <value>The current SSID.</value>
+		public string CurrentSSID 
+		{ 
+			get
+			{
+				if (WifiManager == null)
+				{
+					return string.Empty;
+				}
+
+				return WifiManager.ConnectionInfo.SSID;
+			}
+		}
 
         public bool TrySetState(bool enabled)
         {
@@ -45,8 +72,8 @@ namespace SimplyMobile.Device
 
             try
             {
-				var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
-				return wifiManager != null && wifiManager.SetWifiEnabled(enabled);
+//				var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
+				return WifiManager != null && WifiManager.SetWifiEnabled(enabled);
             }
             catch (Exception exception)
             {

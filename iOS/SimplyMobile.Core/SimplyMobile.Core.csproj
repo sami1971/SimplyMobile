@@ -34,14 +34,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Core\DependencyResolver.cs">
-      <Link>DependencyResolver.cs</Link>
-    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\EventArgs.cs">
       <Link>EventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Core\IDependencyResolver.cs">
-      <Link>IDependencyResolver.cs</Link>
     </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\IMonitor.cs">
       <Link>IMonitor.cs</Link>
@@ -69,6 +63,9 @@
     <Compile Include="Extensions\SwitchExtensions.cs" />
     <Compile Include="Extensions\SliderExtensions.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Core\Security\IPasswordStorage.cs">
+      <Link>Security\IPasswordStorage.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -82,5 +79,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Security\" />
   </ItemGroup>
 </Project>

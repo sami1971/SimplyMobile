@@ -58,6 +58,7 @@
     <Compile Include="ObservableDataSections.cs" />
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="Extensions\ListViewBindings.cs" />
+    <Compile Include="Security\PasswordStorage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -69,6 +70,7 @@
   -->
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">

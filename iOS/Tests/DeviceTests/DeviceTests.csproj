@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -99,6 +100,10 @@
     <Compile Include="DeviceApp.cs" />
     <Compile Include="MainViewController.cs" />
     <Compile Include="TabBarController.cs" />
+    <Compile Include="ViewControllers\AccelerometerController.cs" />
+    <Compile Include="ViewControllers\AccelerometerController.designer.cs">
+      <DependentUpon>AccelerometerController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -122,5 +127,9 @@
       <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="ViewControllers\AccelerometerController_iPhone.xib" />
+    <InterfaceDefinition Include="ViewControllers\AccelerometerController_iPad.xib" />
   </ItemGroup>
 </Project>

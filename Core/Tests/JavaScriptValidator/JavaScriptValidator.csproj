@@ -45,8 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{5FED3E45-9F40-4AFE-8153-8F952EBEC90F}</Project>
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{ECC8BA50-7423-4BE3-9196-5840550B8195}</Project>
+      <Name>SimplyMobile.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

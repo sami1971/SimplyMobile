@@ -59,6 +59,7 @@
     <Compile Include="Accelometer.cs" />
     <Compile Include="CurrentDevice.cs" />
     <Compile Include="DeviceType.cs" />
+    <Compile Include="Camera.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

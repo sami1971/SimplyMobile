@@ -35,8 +35,6 @@ namespace DeviceTests
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-            Resolver.SetService(new JsonSerializer());
-
 			// create a new window instance based on the screen size
 			this.window = new UIWindow (UIScreen.MainScreen.Bounds);
 			

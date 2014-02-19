@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="ICollectionCellProvider.cs" />
+    <Compile Include="Security\PasswordStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -62,5 +63,8 @@
       <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security\" />
   </ItemGroup>
 </Project>

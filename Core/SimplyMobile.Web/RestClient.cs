@@ -19,7 +19,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
-using System.Collections.Specialized;
 
 namespace SimplyMobile.Web
 {
@@ -56,8 +55,9 @@ namespace SimplyMobile.Web
 			var handler = new HttpClientHandler();
 			if (handler.SupportsAutomaticDecompression)
 			{
-				handler.AutomaticDecompression = DecompressionMethods.GZip |
-				                     DecompressionMethods.Deflate;
+				handler.AutomaticDecompression = 
+					DecompressionMethods.GZip |
+				    DecompressionMethods.Deflate;
 			}
 
 			this.client = new HttpClient(handler)
@@ -289,7 +289,7 @@ namespace SimplyMobile.Web
 			}
 		}
 
-        private async Task<ServiceResponse<T>> GetResponse<T>(HttpResponseMessage response, ITextSerializer serializer)
+        private static async Task<ServiceResponse<T>> GetResponse<T>(HttpResponseMessage response, ITextSerializer serializer)
         {
             var returnResponse = new ServiceResponse<T>(response.StatusCode);
 

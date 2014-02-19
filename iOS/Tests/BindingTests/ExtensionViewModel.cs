@@ -50,23 +50,23 @@ namespace BindingTests
 		}
 
 
-		[Range (0, 1000)]
-		public double SliderValue 
-		{
-			get
-			{
-				return sliderValue;
-			}
-			set
-			{
-				if (sliderValue != value && this.IsValid (value))
-				{
-					sliderValue = value;
-					this.NotifyPropertyChanged ();
-					this.SliderValueText = string.Format ("Slider value is {0}", sliderValue);
-				}
-			}
-		}
+//		[Range (0, 1000)]
+//		public double SliderValue 
+//		{
+//			get
+//			{
+//				return sliderValue;
+//			}
+//			set
+//			{
+//				if (sliderValue != value && this.IsValid (value))
+//				{
+//					sliderValue = value;
+//					this.NotifyPropertyChanged ();
+//					this.SliderValueText = string.Format ("Slider value is {0}", sliderValue);
+//				}
+//			}
+//		}
 
 		public string SliderValueText 
 		{
