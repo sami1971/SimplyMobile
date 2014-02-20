@@ -18,12 +18,25 @@ using Android.App;
 using Android.Content;
 using Android.Net.Wifi;
 using SimplyMobile.Core;
+using Android.Util;
 
 namespace SimplyMobile.Device
 {
+	public enum  WifiApState
+	{
+		WIFI_AP_STATE_UNKNOWN = -1,
+		WIFI_AP_STATE_DISABLING = 0,
+		WIFI_AP_STATE_DISABLED = 1,
+		WIFI_AP_STATE_ENABLING = 2,
+		WIFI_AP_STATE_ENABLED = 3,
+		WIFI_AP_STATE_FAILED = 4
+	}
+
     public partial class WifiMonitor : Monitor
     {
 //        private WifiManager wifiManager;
+		private const string SetWifiApConfigurationMethod = "setWifiApConfiguration";
+		private const string GetWifiApConfigurationMethod = "getWifiApConfiguration";
 
         private const string Intent = "android.net.wifi.WIFI_STATE_CHANGED";
 		private static WifiManager wifiManager;
@@ -72,6 +85,7 @@ namespace SimplyMobile.Device
 
             try
             {
+
 //				var wifiManager = Application.Context.GetSystemService(Context.WifiService) as WifiManager;
 				return WifiManager != null && WifiManager.SetWifiEnabled(enabled);
             }
@@ -89,6 +103,92 @@ namespace SimplyMobile.Device
                 this.OnStatusChange.Invoke(this, this.Enabled);
             }
         }
+
+		#region AP Configuration
+		/// <summary>
+		/// Sets the WiFi AP state.
+		/// </summary>
+		/// <returns><c>true</c>, if WiFi state was set, <c>false</c> otherwise.</returns>
+		/// <param name="wifiConfig">Wifi config.</param>
+		/// <param name="enabled">State enabled.</param>
+		public bool SetWifiApEnabled(WifiConfiguration wifiConfig, Java.Lang.Boolean enabled) 
+		{
+			try
+			{
+				if (enabled == Java.Lang.Boolean.True)
+				{ // disable WiFi in any case
+					WifiManager.SetWifiEnabled(false);
+				}
+
+				var method = WifiManager.Class.GetMethod("setWifiApEnabled", wifiConfig.Class, enabled.Class);
+				return (Boolean) method.Invoke(WifiManager, wifiConfig, enabled);
+			} 
+			catch (Exception e) 
+			{
+				Log.Error(this.ToString(), e.Message);
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Sets the WiFi AP configuration.
+		/// </summary>
+		/// <returns><c>true</c>, if wifi ap configuration was set, <c>false</c> otherwise.</returns>
+		/// <param name="wifiConfig">Wifi config.</param>
+		public bool SetWifiApConfiguration(WifiConfiguration wifiConfig)
+		{
+			try
+			{
+				var method = WifiManager.Class.GetMethod (SetWifiApConfigurationMethod);
+
+				return method != null && (bool)method.Invoke (WifiManager, wifiConfig);
+			}
+			catch (Exception ex)
+			{
+				Log.Error (this.ToString (), ex.Message);
+				return false;
+			}
+		}
+
+		public WifiConfiguration GetWifiApConfiguration() 
+		{
+			try 
+			{
+				var method = WifiManager.Class.GetMethod(GetWifiApConfigurationMethod);
+				return method.Invoke(WifiManager) as WifiConfiguration;
+			}
+			catch (Exception ex) 
+			{
+				Log.Error(this.ToString(), ex.Message);
+				return null;
+			}
+		}
+
+		public WifiApState WifiApState 
+		{
+			get
+			{
+				try
+				{
+					var method = WifiManager.Class.GetMethod ("getWifiApState");
+
+					var tmp = (int)method.Invoke (WifiManager);
+
+					// Fix for Android 4
+					if (tmp > 10)
+					{
+						tmp = tmp - 10;
+					}
+
+					return (WifiApState)tmp;
+				} catch (Exception ex)
+				{
+					Log.Error (this.ToString (), ex.Message);
+					return WifiApState.WIFI_AP_STATE_FAILED;
+				}
+			}
+		}
+		#endregion
 
         protected override IntentFilter Filter
         {
