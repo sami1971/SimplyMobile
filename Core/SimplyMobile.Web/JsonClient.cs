@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Web
 {
-	public abstract class JsonClient : IRestClient
+	public class JsonClient : IRestClient
 	{
         private IJsonSerializer serializer;
+        private HttpClient httpClient;
 
-        protected abstract HttpClient HttpClient { get; }
+        protected virtual HttpClient HttpClient 
+        {
+            get
+            {
+                return this.httpClient ?? (this.httpClient = DependencyResolver.Current.GetService<HttpClient>() ?? new HttpClient());
+            }
+        }
 
 		public JsonClient () : this(DependencyResolver.Current.GetService<IJsonSerializer>()) {}
 

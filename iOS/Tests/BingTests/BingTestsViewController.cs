@@ -1,13 +1,14 @@
 using System;
 using System.Drawing;
+using System.Net.Http;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using SimplyMobile.Location.Bing;
-using SimplyMobile.Text.ServiceStack;
 using SimplyMobile.IoC;
 using SimplyMobile.Text;
 using SimplyMobile.Web;
+using ModernHttpClient;
 
 namespace BingTests
 {
@@ -32,13 +33,21 @@ namespace BingTests
 			// Perform any additional setup after loading the view, typically from a nib.
             var dependencyResolver = new DependencyResolver();
 
-            dependencyResolver.SetService<IJsonSerializer>(new JsonSerializer());
-            dependencyResolver.AddDynamic<IRestClient>(() => new ModernJsonClient());
+            dependencyResolver.SetService<IJsonSerializer>(
+                new SimplyMobile.Text.ServiceStack.JsonSerializer()
+                //new SimplyMobile.Text.JsonNet.JsonSerializer()
+            );
+
+            // use ModernHttpClient
+            dependencyResolver.AddDynamic<HttpClient>(() => new HttpClient(new AFNetworkHandler()));
+            // use regular HttpClient
+            //dependencyResolver.AddDynamic<HttpClient>(() => new HttpClient());
+            // use JsonClient
+            dependencyResolver.AddDynamic<IRestClient>(() => new JsonClient());
 
             DependencyResolver.Current = dependencyResolver;
 
-			var bingClient = new BingClient (
-				"Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
+			var bingClient = new BingClient("Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
 
 			var response = await bingClient.Get (47.64054, -122.12934);
 

@@ -24,6 +24,7 @@ namespace SimplyMobile.Web
 {
 	using Text;
 
+    [Obsolete("Use JsonClient instead")]
     /// <summary>
     /// The rest client.
     /// </summary>

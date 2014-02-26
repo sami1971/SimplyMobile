@@ -111,6 +111,10 @@
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{cb0ecb4a-c83b-49a6-bff5-90b5b72775cc}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886eba5-d091-4aa1-b5be-37dbc892ad19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
