@@ -107,7 +107,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
@@ -127,7 +127,7 @@
       <Name>SimplyMobile.Device</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
-      <Project>{c0132cb0-f624-49d6-86e3-0eefd0cefe09}</Project>
+      <Project>{C0132CB0-F624-49D6-86E3-0EEFD0CEFE09}</Project>
       <Name>SimplyMobile.iOS</Name>
     </ProjectReference>
   </ItemGroup>

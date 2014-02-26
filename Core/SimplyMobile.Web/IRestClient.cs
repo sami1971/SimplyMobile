@@ -75,8 +75,8 @@ namespace SimplyMobile.Web
 
 		Task<ServiceResponse<T>> GetAsync<T> (string address, Dictionary<string, string> values, Format format);
 
-		void SetCustomSerializer<T>(ICustomSerializer<T> serializer);
+        //void SetCustomSerializer<T>(ICustomSerializer<T> serializer);
 
-		bool RemoveCustomSerializer (Type type);
+        //bool RemoveCustomSerializer (Type type);
     }
 }

@@ -36,8 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\..\..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\SimplyMobile.Location\SimplyMobile.Location.csproj">
-      <Project>{07426fcd-78b9-49b5-9e64-859e5e61fe22}</Project>
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
       <Name>SimplyMobile.Location</Name>
       <Private>False</Private>
     </ProjectReference>

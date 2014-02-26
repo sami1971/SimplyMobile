@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
-      <Project>{07426fcd-78b9-49b5-9e64-859e5e61fe22}</Project>
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
       <Name>SimplyMobile.Location</Name>
     </ProjectReference>
   </ItemGroup>

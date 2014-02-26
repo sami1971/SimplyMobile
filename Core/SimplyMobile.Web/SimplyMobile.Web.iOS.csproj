@@ -31,6 +31,12 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AFNetworking">
+      <HintPath>..\..\iOS\Components\modernhttpclient-1.1.0\lib\ios\AFNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient.iOS">
+      <HintPath>..\..\iOS\Components\modernhttpclient-1.1.0\lib\ios\ModernHttpClient.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -43,12 +49,18 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="ModernJsonClient.iOS.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.iOS.cs" />
     <Compile Include="Reachability.cs" />
     <Compile Include="WebImageCache.cs" />
+    <Compile Include="JsonClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="SimplyMobile.Web.csproj">
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
@@ -60,5 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Native.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="modernhttpclient">
+      <Visible>False</Visible>
+      <Version>1.1.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

@@ -53,11 +53,19 @@ namespace SimplyMobile.Web
 			this.customSerializers = new Dictionary<Type, ITextSerializer>();
 
 			var handler = new HttpClientHandler();
-			if (handler.SupportsAutomaticDecompression)
+
+			try
 			{
-				handler.AutomaticDecompression = 
-					DecompressionMethods.GZip |
-				    DecompressionMethods.Deflate;
+				if (handler.SupportsAutomaticDecompression)
+				{
+					handler.AutomaticDecompression = 
+						DecompressionMethods.GZip |
+					    DecompressionMethods.Deflate;
+				}
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine (ex.Message);
 			}
 
 			this.client = new HttpClient(handler)

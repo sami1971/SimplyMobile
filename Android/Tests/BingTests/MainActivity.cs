@@ -6,7 +6,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using SimplyMobile.Location.Bing;
-using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.IoC;
+using SimplyMobile.Text;
+using SimplyMobile.Web;
 
 namespace BingTests
 {
@@ -26,17 +28,27 @@ namespace BingTests
 			
 			button.Click += async delegate
 			{
+                var dependencyResolver = new DependencyResolver();
+
+                dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.ServiceStack.JsonSerializer());
+                dependencyResolver.AddDynamic<IRestClient>(() => new ModernJsonClient());
+
+                DependencyResolver.Current = dependencyResolver;
+
 				var bingClient = new BingClient(
-                    "Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
-                    new JsonSerializer());
+                    "Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
 
 				var response = await bingClient.Get(47.64054,-122.12934);
 
-				if (response.StatusCode == System.Net.HttpStatusCode.OK)
-				{
-					System.Diagnostics.Debug.WriteLine(response.Value.Copyright);
-					CreateIntent(response.Value);
-				}
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    System.Diagnostics.Debug.WriteLine(response.Value.Copyright);
+                    CreateIntent(response.Value);
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine(response.Error.Message);
+                }
 			};
 		}
 

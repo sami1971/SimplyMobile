@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using SimplyMobile.Text;
 using SimplyMobile.Web;
+using SimplyMobile.IoC;
 
 namespace SimplyMobile.Location.Bing
 {
@@ -10,6 +11,8 @@ namespace SimplyMobile.Location.Bing
     /// </summary>
     public class BingClient
 	{
+        private const string BaseAddress = "http://dev.virtualearth.net/REST/v1/Locations/";
+
         /// <summary>
         /// The restful service client.
         /// </summary>
@@ -26,13 +29,13 @@ namespace SimplyMobile.Location.Bing
         /// <param name="key">
         /// The key.
         /// </param>
-        public BingClient (string key, IJsonSerializer serializer)
-		{
-			this.key = key;
-			this.restClient = new RestClient(
-				new Uri("http://dev.virtualearth.net/REST/v1/Locations/"), 
-				serializer);
-		}
+        public BingClient (string key) : this(key, DependencyResolver.Current.GetService<IRestClient>()){}
+
+        public BingClient(string key, IRestClient client)
+        {
+            this.key = key;
+            this.restClient = client;
+        }
 
         /// <summary>
         /// The get method.
@@ -49,7 +52,7 @@ namespace SimplyMobile.Location.Bing
         public async Task<ServiceResponse<BingResponse>> Get(double latitude, double longitude)
 		{
 			return await this.restClient.GetAsync<BingResponse>(
-				string.Format("{0},{1}?o=json&key={2}",  latitude, longitude, this.key),
+				string.Format("{3}{0},{1}?o=json&key={2}",  latitude, longitude, this.key, BaseAddress),
 				Format.Json);
 		}
 

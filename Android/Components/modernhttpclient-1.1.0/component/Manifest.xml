@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="modernhttpclient">
+  <name>ModernHttpClient</name>
+  <publisher>Paul Betts</publisher>
+  <publisher-url>http://blog.paulbetts.org/</publisher-url>
+  <version>1.1.0</version>
+  <summary>Write your app using System.Net.Http, but drop this library in and it will go drastically faster.</summary>
+  <samples>
+    <sample id="HttpClient.iOS">
+      <name>HttpClient.iOS Sample</name>
+      <summary>HttpClient.iOS Sample</summary>
+    </sample>
+    <sample id="HttpClient.Android">
+      <name>HttpClient.Android Sample</name>
+      <summary>HttpClient.Android Sample</summary>
+    </sample>
+  </samples>
+</component>
