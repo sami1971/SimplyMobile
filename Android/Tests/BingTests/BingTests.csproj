@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,7 +16,7 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>BingTests</AssemblyName>
-    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -65,13 +65,25 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.Android.csproj">
-      <Project>{52F5541C-015E-47D7-A16F-5888D04C21D2}</Project>
-      <Name>SimplyMobile.Location.Bing.Android</Name>
+    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj">
+      <Project>{fca0833a-001f-4cc0-8c07-2a40a05e8200}</Project>
+      <Name>SimplyMobile.Location.Bing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
-      <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
-      <Name>SimplyMobile.Web.Android</Name>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{07426fcd-78b9-49b5-9e64-859e5e61fe22}</Project>
+      <Name>SimplyMobile.Location</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886eba5-d091-4aa1-b5be-37dbc892ad19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

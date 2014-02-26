@@ -127,9 +127,13 @@
       <Project>{EE9B20C2-2D3B-48B4-8458-D2D7230D1583}</Project>
       <Name>SimplyMobile.Web.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.iOS.csproj">
-      <Project>{C9D5DAD7-9FA5-4C5B-BA61-06E7879DEEBE}</Project>
-      <Name>SimplyMobile.Location.Bing.iOS</Name>
+    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj">
+      <Project>{FCA0833A-001F-4CC0-8C07-2A40A05E8200}</Project>
+      <Name>SimplyMobile.Location.Bing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
+      <Name>SimplyMobile.Location</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

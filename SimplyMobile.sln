@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.FastJson"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Location", "Location", "{A2FE440F-0998-4399-8B07-6762CC17EA40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Location.Bing", "Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj", "{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Location.Bing", "Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj", "{FCA0833A-001F-4CC0-8C07-2A40A05E8200}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Data", "Core\SimplyMobile.Data\SimplyMobile.Data.csproj", "{ECC8BA50-7423-4BE3-9196-5840550B8195}"
 EndProject
@@ -119,14 +119,6 @@ Global
 		{29FA1C8B-53A3-41FC-AD90-4B6EBF143332}.Windows_Debug|Any CPU.Build.0 = Windows_Debug|Any CPU
 		{29FA1C8B-53A3-41FC-AD90-4B6EBF143332}.Windows_Release|Any CPU.ActiveCfg = Windows_Release|Any CPU
 		{29FA1C8B-53A3-41FC-AD90-4B6EBF143332}.Windows_Release|Any CPU.Build.0 = Windows_Release|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Windows_Debug|Any CPU.ActiveCfg = Windows_Debug|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Windows_Debug|Any CPU.Build.0 = Windows_Debug|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Windows_Release|Any CPU.ActiveCfg = Windows_Release|Any CPU
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5}.Windows_Release|Any CPU.Build.0 = Windows_Release|Any CPU
 		{51959516-FCF7-4E44-B89F-E1BF5F40D84D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51959516-FCF7-4E44-B89F-E1BF5F40D84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51959516-FCF7-4E44-B89F-E1BF5F40D84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -255,6 +247,14 @@ Global
 		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Windows_Debug|Any CPU.ActiveCfg = Windows_Debug|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Windows_Debug|Any CPU.Build.0 = Windows_Debug|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Windows_Release|Any CPU.ActiveCfg = Windows_Release|Any CPU
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200}.Windows_Release|Any CPU.Build.0 = Windows_Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E1E0F75F-FF8C-4AD7-816C-87D6421A026B} = {D24E736C-7E9A-4132-B762-6BAFA8FFB7BC}
@@ -288,7 +288,7 @@ Global
 		{54B4A244-9C61-438B-AF79-41D6CD9F2F02} = {CFAB3898-AA75-4E45-8FBC-A57897F604E7}
 		{51959516-FCF7-4E44-B89F-E1BF5F40D84D} = {B1CCACA7-24CD-44CF-A3DB-0CD6D5480094}
 		{BAC28DBC-5059-4BDA-8BF6-E3BF0ECEB2C4} = {D94E3B24-B11D-4D2E-B4E7-312E02831236}
-		{3B01C5F9-CF07-4942-A36C-CA6CAC0A4CA5} = {A2FE440F-0998-4399-8B07-6762CC17EA40}
+		{FCA0833A-001F-4CC0-8C07-2A40A05E8200} = {A2FE440F-0998-4399-8B07-6762CC17EA40}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Core\Tests\JavaScriptValidator\JavaScriptValidator.csproj

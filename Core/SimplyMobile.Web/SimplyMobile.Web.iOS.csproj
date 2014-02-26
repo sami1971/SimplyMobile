@@ -40,14 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="RestClient.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.iOS.cs" />
     <Compile Include="Reachability.cs" />
+    <Compile Include="WebImageCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SimplyMobile.Web.csproj">

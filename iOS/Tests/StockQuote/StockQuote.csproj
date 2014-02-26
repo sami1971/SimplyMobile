@@ -140,10 +140,6 @@
       <Project>{11AC1268-5A69-45B7-B5BD-5D459B582024}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
       <Name>SimplyMobile.Data</Name>

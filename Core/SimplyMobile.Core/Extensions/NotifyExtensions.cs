@@ -24,7 +24,8 @@ namespace SimplyMobile.Core
 
 			if (prop == null)
 			{
-				prop = t.GetProperties ().FirstOrDefault (a => a.Name == propertyName);
+				t.GetRuntimeProperties().FirstOrDefault(a => a.Name == propertyName);
+//				prop = t.GetProperties ().FirstOrDefault (a => a.Name == propertyName);
 			}
 
 			if (prop == null)

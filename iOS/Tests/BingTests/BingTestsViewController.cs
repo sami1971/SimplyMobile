@@ -4,6 +4,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using SimplyMobile.Location.Bing;
+using SimplyMobile.Text.ServiceStack;
 
 namespace BingTests
 {
@@ -27,7 +28,9 @@ namespace BingTests
 			
 			// Perform any additional setup after loading the view, typically from a nib.
 
-			var bingClient = new BingClient ("Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
+			var bingClient = new BingClient (
+				"Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
+				new JsonSerializer());
 
 			var response = await bingClient.Get (47.64054, -122.12934);
 

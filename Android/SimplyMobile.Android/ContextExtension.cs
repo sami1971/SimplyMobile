@@ -30,5 +30,10 @@ namespace SimplyMobile.Core
         {
 			Application.Context.UnregisterReceiver(receiver);
         }
+
+		public static void StartActivity<T>(this Context context)
+		{
+			context.StartActivity(typeof(T));
+		}
     }
 }

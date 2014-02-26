@@ -18,17 +18,29 @@ using Android.Widget;
 using Android.OS;
 using SimplyMobile.Core;
 using SimplyMobile.Device;
+using Android.Util;
+using System.Collections.Generic;
 
 namespace DeviceTests
 {
 	[Activity (Label = "DeviceApp", MainLauncher = true)]
-	public class MainActivity : Activity
+	public class MainActivity : ActivityCore
 	{
 		private TextView batteryLevel;
 		private ToggleButton chargerState;
 		private TextView accelerometerStatus;
-		private ToggleButton acceleroMeterState;
+//		private ToggleButton acceleroMeterState;
 
+		protected override IEnumerable<MenuAction> MenuActions
+		{
+			get
+			{
+				return new [] 
+				{
+					new MenuAction("AP Networks", ()=> this.StartActivity<ApNetworkActivity>())
+				};
+			}
+		}
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -106,21 +118,20 @@ namespace DeviceTests
 
 		}
 
-		void HandleReadingAvailable (object sender, SimplyMobile.Core.EventArgs<AccelometerStatus> e)
+		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
 		{
 			this.accelerometerStatus.Text = e.Value.ToString ();
 		}
 
-		void HandleOnChargerStatusChanged (object sender, SimplyMobile.Core.EventArgs<bool> e)
+		void HandleOnChargerStatusChanged (object sender, EventArgs<bool> e)
 		{
 			this.chargerState.Checked = e.Value;
 		}
 
-		void HandleOnLevelChange (object sender, SimplyMobile.Core.EventArgs<int> e)
+		void HandleOnLevelChange (object sender, EventArgs<int> e)
 		{
 			this.batteryLevel.Text = e.Value.ToString();
 		}
-
 
 		protected override void OnPause ()
 		{

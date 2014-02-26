@@ -119,11 +119,15 @@
     <InterfaceDefinition Include="PassBindingController_iPhone.xib" />
     <InterfaceDefinition Include="PassBindingController_iPad.xib" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
+      <Project>{c0132cb0-f624-49d6-86e3-0eefd0cefe09}</Project>
+      <Name>SimplyMobile.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

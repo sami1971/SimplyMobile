@@ -137,7 +137,7 @@ namespace SimplyMobile.Device
 				return false;
 			}
 
-			int status = intent.GetIntExtra(BatteryManager.ExtraStatus, -1);
+            int status = intent.GetIntExtra(Android.OS.BatteryManager.ExtraStatus, -1);
 			return (status == (int)Android.OS.BatteryPlugged.Ac || status == (int)Android.OS.BatteryPlugged.Usb);
         }
 

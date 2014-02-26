@@ -11,26 +11,29 @@ namespace SimplyMobile.Core
 	{
 		public static void SetRange(this UISlider slider, RangeAttribute range)
 		{
-			if (range.OperandType == typeof(int))
-			{
-				slider.SetRange ((int)range.Minimum, (int)range.Maximum);
-			}
-			else if (range.OperandType == typeof(long))
-			{
-				slider.SetRange ((long)range.Minimum, (long)range.Maximum);
-			}
-			else if (range.OperandType == typeof(decimal))
-			{
-				slider.SetRange ((decimal)range.Minimum, (decimal)range.Maximum);
-			}
-			else if (range.OperandType == typeof(float))
-			{
-				slider.SetRange ((float)range.Minimum, (float)range.Maximum);
-			}
-			else if (range.OperandType == typeof(double))
-			{
-				slider.SetRange ((double)range.Minimum, (double)range.Maximum);
-			}
+            slider.InvokeOnMainThread(() =>
+                {
+                    if (range.OperandType == typeof(int))
+                    {
+                        slider.SetRange((int)range.Minimum, (int)range.Maximum);
+                    }
+                    else if (range.OperandType == typeof(long))
+                    {
+                        slider.SetRange((long)range.Minimum, (long)range.Maximum);
+                    }
+                    else if (range.OperandType == typeof(decimal))
+                    {
+                        slider.SetRange((decimal)range.Minimum, (decimal)range.Maximum);
+                    }
+                    else if (range.OperandType == typeof(float))
+                    {
+                        slider.SetRange((float)range.Minimum, (float)range.Maximum);
+                    }
+                    else if (range.OperandType == typeof(double))
+                    {
+                        slider.SetRange((double)range.Minimum, (double)range.Maximum);
+                    }
+                });
 		}
 
 		public static void SetRange(this UISlider slider, int min, int max)
@@ -97,7 +100,7 @@ namespace SimplyMobile.Core
 		}
 
 
-		public static PropertyChangedEventHandler Bind(this UISlider slider, INotifyPropertyChanged source, string propertyName)
+		public static Action Bind(this UISlider slider, INotifyPropertyChanged source, string propertyName)
 		{
 			var property = GetProperty(source, propertyName);
 
@@ -118,12 +121,26 @@ namespace SimplyMobile.Core
 				});
 
 			source.PropertyChanged += handler;
-			slider.ValueChanged += (sender, e) => property.GetSetMethod().Invoke (source, new object[]{ slider.Value });
 
-			return handler;
+            var valueChanged = new EventHandler((s, e) => 
+                {
+                    var sender = s as UISlider;
+                    if (sender != null)
+                    {
+                        property.GetSetMethod().Invoke(source, new object[] { sender.Value });
+                    }
+                });
+
+            slider.ValueChanged += valueChanged;
+
+            return new Action(() =>
+            {
+                source.PropertyChanged -= handler;
+                slider.ValueChanged -= valueChanged;
+            });
 		}
 
-		public static Tuple<PropertyChangedEventHandler,EventHandler> Bind(
+        public static Action Bind(
 			this UISlider slider, 
 			INotifyPropertyChanged source, 
 			string valueName,
@@ -158,7 +175,11 @@ namespace SimplyMobile.Core
 			var sliderHandler = new EventHandler ((s, e) => propertyValue.GetSetMethod().Invoke (source, new object[]{ slider.Value }));
 			slider.ValueChanged += sliderHandler;
 
-			return new Tuple<PropertyChangedEventHandler, EventHandler>(handler, sliderHandler);
+            return new Action(() =>
+            {
+                source.PropertyChanged -= handler;
+                slider.ValueChanged -= sliderHandler;
+            });
 		}
 
 		private static PropertyInfo GetProperty(INotifyPropertyChanged source, string propertyName)

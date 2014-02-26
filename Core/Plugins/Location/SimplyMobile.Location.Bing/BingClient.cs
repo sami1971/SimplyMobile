@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using SimplyMobile.Text;
-using SimplyMobile.Text.ServiceStack;
 using SimplyMobile.Web;
 
 namespace SimplyMobile.Location.Bing
@@ -27,12 +26,12 @@ namespace SimplyMobile.Location.Bing
         /// <param name="key">
         /// The key.
         /// </param>
-        public BingClient (string key)
+        public BingClient (string key, IJsonSerializer serializer)
 		{
 			this.key = key;
 			this.restClient = new RestClient(
 				new Uri("http://dev.virtualearth.net/REST/v1/Locations/"), 
-				new JsonSerializer());
+				serializer);
 		}
 
         /// <summary>

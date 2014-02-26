@@ -19,6 +19,7 @@ using Android.Content;
 using Android.Net.Wifi;
 using SimplyMobile.Core;
 using Android.Util;
+using System.Linq;
 
 namespace SimplyMobile.Device
 {
@@ -139,7 +140,15 @@ namespace SimplyMobile.Device
 		{
 			try
 			{
-				var method = WifiManager.Class.GetMethod (SetWifiApConfigurationMethod);
+				foreach (var m in WifiManager.Class.GetMethods())
+				{
+					Log.Info(m.Name, m.Accessible.ToString());
+				}
+
+				var method = WifiManager.Class.GetMethods().FirstOrDefault(a => a.Name == SetWifiApConfigurationMethod);
+
+//				var b = new Java.Lang.Boolean(true);
+//				var method = WifiManager.Class.GetMethod (SetWifiApConfigurationMethod, b.Class);
 
 				return method != null && (bool)method.Invoke (WifiManager, wifiConfig);
 			}
@@ -172,7 +181,8 @@ namespace SimplyMobile.Device
 				{
 					var method = WifiManager.Class.GetMethod ("getWifiApState");
 
-					var tmp = (int)method.Invoke (WifiManager);
+					var ret = method.Invoke (WifiManager);
+					var tmp = (int)ret;
 
 					// Fix for Android 4
 					if (tmp > 10)
@@ -181,7 +191,8 @@ namespace SimplyMobile.Device
 					}
 
 					return (WifiApState)tmp;
-				} catch (Exception ex)
+				} 
+				catch (Exception ex)
 				{
 					Log.Error (this.ToString (), ex.Message);
 					return WifiApState.WIFI_AP_STATE_FAILED;

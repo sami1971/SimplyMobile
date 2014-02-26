@@ -42,26 +42,30 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net" />
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="IRestClient.cs" />
-    <Compile Include="RestClient.cs" />
-    <Compile Include="ServiceResponse.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.Android.cs" />
     <Compile Include="CustomView.cs" />
+    <Compile Include="WebImageCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Content\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Android\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{460D47EE-0215-4EE2-BFE1-749B72D29D6A}</Project>
+    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

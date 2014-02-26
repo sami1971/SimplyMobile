@@ -59,6 +59,7 @@
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="Extensions\ListViewBindings.cs" />
     <Compile Include="Security\PasswordStorage.cs" />
+    <Compile Include="Logging\ILogService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -68,13 +69,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Security\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
+    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>

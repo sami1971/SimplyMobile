@@ -5,21 +5,20 @@ using MonoTouch.UIKit;
 using SimplyMobile.Core;
 using System.Collections.Generic;
 using System.ComponentModel;
+using SimplyMobile.iOS;
 
 namespace BindingTests
 {
-	public partial class BindingTestsViewController : UIViewController
+    public partial class BindingTestsViewController : BindingViewController
 	{
 		private ExtensionViewModel model;
-
-		private List<PropertyChangedEventHandler> eventHandlers;
 
 		static bool UserInterfaceIdiomIsPhone {
 			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
 		}
 
 		public BindingTestsViewController (ExtensionViewModel model)
-			: base (UserInterfaceIdiomIsPhone ? "BindingTestsViewController_iPhone" : "BindingTestsViewController_iPad", null)
+            : base(UserInterfaceIdiomIsPhone ? "BindingTestsViewController_iPhone" : "BindingTestsViewController_iPad", null)
 		{
 			this.model = model ?? new ExtensionViewModel();
 		}
@@ -54,22 +53,17 @@ namespace BindingTests
 			{
 				 this.DismissViewController (true, null);
 			};
-
-			this.eventHandlers = new List<PropertyChangedEventHandler>();
 		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			this.eventHandlers = new List<PropertyChangedEventHandler>();
+            this.AddDisappearAction(this.label.Bind(model, "TextField"));
 
-			this.eventHandlers.Add(this.label.Bind (model, "TextField"));
+            this.AddDisappearAction(this.textField.Bind(model, "TextField"));
 
-			this.eventHandlers.Add(this.textField.Bind (model, "TextField"));
-
-	
-			this.eventHandlers.Add(this.button.BindTitle(model, "ButtonTitle"));
+            this.AddDisappearAction(this.button.BindTitle(model, "ButtonTitle"));
 
 			this.button.OnClick(model.OnButtonClick);
 
@@ -78,20 +72,18 @@ namespace BindingTests
 				return;
 			}
 
-			this.eventHandlers.Add (this.toggle1.Bind (model, "ToggleOn"));
-			this.eventHandlers.Add (this.toggle2.Bind (model, "ToggleOn"));
+            this.AddDisappearAction(this.toggle1.Bind(model, "ToggleOn"));
+            this.AddDisappearAction(this.toggle2.Bind(model, "ToggleOn"));
 
-			this.eventHandlers.Add(this.slider1.Bind(model, "SliderValue"));
-			this.eventHandlers.Add(this.slider2.Bind(model, "SliderValue"));
+            this.AddDisappearAction(this.slider1.Bind(model, "SliderValue"));
+            this.AddDisappearAction(this.slider2.Bind(model, "SliderValue"));
 
-			this.eventHandlers.Add (this.labelSliderValue.Bind(model, "SliderValueText"));
+            this.AddDisappearAction(this.labelSliderValue.Bind(model, "SliderValueText"));
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-			//model.Unbind();
-			model.RemoveHandlers(this.eventHandlers);
 		}
 
 	}

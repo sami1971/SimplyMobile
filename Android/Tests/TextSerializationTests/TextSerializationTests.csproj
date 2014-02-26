@@ -166,6 +166,11 @@
       <Project>{A14F3F44-A9B3-44EE-A5CF-990D91964177}</Project>
       <Name>SimplyMobile.Text.FastJson.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />

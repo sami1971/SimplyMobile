@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,13 +82,15 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="BT\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
+    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplyMobile.Android\SimplyMobile.Android.csproj">
+      <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>
+      <Name>SimplyMobile.Android</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

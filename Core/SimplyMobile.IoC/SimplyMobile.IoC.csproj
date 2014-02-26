@@ -10,8 +10,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SimplyMobile.IoC</RootNamespace>
     <AssemblyName>SimplyMobile.IoC</AssemblyName>
-    <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

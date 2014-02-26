@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRestClient.cs" />
+    <Compile Include="IWebImageCache.cs" />
     <Compile Include="ServiceResponse.cs" />
     <Compile Include="NetworkStatus.cs" />
   </ItemGroup>
@@ -73,7 +74,7 @@
   -->
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="RestClient.cs" />
+    <Compile Include="RestClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

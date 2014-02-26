@@ -38,10 +38,6 @@
     <Compile Include="StockViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\iOS\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{8E364285-031D-4049-94E7-385113738742}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\iOS\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
       <Name>SimplyMobile.Data</Name>

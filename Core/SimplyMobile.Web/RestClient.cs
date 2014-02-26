@@ -205,7 +205,7 @@ namespace SimplyMobile.Web
                 var response = await this.client.PostAsync(
                     address,
                     new StringContent(content, Encoding.UTF8, GetTextFormat(format)));
-				return await this.GetResponse<T>(response, s);
+				return await GetResponse<T>(response, s);
             }
             catch (Exception ex)
             {
@@ -235,7 +235,7 @@ namespace SimplyMobile.Web
             try
             {
                 var response = await this.client.GetAsync(address);
-				return await this.GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
+				return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
             }
             catch (Exception ex)
             {
@@ -266,7 +266,7 @@ namespace SimplyMobile.Web
 				}
 
 				var response = await this.client.GetAsync(builder.ToString());
-				return await this.GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
+				return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
 			}
 			catch (Exception ex)
 			{

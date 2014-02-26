@@ -42,6 +42,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -68,9 +75,17 @@
       <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
       <Name>SimplyMobile.Web.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

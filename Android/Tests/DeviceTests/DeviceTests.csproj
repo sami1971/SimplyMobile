@@ -53,6 +53,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DeviceApp.cs" />
+    <Compile Include="ApNetworkActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -63,12 +64,17 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\ap_networks.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{D80BE32E-29A9-47D6-A791-984B933E9CE3}</Project>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Android\SimplyMobile.Android.csproj">
+      <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>
+      <Name>SimplyMobile.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Device\SimplyMobile.Device.csproj">
       <Project>{EFBE38F3-CD3E-42AE-BBD8-F48B98ED1579}</Project>

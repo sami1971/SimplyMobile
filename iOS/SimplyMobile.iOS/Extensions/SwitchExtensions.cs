@@ -17,7 +17,7 @@ namespace SimplyMobile.Core
 			}
 		}
 
-		public static PropertyChangedEventHandler Bind(this UISwitch toggle, INotifyPropertyChanged source, string propertyName)
+        public static Action Bind(this UISwitch toggle, INotifyPropertyChanged source, string propertyName)
 		{
 			var property = source.GetProperty(propertyName);
 
@@ -34,9 +34,17 @@ namespace SimplyMobile.Core
 				});
 
 				source.PropertyChanged += handler;
-				toggle.ValueChanged += (sender, e) => property.GetSetMethod().Invoke (source, new object[]{ toggle.On });
 
-				return handler;
+                var valueChanged = new EventHandler(
+                    (sender, e) => property.GetSetMethod().Invoke (source, new object[]{ toggle.On }));
+
+                toggle.ValueChanged += valueChanged;
+
+                return new Action(() =>
+                {
+                    source.PropertyChanged -= handler;
+                    toggle.ValueChanged -= valueChanged;
+                });
 			} 
 			else
 			{

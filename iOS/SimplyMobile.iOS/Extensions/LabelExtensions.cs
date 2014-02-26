@@ -15,11 +15,11 @@ namespace SimplyMobile.Core
 
 			if (textField.Text != text)
 			{
-				textField.Text = text;
+				textField.InvokeOnMainThread(() => textField.Text = text);
 			}
 		}
 
-		public static PropertyChangedEventHandler Bind(
+		public static Action Bind(
 			this UILabel label, 
 			INotifyPropertyChanged source, 
 			string propertyName, 
@@ -41,7 +41,10 @@ namespace SimplyMobile.Core
 
 			source.PropertyChanged += handler;
 
-			return handler;
+            return new Action(() =>
+            {
+                source.PropertyChanged -= handler;
+            });
 		}
 	}
 }
