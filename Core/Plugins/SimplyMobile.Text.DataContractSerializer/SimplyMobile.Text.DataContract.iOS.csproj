@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{214B3F4A-33EC-4A8E-BE42-C9CC3DA60CDF}</ProjectGuid>
+    <ProjectGuid>{AB0F0EC6-D40A-4708-ADBB-35D9839233BD}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Text</RootNamespace>
+    <RootNamespace>SimplyMobile.Text.DataContract.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SimplyMobile.Text</AssemblyName>
+    <AssemblyName>SimplyMobile.Text.DataContract.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,27 +34,19 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Text\Format.cs">
-      <Link>Format.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\IJsonSerializer.cs">
-      <Link>IJsonSerializer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\ITextSerializer.cs">
-      <Link>ITextSerializer.cs</Link>
-    </Compile>
+    <Compile Include="JsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\Core\SimplyMobile.Text\JsonSerializerExtensions.cs">
-      <Link>JsonSerializerExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Text\IProtoBufSerializer.cs">
-      <Link>IProtoBufSerializer.cs</Link>
-    </Compile>
+    <Compile Include="XmlSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />

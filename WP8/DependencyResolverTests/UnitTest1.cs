@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SimplyMobile.Core;
 using SimplyMobile.Text;
 using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.IoC;
 
 namespace DependencyResolverTests
 {
@@ -14,7 +15,7 @@ namespace DependencyResolverTests
         {
             var resolver = new DependencyResolver();
 
-            resolver.SetDynamicGetter<IJsonSerializer>(() => new JsonSerializer());
+            resolver.AddDynamic<IJsonSerializer>(() => new JsonSerializer());
 
             var serializer = resolver.GetService<IJsonSerializer>();
 

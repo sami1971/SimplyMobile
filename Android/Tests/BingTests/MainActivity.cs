@@ -32,7 +32,7 @@ namespace BingTests
 
                 //dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.ServiceStack.JsonSerializer());
                 dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.JsonNet.JsonSerializer());
-                dependencyResolver.AddDynamic<IRestClient>(() => new ModernJsonClient());
+                dependencyResolver.AddDynamic<IRestClient>(() => new JsonClient());
 
                 DependencyResolver.Current = dependencyResolver;
 

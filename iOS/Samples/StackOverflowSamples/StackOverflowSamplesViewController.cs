@@ -27,7 +27,7 @@ namespace StackOverflowSamples
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		public async override void ViewDidLoad ()
+		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			

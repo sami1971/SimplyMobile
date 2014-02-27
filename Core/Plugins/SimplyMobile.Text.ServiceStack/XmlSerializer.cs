@@ -31,7 +31,7 @@ namespace SimplyMobile.Text.ServiceStack
     /// https://github.com/ServiceStack/ServiceStack.Text/blob/master/LICENSE
     /// 
     /// </remarks>
-    public class XmlSerializer : ITextSerializer
+    public class XmlSerializer : IXmlSerializer
     {
         /// <summary>
         /// Gets the format.

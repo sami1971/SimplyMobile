@@ -31,12 +31,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AFNetworking">
-      <HintPath>..\..\iOS\Components\modernhttpclient-1.1.0\lib\ios\AFNetworking.dll</HintPath>
-    </Reference>
-    <Reference Include="ModernHttpClient.iOS">
-      <HintPath>..\..\iOS\Components\modernhttpclient-1.1.0\lib\ios\ModernHttpClient.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -60,22 +54,16 @@
       <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="SimplyMobile.Web.csproj">
-      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
-      <Name>SimplyMobile.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
       <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimplyMobile.Web.csproj">
+      <Project>{00636a5f-da3a-4e3e-b673-d483834684e3}</Project>
+      <Name>SimplyMobile.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Native.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="modernhttpclient">
-      <Version>1.1.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
   </ItemGroup>
 </Project>

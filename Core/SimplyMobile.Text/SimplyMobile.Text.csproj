@@ -60,6 +60,7 @@
     <Compile Include="IJsonSerializer.cs" />
     <Compile Include="IProtoBufSerializer.cs" />
     <Compile Include="ITextSerializer.cs" />
+    <Compile Include="IXmlSerializer.cs" />
     <Compile Include="JsonSerializerExtensions.cs" />
     <Compile Include="ICustomSerializer.cs" />
   </ItemGroup>

@@ -12,9 +12,9 @@ namespace StackOverflowSamples
 		{
 			var serializer = new SimplyMobile.Text.ServiceStack.JsonSerializer ();
 
-			var webClient = new RestClient (new Uri ("http://www.reddit.com/"), serializer);
+			var webClient = new JsonClient (serializer);
 
-			var response = await webClient.GetAsync<RootObject> ("r/all.json", Format.Json);
+            var response = await webClient.GetAsync<RootObject>("http://www.reddit.com/r/all.json", Format.Json);
 
 			if (response.StatusCode == System.Net.HttpStatusCode.OK)
 			{
@@ -27,9 +27,9 @@ namespace StackOverflowSamples
 
 			var serializer2 = new SimplyMobile.Text.JsonNet.JsonSerializer ();
 
-			webClient = new RestClient (new Uri ("http://www.reddit.com/"), serializer2);
+            webClient = new JsonClient(serializer2);
 
-			response = await webClient.GetAsync<RootObject> ("r/all.json", Format.Json);
+            response = await webClient.GetAsync<RootObject>("http://www.reddit.com/r/all.json", Format.Json);
 
 			if (response.StatusCode == System.Net.HttpStatusCode.OK)
 			{

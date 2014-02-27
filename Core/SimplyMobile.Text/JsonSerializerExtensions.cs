@@ -42,7 +42,7 @@ namespace SimplyMobile.Text
 		/// <returns>The from stream.</returns>
 		/// <param name="stream">Stream.</param>
 		/// <typeparam name="T">The type of object to deserialize.</typeparam>
-		public static T DeserializeFromStream<T>(this ITextSerializer serializer, Stream stream)
+		public static T DeserializeFromStream<T>(this ITextSerializer serializer, Stream stream) where T : class
 		{
 			using (var streamReader = new StreamReader(stream))
 			{
