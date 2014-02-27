@@ -58,5 +58,10 @@
     <Reference Include="monotouch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
