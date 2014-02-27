@@ -55,11 +55,11 @@
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="SimplyMobile.Web.csproj">
-      <Project>{00636a5f-da3a-4e3e-b673-d483834684e3}</Project>
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
   </ItemGroup>

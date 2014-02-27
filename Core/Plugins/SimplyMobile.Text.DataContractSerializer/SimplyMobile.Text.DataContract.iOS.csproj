@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AB0F0EC6-D40A-4708-ADBB-35D9839233BD}</ProjectGuid>
@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
   </ItemGroup>
