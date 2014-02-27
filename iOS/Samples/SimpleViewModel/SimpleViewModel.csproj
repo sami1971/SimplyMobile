@@ -115,7 +115,7 @@
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SimpleViewModel.Core\SimpleViewModel.Core.csproj">
+    <ProjectReference Include="..\..\..\Core\Samples\SimpleViewModel.Core\SimpleViewModel.Core.csproj">
       <Project>{BA8AE517-7098-453E-9D7E-C12AE0CCAE45}</Project>
       <Name>SimpleViewModel.Core</Name>
     </ProjectReference>
