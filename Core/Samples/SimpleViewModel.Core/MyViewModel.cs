@@ -6,6 +6,8 @@ namespace SimpleViewModel.Core
 {
 	public class MyViewModel : SimplyMobile.Core.ViewModel
 	{
+		private CancellationTokenSource tokenSource;
+
 		private const string ButtonStartText = "Click to start updating";
 		private const string ButtonCancelText = "Click to cancel updating";
 
@@ -36,6 +38,19 @@ namespace SimpleViewModel.Core
 			}
 		}
 
+		public void Toggle(object sender, EventArgs e)
+		{
+			if (this.tokenSource == null)
+			{
+				this.tokenSource = new CancellationTokenSource ();
+				this.Update (this.tokenSource.Token).ContinueWith (t => this.tokenSource = null);
+			}
+			else
+			{
+				Finish();
+			}
+		}
+
 		public async Task Update(CancellationToken token)
 		{
 			this.ButtonText = ButtonCancelText;
@@ -52,6 +67,14 @@ namespace SimpleViewModel.Core
 
 			this.Label = token.IsCancellationRequested ? "Update cancelled" : "Update complete";
 			this.ButtonText = ButtonStartText;
+		}
+
+		public void Finish()
+		{
+			if (this.tokenSource != null)
+			{
+				this.tokenSource.Cancel ();
+			}
 		}
 	}
 }

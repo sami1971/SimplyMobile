@@ -62,7 +62,7 @@
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">

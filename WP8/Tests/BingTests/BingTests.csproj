@@ -151,9 +151,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.WP8.csproj">
-      <Project>{1CF9D3EB-2EC3-43CB-8B73-64B4617E70E8}</Project>
-      <Name>SimplyMobile.Location.Bing.WP8</Name>
+    <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj">
+      <Project>{FCA0833A-001F-4CC0-8C07-2A40A05E8200}</Project>
+      <Name>SimplyMobile.Location.Bing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
+      <Name>SimplyMobile.Location</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>

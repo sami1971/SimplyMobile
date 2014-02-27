@@ -14,8 +14,6 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>
-    </AndroidUseLatestPlatformSdk>
     <AssemblyName>BingTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
@@ -47,23 +45,20 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ModernHttpClient.Android, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\ModernHttpClient.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="OkHttp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\OkHttp.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\libs\ServiceStack\Android\ServiceStack.Text.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="System.Net" />
+    <Reference Include="ModernHttpClient.Android">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\ModernHttpClient.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="OkHttp">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\OkHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\libs\ServiceStack\Android\ServiceStack.Text.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -84,27 +79,27 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Plugins\Location\SimplyMobile.Location.Bing\SimplyMobile.Location.Bing.csproj">
-      <Project>{fca0833a-001f-4cc0-8c07-2a40a05e8200}</Project>
+      <Project>{FCA0833A-001F-4CC0-8C07-2A40A05E8200}</Project>
       <Name>SimplyMobile.Location.Bing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.Android.csproj">
-      <Project>{a14f3f44-a9b3-44ee-a5cf-990d91964177}</Project>
+      <Project>{A14F3F44-A9B3-44EE-A5CF-990D91964177}</Project>
       <Name>SimplyMobile.Text.FastJson.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
-      <Project>{07426fcd-78b9-49b5-9e64-859e5e61fe22}</Project>
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
       <Name>SimplyMobile.Location</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
-      <Project>{69953254-ee9d-471f-8d94-e7239c68f88c}</Project>
+      <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
       <Name>SimplyMobile.Web.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
@@ -112,18 +107,18 @@
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
-      <Project>{cb0ecb4a-c83b-49a6-bff5-90b5b72775cc}</Project>
+      <Project>{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}</Project>
       <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
-      <Project>{7886eba5-d091-4aa1-b5be-37dbc892ad19}</Project>
+      <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="modernhttpclient">
-      <Visible>False</Visible>
       <Version>1.1.0</Version>
+      <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
 </Project>

@@ -11,7 +11,6 @@ namespace SimpleViewModel
 	public partial class SimpleViewModelViewController : UIViewController
 	{
 		private readonly MyViewModel viewModel = new MyViewModel();
-		private CancellationTokenSource tokenSource;
 
 		public SimpleViewModelViewController () : base ("SimpleViewModelViewController", null)
 		{
@@ -39,14 +38,14 @@ namespace SimpleViewModel
 			base.ViewWillAppear (animated);
 
 			viewModel.PropertyChanged += HandlePropertyChanged;
-			button.TouchUpInside += HandleTouchUpInside;
+			button.TouchUpInside += this.viewModel.Toggle;
 		}
 
 		public override void ViewWillDisappear(bool animated)
 		{
 			viewModel.PropertyChanged -= HandlePropertyChanged;
-			button.TouchUpInside -= HandleTouchUpInside;
-			this.CancelTask();
+			button.TouchUpInside -= this.viewModel.Toggle;
+			this.viewModel.Finish ();
 			base.ViewWillDisappear (animated);
 		}
 
@@ -60,29 +59,6 @@ namespace SimpleViewModel
 			{
 				this.label.Text = viewModel.Label;
 			}
-		}
-
-		private void HandleTouchUpInside (object sender, EventArgs e)
-		{
-			if (this.tokenSource == null)
-			{
-				this.tokenSource = new CancellationTokenSource ();
-				this.viewModel.Update (this.tokenSource.Token).ContinueWith (t => this.tokenSource = null);
-			}
-			else
-			{
-				CancelTask();
-			}
-		}
-
-		private void CancelTask()
-		{
-			if (this.tokenSource == null)
-			{
-				return;
-			}
-
-			this.tokenSource.Cancel ();
 		}
 	}
 }

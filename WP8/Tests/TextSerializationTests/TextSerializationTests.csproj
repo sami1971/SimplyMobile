@@ -22,7 +22,8 @@
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>TextSerializationTests_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>TextSerializationTests.App</SilverlightAppEntry>
+    <SilverlightAppEntry>
+    </SilverlightAppEntry>
     <ValidateXaml>false</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
@@ -70,12 +71,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\Android\Tests\TextSerializationTests\FastJsonSanityTests.cs">
-      <Link>FastJsonSanityTests.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Android\Tests\TextSerializationTests\FastJsonTests.cs">
-      <Link>FastJsonTests.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Animal.cs">
       <Link>DTOs\Animal.cs</Link>
     </Compile>
@@ -96,6 +91,12 @@
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Primitives.cs">
       <Link>DTOs\Primitives.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonFileLoad.cs">
+      <Link>FastJsonFileLoad.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonSanityTests.cs">
+      <Link>FastJsonSanityTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
       <Link>JsonNetSanity.cs</Link>
@@ -161,10 +162,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="MSTestFramework, Version=11.0" />
-    <SDKReference Include="TestPlatform, Version=11.0" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -189,10 +186,6 @@
     <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.WP8.csproj">
       <Project>{76AE7448-BE02-47DA-8503-00FC2FFCF1A7}</Project>
       <Name>SimplyMobile.Text.FastJson.WP8</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
-      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
-      <Name>SimplyMobile.Text.ProtoBuffer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>

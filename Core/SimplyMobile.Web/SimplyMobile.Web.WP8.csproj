@@ -83,11 +83,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RestClient.cs" />
+    <Compile Include="JsonClient.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.WP8.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>

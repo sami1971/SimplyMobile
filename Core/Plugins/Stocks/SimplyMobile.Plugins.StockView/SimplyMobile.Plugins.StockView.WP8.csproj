@@ -91,10 +91,6 @@
       <Project>{58AE919F-2A36-493B-BD95-638FBD70DF3F}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.WP8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\WP8\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{0746722C-147B-4481-AD24-90BB84605585}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\WP8\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{3323A69A-444A-4190-9A78-2185321D7DF3}</Project>
       <Name>SimplyMobile.Data</Name>
