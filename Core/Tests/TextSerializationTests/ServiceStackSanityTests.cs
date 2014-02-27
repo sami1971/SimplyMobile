@@ -32,5 +32,13 @@ namespace TextSerializationTests
 
         protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
 	}
+
+	[TestFixture ()]
+	public class ServiceStackXmlSanityTests : SanityCheckTests
+	{
+		protected override ITextSerializer Serializer { get { return new XmlSerializer(); } }
+
+		protected override ITextSerializer Deserializer { get { return new XmlSerializer(); } }
+	}
 }
 

@@ -178,6 +178,8 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\XmlSerializationTests.cs">
       <Link>XmlSerializationTests.cs</Link>
     </Compile>
+    <Compile Include="SystemXmlTests.cs" />
+    <Compile Include="RuntimeXmlTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -192,6 +194,14 @@
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.RuntimeSerializer\SimplyMobile.Text.RuntimeSerializer.csproj">
+      <Project>{8F3643A8-5597-42B9-A1CD-ACA1E06226A3}</Project>
+      <Name>SimplyMobile.Text.RuntimeSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.SystemXml\SimplyMobile.Text.SystemXml.csproj">
+      <Project>{04DF9573-6E29-4614-AAA8-78F9C9A1A3DD}</Project>
+      <Name>SimplyMobile.Text.SystemXml</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
