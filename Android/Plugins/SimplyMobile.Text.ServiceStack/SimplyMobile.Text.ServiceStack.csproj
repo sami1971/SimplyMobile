@@ -52,6 +52,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -60,10 +66,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

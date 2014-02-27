@@ -63,7 +63,12 @@
     <Compile Include="ServiceResponse.cs" />
     <Compile Include="NetworkStatus.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -74,12 +79,5 @@
   -->
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
 </Project>

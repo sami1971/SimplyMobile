@@ -49,7 +49,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="ModernJsonClient.iOS.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.iOS.cs" />
     <Compile Include="Reachability.cs" />
