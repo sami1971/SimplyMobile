@@ -51,6 +51,9 @@
     <Compile Include="LocationMonitor.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="CoordinateExtensions.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitorImpl.cs">
+      <Link>LocationMonitorImpl.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

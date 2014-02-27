@@ -14,10 +14,28 @@ namespace SimplyMobile.Location
 {
     public static partial class LocationMonitor
     {
-        public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan timeout)
+		/// <summary>
+		/// Gets or sets the desired accuracy.
+		/// </summary>
+		public static Accuracy DesiredAccuracy
+		{
+			get { throw new NotImplementedException(); }
+			set { throw new NotImplementedException(); }
+		}
+
+		public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
         {
             throw new NotImplementedException();
         }
+
+		/// <summary>
+		/// Gets or sets the location change threshold.
+		/// </summary>
+		public static double LocationChangeThreshold
+		{
+			get { throw new NotImplementedException(); }
+			set { throw new NotImplementedException(); }
+		}
 
         /// <summary>
         /// Start monitoring.

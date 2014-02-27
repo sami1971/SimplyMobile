@@ -47,6 +47,9 @@
     </Compile>
     <Compile Include="CoordinateExtensions.cs" />
     <Compile Include="LocationMonitor.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Location\LocationMonitorImpl.cs">
+      <Link>LocationMonitorImpl.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">

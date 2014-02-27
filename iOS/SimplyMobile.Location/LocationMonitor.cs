@@ -5,6 +5,7 @@ using System.Text;
 using MonoTouch.CoreLocation;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Threading.Tasks;
 
 namespace SimplyMobile.Location
 {
@@ -38,6 +39,11 @@ namespace SimplyMobile.Location
             get { return LocationManager.DistanceFilter; }
             set { LocationManager.DistanceFilter = value; }
         }
+
+		public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
+		{
+			throw new NotImplementedException ();
+		}
 
         /// <summary>
         /// The location manager.

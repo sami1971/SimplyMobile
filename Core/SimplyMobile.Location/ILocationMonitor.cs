@@ -14,14 +14,14 @@ namespace SimplyMobile.Location
         event EventHandler<Coordinates> LocationChanged;
 
         /// <summary>
-        /// Gets or sets the desired accuracy in meters.
+        /// Gets or sets the desired accuracy.
         /// </summary>
-        int DesiredAccuracyInMeters { get; set; }
+        Accuracy DesiredAccuracy { get; set; }
 
         /// <summary>
         /// Gets or sets the location change threshold in meters.
         /// </summary>
-        int LocationChangeThreshold { get; set; }
+        double LocationChangeThreshold { get; set; }
 
         /// <summary>
         /// The get coordinates asynchronously.
@@ -32,6 +32,6 @@ namespace SimplyMobile.Location
         /// <returns>
         /// Coordinates asyncronously
         /// </returns>
-        Task<Coordinates> GetCoordinatesAsync(TimeSpan timeout);
+        Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout);
     }
 }
