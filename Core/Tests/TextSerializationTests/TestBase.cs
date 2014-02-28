@@ -20,6 +20,7 @@ using System.Collections.Generic;
 #if WINDOWS_PHONE
 using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
 using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
+using Assert = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.Assert;
 using DebugWrite = System.Diagnostics.Debug;
 #else
 using NUnit.Framework;

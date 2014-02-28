@@ -19,14 +19,17 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using SimplyMobile.Core;
+using SimplyMobile.DataInterfaces;
 
 namespace SimplyMobile.Data
 {
     /// <summary>
     /// The observable data source.
     /// </summary>
-    public partial class ObservableDataSource<T>
+    public partial class ObservableDataSource<T> //: IObservableDataSource<T>
     {
+        private Predicate<T> filter;
+
         /// <summary>
         /// The data.
         /// </summary>
@@ -54,17 +57,27 @@ namespace SimplyMobile.Data
             this.observers.CollectionChanged += this.ObserversChanged;
         }
 
+        public Predicate<T> Filter
+        {
+            get { return this.filter; }
+            set
+            {
+                this.filter = value;
+                this.CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            }
+        }
+
         /// <summary>
         /// Occurs when item is selected.
         /// </summary>
-        public EventHandler<EventArgs<T>> OnSelected;
+        public event EventHandler<EventArgs<T>> OnSelected;
 
 		/// <summary>
 		/// The requested event occurs when an observer requests an item.
 		/// </summary>
 		/// <remarks>The sender will be the requesting observer, f.e. a ListView in Android
 		/// or UITableView in iOS.</remarks>
-		public EventHandler<EventArgs<int>> OnRequested;
+		public event EventHandler<EventArgs<int>> OnRequested;
 
         /// <summary>
         /// Gets or sets the data.
@@ -158,6 +171,13 @@ namespace SimplyMobile.Data
 
             return true;
         }
+
+        public void Remove(T item)
+        {
+            this.Data.Remove(item);
+        }
+
+        //public void ClearFilter();
 
         /// <summary>
         /// Invokes the item selected event.

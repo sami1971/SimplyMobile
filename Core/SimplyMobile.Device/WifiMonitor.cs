@@ -15,6 +15,7 @@ namespace SimplyMobile.Device
 
         #region IWifiMonitor Members
 
+        public string CurrentSSID { get; set; }
         public bool Enabled
         {
             get

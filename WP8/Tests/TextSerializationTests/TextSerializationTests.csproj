@@ -131,6 +131,12 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\TestBase.cs">
       <Link>TestBase.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\RuntimeXmlTests.cs">
+      <Link>RuntimeXmlTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\SystemXmlTests.cs">
+      <Link>SystemXmlTests.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -186,6 +192,14 @@
     <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.FastJson\SimplyMobile.Text.FastJson.WP8.csproj">
       <Project>{76AE7448-BE02-47DA-8503-00FC2FFCF1A7}</Project>
       <Name>SimplyMobile.Text.FastJson.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.RuntimeSerializer\SimplyMobile.Text.RuntimeSerializer.csproj">
+      <Project>{8F3643A8-5597-42B9-A1CD-ACA1E06226A3}</Project>
+      <Name>SimplyMobile.Text.RuntimeSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.SystemXml\SimplyMobile.Text.SystemXml.csproj">
+      <Project>{04DF9573-6E29-4614-AAA8-78F9C9A1A3DD}</Project>
+      <Name>SimplyMobile.Text.SystemXml</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>

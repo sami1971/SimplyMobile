@@ -1,8 +1,15 @@
 using System;
-using NUnit.Framework;
 using System.Collections.Generic;
 using SimplyMobile.Text;
 using System.IO;
+
+#if WINDOWS_PHONE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
+using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
+#else
+using NUnit.Framework;
+#endif
 
 namespace TextSerializationTests
 {
@@ -65,7 +72,12 @@ namespace TextSerializationTests
 			System.Threading.Thread.MemoryBarrier();
 			var initialMemory = System.GC.GetTotalMemory(true);
 
-			var json = System.IO.File.ReadAllText(testFile);
+			string json;
+            using (var streamReader = new StreamReader(testFile))
+            {
+                json = streamReader.ReadToEnd();
+            }
+
 			var st = DateTime.Now;
 			var l = new List<object>();
 			for (var i = 0; i < count; i++)
