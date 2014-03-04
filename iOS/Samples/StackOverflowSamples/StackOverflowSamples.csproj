@@ -113,12 +113,17 @@
     </Compile>
     <Compile Include="Reddit.cs" />
     <Compile Include="CustomBarButton.cs" />
+    <Compile Include="Twitter\Twitter.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="StackOverflowSamplesViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
