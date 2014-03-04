@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text="AppName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center_horizontal" />
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:text="Button"
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="match_parent"
+            android:id="@+id/button2" />
+    </LinearLayout>
+    <ListView
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:id="@+id/listView1"
+        android:choiceMode="multipleChoice"
+        android:drawSelectorOnTop="true"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="false"
+        android:layout_above="@id/bottomLayout"
+        android:layout_below="@id/textView1" />
+</RelativeLayout>

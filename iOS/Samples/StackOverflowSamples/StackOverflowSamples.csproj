@@ -112,6 +112,7 @@
       <DependentUpon>StackOverflowSamplesViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Reddit.cs" />
+    <Compile Include="CustomBarButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="StackOverflowSamplesViewController.xib" />

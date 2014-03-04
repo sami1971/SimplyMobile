@@ -63,6 +63,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\Main.axml" />
     <AndroidResource Include="Resources\Layout\serialization_layout.axml" />
+    <AndroidResource Include="Resources\Layout\sample_layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

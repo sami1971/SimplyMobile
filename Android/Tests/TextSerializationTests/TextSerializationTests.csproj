@@ -139,6 +139,12 @@
     <Compile Include="FastJsonList.cs" />
     <Compile Include="ServiceStackList.cs" />
     <Compile Include="JsonNetList.cs" />
+    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\RuntimeXmlTests.cs">
+      <Link>RuntimeXmlTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\SystemXmlTests.cs">
+      <Link>SystemXmlTests.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
