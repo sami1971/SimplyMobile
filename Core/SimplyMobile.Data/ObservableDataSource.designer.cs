@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using SimplyMobile.Core;
-using SimplyMobile.DataInterfaces;
 
 namespace SimplyMobile.Data
 {
@@ -52,9 +51,9 @@ namespace SimplyMobile.Data
 
         public ObservableDataSource(IEnumerable<T> data)
         {
-            this.Data = new ObservableCollection<T>(data);
             this.observers = new ObservableCollection<object>();
             this.observers.CollectionChanged += this.ObserversChanged;
+            this.Data = new ObservableCollection<T>(data);
         }
 
         public Predicate<T> Filter

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.Phone.Controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SimplyMobile.Data
 {
@@ -20,7 +22,20 @@ namespace SimplyMobile.Data
         /// </param>
         partial void CollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            
+            if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Reset)
+            {
+                return;
+            }
+
+            foreach (var observer in this.observers.OfType<FrameworkElement>())
+            {
+                observer.Dispatcher.BeginInvoke(() => observer.DataContext = this.Data);
+            }
+
+            foreach (var longList in this.observers.OfType<LongListSelector>())
+            {
+                longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = this.Data);
+            }
         }
 
         /// <summary>
@@ -34,7 +49,15 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            
+            foreach (var element in notifyCollectionChangedEventArgs.NewItems.OfType<FrameworkElement>())
+            {
+                element.Dispatcher.BeginInvoke(()=> element.DataContext = this.Data);
+            }
+
+            foreach (var longList in this.observers.OfType<LongListSelector>())
+            {
+                longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = this.Data);
+            }
         }
 
     }

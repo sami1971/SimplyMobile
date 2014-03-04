@@ -11,3 +11,5 @@ iOS/Components/json.net-4.5.11.info
 Core/Tests/TextSerializationTests/test-results/TextSerializationTests.csproj-Debug-2013-11-07.xml
 
 *.test-cache
+Android/SimplyMobile.Android/Resources/Resource.designer.cs
+Core/SimplyMobile.Web/SimplyMobile.Web.iOS.csproj.user
