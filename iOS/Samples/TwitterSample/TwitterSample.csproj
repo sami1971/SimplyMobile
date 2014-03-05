@@ -114,10 +114,16 @@
       <DependentUpon>TwitterSampleViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Twitter.cs" />
+    <Compile Include="TwitterTableCell.cs" />
+    <Compile Include="TwitterTableCell.designer.cs">
+      <DependentUpon>TwitterTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TwitterTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="TwitterSampleViewController_iPhone.xib" />
     <InterfaceDefinition Include="TwitterSampleViewController_iPad.xib" />
+    <InterfaceDefinition Include="TwitterTableCell.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
