@@ -55,15 +55,15 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccelerometerImpl.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="Battery.designer.cs" />
+    <Compile Include="BatteryImpl.cs" />
     <Compile Include="BatteryStatus.cs" />
-    <Compile Include="IBatteryMonitor.cs" />
     <Compile Include="IWifiMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WifiMonitor.cs" />
     <Compile Include="WifiMonitor.designer.cs" />
-    <Compile Include="AccelometerStatus.cs" />
     <Compile Include="Accelometer.designer.cs" />
     <Compile Include="Accelometer.cs" />
   </ItemGroup>

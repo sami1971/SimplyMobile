@@ -59,6 +59,7 @@
     <Reference Include="ServiceStack.Text">
       <HintPath>..\..\..\libs\ServiceStack\Android\ServiceStack.Text.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

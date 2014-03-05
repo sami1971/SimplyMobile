@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Net.Http;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
@@ -29,31 +30,19 @@ namespace BingTests
 		public async override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
-			// Perform any additional setup after loading the view, typically from a nib.
-            var dependencyResolver = new DependencyResolver();
 
-            dependencyResolver.SetService<IJsonSerializer>(
-                new SimplyMobile.Text.ServiceStack.JsonSerializer()
-                //new SimplyMobile.Text.JsonNet.JsonSerializer()
-            );
-
-            // use ModernHttpClient
-            dependencyResolver.AddDynamic<HttpClient>(() => new HttpClient(new AFNetworkHandler()));
-            // use regular HttpClient
-            //dependencyResolver.AddDynamic<HttpClient>(() => new HttpClient());
-            // use JsonClient
-            dependencyResolver.AddDynamic<IRestClient>(() => new JsonClient());
-
-            DependencyResolver.Current = dependencyResolver;
-
-			var bingClient = new BingClient("Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
+			var bingClient = DependencyResolver.Current.GetService<BingClient>();
 
 			var response = await bingClient.Get (47.64054, -122.12934);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 System.Diagnostics.Debug.WriteLine(response.Content);
+
+                foreach (var set in response.Value.ResourceSets.SelectMany(a=>a.Resources))
+                {
+                    System.Diagnostics.Debug.WriteLine(set.Name);
+                }
             }
             else
             {

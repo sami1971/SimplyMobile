@@ -18,6 +18,30 @@ namespace SimplyMobile.Device
 			}
 		}
 
+		public static SensorDelay Delay { get; private set; }
+
+		public static AccelerometerInterval Interval
+		{
+			get
+			{
+				switch (Delay) 
+				{
+				case SensorDelay.Fastest:
+					return AccelerometerInterval.Fastest;
+				case SensorDelay.Game:
+					return AccelerometerInterval.Game;
+				case SensorDelay.Normal:
+					return AccelerometerInterval.Normal;
+				default:
+					return AccelerometerInterval.Ui;
+				}
+			}
+			set
+			{
+				Accelometer.Delay = SensorDelay.Ui;
+			}
+		}
+
 		static partial void StartMonitoring()
 		{
 			Monitor.Start();
@@ -85,7 +109,7 @@ namespace SimplyMobile.Device
 					return false;
 				}
 
-				this.sensorManager.RegisterListener(this, accelerometer, SensorDelay.Ui);
+				this.sensorManager.RegisterListener(this, accelerometer, Accelometer.Delay);
 
 				return this.Active;
 			}

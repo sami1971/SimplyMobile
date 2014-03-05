@@ -15,7 +15,7 @@ namespace DependencyResolverTests
         {
             var resolver = new DependencyResolver();
 
-            resolver.AddDynamic<IJsonSerializer>(() => new JsonSerializer());
+            resolver.RegisterService<IJsonSerializer>(t => new JsonSerializer());
 
             var serializer = resolver.GetService<IJsonSerializer>();
 

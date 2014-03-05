@@ -34,15 +34,15 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Device\AccelerometerImpl.cs">
+      <Link>AccelerometerImpl.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\Battery.designer.cs">
       <Link>Battery.designer.cs</Link>
       <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\BatteryStatus.cs">
-      <Link>BatteryStatus.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\IWifiMonitor.cs">
-      <Link>IWifiMonitor.cs</Link>
+    <Compile Include="..\..\Core\SimplyMobile.Device\BatteryImpl.cs">
+      <Link>BatteryImpl.cs</Link>
     </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\WifiMonitor.designer.cs">
       <Link>WifiMonitor.designer.cs</Link>
@@ -52,9 +52,6 @@
     <Compile Include="WifiMonitor.cs" />
     <Compile Include="..\..\Core\SimplyMobile.Device\Accelometer.designer.cs">
       <Link>Accelometer.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\AccelometerStatus.cs">
-      <Link>AccelometerStatus.cs</Link>
     </Compile>
     <Compile Include="Accelometer.cs" />
     <Compile Include="CurrentDevice.cs" />

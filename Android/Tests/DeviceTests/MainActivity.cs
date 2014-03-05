@@ -37,7 +37,8 @@ namespace DeviceTests
 			{
 				return new [] 
 				{
-					new MenuAction("AP Networks", ()=> this.StartActivity<ApNetworkActivity>())
+					new MenuAction("AP Networks", ()=> this.StartActivity<ApNetworkActivity>()),
+					new MenuAction("Sensor measurement", ()=> this.StartActivity<SensorDelayActivity>()),
 				};
 			}
 		}

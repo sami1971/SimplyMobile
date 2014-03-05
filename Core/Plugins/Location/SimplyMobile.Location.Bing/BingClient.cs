@@ -29,7 +29,7 @@ namespace SimplyMobile.Location.Bing
         /// <param name="key">
         /// The key.
         /// </param>
-        public BingClient (string key) : this(key, DependencyResolver.Current.GetService<IRestClient>()){}
+        //public BingClient (string key) : this(key, DependencyResolver.Current.GetService<IRestClient>()){}
 
         public BingClient(string key, IRestClient client)
         {

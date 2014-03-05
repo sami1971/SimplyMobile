@@ -462,7 +462,7 @@ Global
 		{07426FCD-78B9-49B5-9E64-859E5E61FE22} = {95025D39-C623-4BC7-8D43-6FF5373BF985}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Tests\DependencyInjectionTests\DependencyInjectionTests.csproj
+		StartupItem = Tests\DeviceTests\DeviceTests.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

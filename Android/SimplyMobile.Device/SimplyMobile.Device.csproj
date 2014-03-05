@@ -48,12 +48,6 @@
       <Link>Battery.designer.cs</Link>
       <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\BatteryStatus.cs">
-      <Link>BatteryStatus.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\IWifiMonitor.cs">
-      <Link>IWifiMonitor.cs</Link>
-    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\WifiMonitor.designer.cs">
       <Link>WifiMonitor.designer.cs</Link>
       <DependentUpon>WifiMonitor.cs</DependentUpon>
@@ -64,15 +58,15 @@
     <Compile Include="..\..\Core\SimplyMobile.Device\Accelometer.designer.cs">
       <Link>Accelometer.designer.cs</Link>
     </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Device\AccelometerStatus.cs">
-      <Link>AccelometerStatus.cs</Link>
-    </Compile>
     <Compile Include="Accelometer.cs" />
     <Compile Include="BT\AdapterStatus.cs" />
     <Compile Include="BT\IBtAdapter.cs" />
     <Compile Include="BT\BluetoothAdapterMonitor.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Info.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Device\AccelerometerImpl.cs">
+      <Link>AccelerometerImpl.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

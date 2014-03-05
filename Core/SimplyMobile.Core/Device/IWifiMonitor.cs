@@ -13,31 +13,28 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
-namespace SimplyMobile.Text
+
+using System;
+using SimplyMobile.Core;
+
+namespace SimplyMobile.Device
 {
-    /// <summary>
-    /// The format.
-    /// </summary>
-    public enum Format
+    public interface IWifiMonitor : IMonitor
     {
-        /// <summary>
-        /// XML format
-        /// </summary>
-        Xml,
-
-        /// <summary>
-        /// JSON format
-        /// </summary>
-        Json,
-
-        /// <summary>
-        /// Protocol Buffer format
-        /// </summary>
-		ProtoBuf,
+		/// <summary>
+		/// Gets a value indicating whether WiFi is enabled.
+		/// </summary>
+		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        bool Enabled { get; }
 
 		/// <summary>
-		/// Comma-separated format
+		/// Gets the current SSID.
 		/// </summary>
-		Csv
+		/// <value>The current SSID.</value>
+		string CurrentSSID { get; }
+
+        event EventHandler<EventArgs<bool>> OnStatusChange;
+
+        bool TrySetState(bool enabled);
     }
 }

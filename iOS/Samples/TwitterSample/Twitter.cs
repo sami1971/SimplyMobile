@@ -8,11 +8,6 @@ using MonoTouch.UIKit;
 
 namespace TwitterSample
 {
-    public class Twitter
-    {
-        private const string Response = "";
-    }
-
     public class Pagination
     {
         public string next_url { get; set; }

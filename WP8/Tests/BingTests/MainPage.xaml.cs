@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BingTests.Resources;
 using SimplyMobile.Location.Bing;
+using SimplyMobile.IoC;
 
 namespace BingTests
 {
@@ -26,7 +27,7 @@ namespace BingTests
         {
             base.OnNavigatedTo(e);
 
-            var bingClient = new BingClient(BingKey.AppKey);
+            var bingClient = DependencyResolver.Current.GetService<BingClient>();
 
             var response = await bingClient.Get(47.64054, -122.12934);
 

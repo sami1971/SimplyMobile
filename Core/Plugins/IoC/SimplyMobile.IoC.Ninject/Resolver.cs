@@ -31,7 +31,6 @@ namespace SimplyMobile.IoC.Ninject
             return this.kernel.Bind<T>().ToConstant<T>(service);
         }
 
-
         public object RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
@@ -41,7 +40,7 @@ namespace SimplyMobile.IoC.Ninject
 
 		public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
 		{
-			throw new NotImplementedException ();
+            return this.kernel.Bind<T>().ToMethod<T>(t => func(this));
 		}
     }
 }

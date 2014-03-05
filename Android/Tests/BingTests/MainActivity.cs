@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -9,6 +10,8 @@ using SimplyMobile.Location.Bing;
 using SimplyMobile.IoC;
 using SimplyMobile.Text;
 using SimplyMobile.Web;
+
+using ModernHttpClient;
 
 namespace BingTests
 {
@@ -28,16 +31,17 @@ namespace BingTests
 			
 			button.Click += async delegate
 			{
-                var dependencyResolver = new DependencyResolver();
-
                 //dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.ServiceStack.JsonSerializer());
-                dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.JsonNet.JsonSerializer());
-                dependencyResolver.AddDynamic<IRestClient>(() => new JsonClient());
-
-                DependencyResolver.Current = dependencyResolver;
+				DependencyResolver.Current.RegisterService<IJsonSerializer>(new SimplyMobile.Text.JsonNet.JsonSerializer());
+				DependencyResolver.Current.RegisterService<IRestClient>(t => 
+					new JsonClient(new HttpClient(new OkHttpNetworkHandler()),
+						t.GetService<IJsonSerializer>())
+				);
 
 				var bingClient = new BingClient(
-                    "Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ");
+					"Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
+					DependencyResolver.Current.GetService<IRestClient>()
+				);
 
 				var response = await bingClient.Get(47.64054,-122.12934);
 

@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using SimplyMobile.IoC;
+using SimplyMobile.Text;
+using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.Web;
+using System.Net.Http;
+using ModernHttpClient;
+using SimplyMobile.Location.Bing;
 
 namespace BingTests
 {
@@ -24,6 +31,13 @@ namespace BingTests
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
+            var r = DependencyResolver.Current;
+            r.RegisterService<IJsonSerializer, JsonSerializer>();
+            // use iOS specific HttpClient for faster downloads
+            r.RegisterService<HttpClient>(t => new HttpClient(new AFNetworkHandler()));
+            r.RegisterService<IRestClient>(t => new JsonClient(t.GetService<HttpClient>(), t.GetService<IJsonSerializer>()));
+            r.RegisterService<BingClient>(t => new BingClient(BingKey.AppKey, t.GetService<IRestClient>()));
+
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
 			viewController = new BingTestsViewController ();

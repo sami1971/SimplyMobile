@@ -6,11 +6,26 @@ namespace SimplyMobile.Device
 {
 	public static partial class Accelometer
 	{
-		public static double UpdateInterval
-		{
-			get { return UIAccelerometer.SharedAccelerometer.UpdateInterval; }
-			set { UIAccelerometer.SharedAccelerometer.UpdateInterval = value; }
-		}
+        private static AccelerometerInterval interval = AccelerometerInterval.Ui;
+
+        public static AccelerometerInterval Interval
+        {
+            get { return interval; }
+            set
+            {
+                if (interval != value)
+                {
+                    interval = value;
+                    UIAccelerometer.SharedAccelerometer.UpdateInterval = (long)interval;
+                }
+            }
+        }
+
+        //public static double UpdateInterval
+        //{
+        //    get { return UIAccelerometer.SharedAccelerometer.UpdateInterval; }
+        //    set { UIAccelerometer.SharedAccelerometer.UpdateInterval = value; }
+        //}
 
 		static partial void StartMonitoring()
 		{

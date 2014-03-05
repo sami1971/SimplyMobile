@@ -12,11 +12,11 @@ namespace SimplyMobile.Device
     {
         private static Accelerometer accelerometer;
 
-        public static TimeSpan? Interval { get; set; }
+        public static AccelerometerInterval Interval { get; set; }
 
         static partial void StartMonitoring()
         {
-            accelerometer = new Accelerometer { TimeBetweenUpdates = Interval ?? TimeSpan.FromMilliseconds(50) };
+            accelerometer = new Accelerometer { TimeBetweenUpdates = TimeSpan.FromMilliseconds((long)Interval) };
 
             accelerometer.CurrentValueChanged += AccelerometerOnCurrentValueChanged;
             accelerometer.Start();

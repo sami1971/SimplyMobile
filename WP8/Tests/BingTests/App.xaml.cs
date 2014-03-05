@@ -7,6 +7,12 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BingTests.Resources;
+using SimplyMobile.IoC;
+using SimplyMobile.Text;
+using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.Web;
+using SimplyMobile.Location.Bing;
+using System.Net.Http;
 
 namespace BingTests
 {
@@ -61,6 +67,10 @@ namespace BingTests
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var r = DependencyResolver.Current;
+            r.RegisterService<IJsonSerializer, JsonSerializer>();
+            r.RegisterService<IRestClient>(t => new JsonClient(new HttpClient(), t.GetService<IJsonSerializer>()));
+            r.RegisterService<BingClient>(t => new BingClient(BingKey.AppKey, t.GetService<IRestClient>()));
         }
 
         // Code to execute when the application is activated (brought to foreground)

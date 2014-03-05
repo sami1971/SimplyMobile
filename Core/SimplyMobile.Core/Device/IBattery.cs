@@ -18,17 +18,30 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
 {
-    public interface IBatteryMonitor : IMonitor
+    public interface IBattery
     {
         /// <summary>
-        ///  Gets the battery level. 
+        /// Gets the level.
         /// </summary>
-        float Level { get; }
+        /// <value>
+        /// The level in percentage 0-100.
+        /// </value>
+        int Level { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether battery is charging
+        /// </summary>
+        bool Charging { get; }
+
+        /// <summary>
+        /// Gets the current battery status.
+        /// </summary>
+        BatteryStatus Status { get; }
 
         /// <summary>
         ///  Occurs when level changes. 
         /// </summary>
-        event EventHandler<EventArgs<float>> OnLevelChange;
+        event EventHandler<EventArgs<int>> OnLevelChange;
 
         /// <summary>
         ///  Occurs when charger is connected or disconnected. 

@@ -70,14 +70,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\AutofacInjectionTests.cs">
+      <Link>AutofacInjectionTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\DefaultResolverTests.cs">
+      <Link>DefaultResolverTests.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\InjectionTests.cs">
       <Link>InjectionTests.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\MunqInjectionTests.cs">
-      <Link>MunqInjectionTests.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\MunqTests.cs">
-      <Link>MunqTests.cs</Link>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\SimpleInjectorTests.cs">
+      <Link>SimpleInjectorTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\TinyIoCInjectionTests.cs">
       <Link>TinyIoCInjectionTests.cs</Link>
@@ -144,10 +147,6 @@
     <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Autofac\SimplyMobile.IoC.Autofac.csproj">
       <Project>{4E9911AF-2418-492C-9144-D1179EA42F30}</Project>
       <Name>SimplyMobile.IoC.Autofac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Munq\SimplyMobile.IoC.Munq.csproj">
-      <Project>{A3C7766F-A4C3-48DB-A904-25F83BFC9843}</Project>
-      <Name>SimplyMobile.IoC.Munq</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Ninject\SimplyMobile.IoC.Ninject.csproj">
       <Project>{F9DBEAE0-10DC-488F-B408-7DC949BE6174}</Project>

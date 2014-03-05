@@ -34,6 +34,9 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ServiceStack\CsvSerializer.cs">
+      <Link>CsvSerializer.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Text.ServiceStack\JsonSerializer.cs">
       <Link>JsonSerializer.cs</Link>
     </Compile>

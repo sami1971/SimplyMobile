@@ -106,6 +106,9 @@
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Core\Tests\BingTests\BingKey.cs">
+      <Link>BingKey.cs</Link>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="BingTestsViewController.cs" />
