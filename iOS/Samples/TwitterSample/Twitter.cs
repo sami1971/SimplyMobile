@@ -6,7 +6,7 @@ using System.Text;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace StackOverflowSamples.Twitter
+namespace TwitterSample
 {
     public class Twitter
     {
@@ -106,6 +106,15 @@ namespace StackOverflowSamples.Twitter
         public string id { get; set; }
         public User user { get; set; }
         public Videos videos { get; set; }
+
+		public override string ToString()
+		{
+			if (user == null)
+			{
+				return "User is null";
+			}
+			return user.full_name;
+		}
     }
 
     public class TwitterResponse

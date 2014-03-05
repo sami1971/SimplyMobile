@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5BC8ADB9-D5A2-467B-A064-FBC55DFE4FCC}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{F278D4AB-4730-4720-B08E-FE5E31564D9E};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DependencyInjectionTests</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>DependencyInjectionTests</AssemblyName>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Android.NUnitLite" />
+    <Reference Include="ModernHttpClient.Android">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\ModernHttpClient.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="OkHttp">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\android\OkHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="TestsSample.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\iOS\Tests\NinjectTests.iOS\AutofacInjectionTests.cs">
+      <Link>AutofacInjectionTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\NinjectTests.iOS\DefaultResolverTests.cs">
+      <Link>DefaultResolverTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\NinjectTests.iOS\InjectionTests.cs">
+      <Link>InjectionTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\NinjectTests.iOS\SimpleInjectorTests.cs">
+      <Link>SimpleInjectorTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\iOS\Tests\NinjectTests.iOS\TinyIoCInjectionTests.cs">
+      <Link>TinyIoCInjectionTests.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="..\..\..\iOS\Tests\NinjectTests.iOS\MunqInjectionTests.cs">
+      <Link>MunqInjectionTests.cs</Link>
+    </None>
+    <None Include="..\..\..\iOS\Tests\NinjectTests.iOS\MunqTests.cs">
+      <Link>MunqTests.cs</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.Android.csproj">
+      <Project>{69953254-EE9D-471F-8D94-E7239C68F88C}</Project>
+      <Name>SimplyMobile.Web.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Autofac\SimplyMobile.IoC.Autofac.csproj">
+      <Project>{4E9911AF-2418-492C-9144-D1179EA42F30}</Project>
+      <Name>SimplyMobile.IoC.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Ninject\SimplyMobile.IoC.Ninject.csproj">
+      <Project>{F9DBEAE0-10DC-488F-B408-7DC949BE6174}</Project>
+      <Name>SimplyMobile.IoC.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.SimpleInjector\SimplyMobile.IoC.SimpleInjector.csproj">
+      <Project>{86412F56-5F8D-4BBB-8501-D66D154519B4}</Project>
+      <Name>SimplyMobile.IoC.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.TinyIoC\SimplyMobile.IoC.TinyIoC.Android.csproj">
+      <Project>{8EF183C3-A209-454B-B4B5-E27B47BF0A99}</Project>
+      <Name>SimplyMobile.IoC.TinyIoC.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="modernhttpclient">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>1.1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+</Project>

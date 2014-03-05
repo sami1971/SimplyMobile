@@ -29,6 +29,16 @@ namespace SimplyMobile.Web
             this.serializer = serializer;
         }
 
+		public JsonClient(HttpClient httpClient, IJsonSerializer serializer)
+		{
+			this.httpClient = httpClient;
+			this.serializer = serializer;
+		}
+
+		public JsonClient(HttpClient httpClient) : this(httpClient, DependencyResolver.Current.GetService<IJsonSerializer>())
+		{
+		}
+
         /// <summary>
         /// Gets or sets timeout in milliseconds
         /// </summary>

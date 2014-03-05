@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -47,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
   </ItemGroup>

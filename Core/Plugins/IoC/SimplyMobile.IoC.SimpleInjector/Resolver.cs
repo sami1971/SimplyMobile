@@ -1,13 +1,10 @@
 ﻿using SimpleInjector;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimplyMobile.IoC.SimpleInjector
 {
-    public class Resolver : IDependencyResolver
+	public class Resolver : IDependencyResolver
     {
         private Container container;
 
@@ -35,7 +32,6 @@ namespace SimplyMobile.IoC.SimpleInjector
             return this;
         }
 
-
         public object RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
@@ -43,5 +39,11 @@ namespace SimplyMobile.IoC.SimpleInjector
             this.Container.Register<T, TImpl>();
             return this;
         }
+
+		public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+		{
+			this.Container.Register<T> (() => func (this));
+			return this;
+		}
     }
 }

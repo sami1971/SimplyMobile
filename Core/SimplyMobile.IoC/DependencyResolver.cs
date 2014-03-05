@@ -34,7 +34,7 @@ namespace SimplyMobile.IoC
         /// </summary>
         private readonly List<object> services;
 
-        private readonly Dictionary<Type, Func<object>> registeredServices;
+		private readonly Dictionary<Type, Func<IDependencyResolver, object>> registeredServices;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
@@ -42,7 +42,7 @@ namespace SimplyMobile.IoC
         public DependencyResolver()
         {
             this.services = new List<object>();
-            this.registeredServices = new Dictionary<Type, Func<object>>();
+			this.registeredServices = new Dictionary<Type, Func<IDependencyResolver, object>>();
         }
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace SimplyMobile.IoC
 
             if (service == null)
             {
-                Func<object> getter;
+				Func<IDependencyResolver, object> getter;
                 if (this.registeredServices.TryGetValue(typeof(T), out getter))
                 {
-                    service = getter.Invoke() as T;
+					service = getter(this) as T;
                 }
             }
 
@@ -110,24 +110,24 @@ namespace SimplyMobile.IoC
 		/// <returns>The dependency resolver object</returns>
 		/// <param name="getter">Getter func for the service.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-        public IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class
-        {
-            this.registeredServices.Add(typeof(T), getter);
-            return this;
-        }
+//        public IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class
+//        {
+//            this.registeredServices.Add(typeof(T), getter);
+//            return this;
+//        }
 
 
         public object RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
-            return this.AddDynamic<T>(() => Activator.CreateInstance(typeof(TImpl)) as T);
+			return RegisterService<T>(t => Activator.CreateInstance(typeof(TImpl)) as T);
         }
-
 
         public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
-            throw new NotImplementedException();
+			this.registeredServices.Add (typeof(T), func);
+			return this;
         }
     }
 }

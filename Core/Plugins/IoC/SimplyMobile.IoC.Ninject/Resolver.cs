@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.IoC.Ninject
 {
-    public class Resolver : IDependencyResolver
+	public class Resolver : IDependencyResolver
     {
         private IKernel kernel;
 
@@ -38,5 +38,10 @@ namespace SimplyMobile.IoC.Ninject
         {
             return this.kernel.Bind<T, TImpl>();
         }
+
+		public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+		{
+			throw new NotImplementedException ();
+		}
     }
 }

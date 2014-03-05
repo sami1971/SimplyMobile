@@ -14,6 +14,8 @@
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,19 +39,16 @@
     <Compile Include="Resolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SimpleInjector">
-      <HintPath>..\..\..\..\WP8\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.dll</HintPath>
-    </Reference>
     <Reference Include="SimpleInjector.Diagnostics">
-      <HintPath>..\..\..\..\WP8\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.Diagnostics.dll</HintPath>
+      <HintPath>..\..\..\..\iOS\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.Diagnostics.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\..\..\iOS\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
   </ItemGroup>
@@ -61,4 +60,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

@@ -27,8 +27,11 @@ namespace NinjectTests.iOS
         {
             var resolver = new Resolver();
 
+			#if __ANDROID__
+			var modernClient = new HttpClient(new OkHttpNetworkHandler());
+			#else
             var modernClient = new HttpClient(new AFNetworkHandler());
-
+			#endif
             resolver.RegisterService<HttpClient>(modernClient);
 
             var client = resolver.GetService<HttpClient>();

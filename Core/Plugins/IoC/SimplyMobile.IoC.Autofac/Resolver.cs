@@ -10,7 +10,7 @@ namespace SimplyMobile.IoC.Autofac
 {
     public class Resolver : IDependencyResolver
     {
-        private ContainerBuilder builder;
+        private readonly ContainerBuilder builder;
         private IContainer container;
 
         private IContainer Container
@@ -20,6 +20,8 @@ namespace SimplyMobile.IoC.Autofac
                 return container ?? (container = builder.Build());
             }
         }
+
+		public Resolver() : this(new ContainerBuilder()){}
 
         public Resolver(ContainerBuilder builder)
         {

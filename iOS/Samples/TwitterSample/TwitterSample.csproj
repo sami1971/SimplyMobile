@@ -1,138 +1,129 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0EBEC3C8-3BBD-46F3-8BCE-75B8043E49B1}</ProjectGuid>
+    <ProjectGuid>{72B8A1DF-2383-4989-966D-6FCE08C970D2}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NinjectTests.iOS</RootNamespace>
+    <RootNamespace>TwitterSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>NinjectTestsiOS</AssemblyName>
+    <AssemblyName>TwitterSample</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType>none</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchI18n>
-    </MtouchI18n>
-    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>none</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <BuildIpa>True</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\WP8\Tests\IoC\NinjectTests\IoCResolveTests.cs">
-      <Link>IoCResolveTests.cs</Link>
-    </Compile>
-    <Compile Include="InjectionTests.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="TinyIoCInjectionTests.cs" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="packages.config" />
-    <None Include="MunqInjectionTests.cs" />
-    <None Include="MunqTests.cs" />
-    <None Include="AutofacInjectionTests.cs" />
-    <None Include="SimpleInjectorTests.cs" />
-    <Compile Include="DefaultResolverTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
     <Reference Include="AFNetworking">
       <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\ios\AFNetworking.dll</HintPath>
     </Reference>
     <Reference Include="ModernHttpClient.iOS">
       <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\ios\ModernHttpClient.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="MonoTouch.NUnitLite" />
-    <Reference Include="Autofac">
-      <HintPath>..\..\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.SimpleInjector\SimplyMobile.IoC.SimpleInjector.csproj">
-      <Project>{86412F56-5F8D-4BBB-8501-D66D154519B4}</Project>
-      <Name>SimplyMobile.IoC.SimpleInjector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.TinyIoC\SimplyMobile.IoC.TinyIoC.iOS.csproj">
-      <Project>{F323DA24-A61A-459F-B9AC-C74BA55F932D}</Project>
-      <Name>SimplyMobile.IoC.TinyIoC.iOS</Name>
-    </ProjectReference>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\TwitterJson.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="TwitterSampleViewController.cs" />
+    <Compile Include="TwitterSampleViewController.designer.cs">
+      <DependentUpon>TwitterSampleViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Twitter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="TwitterSampleViewController_iPhone.xib" />
+    <InterfaceDefinition Include="TwitterSampleViewController_iPad.xib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
       <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
-      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
@@ -142,20 +133,28 @@
       <Project>{EE9B20C2-2D3B-48B4-8458-D2D7230D1583}</Project>
       <Name>SimplyMobile.Web.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
-      <Project>{27EEB861-E72C-4190-9928-B8FBE6450909}</Project>
-      <Name>SimplyMobile.Text.JsonNet</Name>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
+      <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="modernhttpclient">
+      <InstallationInProgress>True</InstallationInProgress>
       <Version>1.1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

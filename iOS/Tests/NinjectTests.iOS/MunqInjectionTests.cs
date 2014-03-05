@@ -6,7 +6,6 @@ using System.Text;
 using SimplyMobile.IoC.Munq;
 
 using SimplyMobile.Text;
-using SimplyMobile.Text.JsonNet;
 
 namespace NinjectTests.iOS
 {
@@ -16,9 +15,7 @@ namespace NinjectTests.iOS
         {
             get 
             {
-                var resolver = new Resolver();
-                //resolver.RegisterService<IJsonSerializer>(new JsonSerializer());
-                return resolver; 
+				return new Resolver();
             }
         }
     }

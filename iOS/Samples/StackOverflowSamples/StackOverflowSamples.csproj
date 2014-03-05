@@ -113,7 +113,6 @@
     </Compile>
     <Compile Include="Reddit.cs" />
     <Compile Include="CustomBarButton.cs" />
-    <Compile Include="Twitter\Twitter.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="StackOverflowSamplesViewController.xib" />
@@ -121,7 +120,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
@@ -144,5 +143,8 @@
       <Project>{EE9B20C2-2D3B-48B4-8458-D2D7230D1583}</Project>
       <Name>SimplyMobile.Web.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Twitter\" />
   </ItemGroup>
 </Project>

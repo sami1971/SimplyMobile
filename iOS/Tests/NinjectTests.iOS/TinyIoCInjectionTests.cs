@@ -11,7 +11,7 @@ namespace NinjectTests
     {
         protected override SimplyMobile.IoC.IDependencyResolver Resolver
         {
-            get { return new Resolver(true); }
+            get { return new Resolver(); }
         }
     }
 }
