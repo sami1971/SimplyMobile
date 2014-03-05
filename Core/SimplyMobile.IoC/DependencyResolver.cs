@@ -98,6 +98,12 @@ namespace SimplyMobile.IoC
             this.services.Add(service);
         }
 
+        public object RegisterService<T>(T service) where T : class
+        {
+            this.services.Add(service);
+            return this;
+        }
+
 		/// <summary>
 		/// Adds a dynamic getter for the service.
 		/// </summary>
@@ -108,6 +114,20 @@ namespace SimplyMobile.IoC
         {
             this.registeredServices.Add(typeof(T), getter);
             return this;
+        }
+
+
+        public object RegisterService<T, TImpl>()
+            where T : class
+            where TImpl : class, T
+        {
+            return this.AddDynamic<T>(() => Activator.CreateInstance(typeof(TImpl)) as T);
+        }
+
+
+        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        {
+            throw new NotImplementedException();
         }
     }
 }

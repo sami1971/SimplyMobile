@@ -74,9 +74,17 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\WP8\Tests\IoC\NinjectTests\IoCResolveTests.cs">
+      <Link>IoCResolveTests.cs</Link>
+    </Compile>
+    <Compile Include="AutofacInjectionTests.cs" />
+    <Compile Include="InjectionTests.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="TinyIoCInjectionTests.cs" />
     <None Include="Info.plist" />
+    <Compile Include="MunqInjectionTests.cs" />
+    <Compile Include="MunqTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -86,26 +94,71 @@
     <BundleResource Include="Resources\Default-568h@2x.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AFNetworking">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\ios\AFNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient.iOS">
+      <HintPath>..\..\Components\modernhttpclient-1.1.0\lib\ios\ModernHttpClient.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="MonoTouch.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Ninject.Common">
-      <HintPath>..\..\packages\Portable.Ninject.3.0.7\lib\portable-net4+sl4+wp71+win8\Ninject.Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Ninject\SimplyMobile.IoC.Ninject.csproj">
-      <Project>{f9dbeae0-10dc-488f-b408-7dc949be6174}</Project>
-      <Name>SimplyMobile.IoC.Ninject</Name>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Autofac\SimplyMobile.IoC.Autofac.csproj">
+      <Project>{4e9911af-2418-492c-9144-d1179ea42f30}</Project>
+      <Name>SimplyMobile.IoC.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Munq\SimplyMobile.IoC.Munq.csproj">
+      <Project>{a3c7766f-a4c3-48db-a904-25f83bfc9843}</Project>
+      <Name>SimplyMobile.IoC.Munq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.SimpleInjector\SimplyMobile.IoC.SimpleInjector.csproj">
+      <Project>{86412f56-5f8d-4bbb-8501-d66d154519b4}</Project>
+      <Name>SimplyMobile.IoC.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.TinyIoC\SimplyMobile.IoC.TinyIoC.iOS.csproj">
+      <Project>{f323da24-a61a-459f-b9ac-c74ba55f932d}</Project>
+      <Name>SimplyMobile.IoC.TinyIoC.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
       <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636a5f-da3a-4e3e-b673-d483834684e3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.iOS.csproj">
+      <Project>{ee9b20c2-2d3b-48b4-8458-d2d7230d1583}</Project>
+      <Name>SimplyMobile.Web.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{27eeb861-e72c-4190-9928-b8fbe6450909}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{9becf79a-0632-40f7-9f63-ba810ef686dd}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="modernhttpclient">
+      <Visible>False</Visible>
+      <Version>1.1.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

@@ -8,9 +8,26 @@ using TinyIoC;
 
 namespace SimplyMobile.IoC.TinyIoC
 {
-    public class Resolver : DynamicResolver
+    public class Resolver : IDependencyResolver
     {
         private TinyIoCContainer container;
+
+        public Resolver()
+        {
+        }
+
+        public Resolver(bool autoRegister)
+        {
+            if (autoRegister)
+            {
+                this.Container.AutoRegister();
+            }
+        }
+
+        public Resolver(TinyIoCContainer container)
+        {
+            this.container = container;
+        }
 
         public TinyIoCContainer Container
         {
@@ -20,7 +37,7 @@ namespace SimplyMobile.IoC.TinyIoC
             }
         }
 
-        public override T GetService<T>()
+        public T GetService<T>() where T : class
         {
             T ret = default(T);
 
@@ -32,10 +49,10 @@ namespace SimplyMobile.IoC.TinyIoC
             {
             }
 
-            return ret ?? base.GetService<T>();
+            return ret;
         }
 
-        public override IEnumerable<T> GetServices<T>()
+        public IEnumerable<T> GetServices<T>() where T : class
         {
             try
             {
@@ -45,6 +62,25 @@ namespace SimplyMobile.IoC.TinyIoC
             {
                 return new List<T>();
             }
+        }
+
+        public object RegisterService<T>(T service) where T : class
+        {
+            return this.Container.Register<T>(service);
+        }
+
+
+        public object RegisterService<T, TImpl>()
+            where T : class
+            where TImpl : class, T
+        {
+            return this.Container.Register<T, TImpl>();
+        }
+
+
+        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        {
+            return this.Container.Register<T>((c, p) => func(this));
         }
     }
 }

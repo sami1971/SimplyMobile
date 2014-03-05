@@ -37,12 +37,20 @@ namespace SimplyMobile.IoC
         /// <returns>Enumerable list of available services</returns>
         IEnumerable<T> GetServices<T>() where T : class;
 
+        object RegisterService<T>(T service) where T : class;
+
+        object RegisterService<T, TImpl>()
+            where T : class
+            where TImpl : class, T;
+
+        object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class;
+
 		/// <summary>
 		/// Adds a dynamic getter for the service.
 		/// </summary>
 		/// <returns>The dependency resolver object</returns>
 		/// <param name="getter">Getter func for the service.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-        IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class;
+        //IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class;
     }
 }

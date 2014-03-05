@@ -1,34 +1,38 @@
-﻿using Ninject;
+﻿using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplyMobile.IoC.Ninject
+namespace SimplyMobile.IoC.SimpleInjector
 {
     public class Resolver : IDependencyResolver
     {
-        private IKernel kernel;
+        private Container container;
 
-        public Resolver(IKernel kernel)
+        private Container Container
         {
-            this.kernel = kernel;
+            get
+            {
+                return container ?? (container = new Container());
+            }
         }
 
         public T GetService<T>() where T : class
         {
-            return this.kernel.GetService(typeof(T)) as T;
+            return this.Container.GetInstance<T>();
         }
 
         public IEnumerable<T> GetServices<T>() where T : class
         {
-            return this.kernel.GetAll<T>();
+            return this.Container.GetAllInstances<T>();
         }
 
         public object RegisterService<T>(T service) where T : class
         {
-            return this.kernel.Bind<T>().ToConstant<T>(service);
+            this.Container.RegisterSingle<T>(service);
+            return this;
         }
 
 
@@ -36,7 +40,8 @@ namespace SimplyMobile.IoC.Ninject
             where T : class
             where TImpl : class, T
         {
-            return this.kernel.Bind<T, TImpl>();
+            this.Container.Register<T, TImpl>();
+            return this;
         }
     }
 }

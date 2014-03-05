@@ -70,6 +70,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\InjectionTests.cs">
+      <Link>InjectionTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\MunqInjectionTests.cs">
+      <Link>MunqInjectionTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\MunqTests.cs">
+      <Link>MunqTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\iOS\Tests\NinjectTests.iOS\TinyIoCInjectionTests.cs">
+      <Link>TinyIoCInjectionTests.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -129,9 +141,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Autofac\SimplyMobile.IoC.Autofac.csproj">
+      <Project>{4E9911AF-2418-492C-9144-D1179EA42F30}</Project>
+      <Name>SimplyMobile.IoC.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Munq\SimplyMobile.IoC.Munq.csproj">
+      <Project>{A3C7766F-A4C3-48DB-A904-25F83BFC9843}</Project>
+      <Name>SimplyMobile.IoC.Munq</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.Ninject\SimplyMobile.IoC.Ninject.csproj">
       <Project>{F9DBEAE0-10DC-488F-B408-7DC949BE6174}</Project>
       <Name>SimplyMobile.IoC.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.SimpleInjector\SimplyMobile.IoC.SimpleInjector.csproj">
+      <Project>{86412F56-5F8D-4BBB-8501-D66D154519B4}</Project>
+      <Name>SimplyMobile.IoC.SimpleInjector</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Core\Plugins\IoC\SimplyMobile.IoC.TinyIoC\SimplyMobile.IoC.TinyIoC.WP8.csproj">
       <Project>{F8B8C5D4-88A5-4796-9D9F-F9E43675879E}</Project>
@@ -145,17 +169,39 @@
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{799CA059-8A4F-465E-96DC-B302F836F82C}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject.Common">
       <HintPath>..\..\..\packages\Portable.Ninject.3.0.7\lib\sl4-wp71\Ninject.Common.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.WP">
       <HintPath>..\..\..\packages\Portable.Ninject.3.0.7\lib\sl4-wp71\Ninject.WP.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\..\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics">
+      <HintPath>..\..\..\packages\SimpleInjector.2.5.0\lib\portable-net4+sl4+wp8+win8\SimpleInjector.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.18\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.18\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.18\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
@@ -168,4 +214,9 @@
   </Target>
   -->
   <ProjectExtensions />
+  <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
 </Project>

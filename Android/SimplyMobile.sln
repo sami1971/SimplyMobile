@@ -87,9 +87,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.IoC.Ninject", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{92ADF76A-7B2E-4F01-987A-ED88A1F898C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectTests", "Tests\IoC\NinjectTests\NinjectTests.csproj", "{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.IoC.TinyIoC.Android", "..\Core\Plugins\IoC\SimplyMobile.IoC.TinyIoC\SimplyMobile.IoC.TinyIoC.Android.csproj", "{8EF183C3-A209-454B-B4B5-E27B47BF0A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.IoC.Munq", "..\Core\Plugins\IoC\SimplyMobile.IoC.Munq\SimplyMobile.IoC.Munq.csproj", "{A3C7766F-A4C3-48DB-A904-25F83BFC9843}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -386,18 +386,6 @@ Global
 		{F9DBEAE0-10DC-488F-B408-7DC949BE6174}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9DBEAE0-10DC-488F-B408-7DC949BE6174}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9DBEAE0-10DC-488F-B408-7DC949BE6174}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0}.Windows_Release|Any CPU.Deploy.0 = Release|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -406,6 +394,14 @@ Global
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Windows_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -444,7 +440,7 @@ Global
 		{07426FCD-78B9-49B5-9E64-859E5E61FE22} = {95025D39-C623-4BC7-8D43-6FF5373BF985}
 		{F9DBEAE0-10DC-488F-B408-7DC949BE6174} = {DDAF146D-7E5C-4565-B785-2C53897DB7DA}
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99} = {DDAF146D-7E5C-4565-B785-2C53897DB7DA}
-		{4801859E-5FF5-469F-95AD-CD78E1CFA1A0} = {92ADF76A-7B2E-4F01-987A-ED88A1F898C3}
+		{A3C7766F-A4C3-48DB-A904-25F83BFC9843} = {DDAF146D-7E5C-4565-B785-2C53897DB7DA}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Samples\ViewModels\SimpleViewModel\SimpleViewModel.csproj

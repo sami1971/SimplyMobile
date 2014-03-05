@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.IoC
 {
-    public class DynamicResolver : IDependencyResolver
+    public abstract class DynamicResolver : IDependencyResolver
     {
         private readonly Dictionary<Type, Func<object>> registeredServices;
 
@@ -14,6 +14,11 @@ namespace SimplyMobile.IoC
         {
             this.registeredServices = new Dictionary<Type, Func<object>>();
         }
+        
+        public abstract object RegisterService<T>(T service) where T : class;
+        public abstract object RegisterService<T, TImpl>()
+            where T : class
+            where TImpl : class, T;
 
         public virtual T GetService<T>() where T : class
         {
@@ -35,6 +40,11 @@ namespace SimplyMobile.IoC
         {
             this.registeredServices.Add(typeof(T), getter);
             return this;
+        }
+
+        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        {
+            throw new NotImplementedException();
         }
     }
 }

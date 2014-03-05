@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9DBEAE0-10DC-488F-B408-7DC949BE6174}</ProjectGuid>
+    <ProjectGuid>{4E9911AF-2418-492C-9144-D1179EA42F30}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimplyMobile.IoC.Ninject</RootNamespace>
-    <AssemblyName>SimplyMobile.IoC.Ninject</AssemblyName>
+    <RootNamespace>SimplyMobile.IoC.Autofac</RootNamespace>
+    <AssemblyName>SimplyMobile.IoC.Autofac</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -37,8 +37,8 @@
     <Compile Include="Resolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Ninject.Common">
-      <HintPath>..\..\..\..\WP8\packages\Portable.Ninject.3.0.7\lib\portable-net4+sl4+wp71+win8\Ninject.Common.dll</HintPath>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\..\WP8\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
