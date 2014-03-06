@@ -4,7 +4,7 @@ namespace SimplyMobile.Device
 {
 	public static partial class Accelometer
 	{
-        public static TimeSpan? Interval { get; set; }
+        public static AccelerometerInterval Interval { get; set; }
 
 		static partial void StartMonitoring()
 		{

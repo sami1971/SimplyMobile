@@ -51,24 +51,6 @@ namespace SimpleViewModel.Core
 			}
 		}
 
-		public async Task Update(CancellationToken token)
-		{
-			this.ButtonText = ButtonCancelText;
-			var seconds = 0d;
-
-			for (seconds = 0; seconds < 50 && !token.IsCancellationRequested; seconds++)
-			{
-				this.Label = string.Format("Updating {0:0.0}s...", seconds/10);
-				for (var n = 0; n < 10 && !token.IsCancellationRequested; n++)
-				{
-					await Task.Delay (10);
-				}
-			}
-
-			this.Label = token.IsCancellationRequested ? "Update cancelled" : "Update complete";
-			this.ButtonText = ButtonStartText;
-		}
-
 		public void Finish()
 		{
 			if (this.tokenSource != null)
@@ -76,6 +58,24 @@ namespace SimpleViewModel.Core
 				this.tokenSource.Cancel ();
 			}
 		}
+
+        private async Task Update(CancellationToken token)
+        {
+            this.ButtonText = ButtonCancelText;
+            var seconds = 0d;
+
+            for (seconds = 0; seconds < 50 && !token.IsCancellationRequested; seconds++)
+            {
+                this.Label = string.Format("Updating {0:0.0}s...", seconds / 10);
+                for (var n = 0; n < 10 && !token.IsCancellationRequested; n++)
+                {
+                    await Task.Delay(10);
+                }
+            }
+
+            this.Label = token.IsCancellationRequested ? "Update cancelled" : "Update complete";
+            this.ButtonText = ButtonStartText;
+        }
 	}
 }
 
