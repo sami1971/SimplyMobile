@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
+using System;
 namespace SimplyMobile.Text
 {
     /// <summary>
@@ -39,5 +40,7 @@ namespace SimplyMobile.Text
         /// <param name="data">Serialized object</param>
         /// <returns>Object of type T</returns>
         T Deserialize<T>(string data);
+
+        object Deserialize(string data, Type type);
     }
 }

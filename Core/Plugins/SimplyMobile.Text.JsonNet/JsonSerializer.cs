@@ -60,5 +60,11 @@ namespace SimplyMobile.Text.JsonNet
         {
             return JsonConvert.DeserializeObject<T>(data);
         }
+
+
+        public object Deserialize(string data, System.Type type)
+        {
+            return JsonConvert.DeserializeObject(data, type);
+        }
     }
 }

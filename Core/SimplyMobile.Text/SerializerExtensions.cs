@@ -15,13 +15,14 @@
 //
 using System;
 using System.IO;
+using System.Text;
 
 namespace SimplyMobile.Text
 {
 	/// <summary>
 	/// Json serializer extensions.
 	/// </summary>
-	public static class JsonSerializerExtensions
+	public static class SerializerExtensions
 	{
 		/// <summary>
 		/// Serializes to stream.
@@ -70,6 +71,22 @@ namespace SimplyMobile.Text
 		{
 			return serializer.Deserialize<T> (reader.ReadToEnd ());
 		}
+
+        public static object DeserializeFromBytes(this ITextSerializer serializer, byte[] data, Type type, 
+            Encoding encoding = null)
+        {
+            var encoder = encoding ?? Encoding.UTF8;
+            var str = encoder.GetString(data, 0, data.Length);
+            return serializer.Deserialize(str, type);
+        }
+
+        public static byte[] SerializeToBytes(this ITextSerializer serializer, object obj,
+            Encoding encoding = null)
+        {
+            var encoder = encoding ?? Encoding.UTF8;
+            var str = serializer.Serialize(obj);
+            return encoder.GetBytes(str);
+        }
 	}
 }
 

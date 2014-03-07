@@ -70,5 +70,10 @@ namespace SimplyMobile.Text.ServiceStack
         {
             return Serializer.DeserializeFromString<T>(data);
         }
+
+        public object Deserialize(string data, System.Type type)
+        {
+            return Serializer.DeserializeFromString(data, type);
+        }
     }
 }

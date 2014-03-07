@@ -30,10 +30,15 @@ namespace SimplyMobile.Text.RuntimeSerializer
 
         public T Deserialize<T>(string data)
         {
+            return (T)this.Deserialize(data, typeof(T));
+        }
+
+        public object Deserialize(string data, Type type)
+        {
             using (var reader = XmlReader.Create(new StringReader(data)))
             {
-                var serializer = new DataContractSerializer(typeof(T));
-                return (T)serializer.ReadObject(reader);
+                var serializer = new DataContractSerializer(type);
+                return serializer.ReadObject(reader);
             }
         }
     }

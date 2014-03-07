@@ -38,12 +38,26 @@ namespace SimpleViewModel.Core
 			}
 		}
 
-		public void Toggle(object sender, EventArgs e)
+		public async void Toggle(object sender, EventArgs e)
 		{
 			if (this.tokenSource == null)
 			{
 				this.tokenSource = new CancellationTokenSource ();
-				this.Update (this.tokenSource.Token).ContinueWith (t => this.tokenSource = null);
+                this.ButtonText = ButtonCancelText;
+
+                try
+                {
+                    await Update(this.tokenSource.Token, new Progress<string>(progress => this.Label = progress));
+                }
+                catch (OperationCanceledException)
+                {
+                    this.Label = "Update cancelled";
+                }
+                finally
+                {
+                    this.ButtonText = ButtonStartText;
+                    this.tokenSource = null;
+                }
 			}
 			else
 			{
@@ -59,23 +73,25 @@ namespace SimpleViewModel.Core
 			}
 		}
 
-        private async Task Update(CancellationToken token)
+        private static async Task Update(CancellationToken token, IProgress<string> progress)
         {
-            this.ButtonText = ButtonCancelText;
             var seconds = 0d;
 
-            for (seconds = 0; seconds < 50 && !token.IsCancellationRequested; seconds++)
+            for (seconds = 0; seconds < 50; seconds++)
             {
-                this.Label = string.Format("Updating {0:0.0}s...", seconds / 10);
-                for (var n = 0; n < 10 && !token.IsCancellationRequested; n++)
+                token.ThrowIfCancellationRequested();
+                if (progress != null)
                 {
+                    progress.Report(string.Format("Updating {0:0.0}s...", seconds / 10));
+                }
+                
+                for (var n = 0; n < 10; n++)
+                {
+                    token.ThrowIfCancellationRequested();
                     await Task.Delay(10);
                 }
             }
-
-            this.Label = token.IsCancellationRequested ? "Update cancelled" : "Update complete";
-            this.ButtonText = ButtonStartText;
         }
-	}
+    }
 }
 

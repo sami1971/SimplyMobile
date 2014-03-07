@@ -29,10 +29,15 @@ namespace SimplyMobile.Text.RuntimeSerializer
 
         public T Deserialize<T>(string data)
         {
+            return (T)this.Deserialize(data, typeof(T));
+        }
+
+        public object Deserialize(string data, Type type)
+        {
             using (var reader = new MemoryStream(Encoding.UTF8.GetBytes(data)))
             {
-                var serializer = new DataContractJsonSerializer(typeof(T));
-                return (T)serializer.ReadObject(reader);
+                var serializer = new DataContractJsonSerializer(type);
+                return serializer.ReadObject(reader);
             }
         }
     }

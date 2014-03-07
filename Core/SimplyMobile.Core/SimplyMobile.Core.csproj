@@ -51,6 +51,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Location\" />
   </ItemGroup>
 </Project>

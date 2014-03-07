@@ -5,17 +5,15 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</ProjectGuid>
+    <ProjectGuid>{57E9AF44-8FCA-43F1-A416-026AE8448FB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimplyMobile.Text</RootNamespace>
-    <AssemblyName>SimplyMobile.Text</AssemblyName>
+    <RootNamespace>SimplyMobile.Data.SQLiteSerializers</RootNamespace>
+    <AssemblyName>SimplyMobile.Data.SQLiteSerializers</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,36 +32,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows_Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows_Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextSerializerExtensions.cs" />
+    <Compile Include="TextSerializerWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Format.cs" />
-    <Compile Include="IJsonSerializer.cs" />
-    <Compile Include="IProtoBufSerializer.cs" />
-    <Compile Include="ITextSerializer.cs" />
-    <Compile Include="IXmlSerializer.cs" />
-    <Compile Include="SerializerExtensions.cs" />
-    <Compile Include="ICustomSerializer.cs" />
-    <Compile Include="ICsvSerializer.cs" />
+    <Reference Include="SQLite.Net">
+      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
