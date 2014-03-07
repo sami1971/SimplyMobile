@@ -16,7 +16,7 @@ namespace SimplyMobile.Device
                 if (interval != value)
                 {
                     interval = value;
-                    UIAccelerometer.SharedAccelerometer.UpdateInterval = (long)interval;
+                    UIAccelerometer.SharedAccelerometer.UpdateInterval = ((long)interval)/1000d;
                 }
             }
         }

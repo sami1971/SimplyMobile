@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__ANDROID__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -37,8 +37,18 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+    <DefineConstants>__ANDROID__</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\..\..\libs\SQLiteNetAsync\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\..\..\libs\SQLiteNetAsync\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinAndroid">
+      <HintPath>..\..\..\libs\SQLiteNetAsync\SQLite.Net.Platform.XamarinAndroid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -70,9 +80,33 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteAsync\SimplyMobile.Data.SQLiteAsync.csproj">
+      <Project>{6d369ff9-651a-4fc5-994c-2adf4c9b6e48}</Project>
+      <Name>SimplyMobile.Data.SQLiteAsync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
+      <Project>{57e9af44-8fca-43f1-a416-026ae8448fb3}</Project>
+      <Name>SimplyMobile.Data.SQLiteSerializers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Tests\Data\SQLiteBlobTests\SQLiteBlobTests.csproj">
+      <Project>{69ebfa0f-31e7-4a3d-ac15-4e73c76c8096}</Project>
+      <Name>SQLiteBlobTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{7886eba5-d091-4aa1-b5be-37dbc892ad19}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Android\SimplyMobile.Android.csproj">
       <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>

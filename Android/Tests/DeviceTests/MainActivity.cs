@@ -20,6 +20,8 @@ using SimplyMobile.Core;
 using SimplyMobile.Device;
 using Android.Util;
 using System.Collections.Generic;
+using SimplyMobile.IoC;
+using SQLiteBlobTests;
 
 namespace DeviceTests
 {
@@ -55,6 +57,9 @@ namespace DeviceTests
 
 			// Set our view from the "main" layout resource
 			SetContentView (layout);
+
+            // Start logging accelerometer data to database
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
 
 			this.batteryLevel = new TextView (this);
 
@@ -93,6 +98,12 @@ namespace DeviceTests
 //
 //			layout.AddView (this.acceleroMeterState);
 		}
+
+        protected override void OnDestroy()
+        {
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            base.OnDestroy();
+        }
 
 		protected override void OnResume ()
 		{

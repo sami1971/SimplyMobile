@@ -22,6 +22,16 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using DeviceTests.Resources;
+using SimplyMobile.IoC;
+using SQLite.Net.Interop;
+using SQLite.Net.Platform.WindowsPhone8;
+using SimplyMobile.Device;
+using SimplyMobile.Text;
+using SQLite.Net;
+using SimplyMobile.Data;
+using SQLiteBlobTests;
+using Windows.Storage;
+using System.IO;
 
 namespace DeviceTests
 {
@@ -76,18 +86,44 @@ namespace DeviceTests
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Shared" + Path.DirectorySeparatorChar + "Media");
+
+            //var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformWP8>();
+
+            DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
+            DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();
+            DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
+            DependencyResolver.Current.RegisterService<IBlobSerializer>(t => t.GetService<IJsonSerializer>().AsBlobSerializer());
+
+            DependencyResolver.Current.RegisterService<ICrudProvider>(t =>
+                new SQLiteAsync(
+                    t.GetService<ISQLitePlatform>(),
+                    new SQLiteConnectionString(
+                        Path.Combine(path, "device.db"),
+                        true,
+                        t.GetService<IBlobSerializer>())
+                    ));
+
+            DependencyResolver.Current.RegisterService<StoreAccelerometerData>(
+                new StoreAccelerometerData(
+                    new AccelerometerImpl(),
+                    DependencyResolver.Current.GetService<ICrudProvider>()));
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)

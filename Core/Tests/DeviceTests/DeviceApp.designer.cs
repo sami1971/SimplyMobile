@@ -3,11 +3,19 @@ using System.Collections.ObjectModel;
 using SimplyMobile.Core;
 using SimplyMobile.Data;
 using SimplyMobile.Device;
+using SimplyMobile.IoC;
+using System.IO;
+using SQLite.Net;
+using SQLite.Net.Interop;
+using SimplyMobile.Text;
+using SQLiteBlobTests;
 
 namespace DeviceTests
 {
     public partial class DeviceApp : MobileApp
     {
+        private const string dbFile = "events.db";
+
         /// <summary>
         /// The battery status.
         /// </summary>
@@ -29,8 +37,26 @@ namespace DeviceTests
         /// </summary>
         private void OnStart()
         {
-            Battery.OnChargerStatusChanged += (s, a) => BatteryStatus.Data.Add(Battery.Status);
-            Battery.OnLevelChange += (s, a) => BatteryStatus.Data.Add(Battery.Status);
+            DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
+            DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();
+            DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
+            DependencyResolver.Current.RegisterService<IBlobSerializer>(t=> t.GetService<IJsonSerializer>().AsBlobSerializer());
+
+            DependencyResolver.Current.RegisterService<ICrudProvider>(t =>
+                new SQLiteAsync(
+                    t.GetService<ISQLitePlatform>(),
+                    new SQLiteConnectionString(
+                        Path.Combine(GetPath(), dbFile), 
+                        true, 
+                        t.GetService<IBlobSerializer>())
+                    ));
+
+            DependencyResolver.Current.RegisterService<StoreAccelerometerData>(
+                new StoreAccelerometerData(
+                    new AccelerometerImpl(), 
+                    DependencyResolver.Current.GetService<ICrudProvider>()));
+            //Battery.OnChargerStatusChanged += (s, a) => BatteryStatus.Data.Add(Battery.Status);
+            //Battery.OnLevelChange += (s, a) => BatteryStatus.Data.Add(Battery.Status);
 
         }
 
@@ -38,5 +64,23 @@ namespace DeviceTests
 		{
 
 		}
+
+        internal static string GetPath()
+        {
+            //Environment.SpecialFolder.ApplicationData
+#if WINDOWS_PHONE
+			var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Shared" + Path.DirectorySeparatorChar + "Media");
+#elif __ANDROID__
+            var path = "/sdcard/";
+#else
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+#endif
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            return path;
+        }
     }
 }

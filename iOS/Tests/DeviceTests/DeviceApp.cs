@@ -7,6 +7,11 @@ using MonoTouch.UIKit;
 using SimplyMobile.Core;
 using SimplyMobile.Data;
 using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.IoC;
+using SQLite.Net.Interop;
+
+using SQLite.Net.Platform.XamarinIOS;
+using SQLiteBlobTests;
 
 namespace DeviceTests
 {
@@ -45,10 +50,19 @@ namespace DeviceTests
 			
 			// make the window visible
             this.window.MakeKeyAndVisible();
-			
+
+            DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformIOS>();
             this.OnStart();
+
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
 			return true;
 		}
+
+        public override void WillTerminate(UIApplication application)
+        {
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            base.WillTerminate(application);
+        }
 	}
 }
 

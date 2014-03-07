@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69EBFA0F-31E7-4A3D-AC15-4E73C76C8096}</ProjectGuid>
+    <ProjectGuid>{6D369FF9-651A-4FC5-994C-2ADF4C9B6E48}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SQLiteBlobTests</RootNamespace>
-    <AssemblyName>SQLiteBlobTests</AssemblyName>
+    <RootNamespace>SimplyMobile.Data.SQLiteAsync</RootNamespace>
+    <AssemblyName>SimplyMobile.Data.SQLiteAsync</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -33,23 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\..\Plugins\Data\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
-      <Project>{57e9af44-8fca-43f1-a416-026ae8448fb3}</Project>
-      <Name>SimplyMobile.Data.SQLiteSerializers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SimplyMobile.Text\SimplyMobile.Text.csproj">
-      <Project>{f367f89e-e79f-4332-ad93-85e7cff7391c}</Project>
-      <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoreAccelerometerData.cs" />
+    <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite.Net">
@@ -58,6 +43,16 @@
     <Reference Include="SQLite.Net.Async">
       <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.Async.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
+      <Project>{57e9af44-8fca-43f1-a416-026ae8448fb3}</Project>
+      <Name>SimplyMobile.Data.SQLiteSerializers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

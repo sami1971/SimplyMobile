@@ -48,6 +48,9 @@
       <Link>Battery.designer.cs</Link>
       <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\BatteryImpl.cs">
+      <Link>BatteryImpl.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\WifiMonitor.designer.cs">
       <Link>WifiMonitor.designer.cs</Link>
       <DependentUpon>WifiMonitor.cs</DependentUpon>

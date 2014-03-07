@@ -17,6 +17,9 @@ using System;
 using SimplyMobile.Core;
 using Android.Runtime;
 using Android.App;
+using SimplyMobile.IoC;
+using SQLite.Net.Interop;
+using SQLite.Net.Platform.XamarinAndroid;
 
 namespace DeviceTests
 {
@@ -46,10 +49,15 @@ namespace DeviceTests
 	    public override void OnCreate ()
 		{
 			base.OnCreate ();
+
+            // add Android specific DI services here
+            DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformAndroid>();
+            this.OnStart();
 		}
 
         public override void OnTerminate()
         {
+            this.OnStop();
             base.OnTerminate();
         }
 	}

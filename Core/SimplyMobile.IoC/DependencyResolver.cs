@@ -89,15 +89,10 @@ namespace SimplyMobile.IoC
         }
 
         /// <summary>
-        /// Sets a service provider
+        /// Registers a service provider
         /// </summary>
         /// <typeparam name="T">Type of the service</typeparam>
         /// <param name="service">Service provider</param>
-        public void SetService<T>(T service) where T : class
-        {
-            this.services.Add(service);
-        }
-
         public object RegisterService<T>(T service) where T : class
         {
             this.services.Add(service);
