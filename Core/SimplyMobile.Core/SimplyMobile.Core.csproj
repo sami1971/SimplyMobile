@@ -35,7 +35,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Data\ExceptionEntry.cs" />
-    <Compile Include="Data\ExceptionExtensions.cs" />
     <Compile Include="Data\ICrudProvider.cs" />
     <Compile Include="Device\AccelerometerInterval.cs" />
     <Compile Include="Device\AccelometerStatus.cs" />
@@ -51,6 +50,7 @@
     <Compile Include="Security\IPasswordStorage.cs" />
     <Compile Include="ILogService.cs" />
     <Compile Include="Extensions\NotifyExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

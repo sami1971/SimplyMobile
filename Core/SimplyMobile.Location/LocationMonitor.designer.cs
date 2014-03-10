@@ -10,7 +10,7 @@ namespace SimplyMobile.Location
     /// The location monitor.
     /// </summary>
     public static partial class LocationMonitor
-    {
+	{
         /// <summary>
         /// The location changed event.
         /// </summary>

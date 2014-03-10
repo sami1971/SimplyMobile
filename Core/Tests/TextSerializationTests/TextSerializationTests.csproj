@@ -106,6 +106,10 @@
       <Project>{A0DC06F3-1E79-42F1-A14C-544597305F53}</Project>
       <Name>SimplyMobile.Text.FastJson</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\UnitTesting\UnitTestCore\SimplyMobile.UnitTestCore.csproj">
+      <Project>{C70D0E28-2972-4FE9-B55E-8BA53E8136C8}</Project>
+      <Name>SimplyMobile.UnitTestCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

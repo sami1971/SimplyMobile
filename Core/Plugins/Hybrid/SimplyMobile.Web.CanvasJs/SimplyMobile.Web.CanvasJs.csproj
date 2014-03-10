@@ -67,7 +67,7 @@
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.Net45.csproj">
-      <Project>{0934ed52-309e-4ee1-90e1-0e4ed3d1372c}</Project>
+      <Project>{0934ED52-309E-4EE1-90E1-0E4ED3D1372C}</Project>
       <Name>SimplyMobile.Web.Net45</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">

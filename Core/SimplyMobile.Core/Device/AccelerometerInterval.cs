@@ -8,7 +8,7 @@ namespace SimplyMobile.Device
 {
     public enum AccelerometerInterval
     {
-        Fastest = 10,
+        Fastest = 1,
         Game = 20,
         Ui = 70,
         Normal = 200

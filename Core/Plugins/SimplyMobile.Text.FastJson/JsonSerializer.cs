@@ -13,6 +13,14 @@ namespace SimplyMobile.Text.FastJson
         }
 
 		#region ITextSerializer implementation
+		public Format Format 
+		{
+			get
+			{
+				return Format.Json;
+			}
+		}
+
 		public string Serialize<T>(T obj)
         {
 
@@ -29,14 +37,10 @@ namespace SimplyMobile.Text.FastJson
 			return Parse<T> (data);
 		}
 
-		public Format Format 
+		public object Deserialize(string data, Type type)
 		{
-			get
-			{
-				return Format.Json;
-			}
+			return serializer.Deserialize (data, type);
 		}
-
 		#endregion
 	}
 }

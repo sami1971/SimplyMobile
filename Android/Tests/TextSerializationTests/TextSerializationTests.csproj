@@ -142,9 +142,6 @@
     <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\RuntimeXmlTests.cs">
       <Link>RuntimeXmlTests.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\SystemXmlTests.cs">
-      <Link>SystemXmlTests.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -179,10 +176,6 @@
     <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.RuntimeSerializer\SimplyMobile.Text.RuntimeSerializer.csproj">
       <Project>{8F3643A8-5597-42B9-A1CD-ACA1E06226A3}</Project>
       <Name>SimplyMobile.Text.RuntimeSerializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.SystemXml\SimplyMobile.Text.SystemXml.csproj">
-      <Project>{04DF9573-6E29-4614-AAA8-78F9C9A1A3DD}</Project>
-      <Name>SimplyMobile.Text.SystemXml</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

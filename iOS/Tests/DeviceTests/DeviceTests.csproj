@@ -116,11 +116,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteAsync\SimplyMobile.Data.SQLiteAsync.csproj">
-      <Project>{6d369ff9-651a-4fc5-994c-2adf4c9b6e48}</Project>
+      <Project>{6D369FF9-651A-4FC5-994C-2ADF4C9B6E48}</Project>
       <Name>SimplyMobile.Data.SQLiteAsync</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
-      <Project>{57e9af44-8fca-43f1-a416-026ae8448fb3}</Project>
+      <Project>{57E9AF44-8FCA-43F1-A416-026AE8448FB3}</Project>
       <Name>SimplyMobile.Data.SQLiteSerializers</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
@@ -128,7 +128,7 @@
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
@@ -136,7 +136,7 @@
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Tests\Data\SQLiteBlobTests\SQLiteBlobTests.csproj">
-      <Project>{69ebfa0f-31e7-4a3d-ac15-4e73c76c8096}</Project>
+      <Project>{69EBFA0F-31E7-4A3D-AC15-4E73C76C8096}</Project>
       <Name>SQLiteBlobTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">

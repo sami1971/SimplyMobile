@@ -1,8 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using SimplyMobile.Text;
 using SimplyMobile.Web;
-using SimplyMobile.IoC;
 
 namespace SimplyMobile.Location.Bing
 {
@@ -29,8 +27,6 @@ namespace SimplyMobile.Location.Bing
         /// <param name="key">
         /// The key.
         /// </param>
-        //public BingClient (string key) : this(key, DependencyResolver.Current.GetService<IRestClient>()){}
-
         public BingClient(string key, IRestClient client)
         {
             this.key = key;

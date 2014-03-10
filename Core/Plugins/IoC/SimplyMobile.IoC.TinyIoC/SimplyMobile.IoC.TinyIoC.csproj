@@ -11,6 +11,8 @@
     <AssemblyName>SimplyMobile.IoC.TinyIoC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
   </ItemGroup>
