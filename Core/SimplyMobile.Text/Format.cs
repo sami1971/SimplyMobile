@@ -38,6 +38,8 @@ namespace SimplyMobile.Text
 		/// <summary>
 		/// Comma-separated format
 		/// </summary>
-		Csv
+        Csv,
+
+        CustomBinary
     }
 }

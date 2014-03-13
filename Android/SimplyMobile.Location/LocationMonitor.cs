@@ -56,7 +56,7 @@ namespace SimplyMobile.Location
 				return;
 			}
 
-			var criteria = new Criteria 
+			var criteria = new Criteria
 			{
 				Accuracy = DesiredAccuracy == Accuracy.High ? Android.Locations.Accuracy.Fine : Android.Locations.Accuracy.Coarse
 			};

@@ -36,7 +36,7 @@ namespace StockQuote
 			return cell;
 		}
 
-		public float GetHeightForRow (NSIndexPath indexPath)
+        public float GetHeightForRow(NSIndexPath indexPath, Stock item)
 		{
 			return 25f;
 		}

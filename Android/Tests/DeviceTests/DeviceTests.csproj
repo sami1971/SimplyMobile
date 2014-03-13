@@ -96,6 +96,10 @@
       <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{07426fcd-78b9-49b5-9e64-859e5e61fe22}</Project>
+      <Name>SimplyMobile.Location</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
@@ -119,6 +123,10 @@
     <ProjectReference Include="..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
       <Project>{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}</Project>
       <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Location\SimplyMobile.Location.Android.csproj">
+      <Project>{7e4aa2e4-c8bd-45ea-86cc-10a3302518b1}</Project>
+      <Name>SimplyMobile.Location.Android</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

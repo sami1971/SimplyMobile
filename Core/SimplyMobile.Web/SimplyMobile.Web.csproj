@@ -58,6 +58,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IReachability.cs" />
     <Compile Include="IRestClient.cs" />
     <Compile Include="IWebImageCache.cs" />
     <Compile Include="ServiceResponse.cs" />

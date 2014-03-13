@@ -26,5 +26,15 @@ namespace SimplyMobile.Data
         {
             return base.Find<T>(primaryKey);
         }
+
+        public IEnumerable<T> Read<T>() where T : new()
+        {
+            return base.Table<T>();
+        }
+
+        public new int Delete<T>(object primaryKey) where T : new()
+        {
+            return base.Delete<T>(primaryKey);
+        }
     }
 }

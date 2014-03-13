@@ -53,13 +53,16 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="nunit.framework" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinarySerializerTests.cs" />
     <Compile Include="ComboJsonTests.cs" />
     <Compile Include="JsonNetSerializerServiceStackDeserializer.cs" />
     <Compile Include="ServiceStackSerializerJsonNetDeserializer.cs" />
@@ -113,6 +116,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="ProtoBufTests.cs" />
     <None Include="ProtoBufSanityTests.cs" />
   </ItemGroup>

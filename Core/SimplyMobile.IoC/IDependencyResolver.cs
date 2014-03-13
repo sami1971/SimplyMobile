@@ -37,13 +37,31 @@ namespace SimplyMobile.IoC
         /// <returns>Enumerable list of available services</returns>
         IEnumerable<T> GetServices<T>() where T : class;
 
-        object RegisterService<T>(T service) where T : class;
+        /// <summary>
+        /// Registers an instance
+        /// </summary>
+        /// <typeparam name="T">Type of service</typeparam>
+        /// <param name="service">Instance of the service</param>
+        /// <returns>Returns the resolver instance for chaining</returns>
+        IDependencyResolver RegisterService<T>(T service) where T : class;
 
-        object RegisterService<T, TImpl>()
+        /// <summary>
+        /// Registers a runtime type for the service
+        /// </summary>
+        /// <typeparam name="T">Type of service</typeparam>
+        /// <typeparam name="TImpl">Runtime type to initialize</typeparam>
+        /// <returns>Returns the resolver instance for chaining</returns>
+        IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T;
 
-        object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class;
+        /// <summary>
+        /// Registers a Func returning an instance of the service
+        /// </summary>
+        /// <typeparam name="T">Type of service</typeparam>
+        /// <param name="func">Func which returns a service instance</param>
+        /// <returns>Returns the resolver instance for chaining</returns>
+        IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class;
 
 		/// <summary>
 		/// Adds a dynamic getter for the service.

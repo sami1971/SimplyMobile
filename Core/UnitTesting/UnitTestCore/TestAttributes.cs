@@ -5,9 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 #if WINDOWS_PHONE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using TestFixtureAttribute = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
 using TestAttribute = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
 using AssertClass = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.Assert;
+using SetupAttribute = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestInitializeAttribute;
+using TearDownAttribute = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestCleanupAttribute;
+using AssertionExceptionClass = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.UnitTestAssertException;
 #else
 using TestFixtureAttribute = NUnit.Framework.TestFixtureAttribute;
 using TestAttribute = NUnit.Framework.TestAttribute;
@@ -22,7 +26,7 @@ using IsClass = NUnit.Framework.Is;
 
 namespace SimplyMobile.UnitTestCore
 {
-    public class TestFixture : TestFixtureAttribute{}
+    public class TestFixture : TestFixtureAttribute { }
 
     public class Test : TestAttribute{}
 
@@ -30,6 +34,16 @@ namespace SimplyMobile.UnitTestCore
 
     public class SetUp : SetupAttribute { }
 
+    public class TearDown : TearDownAttribute { }
+
+    public class AssertionException : AssertionExceptionClass
+    {
+        public AssertionException(string message) : base(message) { }
+    }
+
+#if WINDOWS_PHONE
+
+#else
     public class Description : DescriptionAttribute 
     {
         public Description(string description) : base(description) { }
@@ -37,12 +51,6 @@ namespace SimplyMobile.UnitTestCore
 
     public class TestFixtureSetUp : TestFixtureSetUpAttribute { }
 
-    public class TearDown : TearDownAttribute { }
-
-    public class AssertionException : AssertionExceptionClass 
-    {
-        public AssertionException(string message) : base(message) { }
-    }
-
     public class Is : IsClass { }
+#endif
 }

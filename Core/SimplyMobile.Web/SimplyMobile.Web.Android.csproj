@@ -13,9 +13,10 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>
+    </AndroidUseLatestPlatformSdk>
     <AssemblyName>SimplyMobile.Web.Android</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Extensions\HttpClientExtensions.cs" />
     <Compile Include="JsonClient.cs" />
+    <Compile Include="Reachability.Android.cs" />
     <Compile Include="WebHybrid.cs" />
     <Compile Include="WebHybrid.Android.cs" />
     <Compile Include="CustomView.cs" />
@@ -59,6 +61,10 @@
     <Folder Include="Assets\Content\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Android\SimplyMobile.Android\SimplyMobile.Android.csproj">
+      <Project>{a1e65e8b-aa5c-40bb-b554-ca10d70d946f}</Project>
+      <Name>SimplyMobile.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>

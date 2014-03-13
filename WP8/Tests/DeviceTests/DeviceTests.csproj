@@ -165,6 +165,10 @@
       <Project>{57E9AF44-8FCA-43F1-A416-026AE8448FB3}</Project>
       <Name>SimplyMobile.Data.SQLiteSerializers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\Text\SimplyMobile.Text.Binary\SimplyMobile.Text.Binary.WP8.csproj">
+      <Project>{71B11669-5659-4ED2-8E45-0C80EDDE5A61}</Project>
+      <Name>SimplyMobile.Text.Binary.WP8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>

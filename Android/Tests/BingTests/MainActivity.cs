@@ -12,12 +12,16 @@ using SimplyMobile.Text;
 using SimplyMobile.Web;
 
 using ModernHttpClient;
+using System.Threading;
+using Android.Util;
 
 namespace BingTests
 {
 	[Activity (Label = "BingTests", MainLauncher = true)]
-	public class MainActivity : Activity
+	public class MainActivity : Activity, IProgress<string>
 	{
+        private CancellationTokenSource cancellation;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -28,16 +32,28 @@ namespace BingTests
 			// Get our button from the layout resource,
 			// and attach an event to it
 			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
+
+            this.cancellation = new CancellationTokenSource();
+            var reachability = new Reachability();
+
+            reachability.Ping("http://www.yahoo.com", cancellation.Token, this).ContinueWith(t=>
+                {
+                    Log.Info(t.ToString(), "Ping has ended");
+                });
+
+            reachability.IsHostReachable("http://dev.virtualearth.net", TimeSpan.FromMinutes(1)).ContinueWith(t =>
+                {
+                    button.Enabled = t.Result;
+                });
+
+            DependencyResolver.Current.RegisterService<IJsonSerializer>(new SimplyMobile.Text.JsonNet.JsonSerializer());
+            DependencyResolver.Current.RegisterService<IRestClient>(t =>
+                new JsonClient(new HttpClient(new OkHttpNetworkHandler()),
+                    t.GetService<IJsonSerializer>())
+            );
+
 			button.Click += async delegate
 			{
-                //dependencyResolver.SetService<IJsonSerializer>(new SimplyMobile.Text.ServiceStack.JsonSerializer());
-				DependencyResolver.Current.RegisterService<IJsonSerializer>(new SimplyMobile.Text.JsonNet.JsonSerializer());
-				DependencyResolver.Current.RegisterService<IRestClient>(t => 
-					new JsonClient(new HttpClient(new OkHttpNetworkHandler()),
-						t.GetService<IJsonSerializer>())
-				);
-
 				var bingClient = new BingClient(
 					"Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
 					DependencyResolver.Current.GetService<IRestClient>()
@@ -57,6 +73,13 @@ namespace BingTests
 			};
 		}
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            cancellation.Cancel();
+        }
+
 		private void CreateIntent(BingResponse response)
 		{
 			var nMgr = this.GetSystemService(NotificationService) as NotificationManager;
@@ -66,7 +89,12 @@ namespace BingTests
 			notification.SetLatestEventInfo(this, "Your location has changed", "Location info", pendingIntent);
 			nMgr.Notify(0, notification);
 		}
-	}
+
+        public void Report(string value)
+        {
+            System.Diagnostics.Debug.WriteLine(value);
+        }
+    }
 }
 
 

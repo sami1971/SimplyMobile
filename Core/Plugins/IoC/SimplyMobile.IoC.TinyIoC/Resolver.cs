@@ -64,23 +64,26 @@ namespace SimplyMobile.IoC.TinyIoC
             }
         }
 
-        public object RegisterService<T>(T service) where T : class
+        public IDependencyResolver RegisterService<T>(T service) where T : class
         {
-            return this.Container.Register<T>(service);
+            this.Container.Register<T>(service);
+            return this;
         }
 
 
-        public object RegisterService<T, TImpl>()
+        public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
-            return this.Container.Register<T, TImpl>();
+            this.Container.Register<T, TImpl>();
+            return this;
         }
 
 
-        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
-            return this.Container.Register<T>((c, p) => func(this));
+            this.Container.Register<T>((c, p) => func(this));
+            return this;
         }
     }
 }

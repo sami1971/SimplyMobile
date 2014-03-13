@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Data\ExceptionEntry.cs" />
     <Compile Include="Data\ICrudProvider.cs" />
+    <Compile Include="Data\IEmailer.cs" />
     <Compile Include="Device\AccelerometerInterval.cs" />
     <Compile Include="Device\AccelometerStatus.cs" />
     <Compile Include="Device\BatteryStatus.cs" />

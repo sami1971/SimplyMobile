@@ -93,7 +93,7 @@ namespace SimplyMobile.IoC
         /// </summary>
         /// <typeparam name="T">Type of the service</typeparam>
         /// <param name="service">Service provider</param>
-        public object RegisterService<T>(T service) where T : class
+        public IDependencyResolver RegisterService<T>(T service) where T : class
         {
             this.services.Add(service);
             return this;
@@ -112,14 +112,14 @@ namespace SimplyMobile.IoC
 //        }
 
 
-        public object RegisterService<T, TImpl>()
+        public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
 			return RegisterService<T>(t => Activator.CreateInstance(typeof(TImpl)) as T);
         }
 
-        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
 			this.registeredServices.Add (typeof(T), func);
 			return this;

@@ -103,12 +103,12 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
       <Link>ProtoBufTests.cs</Link>
-    </None>
-    <None Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
       <Link>ProtoBufSanityTests.cs</Link>
-    </None>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -180,6 +180,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.ProtoBuffer\SimplyMobile.Text.ProtoBuffer.csproj">
+      <Project>{256E4D6E-0252-405E-B516-4CEAF129A5F5}</Project>
+      <Name>SimplyMobile.Text.ProtoBuffer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>

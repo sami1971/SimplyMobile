@@ -80,8 +80,14 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DateTimeDto.cs">
       <Link>DTOs\DateTimeDto.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\DictionaryData.cs">
+      <Link>DTOs\DictionaryData.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Dog.cs">
       <Link>DTOs\Dog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\HighlyNested.cs">
+      <Link>DTOs\HighlyNested.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\IAnimal.cs">
       <Link>DTOs\IAnimal.cs</Link>
@@ -92,11 +98,17 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\Primitives.cs">
       <Link>DTOs\Primitives.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\Dtos\SomeKey.cs">
+      <Link>DTOs\SomeKey.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonFileLoad.cs">
       <Link>FastJsonFileLoad.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FastJsonSanityTests.cs">
       <Link>FastJsonSanityTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\FileLoadTests.cs">
+      <Link>FileLoadTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetSanity.cs">
       <Link>JsonNetSanity.cs</Link>
@@ -106,12 +118,6 @@
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\JsonNetTests.cs">
       <Link>JsonNetTests.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
-      <Link>ProtoBufSanityTests.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufTests.cs">
-      <Link>ProtoBufTests.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\SanityCheckTests.cs">
       <Link>SanityCheckTests.cs</Link>
@@ -133,9 +139,6 @@
     </Compile>
     <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\RuntimeXmlTests.cs">
       <Link>RuntimeXmlTests.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\SystemXmlTests.cs">
-      <Link>SystemXmlTests.cs</Link>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -197,10 +200,6 @@
       <Project>{8F3643A8-5597-42B9-A1CD-ACA1E06226A3}</Project>
       <Name>SimplyMobile.Text.RuntimeSerializer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Plugins\SimplyMobile.Text.SystemXml\SimplyMobile.Text.SystemXml.csproj">
-      <Project>{04DF9573-6E29-4614-AAA8-78F9C9A1A3DD}</Project>
-      <Name>SimplyMobile.Text.SystemXml</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
@@ -213,6 +212,14 @@
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="MSTestFramework, Version=11.0">
+      <Name>MSTest for Managed Projects</Name>
+    </SDKReference>
+    <SDKReference Include="TestPlatform, Version=11.0">
+      <Name>Microsoft Visual Studio Windows Phone Test Core</Name>
+    </SDKReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

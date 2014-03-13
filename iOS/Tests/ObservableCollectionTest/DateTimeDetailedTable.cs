@@ -24,7 +24,7 @@ namespace ObservableCollectionTest
 			throw new NotImplementedException ();
 		}
 
-		public float GetHeightForRow (NSIndexPath indexPath)
+        public float GetHeightForRow(NSIndexPath indexPath, DateTime item)
 		{
 			throw new NotImplementedException ();
 		}

@@ -26,13 +26,13 @@ namespace SimplyMobile.IoC.SimpleInjector
             return this.Container.GetAllInstances<T>();
         }
 
-        public object RegisterService<T>(T service) where T : class
+        public IDependencyResolver RegisterService<T>(T service) where T : class
         {
             this.Container.RegisterSingle<T>(service);
             return this;
         }
 
-        public object RegisterService<T, TImpl>()
+        public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
@@ -40,7 +40,7 @@ namespace SimplyMobile.IoC.SimpleInjector
             return this;
         }
 
-		public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
 		{
 			this.Container.Register<T> (() => func (this));
 			return this;

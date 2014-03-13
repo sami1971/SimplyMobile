@@ -9,6 +9,7 @@ using SQLite.Net;
 using SQLite.Net.Interop;
 using SimplyMobile.Text;
 using SQLiteBlobTests;
+using SimplyMobile.Location;
 
 namespace DeviceTests
 {
@@ -37,11 +38,15 @@ namespace DeviceTests
         /// </summary>
         private void OnStart()
         {
+            DependencyResolver.Current.RegisterService<ILocationMonitor, LocationMonitorImpl>();
             DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
             DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();
             DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
             DependencyResolver.Current.RegisterService<IBlobSerializer>(t=> t.GetService<IJsonSerializer>().AsBlobSerializer());
 
+#if USE_ORMLITE
+            DependencyResolver.Current.RegisterService<ICrudProvider>(new OrmLite(Path.Combine(GetPath(), dbFile)));
+#else
             DependencyResolver.Current.RegisterService<ICrudProvider>(t =>
                 new SQLiteAsync(
                     t.GetService<ISQLitePlatform>(),
@@ -50,7 +55,7 @@ namespace DeviceTests
                         true, 
                         t.GetService<IBlobSerializer>())
                     ));
-
+#endif
             DependencyResolver.Current.RegisterService<StoreAccelerometerData>(
                 new StoreAccelerometerData(
                     new AccelerometerImpl(), 

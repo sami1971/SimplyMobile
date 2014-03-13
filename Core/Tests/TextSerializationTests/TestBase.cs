@@ -51,23 +51,6 @@ namespace TextSerializationTests
         [Test()]
 		public void SerializationSpeed()
         {
-            var jsonSerializers = new IJsonSerializer[]
-                {
-                    new SimplyMobile.Text.JsonNet.JsonSerializer(),
-                    new SimplyMobile.Text.ServiceStack.JsonSerializer(),
-				#if !__IOS__
-                    new SimplyMobile.Text.FastJson.JsonSerializer(new SimplyMobile.Text.ServiceStack.JsonSerializer())
-				#endif
-                };
-
-            foreach (var jsonSerializer in jsonSerializers)
-            {
-                var now = jsonSerializer.Serialize(System.DateTime.Now);
-                var nowCopy = jsonSerializer.Deserialize<System.DateTime>(now);
-
-                Assert.AreEqual(now, nowCopy);
-            }
-
 			var serializer = this.Serializer;
 			var count = 100;
 			var elapsedMs = TestMethods.GetSerializationSpeed(count, serializer);
@@ -112,7 +95,7 @@ namespace TextSerializationTests
 			                   elapsedMs,
 			                   count);
 
-            IEnumerable<Primitives> outValue;
+            List<Primitives> outValue;
 
             elapsedMs = TestMethods.GetDeserializationSpeed(count, serializer, ret, out outValue, serializer);
             DebugWrite.WriteLine(

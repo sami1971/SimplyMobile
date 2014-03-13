@@ -3,7 +3,7 @@ using System.Data;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.Sqlite;
 
-namespace SimplyMobile.Data.OrmLite
+namespace SimplyMobile.Data
 {
 	public static class SQliteConnection
 	{

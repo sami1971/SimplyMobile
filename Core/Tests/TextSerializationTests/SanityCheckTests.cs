@@ -48,6 +48,19 @@ namespace TextSerializationTests
 		}
 
         [Test()]
+        public void CanSerializePrimitiveList()
+        {
+            var list = new PrimitiveList ();
+
+            for (var n = 0; n < 10; n++)
+            {
+                list.List.Add(Primitives.Create(n));
+            }
+
+            Assert.IsTrue(TestMethods.CanSerialize<PrimitiveList>(this.Serializer, list, this.Serializer));
+        }
+
+        [Test()]
         public void CanSerializeDateTime()
         {
             var p = DateTime.Now;
@@ -110,5 +123,15 @@ namespace TextSerializationTests
             Assert.IsTrue(TestMethods.CanSerializeEnumerable(this.Serializer, animals, this.Deserializer));
         }
 	}
+
+    public class PrimitiveList
+    {
+        public PrimitiveList()
+        {
+            List = new List<Primitives>();
+        }
+
+        public List<Primitives> List { get; set;}
+    }
 }
 

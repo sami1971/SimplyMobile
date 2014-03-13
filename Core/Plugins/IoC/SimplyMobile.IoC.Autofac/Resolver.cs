@@ -38,24 +38,27 @@ namespace SimplyMobile.IoC.Autofac
             return new[] { this.GetService<T>() };
         }
 
-        public object RegisterService<T>(T service) where T : class
+        public IDependencyResolver RegisterService<T>(T service) where T : class
         {
             this.container = null;
-            return this.builder.RegisterInstance<T>(service);
+            this.builder.RegisterInstance<T>(service);
+            return this;
         }
 
-        public object RegisterService<T, TImpl>()
+        public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
             this.container = null;
-            return this.builder.RegisterType<TImpl>().As<T>();
+            this.builder.RegisterType<TImpl>().As<T>();
+            return this;
         }
 
-        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
             this.container = null;
-            return this.builder.Register<T>(a => func(this));
+            this.builder.Register<T>(a => func(this));
+            return this;
         }
     }
 }

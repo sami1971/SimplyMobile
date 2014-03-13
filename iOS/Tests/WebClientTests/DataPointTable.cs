@@ -27,7 +27,7 @@ namespace CanvasDemo.iOS
             return newCell;
         }
 
-        public float GetHeightForRow(NSIndexPath indexPath)
+        public float GetHeightForRow(NSIndexPath indexPath, DataPoint item)
         {
 			return WebClientTestsViewController.UserInterfaceIdiomIsPhone ? 48 : 80;
         }

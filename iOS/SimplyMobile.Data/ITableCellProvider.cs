@@ -42,7 +42,7 @@ namespace SimplyMobile.Data
 		/// </summary>
 		/// <returns><see cref="float"/></see></returns>
 		/// <param name="indexPath">Index path.</param>
-		float GetHeightForRow (NSIndexPath indexPath);
+		float GetHeightForRow (NSIndexPath indexPath, T item);
 	}
 }
 

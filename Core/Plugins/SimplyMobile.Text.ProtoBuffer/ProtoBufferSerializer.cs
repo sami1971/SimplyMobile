@@ -16,6 +16,7 @@
 using System.IO;
 using System.Text;
 using ProtoBuf.Meta;
+using System;
 
 namespace SimplyMobile.Text.ProtoBuffer
 {
@@ -32,7 +33,7 @@ namespace SimplyMobile.Text.ProtoBuffer
         /// <summary>
         /// Gets the model.
         /// </summary>
-        private static RuntimeTypeModel Model
+        public static RuntimeTypeModel Model
         {
             get { return model ?? (model = TypeModel.Create()); }
         }
@@ -79,12 +80,17 @@ namespace SimplyMobile.Text.ProtoBuffer
         /// </returns>
         public T Deserialize<T>(string data)
         {
+            return (T)this.Deserialize(data, typeof(T));
+        }
+
+        public object Deserialize(string data, System.Type type)
+        {
             using (var memStream = new MemoryStream())
             {
                 var bytes = Encoding.UTF8.GetBytes(data);
                 memStream.Write(bytes, 0, bytes.Length);
-				memStream.Position = 0;
-                return (T)Model.Deserialize(memStream, null, typeof(T));
+                memStream.Position = 0;
+                return Model.Deserialize(memStream, null, type);
             }
         }
     }

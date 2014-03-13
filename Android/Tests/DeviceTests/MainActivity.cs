@@ -22,6 +22,7 @@ using Android.Util;
 using System.Collections.Generic;
 using SimplyMobile.IoC;
 using SQLiteBlobTests;
+using SimplyMobile.Location;
 
 namespace DeviceTests
 {
@@ -31,6 +32,7 @@ namespace DeviceTests
 		private TextView batteryLevel;
 		private ToggleButton chargerState;
 		private TextView accelerometerStatus;
+        private TextView textLocation;
 //		private ToggleButton acceleroMeterState;
 
 		protected override IEnumerable<MenuAction> MenuActions
@@ -90,6 +92,10 @@ namespace DeviceTests
 			};
 
 			layout.AddView (textScreenSize);
+
+            this.textLocation = new TextView(this);
+            layout.AddView(this.textLocation);
+
 //			this.acceleroMeterState = new ToggleButton (this) 
 //			{
 //				TextOn = "Accelerometer ON",
@@ -128,7 +134,13 @@ namespace DeviceTests
 				this.accelerometerStatus.Text = Accelometer.LatestStatus.ToString ();
 			}
 
+            DependencyResolver.Current.GetService<ILocationMonitor>().LocationChanged += MainActivity_LocationChanged;
 		}
+
+        void MainActivity_LocationChanged(object sender, Coordinates e)
+        {
+            this.textLocation.Text = string.Format("New location is {0}", e);
+        }
 
 		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
 		{

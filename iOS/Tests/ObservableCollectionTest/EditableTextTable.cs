@@ -28,7 +28,7 @@ namespace ObservableCollectionTest
 			return newCell;
 		}
 
-		public float GetHeightForRow (NSIndexPath indexPath)
+        public float GetHeightForRow(NSIndexPath indexPath, EditableText item)
 		{
 			return 67f;
 		}

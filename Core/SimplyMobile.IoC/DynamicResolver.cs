@@ -42,7 +42,7 @@ namespace SimplyMobile.IoC
             return this;
         }
 
-        public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
             throw new NotImplementedException();
         }

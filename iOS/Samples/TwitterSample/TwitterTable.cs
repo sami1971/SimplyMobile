@@ -28,7 +28,7 @@ namespace TwitterSample
 			return newCell;
 		}
 
-		public float GetHeightForRow (NSIndexPath indexPath)
+        public float GetHeightForRow(NSIndexPath indexPath, Datum item)
 		{
 			return 114f;
 		}

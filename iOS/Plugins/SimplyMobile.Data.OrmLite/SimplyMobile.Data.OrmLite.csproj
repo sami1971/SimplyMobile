@@ -8,7 +8,7 @@
     <ProjectGuid>{058DDE9D-45D2-4C8D-AC15-071CCD60A634}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Data.OrmLite.iOS</RootNamespace>
+    <RootNamespace>SimplyMobile.Data</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>SimplyMobile.Data.OrmLite.iOS</AssemblyName>
   </PropertyGroup>
@@ -57,8 +57,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\OrmLite.cs">
+      <Link>OrmLite.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\SQliteExtensions.cs">
       <Link>SQliteExtensions.cs</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

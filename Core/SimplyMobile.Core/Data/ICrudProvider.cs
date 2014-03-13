@@ -10,8 +10,9 @@ namespace SimplyMobile.Data
     {
         int Create<T>(T obj) where T : new();
         T Read<T>(object primaryKey) where T : new();
+        IEnumerable<T> Read<T>() where T : new();
         int Update(object obj);
-        int Delete<T>(object primaryKey);
+        int Delete<T>(object primaryKey) where T : new();
         int Delete(object objectToDelete);
     }
 }

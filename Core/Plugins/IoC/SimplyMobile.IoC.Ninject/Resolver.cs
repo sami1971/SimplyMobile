@@ -26,21 +26,24 @@ namespace SimplyMobile.IoC.Ninject
             return this.kernel.GetAll<T>();
         }
 
-        public object RegisterService<T>(T service) where T : class
+        public IDependencyResolver RegisterService<T>(T service) where T : class
         {
-            return this.kernel.Bind<T>().ToConstant<T>(service);
+            this.kernel.Bind<T>().ToConstant<T>(service);
+            return this;
         }
 
-        public object RegisterService<T, TImpl>()
+        public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
             where TImpl : class, T
         {
-            return this.kernel.Bind<T, TImpl>();
+            this.kernel.Bind<T, TImpl>();
+            return this;
         }
 
-		public object RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
+        public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
 		{
-            return this.kernel.Bind<T>().ToMethod<T>(t => func(this));
+            this.kernel.Bind<T>().ToMethod<T>(t => func(this));
+            return this;
 		}
     }
 }
