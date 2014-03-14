@@ -16,9 +16,12 @@ namespace SimplyMobile.Data
         {
             OrmLiteConfig.DialectProvider = dialectProvider;
             this.connection = connection;
-        }
 
-        public OrmLite(string path) : this(path, SqliteDialect.Provider) { }
+            if (this.connection.State == ConnectionState.Closed)
+            {
+                this.connection.Open();
+            }
+        }
 
         private OrmLite(string path, IOrmLiteDialectProvider dialectProvider)
         {
@@ -28,18 +31,20 @@ namespace SimplyMobile.Data
 
         public int Create<T>(T obj) where T : new()
         {
-            this.connection.CreateTable<T>();
+            this.connection.CreateTableIfNotExists<T>();
             this.connection.Insert(obj);
             return 1;
         }
 
         public T Read<T>(object primaryKey) where T : new()
         {
+            this.connection.CreateTableIfNotExists<T>();
             return this.connection.Id<T>(primaryKey);
         }
 
         public IEnumerable<T> Read<T>() where T : new()
         {
+            this.connection.CreateTableIfNotExists<T>();
             return this.connection.Select<T>();
         }
 
@@ -63,6 +68,11 @@ namespace SimplyMobile.Data
 
         public void Dispose()
         {
+            if (this.connection.State == ConnectionState.Open)
+            {
+                this.connection.Close();
+            }
+
             this.connection.Dispose();
         }
 

@@ -55,15 +55,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="ServiceStack.Common">
       <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
       <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.OrmLite.Sqlite">
-      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.OrmLite.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
       <HintPath>..\..\..\libs\ServiceStack\ServiceStack.OrmLite.dll</HintPath>
@@ -75,7 +71,6 @@
   <ItemGroup>
     <Compile Include="OrmLite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQliteExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
