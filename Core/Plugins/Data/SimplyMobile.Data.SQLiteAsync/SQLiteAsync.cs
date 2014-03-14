@@ -13,7 +13,7 @@ namespace SimplyMobile.Data
         public SQLiteAsync(ISQLitePlatform platform, SQLiteConnectionString connection)
             : base(platform, connection)
         {
-
+            this.Commit();
         }
 
         public int Create<T>(T obj) where T : new()
@@ -24,11 +24,13 @@ namespace SimplyMobile.Data
 
         public T Read<T>(object primaryKey) where T : new()
         {
+            this.CreateTable<T>();
             return base.Find<T>(primaryKey);
         }
 
         public IEnumerable<T> Read<T>() where T : new()
         {
+            this.CreateTable<T>();
             return base.Table<T>();
         }
 
