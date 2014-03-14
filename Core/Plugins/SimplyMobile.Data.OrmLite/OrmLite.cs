@@ -12,9 +12,15 @@ namespace SimplyMobile.Data
     {
         private readonly IDbConnection connection;
 
+        public OrmLite(IDbConnection connection, IOrmLiteDialectProvider dialectProvider)
+        {
+            OrmLiteConfig.DialectProvider = dialectProvider;
+            this.connection = connection;
+        }
+
         public OrmLite(string path) : this(path, SqliteDialect.Provider) { }
 
-        public OrmLite(string path, IOrmLiteDialectProvider dialectProvider)
+        private OrmLite(string path, IOrmLiteDialectProvider dialectProvider)
         {
             OrmLiteConfig.DialectProvider = dialectProvider;
             this.connection = path.OpenDbConnection();

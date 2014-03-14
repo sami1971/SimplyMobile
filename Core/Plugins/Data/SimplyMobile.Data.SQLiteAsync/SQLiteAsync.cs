@@ -13,7 +13,7 @@ namespace SimplyMobile.Data
         public SQLiteAsync(ISQLitePlatform platform, SQLiteConnectionString connection)
             : base(platform, connection)
         {
-            this.Commit();
+
         }
 
         public int Create<T>(T obj) where T : new()
