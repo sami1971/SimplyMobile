@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Data
 {
-    public class OrmLite : ICrudProvider, IDisposable
+    public class OrmLite : ICrudProvider
     {
         private readonly IDbConnection connection;
 
@@ -58,6 +58,24 @@ namespace SimplyMobile.Data
         public void Dispose()
         {
             this.connection.Dispose();
+        }
+
+
+        public void RunInTransaction(Action action)
+        {
+            IDbTransaction transaction = null;
+
+            try
+            {
+                transaction = this.connection.BeginTransaction();
+                action();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
         }
     }
 }

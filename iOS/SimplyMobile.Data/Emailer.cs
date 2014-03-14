@@ -18,7 +18,7 @@ namespace SimplyMobile.Data
 
         public Emailer()
         {
-            
+               
         }
 
         public void ShowDraft(string subject, string body, bool html, string[] to, string[] cc, string[] bcc)
@@ -36,6 +36,16 @@ namespace SimplyMobile.Data
             //_modalHost.PresentModalViewController(_mail, true);
         }
 
+        public bool CanExecute(object parameter)
+        {
+            throw new NotImplementedException();
+        }
 
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
