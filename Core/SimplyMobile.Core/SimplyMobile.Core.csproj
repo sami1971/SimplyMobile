@@ -34,11 +34,14 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data\DatabaseLog.cs" />
     <Compile Include="Data\ExceptionEntry.cs" />
     <Compile Include="Data\ICrudProvider.cs" />
     <Compile Include="Data\IEmailer.cs" />
+    <Compile Include="Data\InfoEntry.cs" />
     <Compile Include="Data\ISyncObject.cs" />
     <Compile Include="Data\SyncObject.cs" />
+    <Compile Include="Data\WarningEntry.cs" />
     <Compile Include="Device\AccelerometerInterval.cs" />
     <Compile Include="Device\AccelometerStatus.cs" />
     <Compile Include="Device\BatteryStatus.cs" />

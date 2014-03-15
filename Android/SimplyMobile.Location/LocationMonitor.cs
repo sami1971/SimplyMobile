@@ -42,6 +42,8 @@ namespace SimplyMobile.Location
 		/// </summary>
 		public static double LocationChangeThreshold { get; set; }
 
+        public static uint Interval { get; set; }
+
         /// <summary>
         /// Start monitoring.
         /// </summary>

@@ -40,9 +40,11 @@ namespace SimplyMobile.Location
             set { LocationManager.DistanceFilter = value; }
         }
 
+        public static uint Interval { get; set; }
+
 		public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
 		{
-			throw new NotImplementedException ();
+            return await Task.Factory.StartNew(() => locationManager.Location.GetCoordinates());
 		}
 
         /// <summary>
@@ -100,6 +102,9 @@ namespace SimplyMobile.Location
         {
             LocationManager.LocationsUpdated -= LocationManagerOnLocationsUpdated;
             LocationManager.StopUpdatingLocation();
+            // clear the manager
+            locationManager.Dispose();
+            locationManager = null;
         }
     }
 }

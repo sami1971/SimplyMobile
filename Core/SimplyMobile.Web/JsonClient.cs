@@ -1,5 +1,4 @@
-﻿using SimplyMobile.IoC;
-using SimplyMobile.Text;
+﻿using SimplyMobile.Text;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -18,11 +17,9 @@ namespace SimplyMobile.Web
         {
             get
             {
-                return this.httpClient ?? (this.httpClient = DependencyResolver.Current.GetService<HttpClient>() ?? new HttpClient());
+                return this.httpClient ?? (this.httpClient = new HttpClient());
             }
         }
-
-		public JsonClient () : this(DependencyResolver.Current.GetService<IJsonSerializer>()) {}
 
         public JsonClient(IJsonSerializer serializer)
         {
@@ -33,10 +30,6 @@ namespace SimplyMobile.Web
 		{
 			this.httpClient = httpClient;
 			this.serializer = serializer;
-		}
-
-		public JsonClient(HttpClient httpClient) : this(httpClient, DependencyResolver.Current.GetService<IJsonSerializer>())
-		{
 		}
 
         /// <summary>

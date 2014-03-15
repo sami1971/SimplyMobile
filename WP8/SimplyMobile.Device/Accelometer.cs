@@ -24,9 +24,12 @@ namespace SimplyMobile.Device
 
         static partial void StopMonitoring()
         {
-            accelerometer.CurrentValueChanged -= AccelerometerOnCurrentValueChanged;
-            accelerometer.Stop();
-            accelerometer = null;
+            if (accelerometer != null)
+            {
+                accelerometer.CurrentValueChanged -= AccelerometerOnCurrentValueChanged;
+                accelerometer.Stop();
+                accelerometer = null;
+            }
         }
 
         private static void AccelerometerOnCurrentValueChanged(object sender, SensorReadingEventArgs<AccelerometerReading> sensorReadingEventArgs)

@@ -12,6 +12,17 @@ namespace SimplyMobile.Location
     /// </summary>
     public class LocationMonitorImpl : ILocationMonitor
     {
+
+        public LocationMonitorImpl(TimeSpan interval)
+        {
+            LocationMonitor.Interval = (uint)interval.TotalMilliseconds;
+        }
+
+        public LocationMonitorImpl(Accuracy accuracy)
+        {
+            DesiredAccuracy = accuracy;
+        }
+
         public event EventHandler<Coordinates> LocationChanged
         {
             add { LocationMonitor.LocationChanged += value; }

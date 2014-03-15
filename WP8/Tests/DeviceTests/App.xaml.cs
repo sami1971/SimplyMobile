@@ -32,6 +32,8 @@ using SimplyMobile.Data;
 using SQLiteBlobTests;
 using Windows.Storage;
 using System.IO;
+using SimplyMobile.Location;
+using SimplyMobile.Core;
 
 namespace DeviceTests
 {
@@ -86,7 +88,7 @@ namespace DeviceTests
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Shared" + Path.DirectorySeparatorChar + "Media");
+            PrintDir(new DirectoryInfo(ApplicationData.Current.LocalFolder.Path));
 
             //var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
@@ -101,40 +103,102 @@ namespace DeviceTests
                 new SQLiteAsync(
                     t.GetService<ISQLitePlatform>(),
                     new SQLiteConnectionString(
-                        Path.Combine(path, "device.db"),
+                        Path.Combine(ApplicationData.Current.LocalFolder.Path, /*"Shared", "Media",*/ "device.db"),
                         true,
                         t.GetService<IBlobSerializer>())
                     ));
+
+            DependencyResolver.Current.RegisterService<ILogService>(t =>
+                new DatabaseLog(new SQLiteAsync(t.GetService<ISQLitePlatform>(), new SQLiteConnectionString(
+                    Path.Combine(ApplicationData.Current.LocalFolder.Path, "device.log"),
+                    true,
+                    t.GetService<IBlobSerializer>())
+                    )));
 
             DependencyResolver.Current.RegisterService<StoreAccelerometerData>(
                 new StoreAccelerometerData(
                     new AccelerometerImpl(),
                     DependencyResolver.Current.GetService<ICrudProvider>()));
+
+            DependencyResolver.Current.RegisterService<StoreBatteryData>(
+                new StoreBatteryData(
+                    new BatteryImpl(),
+                    DependencyResolver.Current.GetService<ICrudProvider>()));
+
+            DependencyResolver.Current.RegisterService<StoreLocationChange>(
+                new StoreLocationChange(
+                    new LocationMonitorImpl(TimeSpan.FromMilliseconds(100)),
+                    DependencyResolver.Current.GetService<ICrudProvider>()));
+
+            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
+            DependencyResolver.Current.GetService<StoreBatteryData>().Start();
+            DependencyResolver.Current.GetService<StoreLocationChange>().Start();
+
+            DependencyResolver.Current.GetService<ILogService>().Info(this, "Application started");
         }
 
+        private static void PrintDir(DirectoryInfo di)
+        {
+            foreach (var fi in di.GetFiles())
+            {
+                System.Diagnostics.Debug.WriteLine(fi.FullName);
+            }
+
+            foreach (var dir in di.GetDirectories())
+            {
+                PrintDir(dir);
+            }
+        }
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            DependencyResolver.Current.GetService<ILogService>().Info(this, "Application activated, args: {0}", e);
+
             DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
+            DependencyResolver.Current.GetService<StoreBatteryData>().Start();
+            DependencyResolver.Current.GetService<StoreLocationChange>().Start();
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            DependencyResolver.Current.GetService<ILogService>().Info(this, "Application deactivated, args: {0}", e);
+
             DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
+            DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            DependencyResolver.Current.GetService<ILogService>().Info(this, "Application closing, args: {0}", e);
+            try
+            {
+                DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+                DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
+                DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
+            }
+            catch (Exception ex)
+            {
+                DependencyResolver.Current.GetService<ILogService>().Exception(this, ex);
+            }
         }
 
         // Code to execute if a navigation fails
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
+            try
+            {
+                DependencyResolver.Current.GetService<ILogService>().Exception(sender, e.Exception);
+            }
+            catch
+            {
+
+            }
             if (Debugger.IsAttached)
             {
                 // A navigation has failed; break into the debugger
@@ -145,6 +209,14 @@ namespace DeviceTests
         // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
+            try
+            {
+                DependencyResolver.Current.GetService<ILogService>().Exception(sender, e.ExceptionObject);
+            }
+            catch
+            {
+
+            }
             if (Debugger.IsAttached)
             {
                 // An unhandled exception has occurred; break into the debugger

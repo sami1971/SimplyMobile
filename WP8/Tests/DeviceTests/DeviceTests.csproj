@@ -177,6 +177,10 @@
       <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj">
+      <Project>{07426FCD-78B9-49B5-9E64-859E5E61FE22}</Project>
+      <Name>SimplyMobile.Location</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
@@ -192,6 +196,10 @@
     <ProjectReference Include="..\..\SimplyMobile.Device\SimplyMobile.Device.csproj">
       <Project>{D4629E7E-83F5-4217-91AD-9E11DEA5DB86}</Project>
       <Name>SimplyMobile.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Location\SimplyMobile.Location.WP8.csproj">
+      <Project>{DF4A987F-9690-4A7F-B278-936F3E31E99D}</Project>
+      <Name>SimplyMobile.Location.WP8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -218,7 +226,7 @@
     <SDKReference Include="MSAdvertising, Version=6.1">
       <Name>Microsoft Advertising SDK for Windows Phone 8 %28XAML%29</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WP80, Version=3.8.3.1">
+    <SDKReference Include="SQLite.WP80, Version=3.8.4.1">
       <Name>SQLite for Windows Phone</Name>
     </SDKReference>
   </ItemGroup>

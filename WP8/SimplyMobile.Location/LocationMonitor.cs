@@ -40,6 +40,12 @@ namespace SimplyMobile.Location
             set { Geolocator.MovementThreshold = value; }
         }
 
+        public static uint Interval
+        {
+            get { return Geolocator.ReportInterval; }
+            set { Geolocator.ReportInterval = value; }
+        }
+
         /// <summary>
         /// Gets the geo-locator.
         /// </summary>
