@@ -15,7 +15,6 @@ namespace NinjectTests
 	public class DefaultResolverTests : InjectionTests
 	{
 		#region implemented abstract members of InjectionTests
-
 		protected override IDependencyResolver Resolver
 		{
 			get

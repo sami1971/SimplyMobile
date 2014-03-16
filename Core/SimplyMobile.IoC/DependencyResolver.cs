@@ -34,7 +34,7 @@ namespace SimplyMobile.IoC
         /// </summary>
         private readonly List<object> services;
 
-		private readonly Dictionary<Type, Func<IDependencyResolver, object>> registeredServices;
+		private readonly Dictionary<Type, List<Func<IDependencyResolver, object>>> registeredServices;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
@@ -42,7 +42,7 @@ namespace SimplyMobile.IoC
         public DependencyResolver()
         {
             this.services = new List<object>();
-			this.registeredServices = new Dictionary<Type, Func<IDependencyResolver, object>>();
+			this.registeredServices = new Dictionary<Type, List<Func<IDependencyResolver, object>>>();
         }
 
         /// <summary>
@@ -54,7 +54,14 @@ namespace SimplyMobile.IoC
         public static IDependencyResolver Current
         {
             get { return instance ?? (instance = new DependencyResolver()); }
-            set { instance = value; }
+            set 
+            {
+                if (instance != null)
+                {
+                    throw new InvalidOperationException("Resolver has already been set!");
+                }
+                instance = value; 
+            }
         }
 
         /// <summary>
@@ -64,18 +71,19 @@ namespace SimplyMobile.IoC
         /// <returns>First available service if there are any, otherwise null</returns>
         public T GetService<T>() where T : class
         {
-            var service = this.services.OfType<T>().FirstOrDefault();
+            return this.GetServices<T>().FirstOrDefault();
+            //var service = this.services.OfType<T>().FirstOrDefault();
 
-            if (service == null)
-            {
-				Func<IDependencyResolver, object> getter;
-                if (this.registeredServices.TryGetValue(typeof(T), out getter))
-                {
-					service = getter(this) as T;
-                }
-            }
+            //if (service == null)
+            //{
+            //    List<Func<IDependencyResolver, object>> getter;
+            //    if (this.registeredServices.TryGetValue(typeof(T), out getter))
+            //    {
+            //        service = getter.First()(this) as T;
+            //    }
+            //}
 
-            return service;
+            //return service;
         }
 
         /// <summary>
@@ -85,7 +93,24 @@ namespace SimplyMobile.IoC
         /// <returns>Enumerable list of available services</returns>
         public IEnumerable<T> GetServices<T>() where T : class
         {
-            return this.services.OfType<T>();
+            foreach (var service in this.services.OfType<T>())
+            {
+                yield return service;
+            }
+
+            //var services = this.services.OfType<T>();
+            
+            List<Func<IDependencyResolver, object>> getter;
+            if (this.registeredServices.TryGetValue(typeof(T), out getter))
+            {
+                foreach (var serviceFunc in getter)
+                {
+                    yield return serviceFunc(this) as T;
+                }
+                //return services.Union(getter.Select(a => a(this) as T));
+            }
+
+            //return services;
         }
 
         /// <summary>
@@ -99,18 +124,6 @@ namespace SimplyMobile.IoC
             return this;
         }
 
-		/// <summary>
-		/// Adds a dynamic getter for the service.
-		/// </summary>
-		/// <returns>The dependency resolver object</returns>
-		/// <param name="getter">Getter func for the service.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-//        public IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class
-//        {
-//            this.registeredServices.Add(typeof(T), getter);
-//            return this;
-//        }
-
 
         public IDependencyResolver RegisterService<T, TImpl>()
             where T : class
@@ -121,7 +134,16 @@ namespace SimplyMobile.IoC
 
         public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
         {
-			this.registeredServices.Add (typeof(T), func);
+            var type = typeof(T);
+            List<Func<IDependencyResolver, object>> list;
+            if (!this.registeredServices.TryGetValue(type, out list))
+            {
+                list = new List<Func<IDependencyResolver, object>>();
+                this.registeredServices.Add(type, list);
+            }
+
+            list.Add(func);
+            //this.registeredServices.Add (typeof(T), func);
 			return this;
         }
     }

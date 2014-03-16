@@ -38,16 +38,17 @@ namespace DeviceTests
         /// </summary>
         private void OnStart()
         {
-            DependencyResolver.Current.RegisterService<ILocationMonitor, LocationMonitorImpl>();
-            DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
-            DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();
-            DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
-            DependencyResolver.Current.RegisterService<IBlobSerializer>(t=> t.GetService<IJsonSerializer>().AsBlobSerializer());
+            var resolver = DependencyResolver.Current;
+            resolver.RegisterService<ILocationMonitor, LocationMonitorImpl>()
+                .RegisterService<IAccelerometer, AccelerometerImpl>()
+                .RegisterService<IBattery, BatteryImpl>()
+                .RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>()
+                .RegisterService<IBlobSerializer>(t=> t.GetService<IJsonSerializer>().AsBlobSerializer());
 
 #if USE_ORMLITE
             DependencyResolver.Current.RegisterService<ICrudProvider>(new OrmLite(Path.Combine(GetPath(), dbFile)));
 #else
-            DependencyResolver.Current.RegisterService<ICrudProvider>(t =>
+            resolver.RegisterService<ICrudProvider>(t =>
                 new SQLiteAsync(
                     t.GetService<ISQLitePlatform>(),
                     new SQLiteConnectionString(
@@ -56,10 +57,12 @@ namespace DeviceTests
                         t.GetService<IBlobSerializer>())
                     ));
 #endif
-            DependencyResolver.Current.RegisterService<StoreAccelerometerData>(
-                new StoreAccelerometerData(
-                    new AccelerometerImpl(), 
-                    DependencyResolver.Current.GetService<ICrudProvider>()));
+            resolver.RegisterService<StoreAccelerometerData>(
+                new StoreAccelerometerData(new AccelerometerImpl(), resolver.GetService<ICrudProvider>()));
+
+            resolver.RegisterService<StoreBatteryData>(
+                new StoreBatteryData(new BatteryImpl(), resolver.GetService<ICrudProvider>()));
+
             //Battery.OnChargerStatusChanged += (s, a) => BatteryStatus.Data.Add(Battery.Status);
             //Battery.OnLevelChange += (s, a) => BatteryStatus.Data.Add(Battery.Status);
 

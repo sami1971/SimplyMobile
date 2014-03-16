@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using SimplyMobile.IoC;
 using SimplyMobile.IoC.TinyIoC;
 
 #if WINDOWS_PHONE
@@ -18,9 +18,14 @@ namespace NinjectTests
     [TestFixture]
     public class TinyIoCInjectionTests : InjectionTests
     {
-        protected override SimplyMobile.IoC.IDependencyResolver Resolver
+        private IDependencyResolver resolver;
+
+        protected override IDependencyResolver Resolver
         {
-            get { return new Resolver(); }
+            get
+            {
+                return resolver ?? (resolver = new Resolver());
+            }
         }
     }
 }

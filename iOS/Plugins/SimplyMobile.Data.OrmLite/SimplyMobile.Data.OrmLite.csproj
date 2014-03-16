@@ -60,9 +60,6 @@
     <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\OrmLite.cs">
       <Link>OrmLite.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\SQliteExtensions.cs">
-      <Link>SQliteExtensions.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 #if WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
@@ -55,17 +56,66 @@ namespace NinjectTests
         [Test]
         public void CanResolveWithoutConstructorInjection()
         {
-            this.Resolver.RegisterService<IJsonSerializer, JsonSerializer>();
-            this.Resolver.RegisterService<IMyService, MyService>();
-
-            this.CanAutoResolve();
+            var resolver = this.Resolver;
+            resolver.RegisterService<IJsonSerializer, JsonSerializer>().RegisterService<IMyService, MyService>();
+            var myService = resolver.GetService<IMyService>();
+            Assert.IsNotNull(myService);
+            Assert.IsNotNull(myService.Serializer);
         }
 
         [Test]
         public void CanResolve()
         {
-            this.Resolver.RegisterService<IJsonSerializer, JsonSerializer>();
-            this.Resolver.RegisterService<IMyService>(r => new MyService(r.GetService<IJsonSerializer>()));
+            var resolver = this.Resolver;
+            resolver.RegisterService<IJsonSerializer, JsonSerializer>();
+            resolver.RegisterService<IMyService>(r => new MyService(r.GetService<IJsonSerializer>()));
+            var myService = resolver.GetService<IMyService>();
+            Assert.IsNotNull(myService);
+            Assert.IsNotNull(myService.Serializer);
+        }
+
+        [Test]
+        public void CanResolveMultipleFromInstance()
+        {
+            var json = new JsonSerializer();
+            var xml = new XmlSerializer();
+            var resolver = this.Resolver;
+
+            resolver.RegisterService<ITextSerializer>(json)
+                .RegisterService<ITextSerializer>(xml);
+
+            var count = resolver.GetServices<ITextSerializer>().Count();
+
+            Assert.AreEqual(2, count, "Wrong count of serializers");
+
+            var jsonSerializer = resolver.GetService<ITextSerializer>();
+
+            Assert.IsTrue(jsonSerializer.GetType().IsAssignableFrom(typeof(JsonSerializer)), "First type is incorrect");
+
+            var serializers = resolver.GetServices<ITextSerializer>().ToList();
+
+            Assert.IsTrue(serializers.ElementAt(0).GetType().IsAssignableFrom(typeof(JsonSerializer)), "First serializer is incorrect");
+            Assert.IsTrue(serializers.ElementAt(1).GetType().IsAssignableFrom(typeof(XmlSerializer)), "First serializer is incorrect"); 
+        }
+
+        [Test]
+        public void CanResolveMultipleFromType()
+        {
+            var resolver = this.Resolver.RegisterService<ITextSerializer, JsonSerializer>()
+                .RegisterService<ITextSerializer, XmlSerializer>();
+
+            var count = resolver.GetServices<ITextSerializer>().Count();
+
+            Assert.AreEqual(2, count, "Wrong count of serializers");
+
+            var jsonSerializer = resolver.GetService<ITextSerializer>();
+
+            Assert.IsTrue(jsonSerializer.GetType().IsAssignableFrom(typeof(JsonSerializer)), "First type is incorrect");
+
+            var serializers = resolver.GetServices<ITextSerializer>().ToList();
+
+            Assert.IsTrue(serializers.ElementAt(0).GetType().IsAssignableFrom(typeof(JsonSerializer)), "First serializer is incorrect");
+            Assert.IsTrue(serializers.ElementAt(1).GetType().IsAssignableFrom(typeof(XmlSerializer)), "First serializer is incorrect"); 
         }
     }
 }

@@ -32,7 +32,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="DynamicResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="IDependencyResolver.cs" />
