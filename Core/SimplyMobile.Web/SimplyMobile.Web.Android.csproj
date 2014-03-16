@@ -13,8 +13,6 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>
-    </AndroidUseLatestPlatformSdk>
     <AssemblyName>SimplyMobile.Web.Android</AssemblyName>
     <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
     <RestorePackages>true</RestorePackages>
@@ -62,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Android\SimplyMobile.Android\SimplyMobile.Android.csproj">
-      <Project>{a1e65e8b-aa5c-40bb-b554-ca10d70d946f}</Project>
+      <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>
       <Name>SimplyMobile.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">

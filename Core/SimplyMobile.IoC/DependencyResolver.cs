@@ -32,7 +32,7 @@ namespace SimplyMobile.IoC
         /// <summary>
         /// List of services
         /// </summary>
-        private readonly List<object> services;
+        private readonly Dictionary<Type, List<object>> services;
 
 		private readonly Dictionary<Type, List<Func<IDependencyResolver, object>>> registeredServices;
 
@@ -41,7 +41,7 @@ namespace SimplyMobile.IoC
         /// </summary>
         public DependencyResolver()
         {
-            this.services = new List<object>();
+            this.services = new Dictionary<Type, List<object>>();
 			this.registeredServices = new Dictionary<Type, List<Func<IDependencyResolver, object>>>();
         }
 
@@ -93,9 +93,13 @@ namespace SimplyMobile.IoC
         /// <returns>Enumerable list of available services</returns>
         public IEnumerable<T> GetServices<T>() where T : class
         {
-            foreach (var service in this.services.OfType<T>())
+            List<object> list;
+            if (this.services.TryGetValue(typeof(T), out list))
             {
-                yield return service;
+                foreach (var service in list.OfType<T>())
+                {
+                    yield return service as T;
+                }
             }
 
             //var services = this.services.OfType<T>();
@@ -120,7 +124,17 @@ namespace SimplyMobile.IoC
         /// <param name="service">Service provider</param>
         public IDependencyResolver RegisterService<T>(T service) where T : class
         {
-            this.services.Add(service);
+            var type = typeof(T);
+            List<object> list;
+
+            if (!this.services.TryGetValue (type, out list))
+            {
+                list = new List<object> ();
+                this.services.Add (type, list);
+            }
+
+            list.Add (service);
+//            this.services.Add(service);
             return this;
         }
 

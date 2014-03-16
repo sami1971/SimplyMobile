@@ -114,8 +114,36 @@ namespace NinjectTests
 
             var serializers = resolver.GetServices<ITextSerializer>().ToList();
 
-            Assert.IsTrue(serializers.ElementAt(0).GetType().IsAssignableFrom(typeof(JsonSerializer)), "First serializer is incorrect");
-            Assert.IsTrue(serializers.ElementAt(1).GetType().IsAssignableFrom(typeof(XmlSerializer)), "First serializer is incorrect"); 
+            Assert.IsTrue(serializers[0].GetType().IsAssignableFrom(typeof(JsonSerializer)), "First serializer is incorrect");
+            Assert.IsTrue(serializers[1].GetType().IsAssignableFrom(typeof(XmlSerializer)), "Second serializer is incorrect"); 
+        }
+
+        [Test]
+        public void ResolvesByCorrectTypeFromInstance()
+        {
+            var resolver = this.Resolver;
+            var json = new JsonSerializer();
+            var xml = new XmlSerializer();
+
+            resolver.RegisterService<IJsonSerializer> (json);
+            resolver.RegisterService<ITextSerializer> (xml);
+
+            var textSerializer = resolver.GetService<ITextSerializer> ();
+
+            Assert.AreSame (xml, textSerializer);
+        }
+
+        [Test]
+        public void ResolvesByCorrectTypeFromType()
+        {
+            var resolver = this.Resolver;
+
+            resolver.RegisterService<IJsonSerializer, JsonSerializer> ();
+            resolver.RegisterService<ITextSerializer, XmlSerializer> ();
+
+            var textSerializer = resolver.GetService<ITextSerializer> ();
+
+            Assert.IsTrue(textSerializer.GetType().IsAssignableFrom(typeof(XmlSerializer)), "Serializer is incorrect");
         }
     }
 }
