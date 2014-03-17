@@ -39,22 +39,6 @@ namespace SimplyMobile.Data
         /// </summary>
         private readonly ObservableCollection<object> observers;
 
-        #if !__WINDOWS_PHONE__
-        private Dictionary<Type, ITableCellProvider<T>> tableCellProviders;
-
-        private Dictionary<Type, ITableCellProvider<T>> TableCellProviders
-        {
-            get { return tableCellProviders ?? (tableCellProviders = new Dictionary<Type, ITableCellProvider<T>> ()); }
-        }
-
-        public void SetCellProvider(object table, ITableCellProvider<T> provider)
-        {
-            var type = table.GetType ();
-            this.TableCellProviders.Remove (type);
-            this.TableCellProviders.Add (type, provider);
-        }
-        #endif
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ObservableDataSource"/> class.
         /// </summary>

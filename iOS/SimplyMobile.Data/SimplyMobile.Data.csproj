@@ -34,6 +34,9 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Data\ObservableDataSource.CellProviders.cs">
+      <Link>ObservableDataSource.CellProviders.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Data\ObservableDataSource.designer.cs">
       <Link>ObservableDataSource.designer.cs</Link>
     </Compile>
