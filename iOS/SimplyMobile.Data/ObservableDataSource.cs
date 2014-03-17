@@ -22,7 +22,6 @@ using MonoTouch.UIKit;
 namespace SimplyMobile.Data
 {
     using Core;
-    using SimplyMobile.IoC;
 
 	/// <summary>
 	/// Observable data source iOS portion. Implements <see cref="UITableViewDataSource"/>
@@ -218,7 +217,9 @@ namespace SimplyMobile.Data
 			var item = this.Data[indexPath.Row];
 
             var cellProvider = tableView as ITableCellProvider<T> ?? 
-                DependencyResolver.Current.GetService<ITableCellProvider<T>>();
+                (this.TableCellProviders.ContainsKey(tableView.GetType()) ? 
+                    this.TableCellProviders[tableView.GetType()] :
+                    null);
 
 			if (cellProvider != null)
 			{
@@ -259,15 +260,15 @@ namespace SimplyMobile.Data
         //[Export("tableView:heightForRowAtIndexPath:")]
 		public float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
 		{
-            var cellProvider = tableView as ITableCellProvider<T> ??
-                DependencyResolver.Current.GetService<ITableCellProvider<T>>();
+            var cellProvider = tableView as ITableCellProvider<T> ?? 
+                (this.TableCellProviders.ContainsKey(tableView.GetType()) ? 
+                    this.TableCellProviders[tableView.GetType()] :
+                    null);
 
-			if (cellProvider != null)
-			{
-                return cellProvider.GetHeightForRow(indexPath, this.Data[indexPath.Item]);
-			}
+			return cellProvider != null ? 
+                cellProvider.GetHeightForRow (indexPath, this.Data [indexPath.Item]) : 
+                this.DefaultRowHeight;
 
-			return this.DefaultRowHeight;
 		}
 		#endregion
 
@@ -328,8 +329,7 @@ namespace SimplyMobile.Data
             private readonly OnRowSelected onRowSelected;
             private readonly OnGetHeightForRow onGetHeightForRow;
 
-            public TableViewDelegate(
-                OnRowSelected onRowSelected, OnGetHeightForRow onGetHeightForRow)
+            public TableViewDelegate(OnRowSelected onRowSelected, OnGetHeightForRow onGetHeightForRow)
             {
                 this.onRowSelected = onRowSelected;
                 this.onGetHeightForRow = onGetHeightForRow;
@@ -390,8 +390,6 @@ namespace SimplyMobile.Data
     }
 
     /// <summary>Private UITableViewDelegate to capture row selected events</summary>
-    
-
 	internal class PickerDelegate : UIPickerViewDelegate
 	{
 

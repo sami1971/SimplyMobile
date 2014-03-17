@@ -75,7 +75,14 @@ namespace SimplyMobile.IoC.TinyIoC
             where T : class
             where TImpl : class, T
         {
-            this.Container.Register<T, TImpl>();
+            if (this.Container.CanResolve<T> ())
+            {
+                var list = this.Container.RegisterMultiple<T>(new []{ typeof(TImpl) });
+            } 
+            else
+            {
+                this.Container.Register<T, TImpl> ();
+            }
             return this;
         }
 

@@ -59,6 +59,7 @@
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="Extensions\ListViewBindings.cs" />
     <Compile Include="Security\PasswordStorage.cs" />
+    <Compile Include="TableCellDelegate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

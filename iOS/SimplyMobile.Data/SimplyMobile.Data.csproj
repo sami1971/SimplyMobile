@@ -50,6 +50,8 @@
     <Compile Include="ITableCellProvider.cs" />
     <Compile Include="ICollectionCellProvider.cs" />
     <Compile Include="Security\PasswordStorage.cs" />
+    <Compile Include="TableCellDelegate.cs" />
+    <Compile Include="CollectionCellDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -62,10 +64,6 @@
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
-      <Project>{fc2d9a30-d294-40dc-9815-74f9ffc272e9}</Project>
-      <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

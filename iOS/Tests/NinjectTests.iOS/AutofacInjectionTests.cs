@@ -14,7 +14,7 @@ using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAtt
 using NUnit.Framework;
 #endif
 
-namespace NinjectTests.iOS
+namespace NinjectTests
 {
     [TestFixture]
     public class AutofacInjectionTests : InjectionTests
