@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Logging\LogService.cs" />
     <Compile Include="Monitor.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -8,7 +8,7 @@
     <ProjectGuid>{7444C208-ECD8-4D59-B3BB-58864CDC25B9}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SimplyMobile.Data.OrmLite</RootNamespace>
+    <RootNamespace>SimplyMobile.Data</RootNamespace>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
@@ -58,16 +58,22 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\SQliteExtensions.cs">
-      <Link>SQliteExtensions.cs</Link>
+    <Compile Include="..\..\..\Core\Plugins\SimplyMobile.Data.OrmLite\OrmLite.cs">
+      <Link>OrmLite.cs</Link>
     </Compile>
+    <Compile Include="Resources\Resource.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{aabbedcc-499f-42e7-95d2-81360aa6107c}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

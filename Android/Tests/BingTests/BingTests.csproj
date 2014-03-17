@@ -87,6 +87,10 @@
       <Project>{A14F3F44-A9B3-44EE-A5CF-990D91964177}</Project>
       <Name>SimplyMobile.Text.FastJson.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\Text\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{30accc6d-d6f4-4f50-8fe7-3a3e223f9b55}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
       <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
       <Name>SimplyMobile.IoC</Name>
@@ -106,10 +110,6 @@
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.csproj">
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
-      <Project>{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}</Project>
-      <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>

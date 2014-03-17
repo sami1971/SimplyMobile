@@ -216,10 +216,7 @@ namespace SimplyMobile.Data
 
 			var item = this.Data[indexPath.Row];
 
-            var cellProvider = tableView as ITableCellProvider<T> ?? 
-                (this.TableCellProviders.ContainsKey(tableView.GetType()) ? 
-                    this.TableCellProviders[tableView.GetType()] :
-                    null);
+            var cellProvider = tableView as ITableCellProvider<T> ?? this.FindProvider(tableView);
 
 			if (cellProvider != null)
 			{
@@ -260,10 +257,7 @@ namespace SimplyMobile.Data
         //[Export("tableView:heightForRowAtIndexPath:")]
 		public float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
 		{
-            var cellProvider = tableView as ITableCellProvider<T> ?? 
-                (this.TableCellProviders.ContainsKey(tableView.GetType()) ? 
-                    this.TableCellProviders[tableView.GetType()] :
-                    null);
+            var cellProvider = tableView as ITableCellProvider<T> ?? this.FindProvider(tableView);
 
 			return cellProvider != null ? 
                 cellProvider.GetHeightForRow (indexPath, this.Data [indexPath.Item]) : 

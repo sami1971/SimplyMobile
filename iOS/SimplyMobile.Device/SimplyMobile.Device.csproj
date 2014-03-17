@@ -44,10 +44,15 @@
     <Compile Include="..\..\Core\SimplyMobile.Device\BatteryImpl.cs">
       <Link>BatteryImpl.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\Gyroscope.designer.cs">
+      <Link>Gyroscope.designer.cs</Link>
+      <DependentUpon>Gyroscope.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Device\WifiMonitor.designer.cs">
       <Link>WifiMonitor.designer.cs</Link>
     </Compile>
     <Compile Include="Battery.cs" />
+    <Compile Include="Gyroscope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WifiMonitor.cs" />
     <Compile Include="..\..\Core\SimplyMobile.Device\Accelometer.designer.cs">

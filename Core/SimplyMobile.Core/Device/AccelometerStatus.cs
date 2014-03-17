@@ -2,28 +2,19 @@ using System;
 
 namespace SimplyMobile.Device
 {
-	public class AccelometerStatus
+    public class AccelometerStatus : Vector3d
 	{
 		public AccelometerStatus ()
 		{
 		}
 
-		public AccelometerStatus (double x, double y, double z)
-		{
-			this.X = x;
-			this.Y = y;
-			this.Z = Z;
-		}
+		public AccelometerStatus (double x, double y, double z) : base(x,y,z) {}
 
 		public AccelometerStatus(AccelometerStatus status)
-			: this(status.X, status.Y, status.Z)
+			: base(status.X, status.Y, status.Z)
 		{
 
 		}
-
-		public double X { get; set; }
-		public double Y { get; set; }
-		public double Z { get; set; }
 
 		public override string ToString ()
 		{

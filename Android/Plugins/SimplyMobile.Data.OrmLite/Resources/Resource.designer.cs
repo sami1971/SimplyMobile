@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("SimplyMobile.Data.OrmLite.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("SimplyMobile.Data.Resource", IsApplication=false)]
 
-namespace SimplyMobile.Data.OrmLite
+namespace SimplyMobile.Data
 {
 	
 	

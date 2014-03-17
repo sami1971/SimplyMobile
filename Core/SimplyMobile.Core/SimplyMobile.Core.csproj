@@ -47,7 +47,13 @@
     <Compile Include="Device\BatteryStatus.cs" />
     <Compile Include="Device\IAccelerometer.cs" />
     <Compile Include="Device\IBattery.cs" />
+    <Compile Include="Device\IGyroscope.cs" />
+    <Compile Include="Device\IMotionSensor.cs" />
+    <Compile Include="Device\ISensor.cs" />
     <Compile Include="Device\IWifiMonitor.cs" />
+    <Compile Include="Device\GyroReading.cs" />
+    <Compile Include="Device\Vector3d.cs" />
+    <Compile Include="Extensions\MonitorExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="EventExtensions.cs" />

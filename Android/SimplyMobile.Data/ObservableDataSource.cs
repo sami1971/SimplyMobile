@@ -75,10 +75,7 @@ namespace SimplyMobile.Data
 			this.InvokeItemRequestedEvent (parent, position);
 
 			var item = this.Data [position];
-            var cellProvider = parent as ITableCellProvider<T> ?? 
-                (this.TableCellProviders.ContainsKey(parent.GetType()) ? 
-                    this.TableCellProviders[parent.GetType()] :
-                    null);
+            var cellProvider = parent as ITableCellProvider<T> ?? this.FindProvider(parent);
 
 			if (cellProvider != null)
 			{

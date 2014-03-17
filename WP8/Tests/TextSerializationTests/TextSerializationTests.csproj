@@ -200,13 +200,13 @@
       <Project>{8F3643A8-5597-42B9-A1CD-ACA1E06226A3}</Project>
       <Name>SimplyMobile.Text.RuntimeSerializer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Plugins\Text\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{30ACCC6D-D6F4-4F50-8FE7-3A3E223F9B55}</Project>
+      <Name>SimplyMobile.Text.JsonNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
-      <Project>{799CA059-8A4F-465E-96DC-B302F836F82C}</Project>
-      <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>

@@ -156,8 +156,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
-      <Project>{CB0ECB4A-C83B-49A6-BFF5-90B5B72775CC}</Project>
+    <ProjectReference Include="..\..\..\Core\Plugins\Text\SimplyMobile.Text.JsonNet\SimplyMobile.Text.JsonNet.csproj">
+      <Project>{30accc6d-d6f4-4f50-8fe7-3a3e223f9b55}</Project>
       <Name>SimplyMobile.Text.JsonNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">

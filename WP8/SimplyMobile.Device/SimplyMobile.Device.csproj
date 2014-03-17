@@ -95,8 +95,16 @@
     <Compile Include="..\..\Core\SimplyMobile.Device\BatteryImpl.cs">
       <Link>BatteryImpl.cs</Link>
     </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\Gyroscope.designer.cs">
+      <Link>Gyroscope.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Core\SimplyMobile.Device\MotionSensor.designer.cs">
+      <Link>MotionSensor.designer.cs</Link>
+    </Compile>
     <Compile Include="Accelometer.cs" />
     <Compile Include="Battery.cs" />
+    <Compile Include="Gyroscope.cs" />
+    <Compile Include="MotionSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
