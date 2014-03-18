@@ -1,6 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PCL", "PCL", "{9054E539-D05E-4F15-BD31-E130521B7901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Core", "..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj", "{AABBEDCC-499F-42E7-95D2-81360AA6107C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.IoC", "..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj", "{FC2D9A30-D294-40DC-9815-74F9FFC272E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{EA45FDC3-9B87-4768-9A5F-CAFCC3501A91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -8,5 +16,25 @@ Global
 		AppStore|x86 = AppStore|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.AppStore|x86.Build.0 = Debug|Any CPU
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.Debug|x86.Build.0 = Debug|Any CPU
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.Release|x86.ActiveCfg = Release|Any CPU
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C}.Release|x86.Build.0 = Release|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.AppStore|x86.Build.0 = Debug|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AABBEDCC-499F-42E7-95D2-81360AA6107C} = {9054E539-D05E-4F15-BD31-E130521B7901}
+		{FC2D9A30-D294-40DC-9815-74F9FFC272E9} = {9054E539-D05E-4F15-BD31-E130521B7901}
+		{EA45FDC3-9B87-4768-9A5F-CAFCC3501A91} = {9054E539-D05E-4F15-BD31-E130521B7901}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj
 	EndGlobalSection
 EndGlobal
