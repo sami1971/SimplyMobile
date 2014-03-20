@@ -21,6 +21,11 @@ namespace SimplyMobile.Web
 			this.Serializer = serializer;
 		}
 
+        public void Dispose()
+        {
+
+        }
+
 		private void Initialize()
 		{
 			this.registeredActions = new Dictionary<string, Action<string>>();
@@ -38,20 +43,21 @@ namespace SimplyMobile.Web
 
 		private class Client : WebViewClient
 		{
-			private WebHybrid webHybrid;
+            private readonly WeakReference<WebHybrid> webHybrid;
 
 			public Client(WebHybrid webHybrid)
 			{
-				this.webHybrid = webHybrid;
+                this.webHybrid = new WeakReference<WebHybrid>(webHybrid);
 			}
 
 			public override bool ShouldOverrideUrlLoading (WebView view, string url)
 			{
-				if (this.webHybrid == null || !this.webHybrid.CheckRequest(url))
+                WebHybrid hybrid;
+                if (!this.webHybrid.TryGetTarget(out hybrid) || !hybrid.CheckRequest(url))
 				{
 					view.LoadUrl(url);
 				}
-				return true;
+                return true;
 			}
 		}
 

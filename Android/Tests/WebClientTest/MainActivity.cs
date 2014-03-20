@@ -37,11 +37,7 @@ namespace WebClientTest
 
 			this.webHybrid = new WebHybrid (webView, serializer);
 
-			this.webHybrid.RegisterCallback("dataCallback", (data) => 
-				{
-					Console.WriteLine(data);
-				}
-			);
+            this.webHybrid.RegisterCallback ("dataCallback", Console.WriteLine);
 
 			webView.LoadUrl("file:///android_asset/Content/home.html");
 

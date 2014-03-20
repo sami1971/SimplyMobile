@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SimplyMobile.IoC;
-using SimplyMobile.IoC.TinyIoC;
 
 #if WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
@@ -24,7 +23,7 @@ namespace NinjectTests
         {
             get
             {
-                return resolver ?? (resolver = new Resolver());
+                return resolver ?? (resolver = new SimplyMobile.IoC.TinyIoC.Resolver());
             }
         }
     }

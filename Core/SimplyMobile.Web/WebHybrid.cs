@@ -9,7 +9,7 @@ using SimplyMobile.Text;
 
 namespace SimplyMobile.Web
 {
-	public partial class WebHybrid
+    public partial class WebHybrid : IWebHybrid
 	{
 #if !WINDOWS_PHONE
 		private const string Format = "file://(local|LOCAL)/Action=(?<Action>[\\w]+)/";

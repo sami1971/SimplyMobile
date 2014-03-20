@@ -24,6 +24,13 @@ namespace SimplyMobile.Web
             this.Initialize();
         }
 
+        public void Dispose()
+        {
+            this.webView.Navigating -= webView_Navigating;
+            this.webView.LoadCompleted -= webView_LoadCompleted;
+            this.webView.ScriptNotify -= WebViewOnScriptNotify;
+        }
+
         private void Initialize()
         {
             this.registeredActions = new Dictionary<string, Action<string>>();

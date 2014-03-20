@@ -26,7 +26,7 @@ namespace SimplyMobile.Web.CanvasJs
 
 			if (File.Exists (localHtmlUrl)) 
 			{
-				this.webView.LoadRequest(new NSUrlRequest(new NSUrl(localHtmlUrl, false)));
+				this.WebView.LoadRequest(new NSUrlRequest(new NSUrl(localHtmlUrl, false)));
 			}
 		}
 	}

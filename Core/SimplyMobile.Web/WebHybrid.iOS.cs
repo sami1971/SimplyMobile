@@ -8,28 +8,29 @@ namespace SimplyMobile.Web
 {
 	public partial class WebHybrid
 	{
-		protected UIWebView webView;
+		protected UIWebView WebView;
 
-		public WebHybrid (UIWebView webView)
-		{
-			this.webView = webView;
-			this.Initialize();
-		}
-
-		public WebHybrid (UIWebView webView, IJsonSerializer serializer) : this(webView)
+		public WebHybrid (UIWebView webView, IJsonSerializer serializer)
 		{
 			this.Serializer = serializer;
+            this.WebView = webView;
+            this.Initialize();
 		}
+
+        public void Dispose()
+        {
+            this.WebView.ShouldStartLoad -= HandleStartLoad;
+        }
 
 		partial void Inject(string script)
 		{
-			this.webView.EvaluateJavascript (script);
+			this.WebView.EvaluateJavascript (script);
 		}
 
 		private void Initialize()
 		{
 			this.registeredActions = new Dictionary<string, Action<string>> ();
-			this.webView.ShouldStartLoad += HandleStartLoad;
+			this.WebView.ShouldStartLoad += HandleStartLoad;
 			this.InjectNativeFunctionScript ();
 		}
 
