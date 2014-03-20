@@ -143,7 +143,7 @@ namespace SimplyMobile.Data
         /// </param>
         partial void CollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            foreach (var listView in this.observers.OfType<ListView>())
+            foreach (var listView in this.observers.Where(a=>a.IsAlive).Select(a=>a.Target).OfType<ListView>())
             {
 				((Activity)listView.Context).RunOnUiThread (listView.InvalidateViews);
             }
@@ -162,7 +162,9 @@ namespace SimplyMobile.Data
         {
 			if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
 			{
-				foreach (var newListView in notifyCollectionChangedEventArgs.NewItems.OfType<ListView>())
+                var refs = notifyCollectionChangedEventArgs.NewItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
+
+                foreach (var newListView in refs.OfType<ListView>())
 				{
 					newListView.Adapter = this;
 					newListView.ItemSelected -= HandleItemSelected;
@@ -171,7 +173,7 @@ namespace SimplyMobile.Data
 					newListView.ItemClick += HandleItemClicked;
 				}
 
-				foreach (var newSpinner in notifyCollectionChangedEventArgs.NewItems.OfType<Spinner>())
+                foreach (var newSpinner in refs.OfType<Spinner>())
 				{
 					newSpinner.Adapter = this;
 					newSpinner.ItemSelected -= HandleItemSelected;
@@ -185,13 +187,16 @@ namespace SimplyMobile.Data
 			}
 			else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
 			{
-				foreach (var removedListView in notifyCollectionChangedEventArgs.OldItems.OfType<ListView>())
+                var refs = notifyCollectionChangedEventArgs.OldItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
+
+                foreach (var removedListView in refs.OfType<ListView>())
 				{
 					removedListView.Adapter = null;
 					removedListView.ItemSelected -= HandleItemSelected;
 					removedListView.ItemClick -= HandleItemClicked;
 				}
-				foreach (var removedSpinner in notifyCollectionChangedEventArgs.OldItems.OfType<Spinner>())
+
+                foreach (var removedSpinner in refs.OfType<Spinner>())
 				{
 					removedSpinner.Adapter = null;
 					removedSpinner.ItemSelected -= HandleItemSelected;

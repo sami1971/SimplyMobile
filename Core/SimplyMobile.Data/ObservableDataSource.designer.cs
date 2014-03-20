@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using SimplyMobile.Core;
+using System.Linq;
 
 namespace SimplyMobile.Data
 {
@@ -37,21 +38,21 @@ namespace SimplyMobile.Data
         /// <summary>
         /// The observers.
         /// </summary>
-        private readonly ObservableCollection<object> observers;
+        private readonly ObservableCollection<WeakReference> observers;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObservableDataSource"/> class.
         /// </summary>
         public ObservableDataSource()
         {
-			this.observers = new ObservableCollection<object>();
+            this.observers = new ObservableCollection<WeakReference>();
 			this.observers.CollectionChanged += this.ObserversChanged;
             this.Data = new ObservableCollection<T>();
         }
 
         public ObservableDataSource(IEnumerable<T> data)
         {
-            this.observers = new ObservableCollection<object>();
+            this.observers = new ObservableCollection<WeakReference>();
             this.observers.CollectionChanged += this.ObserversChanged;
             this.Data = new ObservableCollection<T>(data);
         }
@@ -118,9 +119,9 @@ namespace SimplyMobile.Data
 		/// </remarks>
         public void Bind(object observer)
         {
-            if (!this.observers.Contains(observer))
+            if (!this.observers.Any(a=> a.IsAlive && a.Target.Equals(observer)))
             {
-                this.observers.Add(observer);
+                this.observers.Add(new WeakReference(observer));
             }
         }
 
@@ -131,7 +132,13 @@ namespace SimplyMobile.Data
 		/// <returns>true when unbind is successful, otherwise false</returns>
 		public bool Unbind(object observer)
 		{
-			return this.observers.Remove (observer);
+            var l = this.observers.Where (a => a.Target.Equals (observer)).ToList ();
+            foreach (var item in l)
+            {
+                this.observers.Remove (item);
+            }
+
+            return true;
 		}
 
         /// <summary>

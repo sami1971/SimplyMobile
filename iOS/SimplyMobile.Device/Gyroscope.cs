@@ -13,7 +13,7 @@ namespace SimplyMobile.Device
 
     public partial class Gyroscope
     {
-        private CMMotionManager manager;
+        private readonly CMMotionManager manager;
         
         public Gyroscope(double updateInterval)
         {

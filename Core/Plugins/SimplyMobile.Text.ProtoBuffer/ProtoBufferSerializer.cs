@@ -68,6 +68,16 @@ namespace SimplyMobile.Text.ProtoBuffer
         }
 
         /// <summary>
+        /// Serializes object to a stream
+        /// </summary>
+        /// <param name="obj">Object to serialize</param>
+        /// <param name="stream">Stream to serialize to</param>
+        public void Serialize<T>(T obj, Stream stream)
+        {
+            Model.Serialize(stream, obj);
+        }
+
+        /// <summary>
         /// Deserialize function.
         /// </summary>
         /// <param name="data">
@@ -81,6 +91,17 @@ namespace SimplyMobile.Text.ProtoBuffer
         public T Deserialize<T>(string data)
         {
             return (T)this.Deserialize(data, typeof(T));
+        }
+
+        /// <summary>
+        /// Deserializes stream into an object
+        /// </summary>
+        /// <typeparam name="T">Type of object to serialize to</typeparam>
+        /// <param name="stream">Stream to deserialize from</param>
+        /// <returns>Object of type T</returns>
+        public T Deserialize<T>(Stream stream) where T : class
+        {
+            return Model.Deserialize(stream, null, typeof(T)) as T;
         }
 
         public object Deserialize(string data, System.Type type)

@@ -1,4 +1,5 @@
-﻿//
+﻿using System.IO;
+//
 //  Copyright 2013, Sami M. Kallio
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -52,6 +53,16 @@ namespace SimplyMobile.Text.ServiceStack
         }
 
         /// <summary>
+        /// Serializes object to a stream
+        /// </summary>
+        /// <param name="obj">Object to serialize</param>
+        /// <param name="stream">Stream to serialize to</param>
+        public void Serialize<T>(T obj, Stream stream)
+        {
+            Serializer.SerializeToStream(obj, stream);
+        }
+
+        /// <summary>
         /// Deserializes string into an object
         /// </summary>
         /// <typeparam name="T">Type of object to serialize to</typeparam>
@@ -60,6 +71,17 @@ namespace SimplyMobile.Text.ServiceStack
         public T Deserialize<T>(string data)
         {
             return Serializer.DeserializeFromString<T>(data);
+        }
+
+        /// <summary>
+        /// Deserializes stream into an object
+        /// </summary>
+        /// <typeparam name="T">Type of object to serialize to</typeparam>
+        /// <param name="stream">Stream to deserialize from</param>
+        /// <returns>Object of type T</returns>
+        public T Deserialize<T>(Stream stream) where T : class
+        {
+            return Serializer.DeserializeFromStream<T>(stream);
         }
 
         public object Deserialize(string data, System.Type type)

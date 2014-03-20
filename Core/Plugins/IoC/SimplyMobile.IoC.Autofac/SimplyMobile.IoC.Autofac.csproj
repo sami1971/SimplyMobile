@@ -54,7 +54,7 @@
   -->
   <ItemGroup>
     <Reference Include="Autofac">
-      <HintPath>..\..\..\..\iOS\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
+      <HintPath>..\..\..\..\Android\packages\Autofac.3.3.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

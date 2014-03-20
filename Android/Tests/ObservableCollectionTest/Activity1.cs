@@ -6,18 +6,19 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using SimplyMobile.Data;
 
 namespace ObservableCollectionTest
 {
     [Activity(Label = "ObservableCollectionTest", MainLauncher = true, Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
-		private LinearLayout layout;
+//		private LinearLayout layout;
         private Button buttonAdd;
 		private TextView textLastText;
 		private TextView textLastCheck;
 		private Spinner spinner;
-		private EditableTextTable listView;
+        private ListView listView;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -28,20 +29,21 @@ namespace ObservableCollectionTest
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-			this.layout = FindViewById<LinearLayout> (Resource.Id.layout);
+//			this.layout = FindViewById<LinearLayout> (Resource.Id.layout);
 			this.buttonAdd = FindViewById<Button>(Resource.Id.buttonAdd);
 			this.textLastText = FindViewById<TextView> (Resource.Id.textLastText);
 			this.textLastCheck = FindViewById<TextView> (Resource.Id.textLastCheck);
 			this.spinner = FindViewById<Spinner> (Resource.Id.spinnerView);
-			this.listView = FindViewById<EditableTextTable> (Resource.Id.listView1);
+            this.listView = FindViewById<ListView> (Resource.Id.listView1);
 
 //			this.listView = new EditableTextTable (this);
 //			this.layout.AddView (this.listView);
 
-			this.buttonAdd.Click += (sender, e) => 
-			{
-				EditableTextViewModel.Instance.AddItem(new EditableText());
-			};
+            EditableTextViewModel.Instance.Items.SetCellProvider (
+                this.listView,
+                new TableCellDelegate<EditableText> (this.GetView));
+
+			this.buttonAdd.Click += (sender, e) => EditableTextViewModel.Instance.AddItem (new EditableText ());
         }
 
 		void HandlePropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -82,6 +84,15 @@ namespace ObservableCollectionTest
 
 			EditableTextViewModel.Instance.PropertyChanged -= HandlePropertyChanged;
 		}
+
+        private View GetView (EditableText item, View convertView)
+        {
+            var editableCell = convertView as EditableTextCell ?? new EditableTextCell(this);
+
+            editableCell.Bind (item);
+
+            return editableCell;
+        }
     }
 }
 

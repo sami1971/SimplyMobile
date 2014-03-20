@@ -14,6 +14,7 @@
 //    limitations under the License.
 //
 using Newtonsoft.Json;
+using System.IO;
 
 namespace SimplyMobile.Text.JsonNet
 {
@@ -51,6 +52,16 @@ namespace SimplyMobile.Text.JsonNet
         }
 
         /// <summary>
+        /// Serializes object to a stream
+        /// </summary>
+        /// <param name="obj">Object to serialize</param>
+        /// <param name="stream">Stream to serialize to</param>
+        public void Serialize<T>(T obj, Stream stream)
+        {
+            this.SerializeToStream(obj, stream);
+        }
+
+        /// <summary>
         /// Deserializes string into an object
         /// </summary>
         /// <typeparam name="T">Type of object to serialize to</typeparam>
@@ -65,6 +76,17 @@ namespace SimplyMobile.Text.JsonNet
         public object Deserialize(string data, System.Type type)
         {
             return JsonConvert.DeserializeObject(data, type);
+        }
+
+        /// <summary>
+        /// Deserializes stream into an object
+        /// </summary>
+        /// <typeparam name="T">Type of object to serialize to</typeparam>
+        /// <param name="stream">Stream to deserialize from</param>
+        /// <returns>Object of type T</returns>
+        public T Deserialize<T>(Stream stream) where T : class
+        {
+            return this.DeserializeFromStream<T>(stream);
         }
     }
 }

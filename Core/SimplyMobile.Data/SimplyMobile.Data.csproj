@@ -74,10 +74,6 @@
   </Target>
   -->
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplyMobile.DataInterfaces\SimplyMobile.DataInterfaces.csproj">
-      <Project>{F0E669B4-6C89-4BBF-90B1-5C2DA7E930CB}</Project>
-      <Name>SimplyMobile.DataInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>

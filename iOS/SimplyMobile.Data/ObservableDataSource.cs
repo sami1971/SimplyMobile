@@ -121,15 +121,17 @@ namespace SimplyMobile.Data
         /// </param>
         partial void CollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            foreach (var tableView in this.observers.OfType<UITableView>())
+            var refs = this.observers.Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
+
+            foreach (var tableView in refs.OfType<UITableView>())
             {
 				tableView.InvokeOnMainThread(tableView.ReloadData);
             }
-			foreach (var collectionView in this.observers.OfType<UICollectionView>())
+            foreach (var collectionView in refs.OfType<UICollectionView>())
 			{
 				collectionView.InvokeOnMainThread(collectionView.ReloadData);
 			}
-			foreach(var pickerView in this.observers.OfType<UIPickerView>())
+            foreach(var pickerView in refs.OfType<UIPickerView>())
 			{
 				pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
 			}
@@ -148,7 +150,9 @@ namespace SimplyMobile.Data
         {
             if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach (var tableView in notifyCollectionChangedEventArgs.NewItems.OfType<UITableView>())
+                var refs = notifyCollectionChangedEventArgs.NewItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
+
+                foreach (var tableView in refs.OfType<UITableView>())
                 {
                     tableView.DataSource = this.DataSource;
                     tableView.Delegate = this.TableDelegate;
@@ -157,7 +161,8 @@ namespace SimplyMobile.Data
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.NewItems.OfType<UICollectionView> ().Where(a => a is ICollectionCellProvider<T>))
+                // TODO: check why only ICollectionCellProvider
+                foreach (var collectionView in refs.OfType<UICollectionView> ().Where(a => a is ICollectionCellProvider<T>))
 				{
                     collectionView.DataSource = this.CollectionSource;
                     collectionView.Delegate = this.CollectionDelegate;
@@ -173,14 +178,16 @@ namespace SimplyMobile.Data
             }
             else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
             {
-                foreach (var tableView in notifyCollectionChangedEventArgs.OldItems.OfType<UITableView>())
+                var refs = notifyCollectionChangedEventArgs.OldItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
+
+                foreach (var tableView in refs.OfType<UITableView>())
                 {
 					tableView.WeakDataSource = null;
 					tableView.WeakDelegate = null;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
-				foreach (var collectionView in notifyCollectionChangedEventArgs.OldItems.OfType<UICollectionView>())
+                foreach (var collectionView in refs.OfType<UICollectionView>())
 				{
 					collectionView.WeakDataSource = null;
 					collectionView.Delegate = null;
