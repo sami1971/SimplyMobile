@@ -182,14 +182,14 @@ namespace SimplyMobile.Data
 
                 foreach (var tableView in refs.OfType<UITableView>())
                 {
-					tableView.WeakDataSource = null;
-					tableView.WeakDelegate = null;
+					tableView.DataSource = null;
+					tableView.Delegate = null;
 					tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
                 foreach (var collectionView in refs.OfType<UICollectionView>())
 				{
-					collectionView.WeakDataSource = null;
+					collectionView.DataSource = null;
 					collectionView.Delegate = null;
 					collectionView.InvokeOnMainThread(collectionView.ReloadData);
 				}

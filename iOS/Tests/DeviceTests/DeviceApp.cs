@@ -54,14 +54,26 @@ namespace DeviceTests
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformIOS>();
             this.OnStart();
 
-            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
+            Resolver.GetService<StoreAccelerometerData>().Start();
+            Resolver.GetService<StoreLocationChange> ().Start ();
 			return true;
 		}
 
         public override void WillTerminate(UIApplication application)
         {
-            DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            Resolver.GetService<StoreAccelerometerData>().Stop();
+            Resolver.GetService<StoreLocationChange> ().Stop ();
             base.WillTerminate(application);
+        }
+
+        public override void DidEnterBackground(UIApplication application)
+        {
+
+        }
+
+        public override void WillEnterForeground(UIApplication application)
+        {
+
         }
 	}
 }

@@ -43,11 +43,7 @@ namespace WebClientTests
 			var serializer = new JsonSerializer ();
 			this.webHybrid = new WebHybrid (this.webView, serializer);
 
-			this.webHybrid.RegisterCallback ("test", (data) => 
-				{
-					Console.WriteLine(data);
-				}
-			);
+            this.webHybrid.RegisterCallback ("test", Console.WriteLine);
 
 			this.buttonSendScript.TouchUpInside += (object sender, EventArgs e) => 
 			{

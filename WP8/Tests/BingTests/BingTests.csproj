@@ -172,13 +172,13 @@
       <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
       <Name>SimplyMobile.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\SimplyMobile.Web\SimplyMobile.Web.WP8.csproj">
-      <Project>{506D4006-637D-43D6-B64E-4EB74618DDC5}</Project>
-      <Name>SimplyMobile.Web.WP8</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Web.WP8\SimplyMobile.Web.WP8.csproj">
+      <Project>{506D4006-637D-43D6-B64E-4EB74618DDC5}</Project>
+      <Name>SimplyMobile.Web.WP8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

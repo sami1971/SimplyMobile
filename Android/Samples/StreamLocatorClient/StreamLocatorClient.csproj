@@ -71,5 +71,13 @@
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
+      <Name>SimplyMobile.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Text.Platform\SimplyMobile.Text.Platform.csproj">
+      <Project>{8A2A81F7-D67C-496D-BA02-684CB52799FE}</Project>
+      <Name>SimplyMobile.Text.Platform</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

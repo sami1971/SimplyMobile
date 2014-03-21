@@ -87,6 +87,10 @@
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Android\SimplyMobile.Android.csproj">
+      <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>
+      <Name>SimplyMobile.Android</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -94,12 +94,6 @@
     <Compile Include="Title.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.WP8.csproj">
-      <Project>{506D4006-637D-43D6-B64E-4EB74618DDC5}</Project>
-      <Name>SimplyMobile.Web.WP8</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\canvasjs.min.js" />
     <Content Include="Resources\chart.html" />
   </ItemGroup>

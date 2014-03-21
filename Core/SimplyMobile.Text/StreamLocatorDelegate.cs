@@ -23,7 +23,15 @@ namespace SimplyMobile.Text
 
         #endregion
 
+        public BinaryWriter BinaryWriterFor(string path)
+        {
+            throw new NotImplementedException();
+        }
 
+        public string CurrentPath
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
 

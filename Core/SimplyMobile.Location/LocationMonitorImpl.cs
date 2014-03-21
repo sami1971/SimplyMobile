@@ -29,6 +29,14 @@ namespace SimplyMobile.Location
             remove { LocationMonitor.LocationChanged -= value; }
         }
 
+        public bool IsEnabled
+        {
+            get
+            {
+                return LocationMonitor.IsEnabled;
+            }
+        }
+
         public Accuracy DesiredAccuracy
         {
             get

@@ -13,6 +13,8 @@ namespace SimplyMobile.Location
         /// </summary>
         event EventHandler<Coordinates> LocationChanged;
 
+        bool IsEnabled { get; }
+
         /// <summary>
         /// Gets or sets the desired accuracy.
         /// </summary>

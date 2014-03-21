@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using SimplyMobile.Web;
 using Android.Webkit;
 using SimplyMobile.Text;
+using SimplyMobile.Core;
 
 namespace WebClientTest
 {
 	[Activity (Label = "WebClientTest", MainLauncher = true)]
-	public class MainActivity : Activity
+    public class MainActivity : ActivityCore
 	{
 		private Button button;
 		private WebHybrid webHybrid;

@@ -63,6 +63,9 @@ namespace DeviceTests
             resolver.RegisterService<StoreBatteryData>(
                 new StoreBatteryData(new BatteryImpl(), resolver.GetService<ICrudProvider>()));
 
+            resolver.RegisterService<StoreLocationChange> (
+                new StoreLocationChange (new LocationMonitorImpl (TimeSpan.FromSeconds (1)), resolver.GetService<ICrudProvider> ()));
+
             //Battery.OnChargerStatusChanged += (s, a) => BatteryStatus.Data.Add(Battery.Status);
             //Battery.OnLevelChange += (s, a) => BatteryStatus.Data.Add(Battery.Status);
 

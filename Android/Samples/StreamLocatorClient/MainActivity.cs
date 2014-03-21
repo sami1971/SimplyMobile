@@ -8,6 +8,7 @@ using Android.OS;
 using StreamLocatorDependency;
 using SimplyMobile.Text;
 using System.IO;
+using SimplyMobile.IoC;
 
 namespace StreamLocatorClient
 {
@@ -27,12 +28,13 @@ namespace StreamLocatorClient
             // and attach an event to it
             Button button = FindViewById<Button> (Resource.Id.myButton);
 			
+            var locator = new StreamLocator();
 
             button.Click += delegate
             {
                 button.Text = string.Format ("{0} clicks!", count++);
 
-                var l = new StreamWriterFunction(new StreamLocatorDelegate( t=> new StreamWriter(t)));
+                var l = new StreamWriterFunction(locator);
 
                 var file = Path.Combine(
                     System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), 
@@ -40,6 +42,8 @@ namespace StreamLocatorClient
                 l.WriteToPath(file, button.Text);
             };
 
+            FindViewById<TextView> (Resource.Id.textApp).Text = locator.AppFolder;
+            FindViewById<TextView> (Resource.Id.textCurrent).Text = locator.CurrentPath;
 
         }
     }

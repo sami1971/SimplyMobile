@@ -107,6 +107,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.IoC", "..\Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Location", "..\Core\SimplyMobile.Location\SimplyMobile.Location.csproj", "{07426FCD-78B9-49B5-9E64-859E5E61FE22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMobile.Text.Platform", "SimplyMobile.Text.Platform\SimplyMobile.Text.Platform.csproj", "{8A2A81F7-D67C-496D-BA02-684CB52799FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -279,6 +281,14 @@ Global
 		{86412F56-5F8D-4BBB-8501-D66D154519B4}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86412F56-5F8D-4BBB-8501-D66D154519B4}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86412F56-5F8D-4BBB-8501-D66D154519B4}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Windows_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Windows_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Windows_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2A81F7-D67C-496D-BA02-684CB52799FE}.Windows_Release|Any CPU.Build.0 = Release|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF183C3-A209-454B-B4B5-E27B47BF0A99}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -42,9 +42,17 @@ namespace SimplyMobile.Location
 
         public static uint Interval { get; set; }
 
+        public static bool IsEnabled
+        {
+            get
+            {
+                return CLLocationManager.LocationServicesEnabled;
+            }
+        }
+
 		public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
 		{
-            return await Task.Factory.StartNew(() => locationManager.Location.GetCoordinates());
+            return await Task.Factory.StartNew(() => LocationManager.Location.GetCoordinates());
 		}
 
         /// <summary>
@@ -92,8 +100,6 @@ namespace SimplyMobile.Location
             //LocationManager.LocationUpdatesPaused += HandleLocationUpdatesPaused;
             LocationManager.StartUpdatingLocation();
         }
-
-
 
         /// <summary>
         /// Stop monitoring.

@@ -57,6 +57,16 @@ namespace SimplyMobile.Location
             }
         }
 
+        public static bool IsEnabled
+        {
+            get
+            {
+                var status = Geolocator.LocationStatus;
+                return status != PositionStatus.Disabled &&
+                    status != PositionStatus.NotAvailable;
+            }
+        }
+
         /// <summary>
         /// The get coordinates async.
         /// </summary>

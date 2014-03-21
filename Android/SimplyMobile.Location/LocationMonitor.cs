@@ -44,6 +44,22 @@ namespace SimplyMobile.Location
 
         public static uint Interval { get; set; }
 
+        public static bool IsEnabled
+        {
+            get
+            {
+                try
+                {
+                    var locationManager = (LocationManager)Application.Context.GetSystemService(Context.LocationService);
+                    return locationManager.AllProviders.Any();
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         /// <summary>
         /// Start monitoring.
         /// </summary>

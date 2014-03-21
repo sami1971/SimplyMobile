@@ -11,7 +11,7 @@ namespace SimplyMobile.Data
     /// <summary>
     /// Observable data source Android portion.
     /// </summary>
-	public partial class ObservableDataSource<T> : Java.Lang.Object, IListAdapter, ISpinnerAdapter
+    public partial class ObservableDataSource<T> : Java.Lang.Object, IListAdapter, ISpinnerAdapter
     {
         /// <summary>
         /// The are all items enabled.
