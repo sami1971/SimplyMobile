@@ -29,13 +29,16 @@ namespace SimplyMobile.Core
 		/// <param name="value">Value.</param>
 		/// <param name="propertyName">Property name.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		protected void ChangeAndNotify<T>(ref T property, T value,  [CallerMemberName] string propertyName = "")
+        protected bool ChangeAndNotify<T>(ref T property, T value,  [CallerMemberName] string propertyName = "")
 		{
 			if (!EqualityComparer<T>.Default.Equals(property, value))
 			{
 				property = value;
 				NotifyPropertyChanged (propertyName);
+                return true;
 			}
+
+            return false;
 		}
 
 		/// <summary>

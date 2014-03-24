@@ -183,6 +183,10 @@
       <Project>{B8FE27B3-F683-4B12-BCA7-344EF9A71046}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Web.WP8\SimplyMobile.Web.WP8.csproj">
+      <Project>{506D4006-637D-43D6-B64E-4EB74618DDC5}</Project>
+      <Name>SimplyMobile.Web.WP8</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

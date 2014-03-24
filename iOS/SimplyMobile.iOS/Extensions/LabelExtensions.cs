@@ -41,10 +41,7 @@ namespace SimplyMobile.Core
 
 			source.PropertyChanged += handler;
 
-            return new Action(() =>
-            {
-                source.PropertyChanged -= handler;
-            });
+            return new Action(() => source.PropertyChanged -= handler);
 		}
 	}
 }

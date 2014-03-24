@@ -142,6 +142,8 @@
     <Compile Include="..\..\..\iOS\Tests\TextSerializationTests\RuntimeXmlTests.cs">
       <Link>RuntimeXmlTests.cs</Link>
     </Compile>
+    <Compile Include="Dtos\BooleanList.cs" />
+    <Compile Include="BooleanSpeedTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

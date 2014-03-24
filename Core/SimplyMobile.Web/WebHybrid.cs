@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 #if !WINDOWS_PHONE
 using System.Text.RegularExpressions;
-using System.Text;
 #endif
 using SimplyMobile.Text;
+using System.Text;
 
 namespace SimplyMobile.Web
 {
@@ -33,17 +33,6 @@ namespace SimplyMobile.Web
 
 		public void CallJsFunction(string funcName, params object[] parameters)
 		{
-#if WINDOWS_PHONE
-		    try
-		    {
-                var args = parameters.Select(a => this.Serializer.Serialize(a)).ToArray();
-                var resp = this.webView.InvokeScript(funcName, args);
-		    }
-		    catch (Exception exception)
-		    {
-		        System.Diagnostics.Debug.WriteLine(exception.Message);
-		    }
-#else
 			var builder = new StringBuilder();
 
 			builder.Append(funcName);
@@ -61,8 +50,27 @@ namespace SimplyMobile.Web
 			builder.Append(");");
 
 			this.Inject(builder.ToString());
-#endif
 		}
+
+		private void InjectNativeFunctionScript()
+		{
+			var builder = new StringBuilder();
+			builder.Append("function Native(action, data){ ");
+#if !WINDOWS_PHONE
+            builder.Append("window.location = \"//LOCAL/Action=\" + ");
+#else
+            builder.Append("window.external.notify(");
+#endif
+            builder.Append("action + \"/\"");
+            builder.Append(" + ((typeof data == \"object\") ? JSON.stringify(data) : data)");
+#if WINDOWS_PHONE
+            builder.Append(")");
+#endif
+            builder.Append(" ;}");
+
+            this.Inject(builder.ToString());
+        }
+
 #if !WINDOWS_PHONE
 		private bool CheckRequest(string request)
 		{
@@ -82,15 +90,6 @@ namespace SimplyMobile.Web
 			}
 
 			return false;	
-		}
-
-		private void InjectNativeFunctionScript()
-		{
-			var builder = new StringBuilder();
-			builder.Append("function Native(action, data){ ");
-			builder.Append("window.location = \"//LOCAL/Action=\" + action + \"/\" + JSON.stringify(data);");
-			builder.Append(" }");
-			this.Inject(builder.ToString());
 		}
 #endif
     }

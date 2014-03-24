@@ -7,7 +7,6 @@
 
     <!--Application Resources-->
     <Application.Resources>
-        <local:LocalizedStrings xmlns:local="clr-namespace:DeviceTests" x:Key="LocalizedStrings"/>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

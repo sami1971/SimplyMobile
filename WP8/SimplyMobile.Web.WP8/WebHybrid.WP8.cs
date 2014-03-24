@@ -12,11 +12,6 @@ namespace SimplyMobile.Web
     {
         protected WebBrowser webView;
 
-        public WebHybrid(WebBrowser webView) : this(webView, null)
-        {
-
-        }
-
         public WebHybrid(WebBrowser webView, IJsonSerializer serializer)
         {
             this.webView = webView;
@@ -56,7 +51,7 @@ namespace SimplyMobile.Web
 
         void webView_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            //this.InjectNativeFunctionScript();
+            this.InjectNativeFunctionScript();
         }
 
         void webView_Navigating(object sender, NavigatingEventArgs e)
@@ -66,9 +61,8 @@ namespace SimplyMobile.Web
 
         partial void Inject(string script)
         {
-            //var context = this.webView.DataContext;
-            this.webView.InvokeScript(string.Format("javascript: {0}", script));
-            //this.webView.InvokeScript(script);
+            //this.webView.InvokeScript(string.Format("javascript: {0}", script));
+            this.webView.InvokeScript("eval", script);
         }
     }
 }

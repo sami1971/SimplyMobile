@@ -109,6 +109,12 @@
     <Compile Include="..\..\..\Core\Tests\TextSerializationTests\ProtoBufSanityTests.cs">
       <Link>ProtoBufSanityTests.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Android\Tests\TextSerializationTests\Dtos\BooleanList.cs">
+      <Link>BooleanList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Android\Tests\TextSerializationTests\BooleanSpeedTests.cs">
+      <Link>BooleanSpeedTests.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
