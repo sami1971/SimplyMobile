@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace SimplyMobile.Text
 {
@@ -10,6 +11,9 @@ namespace SimplyMobile.Text
 
         StreamWriter StreamWriterFor(string path);
         BinaryWriter BinaryWriterFor(string path);
+
+        IEnumerable<string> GetFolderNames(string folder, string searchPattern);
+        IEnumerable<string> GetFileNames(string folder, string searchPattern);
     }
 
     public static class StreamLocatorExtensions

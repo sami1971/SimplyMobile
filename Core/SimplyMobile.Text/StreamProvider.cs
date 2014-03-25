@@ -48,5 +48,15 @@ namespace SimplyMobile.Text
         {
             return StreamLocator.BinaryWriterFor(path);
         }
+
+        public static IEnumerable<string> GetFolderNames(string folder, string searchPattern)
+        {
+            return StreamLocator.GetFolderNames (folder, searchPattern);
+        }
+
+        public static IEnumerable<string> GetFileNames(string folder, string searchPattern)
+        {
+            return StreamLocator.GetFileNames (folder, searchPattern);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SimplyMobile.Text
 {
@@ -27,6 +29,17 @@ namespace SimplyMobile.Text
         public BinaryWriter BinaryWriterFor(string path)
         {
             return new BinaryWriter(File.OpenWrite(path));
+        }
+
+        public IEnumerable<string> GetFolderNames(string folder, string searchPattern)
+        {
+            return (new DirectoryInfo (folder)).GetDirectories (searchPattern).
+                Select (a => a.FullName);
+        }
+
+        public IEnumerable<string> GetFileNames(string folder, string searchPattern)
+        {
+            return (new DirectoryInfo(folder)).GetFiles(searchPattern).Select(a => a.FullName);
         }
     }
 }

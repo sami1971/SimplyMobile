@@ -158,12 +158,12 @@ namespace SimplyMobile.Device
                 var rawlevel = intent.GetIntExtra(BatteryManager.ExtraLevel, -1);
                 var scale = intent.GetIntExtra(BatteryManager.ExtraScale, -1);
 
-                var lvl = -1;
                 if (rawlevel >= 0 && scale > 0)
                 {
-					lvl = rawlevel * 100 / scale;
+					return rawlevel * 100 / scale;
                 }
-                return lvl;
+
+                return -1;
             }
         }
 

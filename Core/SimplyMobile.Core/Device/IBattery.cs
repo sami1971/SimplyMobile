@@ -18,6 +18,9 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
 {
+    /// <summary>
+    /// Defines battery monitoring interface
+    /// </summary>
     public interface IBattery
     {
         /// <summary>

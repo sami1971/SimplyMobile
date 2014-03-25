@@ -11,8 +11,8 @@ namespace SQLiteBlobTests
 {
     public class StoreBatteryData
     {
-        private IBattery battery;
-        private ICrudProvider db;
+        private readonly IBattery battery;
+        private readonly ICrudProvider db;
 
         public StoreBatteryData(IBattery battery, ICrudProvider db)
         {

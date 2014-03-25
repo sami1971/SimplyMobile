@@ -44,7 +44,9 @@
     <Compile Include="Data\WarningEntry.cs" />
     <Compile Include="Device\AccelerometerInterval.cs" />
     <Compile Include="Device\AccelometerStatus.cs" />
+    <Compile Include="Device\BatteryExtensions.cs" />
     <Compile Include="Device\BatteryStatus.cs" />
+    <Compile Include="Device\DummyBattery.cs" />
     <Compile Include="Device\IAccelerometer.cs" />
     <Compile Include="Device\IBattery.cs" />
     <Compile Include="Device\IGyroscope.cs" />
