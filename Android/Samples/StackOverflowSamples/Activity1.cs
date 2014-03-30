@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using SimplyMobile.Text.ServiceStack;
+using System.IO;
 
 namespace StackOverflowSamples
 {
@@ -40,6 +41,20 @@ namespace StackOverflowSamples
 				this.StartActivity(intent);
 
 			};
+
+
+        }
+
+        public static void WriteToSdcard(object obj, string fileName)
+        {
+            if (Directory.Exists ("/sdcard"))
+            {
+                using (var writer = new StreamWriter (Path.Combine("/sdcard", fileName)))
+                {
+                    var serializer = new System.Runtime.Serialization.DataContractSerializer (obj.GetType ());
+                    serializer.WriteObject (writer.BaseStream, obj);
+                }
+            }
         }
     }
 }

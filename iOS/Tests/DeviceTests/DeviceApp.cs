@@ -12,6 +12,7 @@ using SQLite.Net.Interop;
 
 using SQLite.Net.Platform.XamarinIOS;
 using SQLiteBlobTests;
+using SimplyMobile.Device;
 
 namespace DeviceTests
 {
@@ -52,6 +53,7 @@ namespace DeviceTests
             this.window.MakeKeyAndVisible();
 
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformIOS>();
+            DependencyResolver.Current.RegisterService<IPhone, ApplePhone> ();
             this.OnStart();
 
             Resolver.GetService<StoreAccelerometerData>().Start();

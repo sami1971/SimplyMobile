@@ -20,6 +20,7 @@ using Android.App;
 using SimplyMobile.IoC;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.XamarinAndroid;
+using SimplyMobile.Device;
 
 namespace DeviceTests
 {
@@ -52,6 +53,7 @@ namespace DeviceTests
 
             // add Android specific DI services here
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformAndroid>();
+            DependencyResolver.Current.RegisterService<IPhone, AndroidPhone> ();
             this.OnStart();
 		}
 

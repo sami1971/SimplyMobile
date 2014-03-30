@@ -4,6 +4,7 @@ using Android.Net;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SimplyMobile
 {
@@ -17,6 +18,39 @@ namespace SimplyMobile
         public static ConnectivityManager GetConnectivityManager(this object o)
         {
             return (ConnectivityManager)o.GetSystemService(Context.ConnectivityService);
+        }
+
+        public static JavaObject<T> ToJavaObject<T>(this T o)
+        {
+            return new JavaObject<T> (o);
+        }
+
+        public static void StartActivity(this object o, Intent intent)
+        {
+            var context = o as Context;
+            if (context != null)
+            {
+                context.StartActivity (intent);
+            } 
+            else
+            {
+                intent.SetFlags (ActivityFlags.NewTask);
+                Application.Context.StartActivity (intent);
+            }
+        }
+
+        public static void StartActivityForResult(this object o, Intent intent)
+        {
+            var context = o as Context;
+            if (context != null)
+            {
+                context.StartActivityForResult (intent);
+            } 
+            else
+            {
+                intent.SetFlags (ActivityFlags.NewTask);
+                Application.Context.StartActivityForResult (intent);
+            }
         }
     }
 }

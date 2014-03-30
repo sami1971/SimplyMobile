@@ -3,6 +3,7 @@ using Android.Hardware;
 using SimplyMobile.Core;
 using Android.Content;
 using Android.App;
+using Android.Util;
 
 namespace SimplyMobile.Device
 {
@@ -101,7 +102,9 @@ namespace SimplyMobile.Device
 				}
 
 				this.accelerometer = sensorManager.GetDefaultSensor(SensorType.Accelerometer);
-                
+
+                Log.Info(this.accelerometer.ToString(), this.accelerometer.MaximumRange.ToString());
+
 				if (this.accelerometer == null)
 				{
 					this.sensorManager = null;

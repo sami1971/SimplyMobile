@@ -64,6 +64,8 @@ namespace DeviceTests
 //
 //            this.View.AddSubview(this.tableView);
 //            DeviceApp.BatteryStatus.Bind(this.tableView);
+
+
 		}
 
 		public override void ViewDidAppear (bool animated)

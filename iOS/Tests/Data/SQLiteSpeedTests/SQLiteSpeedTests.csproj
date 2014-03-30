@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42F36D10-CA52-4155-A717-E14F59BF5B26}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SQLiteSpeedTests</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>SQLiteSpeedTests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.NUnitLite" />
+    <Reference Include="ServiceStack.Common.MonoTouch">
+      <HintPath>..\..\..\..\libs\ServiceStack\ServiceStack.Common.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces.MonoTouch">
+      <HintPath>..\..\..\..\libs\ServiceStack\ServiceStack.Interfaces.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.Sqlite.iOS">
+      <HintPath>..\..\..\..\libs\ServiceStack\ServiceStack.OrmLite.Sqlite.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.iOS">
+      <HintPath>..\..\..\..\libs\ServiceStack\ServiceStack.OrmLite.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text.MonoTouch">
+      <HintPath>..\..\..\..\libs\ServiceStack\ServiceStack.Text.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinIOS">
+      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.Platform.XamarinIOS.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="UnitTestAppDelegate.cs" />
+    <Compile Include="..\..\..\..\Core\Tests\Data\SQLiteSpeedTests\TestsSample.cs">
+      <Link>TestsSample.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
+      <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
+      <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Plugins\SimplyMobile.Text.ServiceStack\SimplyMobile.Text.ServiceStack.csproj">
+      <Project>{9BECF79A-0632-40F7-9F63-BA810EF686DD}</Project>
+      <Name>SimplyMobile.Text.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Data\SimplyMobile.Data.csproj">
+      <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
+      <Name>SimplyMobile.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Plugins\SimplyMobile.Data.OrmLite\SimplyMobile.Data.OrmLite.csproj">
+      <Project>{058DDE9D-45D2-4C8D-AC15-071CCD60A634}</Project>
+      <Name>SimplyMobile.Data.OrmLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteAsync\SimplyMobile.Data.SQLiteAsync.csproj">
+      <Project>{6D369FF9-651A-4FC5-994C-2ADF4C9B6E48}</Project>
+      <Name>SimplyMobile.Data.SQLiteAsync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\Plugins\Data\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
+      <Project>{57E9AF44-8FCA-43F1-A416-026AE8448FB3}</Project>
+      <Name>SimplyMobile.Data.SQLiteSerializers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
+      <Project>{C0132CB0-F624-49D6-86E3-0EEFD0CEFE09}</Project>
+      <Name>SimplyMobile.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

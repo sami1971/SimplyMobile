@@ -33,6 +33,7 @@ namespace DeviceTests
 		private ToggleButton chargerState;
 		private TextView accelerometerStatus;
         private TextView textLocation;
+        private TextView textPhoneNumber;
 //		private ToggleButton acceleroMeterState;
 
 		protected override IEnumerable<MenuAction> MenuActions
@@ -46,12 +47,15 @@ namespace DeviceTests
 				};
 			}
 		}
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
 
+
+            var connect = BTConnector.GetConnectMethod ();
 			var layout = new LinearLayout (this) 
 			{
 				Orientation = Orientation.Vertical
@@ -96,6 +100,42 @@ namespace DeviceTests
             this.textLocation = new TextView(this);
             layout.AddView(this.textLocation);
 
+            textPhoneNumber = new TextView (this) {
+                Text = "+1-727-902-9580"
+            };
+
+            layout.AddView (this.textPhoneNumber);
+
+            var buttonCall = new Button (this) {
+                Text = "Call"
+            };
+
+            layout.AddView (buttonCall);
+
+            buttonCall.Click += (sender, e) => Resolver.GetService<IPhone> ().DialNumber (this.textPhoneNumber.Text);
+
+
+            var buttonBt = new Button (this) {
+                Text = "Open BT"
+            };
+
+            layout.AddView (buttonBt);
+
+            buttonBt.Click += async (sender, e) =>
+            {
+                var bt = AndroidDevice.CurrentDevice.BluetoothHub;
+                if (bt != null)
+                {
+                    var devices = await bt.GetPairedDevices ();
+
+                    foreach (var d in devices)
+                    {
+                        Log.Info ("BT device", d.Name);
+                    }
+
+                    bt.OpenSettings ();
+                }
+            };
 //			this.acceleroMeterState = new ToggleButton (this) 
 //			{
 //				TextOn = "Accelerometer ON",

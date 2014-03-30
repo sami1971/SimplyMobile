@@ -97,6 +97,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.6\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -114,6 +117,8 @@
     </Compile>
     <Compile Include="Reddit.cs" />
     <Compile Include="CustomBarButton.cs" />
+    <Compile Include="EmptyClass.cs" />
+    <Compile Include="TestUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="StackOverflowSamplesViewController.xib" />

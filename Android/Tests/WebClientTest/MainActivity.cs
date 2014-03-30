@@ -10,6 +10,7 @@ using SimplyMobile.Web;
 using Android.Webkit;
 using SimplyMobile.Text;
 using SimplyMobile.Core;
+using SimplyMobile;
 
 namespace WebClientTest
 {

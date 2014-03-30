@@ -128,5 +128,9 @@
       <Project>{7E4AA2E4-C8BD-45EA-86CC-10A3302518B1}</Project>
       <Name>SimplyMobile.Location.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Text.Platform\SimplyMobile.Text.Platform.csproj">
+      <Project>{8A2A81F7-D67C-496D-BA02-684CB52799FE}</Project>
+      <Name>SimplyMobile.Text.Platform</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

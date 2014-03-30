@@ -91,8 +91,11 @@ namespace DeviceTests
             PrintDir(new DirectoryInfo(ApplicationData.Current.LocalFolder.Path));
 
             //var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var resolver = DependencyResolver.Current;
+            resolver.RegisterService<ISQLitePlatform, SQLitePlatformWP8>();
 
-            DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformWP8>();
+            resolver.RegisterService<IPhone, WindowsPhone>()
+                .RegisterService<IBluetoothHub, BluetoothHub>();
 
             DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
             DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();

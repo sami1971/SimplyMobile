@@ -103,9 +103,12 @@
     </Compile>
     <Compile Include="Accelometer.cs" />
     <Compile Include="Battery.cs" />
+    <Compile Include="BluetoothDevice.cs" />
+    <Compile Include="BluetoothHub.cs" />
     <Compile Include="Gyroscope.cs" />
     <Compile Include="MotionSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsPhone.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">

@@ -39,11 +39,12 @@ namespace DeviceTests
         private void OnStart()
         {
             var resolver = DependencyResolver.Current;
-            resolver.RegisterService<ILocationMonitor, LocationMonitorImpl>()
-                .RegisterService<IAccelerometer, AccelerometerImpl>()
-                .RegisterService<IBattery, BatteryImpl>()
-                .RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>()
-                .RegisterService<IBlobSerializer>(t=> t.GetService<IJsonSerializer>().AsBlobSerializer());
+            resolver.RegisterService<ILocationMonitor>(t => new LocationMonitorImpl(TimeSpan.FromMilliseconds(1000)))
+                .RegisterService<IAccelerometer, AccelerometerImpl> ()
+                .RegisterService<IBattery, BatteryImpl> ()
+                .RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer> ()
+                .RegisterService<IBlobSerializer> (t => t.GetService<IJsonSerializer> ().AsBlobSerializer ())
+                .RegisterService<IStreamLocator, StreamLocator> ();
 
 #if USE_ORMLITE
             DependencyResolver.Current.RegisterService<ICrudProvider>(new OrmLite(Path.Combine(GetPath(), dbFile)));

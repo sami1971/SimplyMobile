@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +74,11 @@
     <Compile Include="..\..\Core\SimplyMobile.Device\AccelerometerImpl.cs">
       <Link>AccelerometerImpl.cs</Link>
     </Compile>
+    <Compile Include="AndroidPhone.cs" />
+    <Compile Include="BT\BTConnector.cs" />
+    <Compile Include="BT\BluetoothHub.cs" />
+    <Compile Include="BT\AndroidBluetoothDevice.cs" />
+    <Compile Include="AndroidDevice.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -85,13 +90,13 @@
   -->
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Android\SimplyMobile.Android.csproj">
       <Project>{A1E65E8B-AA5C-40BB-B554-CA10D70D946F}</Project>
       <Name>SimplyMobile.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

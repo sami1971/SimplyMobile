@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimplyMobile.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,14 @@ namespace SimplyMobile.Data
             catch
             {
                 return false;
+            }
+        }
+
+        public static void LogError(this ILogService logService, Exception ex)
+        {
+            if (logService != null)
+            {
+                logService.LogError(ex);
             }
         }
     }

@@ -112,6 +112,10 @@
     <Compile Include="ViewControllers\AccelerometerController.designer.cs">
       <DependentUpon>AccelerometerController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\DeviceFeatureViewController.cs" />
+    <Compile Include="ViewControllers\DeviceFeatureViewController.designer.cs">
+      <DependentUpon>DeviceFeatureViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -163,9 +167,15 @@
       <Project>{07B9D0E4-B633-4698-AC92-997A121949F4}</Project>
       <Name>SimplyMobile.Location.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SimplyMobile.Text.Platform\SimplyMobile.Text.Platform.csproj">
+      <Project>{9C8D6F9C-84C0-429B-B9E7-E4CAFD776FBE}</Project>
+      <Name>SimplyMobile.Text.Platform</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="ViewControllers\AccelerometerController_iPhone.xib" />
     <InterfaceDefinition Include="ViewControllers\AccelerometerController_iPad.xib" />
+    <InterfaceDefinition Include="ViewControllers\DeviceFeatureViewController_iPhone.xib" />
+    <InterfaceDefinition Include="ViewControllers\DeviceFeatureViewController_iPad.xib" />
   </ItemGroup>
 </Project>

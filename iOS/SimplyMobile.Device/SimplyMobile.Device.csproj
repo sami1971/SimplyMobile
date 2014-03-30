@@ -62,6 +62,9 @@
     <Compile Include="CurrentDevice.cs" />
     <Compile Include="DeviceType.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="ApplePhone.cs" />
+    <Compile Include="BT\BluetoothHub.cs" />
+    <Compile Include="BT\BluetoothDevice.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,11 +72,14 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="BT\" />
+  </ItemGroup>
 </Project>

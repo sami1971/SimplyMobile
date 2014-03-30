@@ -83,12 +83,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\IAudioStream.cs">
-      <Link>Audio\IAudioStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\WaveRecorder.cs">
+    <Compile Include="..\..\Core\SimplyMobile.Core\Media\WaveRecorder.cs">
       <Link>Audio\WaveRecorder.cs</Link>
     </Compile>
+    <Compile Include="Audio\XnaMicrophone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

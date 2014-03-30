@@ -60,6 +60,7 @@
     <Compile Include="Extensions\EditTextExtensions.cs" />
     <Compile Include="Extensions\SeekBarExtensions.cs" />
     <Compile Include="Extensions\TextViewExtensions.cs" />
+    <Compile Include="JavaObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

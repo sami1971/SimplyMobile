@@ -40,7 +40,17 @@ namespace StackOverflowSamples
 				System.Diagnostics.Debug.WriteLine(filter.ValueForKey (new NSString ("inputCubeDimension")));
 			}
 
+            var serializer = new SimplyMobile.Text.JsonNet.JsonSerializer ();
 
+            var userResponse = serializer.Deserialize<ServiceResponse<TestUser>> (
+                TestUser.DummyResponse);
+
+            if (userResponse.Status == "SUCCESS")
+            {
+                System.Diagnostics.Debug.WriteLine (userResponse.Value.Id);
+                System.Diagnostics.Debug.WriteLine (userResponse.Value.Name);
+                System.Diagnostics.Debug.WriteLine (userResponse.Value.Number);
+            }
 		}
 
 		private static CIFilter CreateFilter()

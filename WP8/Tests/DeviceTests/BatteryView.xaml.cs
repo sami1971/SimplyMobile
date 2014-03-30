@@ -17,6 +17,7 @@
 using System.Windows;
 using SimplyMobile.Core;
 using SimplyMobile.Device;
+using SimplyMobile.IoC;
 
 namespace DeviceTests
 {
@@ -54,6 +55,37 @@ namespace DeviceTests
             {
                 this.batteryLevel.Text = eventArgs.Value.ToString();
             });
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var phone = Resolver.GetService<IPhone>();
+
+            if (phone == null)
+            {
+
+            }
+            else
+            {
+                phone.DialNumber(this.phoneNumber.Text);
+            }
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var btHub = Resolver.GetService<IBluetoothHub>();
+
+            if (btHub != null)
+            {
+                var devices = await btHub.GetPairedDevices();
+
+                foreach (var d in devices)
+                {
+                    System.Diagnostics.Debug.WriteLine(d.Name);
+                }
+
+                btHub.OpenSettings();
+            }
         }
     }
 }

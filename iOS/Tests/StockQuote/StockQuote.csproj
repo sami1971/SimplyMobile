@@ -118,6 +118,9 @@
     <Compile Include="StockTableView_iPhone.cs" />
     <Compile Include="StockTableView_iPad.cs" />
     <Compile Include="PlotView.cs" />
+    <Compile Include="..\..\..\Core\Samples\Service.cs">
+      <Link>Service.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>

@@ -1,5 +1,6 @@
 using System;
 using MonoTouch.UIKit;
+using SimplyMobile.Core;
 
 namespace DeviceTests
 {
@@ -22,10 +23,27 @@ namespace DeviceTests
 				TabBarItem = new UITabBarItem (UITabBarSystemItem.Featured, 0)
 			};
 
-			this.ViewControllers = new UIViewController[] 
-			{
-				mainController
-			};
+            if (MobileApp.IsPhone)
+            {
+                var deviceController = new DeviceFeatureViewController () {
+                    TabBarItem = new UITabBarItem (UITabBarSystemItem.Contacts, 1)
+                };
+
+                this.ViewControllers = new UIViewController[] 
+                {
+                    mainController,
+                    deviceController
+                };
+            }
+            else
+            {
+                this.ViewControllers = new UIViewController[] 
+                {
+                    mainController
+                };
+            }
+
+
 		}
 	}
 }

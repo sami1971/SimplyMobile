@@ -41,14 +41,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\IAudioStream.cs">
-      <Link>Audio\IAudioStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Core\SimplyMobile.Media\Audio\WaveRecorder.cs">
-      <Link>Audio\WaveRecorder.cs</Link>
-    </Compile>
     <Compile Include="Audio\AudioStream.cs" />
     <Compile Include="Audio\AccRecorder.cs" />
+    <Compile Include="..\..\Core\SimplyMobile.Core\Media\WaveRecorder.cs">
+      <Link>Audio\WaveRecorder.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Audio\AudioPacketConverter.cs" />
