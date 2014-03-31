@@ -32,6 +32,13 @@ namespace NavigationSample
             this.webView.Navigate(new Uri("HTML/ButtonClicks.html", UriKind.Relative));
 
             this.model = new NavigationViewModel(Resolver.GetService<INavigationController>(), this.webHybrid);
+
+            //this.model = new NavigationViewModel(
+            //    new NavigationDelegate<NewItemViewModel>( model =>
+            //    {
+
+            //    }),
+            //    this.webHybrid);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

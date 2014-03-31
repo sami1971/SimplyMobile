@@ -89,6 +89,7 @@
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="MobileApp.cs" />
     <Compile Include="Navigation\NavigationController.cs" />
+    <Compile Include="Navigation\ViewModelPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

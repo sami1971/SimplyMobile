@@ -26,7 +26,7 @@ namespace SimplyMobile.Data
     /// <summary>
     /// The observable data source.
     /// </summary>
-    public partial class ObservableDataSource<T> //: IObservableDataSource<T>
+    public partial class ObservableDataSource<T> : IObservableDataSource<T>
     {
         private Predicate<T> filter;
 

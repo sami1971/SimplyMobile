@@ -21,6 +21,11 @@ namespace NavigationSample
             this.webHybrid = webHybrid;
         }
 
+        //public NavigationViewModel(NavigationDelegate<NewItemViewModel> navigationDelegate, IWebHybrid webHybrid)
+        //{
+
+        //}
+
         public void BindViewOwner(object owner)
         {
             this.webHybrid.RegisterCallback(NativeCall, id =>

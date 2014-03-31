@@ -40,6 +40,7 @@
     <Compile Include="Data\ICrudProvider.cs" />
     <Compile Include="Data\IEmailer.cs" />
     <Compile Include="Data\InfoEntry.cs" />
+    <Compile Include="Data\IObservableDataSource.cs" />
     <Compile Include="Data\ISyncObject.cs" />
     <Compile Include="Data\SyncObject.cs" />
     <Compile Include="Data\WarningEntry.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Extensions\MonitorExtensions.cs" />
     <Compile Include="Media\IAudioStream.cs" />
     <Compile Include="Navigation\INavigationController.cs" />
+    <Compile Include="Navigation\NavigationDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="EventExtensions.cs" />

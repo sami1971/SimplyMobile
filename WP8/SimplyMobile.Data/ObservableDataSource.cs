@@ -27,12 +27,14 @@ namespace SimplyMobile.Data
                 return;
             }
 
-            foreach (var observer in this.observers.OfType<FrameworkElement>())
+            var refs = this.observers.Where(a => a.IsAlive).Select(a => a.Target).ToList();
+
+            foreach (var observer in refs.OfType<FrameworkElement>())
             {
                 observer.Dispatcher.BeginInvoke(() => observer.DataContext = this.Data);
             }
 
-            foreach (var longList in this.observers.OfType<LongListSelector>())
+            foreach (var longList in refs.OfType<LongListSelector>())
             {
                 longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = this.Data);
             }
@@ -49,14 +51,42 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-            foreach (var element in notifyCollectionChangedEventArgs.NewItems.OfType<FrameworkElement>())
+            if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
             {
-                element.Dispatcher.BeginInvoke(()=> element.DataContext = this.Data);
-            }
+                var refs = notifyCollectionChangedEventArgs.NewItems.OfType<WeakReference>().Where(a => a.IsAlive).Select(a => a.Target).ToList();
 
-            foreach (var longList in this.observers.OfType<LongListSelector>())
+                foreach (var element in refs.OfType<FrameworkElement>())
+                {
+                    element.Dispatcher.BeginInvoke(() => element.DataContext = this.Data);
+                }
+
+                foreach (var longList in refs.OfType<LongListSelector>())
+                {
+                    longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = this.Data);
+                    longList.SelectionChanged += longList_SelectionChanged;
+                }
+            }
+            else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
             {
-                longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = this.Data);
+                var refs = notifyCollectionChangedEventArgs.OldItems.OfType<WeakReference>().Where(a => a.IsAlive).Select(a => a.Target).ToList();
+                foreach (var element in refs.OfType<FrameworkElement>())
+                {
+                    element.Dispatcher.BeginInvoke(() => element.DataContext = null);
+                }
+
+                foreach (var longList in refs.OfType<LongListSelector>())
+                {
+                    longList.Dispatcher.BeginInvoke(() => longList.ItemsSource = null);
+                    longList.SelectionChanged -= this.longList_SelectionChanged;
+                }
+            }
+        }
+
+        void longList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            foreach(var item in e.AddedItems.OfType<T>())
+            {
+                this.InvokeItemSelectedEvent(sender, item);
             }
         }
 
