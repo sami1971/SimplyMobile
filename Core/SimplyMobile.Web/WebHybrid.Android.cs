@@ -41,6 +41,11 @@ namespace SimplyMobile.Web
 			this.webView.LoadUrl(string.Format("javascript: {0}", script));
 		}
 
+        partial void LoadFile(string fileName)
+        {
+            this.webView.LoadUrl("file://" + fileName);
+        }
+
 		private class Client : WebViewClient
 		{
             private readonly WeakReference<WebHybrid> webHybrid;

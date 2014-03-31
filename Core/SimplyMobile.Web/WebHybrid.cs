@@ -18,6 +18,7 @@ namespace SimplyMobile.Web
 		private Dictionary<string, Action<string>> registeredActions;
 
 		partial void Inject(string script);
+        partial void LoadFile(string fileName);
 
 		public IJsonSerializer Serializer { get; set; }
 
@@ -30,6 +31,11 @@ namespace SimplyMobile.Web
 		{
 			this.registeredActions.Add(name, action);
 		}
+
+        public bool RemoveCallback(string name)
+        {
+            return this.registeredActions.Remove(name);
+        }
 
 		public void CallJsFunction(string funcName, params object[] parameters)
 		{
@@ -51,6 +57,11 @@ namespace SimplyMobile.Web
 
 			this.Inject(builder.ToString());
 		}
+
+        public void LoadFromFile(string fileName)
+        {
+        }
+
 
 		private void InjectNativeFunctionScript()
 		{

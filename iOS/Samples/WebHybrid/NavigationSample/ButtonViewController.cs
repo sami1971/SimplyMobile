@@ -3,12 +3,15 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using SimplyMobile.Web;
-using SimplyMobile.Text.ServiceStack;
+using SimplyMobile.IoC;
+using SimplyMobile.Navigation;
 
 namespace NavigationSample
 {
     public partial class ButtonViewController : UIViewController
     {
+        private NavigationViewModel model;
+
         public ButtonViewController () : base ("ButtonViewController", null)
         {
         }
@@ -25,25 +28,41 @@ namespace NavigationSample
         {
             base.ViewDidLoad ();
 			
-            var webHybrid = new WebHybrid (this.webView, new JsonSerializer());
+            var webHybrid = new WebHybrid (this.webView, new SimplyMobile.Text.ServiceStack.JsonSerializer());
 
             string homePageUrl = NSBundle.MainBundle.BundlePath + "/Content/ButtonClicks.html";
 
             this.webView.LoadRequest (new NSUrlRequest (new NSUrl (homePageUrl, false)));
 
-            webHybrid.RegisterCallback ("openNativeView", idString =>
-            {
-                int id;
-                if (int.TryParse(idString, out id))
-                {
-                    var newViewController = new NewViewController(id);
-                    this.NavigationController.PushViewController(newViewController, true);
-                }
-                else
-                {
-                    // notify something here
-                }
-            });
+            this.model = new NavigationViewModel (
+                Resolver.GetService<INavigationController> (),
+                webHybrid);
+//            webHybrid.RegisterCallback ("openNativeView", idString =>
+//            {
+//                int id;
+//                if (int.TryParse(idString, out id))
+//                {
+//                    var newViewController = new NewViewController(id);
+//                    this.NavigationController.PushViewController(newViewController, true);
+//                }
+//                else
+//                {
+//                    // notify something here
+//                }
+//            });
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear (animated);
+
+            this.model.BindViewOwner (this);
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            this.model.UnbindViewOwner ();
+            base.ViewWillDisappear (animated);
         }
     }
 }

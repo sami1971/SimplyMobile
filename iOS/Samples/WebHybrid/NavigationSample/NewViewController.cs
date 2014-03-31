@@ -9,11 +9,11 @@ namespace NavigationSample
 {
     public partial class NewViewController : UIViewController
     {
-        private readonly int id;
+        private readonly NewItemViewModel model;
 
-        public NewViewController (int id) : base ("NewViewController", null)
+        public NewViewController (NewItemViewModel model) : base ("NewViewController", null)
         {
-            this.id = id;
+            this.model = model;
         }
 
         public override void DidReceiveMemoryWarning()
@@ -30,7 +30,7 @@ namespace NavigationSample
 			
             // Perform any additional setup after loading the view, typically from a nib.
 
-            this.label.Text = string.Format ("Called from Button {0}", this.id);
+            this.label.Text = string.Format ("Called from Button {0}", this.model.Id);
         }
             
         protected override void Dispose(bool disposing)

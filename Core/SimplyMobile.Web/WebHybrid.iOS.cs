@@ -27,6 +27,11 @@ namespace SimplyMobile.Web
 			this.WebView.EvaluateJavascript (script);
 		}
 
+        partial void LoadFile(string fileName)
+        {
+            this.WebView.LoadRequest (new NSUrlRequest (new NSUrl (fileName, false)));
+        }
+
 		private void Initialize()
 		{
 			this.registeredActions = new Dictionary<string, Action<string>> ();

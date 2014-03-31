@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using SimplyMobile.IoC;
+using SimplyMobile.Navigation;
 
 namespace NavigationSample
 {
@@ -25,6 +27,9 @@ namespace NavigationSample
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             window = new UIWindow (UIScreen.MainScreen.Bounds);
+
+            DependencyResolver.Current
+                .RegisterService<INavigationController, SampleNavigationController> ();
 
             var controller = new ButtonViewController ();
             navigationController = new UINavigationController (controller);

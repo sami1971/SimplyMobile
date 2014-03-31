@@ -109,6 +109,13 @@
     <Compile Include="NewViewController.designer.cs">
       <DependentUpon>NewViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\..\..\WP8\Samples\WebHybrid\NavigationSample\NavigationViewModel.cs">
+      <Link>NavigationViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\WP8\Samples\WebHybrid\NavigationSample\NewItemViewModel.cs">
+      <Link>NewItemViewModel.cs</Link>
+    </Compile>
+    <Compile Include="SampleNavigationController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -134,6 +141,18 @@
     <ProjectReference Include="..\..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
+      <Project>{C0132CB0-F624-49D6-86E3-0EEFD0CEFE09}</Project>
+      <Name>SimplyMobile.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\SimplyMobile.IoC\SimplyMobile.IoC.csproj">
+      <Project>{FC2D9A30-D294-40DC-9815-74F9FFC272E9}</Project>
+      <Name>SimplyMobile.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

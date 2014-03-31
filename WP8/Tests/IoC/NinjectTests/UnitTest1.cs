@@ -10,7 +10,7 @@ namespace NinjectTests
     [TestClass]
     public class UnitTest1
     {
-        private IDependencyResolver Resolver { get { return new Resolver(new StandardKernel()); } }
+        private IDependencyResolver Resolver { get { return new SimplyMobile.IoC.Ninject.Resolver(new StandardKernel()); } }
 
         [TestMethod]
         public void TestMethod1()

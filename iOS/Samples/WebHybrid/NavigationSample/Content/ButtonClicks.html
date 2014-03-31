@@ -4,10 +4,13 @@
 	<head>
 		<title>Testing Button clicks with Xamarin C# bridge</title>
 	</head>
-	<button id="1" onClick="openView(this.id)">B1</button>
-	<button id="2" onClick="openView(this.id)">B2</button>
-	<button id="3" onClick="openView(this.id)">B3</button>
-    <script language="javascript">
+    <body>
+        <div><button id="1" style="height: 50px; width: 100%" onClick="openView(this.id)">B1</button></div>
+	    <div><button id="2" style="height: 50px; width: 100%" onClick="openView(this.id)">B2</button></div>
+	    <div><button id="3" style="height: 50px; width: 100%" onClick="Native('openNativeView', this.id)">B3</button></div>
+    </body>
+
+    <script lang="javascript">
     function openView(id){
     	Native("openNativeView", id);
     }

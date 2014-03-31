@@ -97,6 +97,16 @@
     <Content Include="Resources\canvasjs.min.js" />
     <Content Include="Resources\chart.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\WP8\SimplyMobile.Web.WP8\SimplyMobile.Web.WP8.csproj">
+      <Project>{506D4006-637D-43D6-B64E-4EB74618DDC5}</Project>
+      <Name>SimplyMobile.Web.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Web\SimplyMobile.Web.csproj">
+      <Project>{00636A5F-DA3A-4E3E-B673-D483834684E3}</Project>
+      <Name>SimplyMobile.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <ProjectExtensions />

@@ -8,7 +8,12 @@ namespace SimplyMobile.Web
 
         void RegisterCallback(string name, Action<string> action);
 
+        bool RemoveCallback(string name);
+
         void CallJsFunction(string function, params object[] parameters);
+
+        void LoadFromFile(string fileName);
+
     }
 }
 

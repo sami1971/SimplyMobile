@@ -64,5 +64,10 @@ namespace SimplyMobile.Web
             //this.webView.InvokeScript(string.Format("javascript: {0}", script));
             this.webView.InvokeScript("eval", script);
         }
+
+        partial void LoadFile(string fileName)
+        {
+            this.webView.Navigate(new Uri(fileName));
+        }
     }
 }
