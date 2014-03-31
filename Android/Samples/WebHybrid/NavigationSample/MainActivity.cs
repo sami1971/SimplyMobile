@@ -28,7 +28,7 @@ namespace NavigationSample
 
             var webView = FindViewById<WebView> (Resource.Id.webView1);
             var webHybrid = new WebHybrid(webView,
-                new SimplyMobile.Text.JsonNet.JsonSerializer());
+                new SimplyMobile.Text.RuntimeSerializer.JsonSerializer());
 
             webView.LoadUrl ("file:///android_asset/Content/ButtonClicks.html");
 
