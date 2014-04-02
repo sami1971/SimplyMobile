@@ -6,11 +6,11 @@ using System.Text;
 
 namespace WebClientTests
 {
-	public class ChartViewModel
-	{
-		public string Title { get; set; }
+    public class ChartViewModel
+    {
+        public string Title { get; set; }
 
-		public ObservableCollection<DataPoint> DataPoints { get; set; }
+        public ObservableCollection<DataPoint> DataPoints { get; set; }
 
         //public string Data
         //{
@@ -31,29 +31,29 @@ namespace WebClientTests
         //    }
         //}
 
-		public ChartViewModel()
-		{
-			this.DataPoints = new ObservableCollection<DataPoint>();
-		}
+        public ChartViewModel()
+        {
+            this.DataPoints = new ObservableCollection<DataPoint>();
+        }
 
-		public static ChartViewModel Dummy
-		{
-			get
-			{
-				var model = new ChartViewModel()
-				{
-					Title = "Dummy model"
-				};
+        public static ChartViewModel Dummy
+        {
+            get
+            {
+                var model = new ChartViewModel()
+                {
+                    Title = "Dummy model"
+                };
 
-				model.DataPoints.Add(new DataPoint() { Label = "Banana", Y = 18 });
-				model.DataPoints.Add(new DataPoint() { Label = "Orange", Y = 29 });
-				model.DataPoints.Add(new DataPoint() { Label = "Apple", Y = 40 });
-				model.DataPoints.Add(new DataPoint() { Label = "Mango", Y = 34 });
-				model.DataPoints.Add(new DataPoint() { Label = "Grape", Y = 24 });
+                model.DataPoints.Add(new DataPoint() { Label = "Banana", Y = 18 });
+                model.DataPoints.Add(new DataPoint() { Label = "Orange", Y = 29 });
+                model.DataPoints.Add(new DataPoint() { Label = "Apple", Y = 40 });
+                model.DataPoints.Add(new DataPoint() { Label = "Mango", Y = 34 });
+                model.DataPoints.Add(new DataPoint() { Label = "Grape", Y = 24 });
 
-				return model;
-			}
-		}
-	}
+                return model;
+            }
+        }
+    }
 }
 

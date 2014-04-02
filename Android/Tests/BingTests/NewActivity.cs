@@ -11,21 +11,21 @@ using Android.Widget;
 
 namespace BingTests
 {
-	[Activity (Label = "NewActivity")]			
-	public class NewActivity : Activity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+    [Activity (Label = "NewActivity")]          
+    public class NewActivity : Activity
+    {
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			var layout = new LinearLayout (this);
+            var layout = new LinearLayout (this);
 
-			this.SetContentView (layout);
-			// Create your application here
-			var button = new Button (this);
+            this.SetContentView (layout);
+            // Create your application here
+            var button = new Button (this);
 
-			layout.AddView (button);
-		}
-	}
+            layout.AddView (button);
+        }
+    }
 }
 

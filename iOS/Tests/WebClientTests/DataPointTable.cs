@@ -15,8 +15,8 @@ namespace CanvasDemo.iOS
     {
         public DataPointTable(IntPtr handle)
             : base(handle)
-		{
-		}
+        {
+        }
 
         public UITableViewCell GetCell(DataPoint item)
         {
@@ -29,7 +29,7 @@ namespace CanvasDemo.iOS
 
         public float GetHeightForRow(NSIndexPath indexPath, DataPoint item)
         {
-			return WebClientTestsViewController.UserInterfaceIdiomIsPhone ? 48 : 80;
+            return WebClientTestsViewController.UserInterfaceIdiomIsPhone ? 48 : 80;
         }
     }
 }

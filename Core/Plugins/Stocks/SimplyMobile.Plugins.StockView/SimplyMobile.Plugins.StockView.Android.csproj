@@ -60,6 +60,10 @@
       <Project>{F16741AD-BA50-4922-A018-D7B622758101}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

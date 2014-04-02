@@ -50,10 +50,10 @@ namespace SimplyMobile.Location
             }
         }
 
-		public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
-		{
+        public static async Task<Coordinates> GetCoordinatesAsync(TimeSpan age, TimeSpan timeout)
+        {
             return await Task.Factory.StartNew(() => LocationManager.Location.GetCoordinates());
-		}
+        }
 
         /// <summary>
         /// The location manager.

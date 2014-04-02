@@ -4,25 +4,25 @@ using System.Text.Json;
 
 namespace SimplyMobile.Text.FastJson
 {
-	public class JsonSerializer : JsonParser, IJsonSerializer
-	{
-	    private IJsonSerializer serializer;
+    public class JsonSerializer : JsonParser, IJsonSerializer
+    {
+        private IJsonSerializer serializer;
 
         public JsonSerializer(IJsonSerializer serializer)
         {
             this.serializer = serializer;
         }
 
-		#region ITextSerializer implementation
-		public Format Format 
-		{
-			get
-			{
-				return Format.Json;
-			}
-		}
+        #region ITextSerializer implementation
+        public Format Format 
+        {
+            get
+            {
+                return Format.Json;
+            }
+        }
 
-		public string Serialize<T>(T obj)
+        public string Serialize<T>(T obj)
         {
 
             return serializer.Serialize(obj);
@@ -43,10 +43,10 @@ namespace SimplyMobile.Text.FastJson
         //    return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
         //}
 
-		public T Deserialize<T> (string data)
-		{
-			return Parse<T> (data);
-		}
+        public T Deserialize<T> (string data)
+        {
+            return Parse<T> (data);
+        }
 
         /// <summary>
         /// Deserializes stream into an object
@@ -59,11 +59,11 @@ namespace SimplyMobile.Text.FastJson
             return this.DeserializeFromStream<T>(stream);
         }
 
-		public object Deserialize(string data, Type type)
-		{
-			return serializer.Deserialize (data, type);
-		}
-		#endregion
-	}
+        public object Deserialize(string data, Type type)
+        {
+            return serializer.Deserialize (data, type);
+        }
+        #endregion
+    }
 }
 

@@ -22,32 +22,32 @@ namespace SimplyMobile.Media
     /// The AudioStream interface.
     /// </summary>
     public interface IAudioStream : IMonitor
-	{
-		/// <summary>
-		/// Occurs when new audio has been streamed.
-		/// </summary>
-		event EventHandler<EventArgs<byte[]>> OnBroadcast;
+    {
+        /// <summary>
+        /// Occurs when new audio has been streamed.
+        /// </summary>
+        event EventHandler<EventArgs<byte[]>> OnBroadcast;
 
-		/// <summary>
-		/// Gets the sample rate.
-		/// </summary>
-		/// <value>
-		/// The sample rate.
-		/// </value>
-		int SampleRate { get; }
+        /// <summary>
+        /// Gets the sample rate.
+        /// </summary>
+        /// <value>
+        /// The sample rate.
+        /// </value>
+        int SampleRate { get; }
 
-		/// <summary>
-		/// Gets the channel count.
-		/// </summary>
-		/// <value>
-		/// The channel count.
-		/// </value>
-		int ChannelCount { get; }
+        /// <summary>
+        /// Gets the channel count.
+        /// </summary>
+        /// <value>
+        /// The channel count.
+        /// </value>
+        int ChannelCount { get; }
 
-		/// <summary>
-		/// Gets bits per sample.
-		/// </summary>
-		int BitsPerSample { get; }
-	}
+        /// <summary>
+        /// Gets bits per sample.
+        /// </summary>
+        int BitsPerSample { get; }
+    }
 }
 

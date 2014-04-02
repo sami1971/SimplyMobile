@@ -24,44 +24,44 @@ using SimplyMobile.Device;
 
 namespace DeviceTests
 {
-	[Application(Debuggable = true,
-	             Label = "DeviceApp",
-	             ManageSpaceActivity = typeof(Activity))]
-	public partial class DeviceApp
-	{
-	    /// <summary>
-	    /// Initializes a new instance of the <see cref="DeviceApp"/> class.
-	    /// </summary>
-	    /// <param name="javaReference">
-	    /// The java reference.
-	    /// </param>
-	    /// <param name="transfer">
-	    /// The transfer.
-	    /// </param>
-	    public DeviceApp(IntPtr javaReference, JniHandleOwnership transfer)
-			: base(javaReference, transfer)
-		{
+    [Application(Debuggable = true,
+                 Label = "DeviceApp",
+                 ManageSpaceActivity = typeof(Activity))]
+    public partial class DeviceApp
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeviceApp"/> class.
+        /// </summary>
+        /// <param name="javaReference">
+        /// The java reference.
+        /// </param>
+        /// <param name="transfer">
+        /// The transfer.
+        /// </param>
+        public DeviceApp(IntPtr javaReference, JniHandleOwnership transfer)
+            : base(javaReference, transfer)
+        {
 
-		}
+        }
 
-	    /// <summary>
-	    /// The on create.
-	    /// </summary>
-	    public override void OnCreate ()
-		{
-			base.OnCreate ();
+        /// <summary>
+        /// The on create.
+        /// </summary>
+        public override void OnCreate ()
+        {
+            base.OnCreate ();
 
             // add Android specific DI services here
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformAndroid>();
             DependencyResolver.Current.RegisterService<IPhone, AndroidPhone> ();
             this.OnStart();
-		}
+        }
 
         public override void OnTerminate()
         {
             this.OnStop();
             base.OnTerminate();
         }
-	}
+    }
 }
 

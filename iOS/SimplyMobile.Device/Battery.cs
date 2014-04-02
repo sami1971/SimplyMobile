@@ -28,7 +28,7 @@ namespace SimplyMobile.Device
         /// </summary>
         static partial void StartLevelMonitoring()
         {
-			UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
+            UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
             NSNotificationCenter.DefaultCenter.AddObserver
             (
                 UIDevice.BatteryLevelDidChangeNotification,
@@ -66,7 +66,7 @@ namespace SimplyMobile.Device
 
         static partial void StartChargerMonitoring()
         {
-			UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
+            UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
             NSNotificationCenter.DefaultCenter.AddObserver
             (
                 UIDevice.BatteryStateDidChangeNotification,
@@ -83,26 +83,26 @@ namespace SimplyMobile.Device
         /// <summary>
         ///  Gets the battery level. 
         /// </summary>
-		/// <returns>Battery level in percentage, 0-100</returns>
+        /// <returns>Battery level in percentage, 0-100</returns>
         public static int Level
         {
             get
             {
-				UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
-				return (int)(UIDevice.CurrentDevice.BatteryLevel * 100);
+                UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
+                return (int)(UIDevice.CurrentDevice.BatteryLevel * 100);
             }
         }
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="SimplyMobile.Device.Battery"/> is charging.
-		/// </summary>
-		/// <value><c>true</c> if charging; otherwise, <c>false</c>.</value>
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="SimplyMobile.Device.Battery"/> is charging.
+        /// </summary>
+        /// <value><c>true</c> if charging; otherwise, <c>false</c>.</value>
         public static bool Charging
         {
             get 
-			{ 
-				return UIDevice.CurrentDevice.BatteryState != UIDeviceBatteryState.Unplugged; 
-			}
+            { 
+                return UIDevice.CurrentDevice.BatteryState != UIDeviceBatteryState.Unplugged; 
+            }
         }
 
     }

@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace JavaScriptValidator
 {
-	[Register ("JavaScriptValidatorViewController")]
-	partial class JavaScriptValidatorViewController
-	{
-		[Outlet]
-		JavaScriptValidator.DocumentTable tableDocument { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (tableDocument != null) {
-				tableDocument.Dispose ();
-				tableDocument = null;
-			}
-		}
-	}
+    [Register ("JavaScriptValidatorViewController")]
+    partial class JavaScriptValidatorViewController
+    {
+        [Outlet]
+        JavaScriptValidator.DocumentTable tableDocument { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (tableDocument != null) {
+                tableDocument.Dispose ();
+                tableDocument = null;
+            }
+        }
+    }
 }

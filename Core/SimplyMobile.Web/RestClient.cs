@@ -22,14 +22,14 @@ using System.Text;
 
 namespace SimplyMobile.Web
 {
-	using Text;
+    using Text;
 
     [Obsolete("Use JsonClient instead")]
     /// <summary>
     /// The rest client.
     /// </summary>
-	public class RestClient : IRestClient
-	{
+    public class RestClient : IRestClient
+    {
         /// <summary>
         /// The client.
         /// </summary>
@@ -38,7 +38,7 @@ namespace SimplyMobile.Web
         /// <summary>
         /// Custom serializers.
         /// </summary>
-		private readonly Dictionary<Type, ITextSerializer> customSerializers;
+        private readonly Dictionary<Type, ITextSerializer> customSerializers;
 
         /// <summary>
         /// Serializers for different formats.
@@ -48,66 +48,66 @@ namespace SimplyMobile.Web
         /// <summary>
         /// Initializes a new instance of the <see cref="RestClient"/> class.
         /// </summary>
-		public RestClient(Uri baseAddress, ITextSerializer defaultSerializer = null)
+        public RestClient(Uri baseAddress, ITextSerializer defaultSerializer = null)
         {
-			this.serializers = new Dictionary<Format, ITextSerializer>();
-			this.customSerializers = new Dictionary<Type, ITextSerializer>();
+            this.serializers = new Dictionary<Format, ITextSerializer>();
+            this.customSerializers = new Dictionary<Type, ITextSerializer>();
 
-			var handler = new HttpClientHandler();
+            var handler = new HttpClientHandler();
 
-			try
-			{
-				if (handler.SupportsAutomaticDecompression)
-				{
-					handler.AutomaticDecompression = 
-						DecompressionMethods.GZip |
-					    DecompressionMethods.Deflate;
-				}
-			}
-			catch (Exception ex)
-			{
-				System.Diagnostics.Debug.WriteLine (ex.Message);
-			}
-
-			this.client = new HttpClient(handler)
+            try
+            {
+                if (handler.SupportsAutomaticDecompression)
                 {
-				BaseAddress = baseAddress
+                    handler.AutomaticDecompression = 
+                        DecompressionMethods.GZip |
+                        DecompressionMethods.Deflate;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine (ex.Message);
+            }
+
+            this.client = new HttpClient(handler)
+                {
+                BaseAddress = baseAddress
                 };
 
-			if (defaultSerializer != null) 
-			{
-				this.serializers.Add (defaultSerializer.Format, defaultSerializer);
-			}
+            if (defaultSerializer != null) 
+            {
+                this.serializers.Add (defaultSerializer.Format, defaultSerializer);
+            }
         }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="RestClient"/> class.
-		/// </summary>
-		public RestClient(Uri baseAddress, IEnumerable<ITextSerializer> defaultSerializers = null)
-		{
-			this.serializers = new Dictionary<Format, ITextSerializer>();
-			this.customSerializers = new Dictionary<Type, ITextSerializer>();
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RestClient"/> class.
+        /// </summary>
+        public RestClient(Uri baseAddress, IEnumerable<ITextSerializer> defaultSerializers = null)
+        {
+            this.serializers = new Dictionary<Format, ITextSerializer>();
+            this.customSerializers = new Dictionary<Type, ITextSerializer>();
 
-			var handler = new HttpClientHandler();
-			if (handler.SupportsAutomaticDecompression)
-			{
-				handler.AutomaticDecompression = DecompressionMethods.GZip |
-				                                 DecompressionMethods.Deflate;
-			}
+            var handler = new HttpClientHandler();
+            if (handler.SupportsAutomaticDecompression)
+            {
+                handler.AutomaticDecompression = DecompressionMethods.GZip |
+                                                 DecompressionMethods.Deflate;
+            }
 
-			this.client = new HttpClient(handler)
-			{
-				BaseAddress = baseAddress
-			};
+            this.client = new HttpClient(handler)
+            {
+                BaseAddress = baseAddress
+            };
 
-			if (defaultSerializers != null) 
-			{
-				foreach (var serializer in defaultSerializers) 
-				{
-					this.SetSerializer (serializer);
-				}
-			}
-		}
+            if (defaultSerializers != null) 
+            {
+                foreach (var serializer in defaultSerializers) 
+                {
+                    this.SetSerializer (serializer);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets timeout in milliseconds
@@ -150,14 +150,14 @@ namespace SimplyMobile.Web
         /// <param name="serializer">
         /// The serializer.
         /// </param>
-		public void SetCustomSerializer<T>(ICustomSerializer<T> serializer)
-		{
-			var type = typeof(T);
+        public void SetCustomSerializer<T>(ICustomSerializer<T> serializer)
+        {
+            var type = typeof(T);
 
-			this.customSerializers.Remove (type);
+            this.customSerializers.Remove (type);
 
-			this.customSerializers.Add (type, serializer);
-		}
+            this.customSerializers.Add (type, serializer);
+        }
 
         /// <summary>
         /// The remove custom serializer.
@@ -169,9 +169,9 @@ namespace SimplyMobile.Web
         /// The <see cref="bool"/>.
         /// </returns>
         public bool RemoveCustomSerializer(Type type)
-		{
-			return this.customSerializers.Remove (type);
-		}
+        {
+            return this.customSerializers.Remove (type);
+        }
 
         /// <summary>
         /// The post async method.
@@ -193,28 +193,28 @@ namespace SimplyMobile.Web
         /// <exception cref="Exception">
         /// </exception>
         public async Task<ServiceResponse<T>> PostAsync<T>(string address, object dto, Format format = Format.Json)
-		{
-			ITextSerializer serializer = null, postSerializer = null, responseSerializer = null;
+        {
+            ITextSerializer serializer = null, postSerializer = null, responseSerializer = null;
 
-			if ((!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) || !this.customSerializers.TryGetValue(dto.GetType(), out postSerializer)) && 
+            if ((!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) || !this.customSerializers.TryGetValue(dto.GetType(), out postSerializer)) && 
                 !this.serializers.TryGetValue(format, out serializer))
-			{
-			    return new ServiceResponse<T>(
-			        HttpStatusCode.NotAcceptable,
-			        new Exception(string.Format("No serializers found for {0}", format)));
-			}
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.NotAcceptable,
+                    new Exception(string.Format("No serializers found for {0}", format)));
+            }
 
             //// serialize DTO to string
-			var content = ((ITextSerializer)postSerializer ?? serializer).Serialize(dto);
+            var content = ((ITextSerializer)postSerializer ?? serializer).Serialize(dto);
 
             //// post asyncronously
             try
             {
-				var s = responseSerializer as ICustomSerializer<T> ?? serializer;
+                var s = responseSerializer as ICustomSerializer<T> ?? serializer;
                 var response = await this.client.PostAsync(
                     address,
                     new StringContent(content, Encoding.UTF8, GetTextFormat(format)));
-				return await GetResponse<T>(response, s);
+                return await GetResponse<T>(response, s);
             }
             catch (Exception ex)
             {
@@ -222,7 +222,7 @@ namespace SimplyMobile.Web
                     HttpStatusCode.InternalServerError,
                     ex);
             }
-		}
+        }
 
         /// <summary>
         /// Async GET method
@@ -233,7 +233,7 @@ namespace SimplyMobile.Web
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         public async Task<ServiceResponse<T>> GetAsync<T>(string address, Format format)
         {
-			ITextSerializer serializer = null, responseSerializer = null;
+            ITextSerializer serializer = null, responseSerializer = null;
             if (!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) && !this.serializers.TryGetValue(format, out serializer))
             {
                 return new ServiceResponse<T>(
@@ -244,7 +244,7 @@ namespace SimplyMobile.Web
             try
             {
                 var response = await this.client.GetAsync(address);
-				return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
+                return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
             }
             catch (Exception ex)
             {
@@ -254,49 +254,49 @@ namespace SimplyMobile.Web
             }
         }
 
-		public async Task<ServiceResponse<T>> GetAsync<T> (string address, Dictionary<string, string> values, Format format)
-		{
-			ITextSerializer serializer = null, responseSerializer = null;
-			if (!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) && !this.serializers.TryGetValue(format, out serializer))
-			{
-				return new ServiceResponse<T>(
-					HttpStatusCode.NotAcceptable,
-					new Exception(string.Format("No serializers found for {0}", format)));
-			}
+        public async Task<ServiceResponse<T>> GetAsync<T> (string address, Dictionary<string, string> values, Format format)
+        {
+            ITextSerializer serializer = null, responseSerializer = null;
+            if (!this.customSerializers.TryGetValue(typeof(T), out responseSerializer) && !this.serializers.TryGetValue(format, out serializer))
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.NotAcceptable,
+                    new Exception(string.Format("No serializers found for {0}", format)));
+            }
 
-			try
-			{
-				var builder = new StringBuilder(address);
-				builder.Append("?");
+            try
+            {
+                var builder = new StringBuilder(address);
+                builder.Append("?");
 
-				foreach (var pair in values)
-				{
-					builder.Append(string.Format("{0}={1}&amp;", pair.Key, pair.Value));
-				}
+                foreach (var pair in values)
+                {
+                    builder.Append(string.Format("{0}={1}&amp;", pair.Key, pair.Value));
+                }
 
-				var response = await this.client.GetAsync(builder.ToString());
-				return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
-			}
-			catch (Exception ex)
-			{
-				return new ServiceResponse<T>(
-					HttpStatusCode.InternalServerError,
-					ex);
-			}
-		}
+                var response = await this.client.GetAsync(builder.ToString());
+                return await GetResponse<T>(response, responseSerializer as ICustomSerializer<T> ?? serializer);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.InternalServerError,
+                    ex);
+            }
+        }
 
-		private static string GetTextFormat(Format format)
-		{
-			switch (format)
-			{
-			case Format.Json:
-				return "text/json";
-			case Format.Xml:
-				return "text/xml";
-			default:
-				throw new NotImplementedException ();
-			}
-		}
+        private static string GetTextFormat(Format format)
+        {
+            switch (format)
+            {
+            case Format.Json:
+                return "text/json";
+            case Format.Xml:
+                return "text/xml";
+            default:
+                throw new NotImplementedException ();
+            }
+        }
 
         private static async Task<ServiceResponse<T>> GetResponse<T>(HttpResponseMessage response, ITextSerializer serializer)
         {

@@ -9,34 +9,34 @@ using System.CodeDom.Compiler;
 
 namespace ObservableCollectionTest
 {
-	[Register ("DataCollectionViewController")]
-	partial class DataCollectionViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UICollectionView collectionView { get; set; }
+    [Register ("DataCollectionViewController")]
+    partial class DataCollectionViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UICollectionView collectionView { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITableView tableBasic { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UITableView tableBasic { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITableView tableDetailed { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (collectionView != null) {
-				collectionView.Dispose ();
-				collectionView = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UITableView tableDetailed { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (collectionView != null) {
+                collectionView.Dispose ();
+                collectionView = null;
+            }
 
-			if (tableDetailed != null) {
-				tableDetailed.Dispose ();
-				tableDetailed = null;
-			}
+            if (tableDetailed != null) {
+                tableDetailed.Dispose ();
+                tableDetailed = null;
+            }
 
-			if (tableBasic != null) {
-				tableBasic.Dispose ();
-				tableBasic = null;
-			}
-		}
-	}
+            if (tableBasic != null) {
+                tableBasic.Dispose ();
+                tableBasic = null;
+            }
+        }
+    }
 }

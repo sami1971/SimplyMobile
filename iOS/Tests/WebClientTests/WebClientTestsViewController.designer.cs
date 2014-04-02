@@ -9,34 +9,34 @@ using System.CodeDom.Compiler;
 
 namespace WebClientTests
 {
-	[Register ("WebClientTestsViewController")]
-	partial class WebClientTestsViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonSendScript { get; set; }
+    [Register ("WebClientTestsViewController")]
+    partial class WebClientTestsViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIButton buttonSendScript { get; set; }
 
-		[Outlet]
-		CanvasDemo.iOS.DataPointTable datapointTable { get; set; }
+        [Outlet]
+        CanvasDemo.iOS.DataPointTable datapointTable { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UIWebView webView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (buttonSendScript != null) {
-				buttonSendScript.Dispose ();
-				buttonSendScript = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UIWebView webView { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (buttonSendScript != null) {
+                buttonSendScript.Dispose ();
+                buttonSendScript = null;
+            }
 
-			if (webView != null) {
-				webView.Dispose ();
-				webView = null;
-			}
+            if (webView != null) {
+                webView.Dispose ();
+                webView = null;
+            }
 
-			if (datapointTable != null) {
-				datapointTable.Dispose ();
-				datapointTable = null;
-			}
-		}
-	}
+            if (datapointTable != null) {
+                datapointTable.Dispose ();
+                datapointTable = null;
+            }
+        }
+    }
 }

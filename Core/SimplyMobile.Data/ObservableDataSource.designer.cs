@@ -46,7 +46,7 @@ namespace SimplyMobile.Data
         public ObservableDataSource()
         {
             this.observers = new ObservableCollection<WeakReference>();
-			this.observers.CollectionChanged += this.ObserversChanged;
+            this.observers.CollectionChanged += this.ObserversChanged;
             this.Data = new ObservableCollection<T>();
         }
 
@@ -72,12 +72,12 @@ namespace SimplyMobile.Data
         /// </summary>
         public event EventHandler<EventArgs<T>> OnSelected;
 
-		/// <summary>
-		/// The requested event occurs when an observer requests an item.
-		/// </summary>
-		/// <remarks>The sender will be the requesting observer, f.e. a ListView in Android
-		/// or UITableView in iOS.</remarks>
-		public event EventHandler<EventArgs<int>> OnRequested;
+        /// <summary>
+        /// The requested event occurs when an observer requests an item.
+        /// </summary>
+        /// <remarks>The sender will be the requesting observer, f.e. a ListView in Android
+        /// or UITableView in iOS.</remarks>
+        public event EventHandler<EventArgs<int>> OnRequested;
 
         /// <summary>
         /// Gets or sets the data.
@@ -104,7 +104,7 @@ namespace SimplyMobile.Data
                 this.data = value;
                 this.data.CollectionChanged += this.CollectionChanged;
 
-				this.CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Reset));
+                this.CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Reset));
             }
         }
 
@@ -114,9 +114,9 @@ namespace SimplyMobile.Data
         /// <param name="observer">
         /// The observer.
         /// </param>
-		/// <remarks>
-		/// The observer should implement <see cref="ITableCellProvider"/> interface.
-		/// </remarks>
+        /// <remarks>
+        /// The observer should implement <see cref="ITableCellProvider"/> interface.
+        /// </remarks>
         public void Bind(object observer)
         {
             if (!this.observers.Any(a=> a.IsAlive && a.Target.Equals(observer)))
@@ -125,13 +125,13 @@ namespace SimplyMobile.Data
             }
         }
 
-		/// <summary>
-		/// Unbind the specified observer.
-		/// </summary>
-		/// <param name="observer">Observer to unbind.</param>
-		/// <returns>true when unbind is successful, otherwise false</returns>
-		public bool Unbind(object observer)
-		{
+        /// <summary>
+        /// Unbind the specified observer.
+        /// </summary>
+        /// <param name="observer">Observer to unbind.</param>
+        /// <returns>true when unbind is successful, otherwise false</returns>
+        public bool Unbind(object observer)
+        {
             var l = this.observers.Where (a => a.Target.Equals (observer)).ToList ();
             foreach (var item in l)
             {
@@ -139,7 +139,7 @@ namespace SimplyMobile.Data
             }
 
             return true;
-		}
+        }
 
         /// <summary>
         /// Add items to data collection.
@@ -197,17 +197,17 @@ namespace SimplyMobile.Data
             }
         }
 
-		/// <summary>
-		/// Invokes the item requested event.
-		/// </summary>
-		/// <param name="index">Index of the requested item.</param>
-		private void InvokeItemRequestedEvent(object sender, int index)
-		{
-			if (this.OnRequested != null)
-			{
-				this.OnRequested (sender, new EventArgs<int> (index));
-			}
-		}
+        /// <summary>
+        /// Invokes the item requested event.
+        /// </summary>
+        /// <param name="index">Index of the requested item.</param>
+        private void InvokeItemRequestedEvent(object sender, int index)
+        {
+            if (this.OnRequested != null)
+            {
+                this.OnRequested (sender, new EventArgs<int> (index));
+            }
+        }
 
         /// <summary>
         /// The collection changed partial method must be implemented in the OS specific code.

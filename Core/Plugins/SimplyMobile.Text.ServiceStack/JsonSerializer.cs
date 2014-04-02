@@ -38,10 +38,10 @@ namespace SimplyMobile.Text.ServiceStack
         /// Initializes a new instance of the <see cref="JsonSerializer"/> class.
         /// </summary>
         public JsonSerializer()
-		{
-			JsConfig.EmitCamelCaseNames = true;
-			JsConfig.DateHandler = JsonDateHandler.ISO8601;
-		}
+        {
+            JsConfig.EmitCamelCaseNames = true;
+            JsConfig.DateHandler = JsonDateHandler.ISO8601;
+        }
 
         /// <summary>
         /// Gets the format.
@@ -56,7 +56,7 @@ namespace SimplyMobile.Text.ServiceStack
         /// </summary>
         /// <param name="obj">Object to serialize</param>
         /// <returns>Serialized string of the object</returns>
-		public string Serialize<T>(T obj)
+        public string Serialize<T>(T obj)
         {
             return Serializer.SerializeToString(obj);
         }

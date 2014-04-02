@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace SimpleViewModel
 {
-	[Register ("SimpleViewModelViewController")]
-	partial class SimpleViewModelViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIButton button { get; set; }
+    [Register ("SimpleViewModelViewController")]
+    partial class SimpleViewModelViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIButton button { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel label { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (label != null) {
-				label.Dispose ();
-				label = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UILabel label { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (label != null) {
+                label.Dispose ();
+                label = null;
+            }
 
-			if (button != null) {
-				button.Dispose ();
-				button = null;
-			}
-		}
-	}
+            if (button != null) {
+                button.Dispose ();
+                button = null;
+            }
+        }
+    }
 }

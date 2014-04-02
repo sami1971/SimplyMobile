@@ -11,11 +11,11 @@ namespace SimplyMobile.Device
         public Vector3d() { }
 
         public Vector3d(double x, double y, double z)
-		{
-			this.X = x;
-			this.Y = y;
-			this.Z = z;
-		}
+        {
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
 
         public double X { get; set; }
         public double Y { get; set; }

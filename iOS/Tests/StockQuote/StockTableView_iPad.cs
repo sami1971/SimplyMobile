@@ -8,43 +8,43 @@ using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
 
 namespace StockQuote
 {
-	[Register("StockTableView_iPad")]
-	public class StockTableView_iPad : UITableView, ITableCellProvider<Stock>
-	{
-		private const string CellId = "StockTableView_iPad";
+    [Register("StockTableView_iPad")]
+    public class StockTableView_iPad : UITableView, ITableCellProvider<Stock>
+    {
+        private const string CellId = "StockTableView_iPad";
 
-		public StockTableView_iPad ()
-		{
+        public StockTableView_iPad ()
+        {
 
-		}
+        }
 
-		public StockTableView_iPad (IntPtr handle) : base (handle)
-		{
+        public StockTableView_iPad (IntPtr handle) : base (handle)
+        {
 
-		}
+        }
 
-		#region ITableCellProvider implementation
+        #region ITableCellProvider implementation
 
-		public UITableViewCell GetCell (Stock stock)
-		{
-			var newCell = this.DequeueReusableCell(StockCell.Key) as StockCell;
+        public UITableViewCell GetCell (Stock stock)
+        {
+            var newCell = this.DequeueReusableCell(StockCell.Key) as StockCell;
 
-			if (newCell == null)
-			{
-				newCell = StockCell.Create();
-			}
+            if (newCell == null)
+            {
+                newCell = StockCell.Create();
+            }
 
-			newCell.Bind (stock);
+            newCell.Bind (stock);
 
-			return newCell;
-		}
+            return newCell;
+        }
 
         public float GetHeightForRow(NSIndexPath indexPath, Stock item)
-		{
-			return 145f;
-		}
+        {
+            return 145f;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

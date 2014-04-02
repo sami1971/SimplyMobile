@@ -72,15 +72,15 @@ namespace SimplyMobile.Data
 
         public virtual View GetView(int position, View convertView, ViewGroup parent)
         {
-			this.InvokeItemRequestedEvent (parent, position);
+            this.InvokeItemRequestedEvent (parent, position);
 
-			var item = this.Data [position];
+            var item = this.Data [position];
             var cellProvider = parent as ITableCellProvider<T> ?? this.FindProvider(parent);
 
-			if (cellProvider != null)
-			{
-				return cellProvider.GetView (item, convertView);
-			}
+            if (cellProvider != null)
+            {
+                return cellProvider.GetView (item, convertView);
+            }
 
             var v = convertView as TextView ?? new TextView(parent.Context);
             v.Text = item.ToString();
@@ -129,7 +129,7 @@ namespace SimplyMobile.Data
 
         private void HandleItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-			this.InvokeItemSelectedEvent(sender, this.Data[e.Position]);
+            this.InvokeItemSelectedEvent(sender, this.Data[e.Position]);
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace SimplyMobile.Data
         {
             foreach (var listView in this.observers.Where(a=>a.IsAlive).Select(a=>a.Target).OfType<ListView>())
             {
-				((Activity)listView.Context).RunOnUiThread (listView.InvalidateViews);
+                ((Activity)listView.Context).RunOnUiThread (listView.InvalidateViews);
             }
         }
 
@@ -160,73 +160,73 @@ namespace SimplyMobile.Data
         /// </param>
         partial void ObserversChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
-			if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
-			{
+            if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Add)
+            {
                 var refs = notifyCollectionChangedEventArgs.NewItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
 
                 foreach (var newListView in refs.OfType<ListView>())
-				{
-					newListView.Adapter = this;
-					newListView.ItemSelected -= HandleItemSelected;
-					newListView.ItemSelected += HandleItemSelected;
-					newListView.ItemClick -= HandleItemClicked;
-					newListView.ItemClick += HandleItemClicked;
-				}
+                {
+                    newListView.Adapter = this;
+                    newListView.ItemSelected -= HandleItemSelected;
+                    newListView.ItemSelected += HandleItemSelected;
+                    newListView.ItemClick -= HandleItemClicked;
+                    newListView.ItemClick += HandleItemClicked;
+                }
 
                 foreach (var newSpinner in refs.OfType<Spinner>())
-				{
-					newSpinner.Adapter = this;
-					newSpinner.ItemSelected -= HandleItemSelected;
-					newSpinner.ItemSelected += HandleItemSelected;
-					newSpinner.NothingSelected += HandleNothingSelected;
-				}
-//				foreach (var listView in this.observers.OfType<ListView>())
-//				{
-//					listView.Adapter = this;
-//				}
-			}
-			else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
-			{
+                {
+                    newSpinner.Adapter = this;
+                    newSpinner.ItemSelected -= HandleItemSelected;
+                    newSpinner.ItemSelected += HandleItemSelected;
+                    newSpinner.NothingSelected += HandleNothingSelected;
+                }
+//              foreach (var listView in this.observers.OfType<ListView>())
+//              {
+//                  listView.Adapter = this;
+//              }
+            }
+            else if (notifyCollectionChangedEventArgs.Action == NotifyCollectionChangedAction.Remove)
+            {
                 var refs = notifyCollectionChangedEventArgs.OldItems.OfType<WeakReference>().Where(a=>a.IsAlive).Select(a=>a.Target).ToList();
 
                 foreach (var removedListView in refs.OfType<ListView>())
-				{
-					removedListView.Adapter = null;
-					removedListView.ItemSelected -= HandleItemSelected;
-					removedListView.ItemClick -= HandleItemClicked;
-				}
+                {
+                    removedListView.Adapter = null;
+                    removedListView.ItemSelected -= HandleItemSelected;
+                    removedListView.ItemClick -= HandleItemClicked;
+                }
 
                 foreach (var removedSpinner in refs.OfType<Spinner>())
-				{
-					removedSpinner.Adapter = null;
-					removedSpinner.ItemSelected -= HandleItemSelected;
-				}
-			}
+                {
+                    removedSpinner.Adapter = null;
+                    removedSpinner.ItemSelected -= HandleItemSelected;
+                }
+            }
         }
 
         void HandleNothingSelected (object sender, AdapterView.NothingSelectedEventArgs e)
         {
-			System.Diagnostics.Debug.WriteLine ("HandleNothingSelected");
+            System.Diagnostics.Debug.WriteLine ("HandleNothingSelected");
         }
 
-		public void OnItemSelected(AdapterView parent, View view, int position, long id)
-		{
-			this.HandleItemSelected (parent, new AdapterView.ItemSelectedEventArgs (parent, view, position, id));
-		}
+        public void OnItemSelected(AdapterView parent, View view, int position, long id)
+        {
+            this.HandleItemSelected (parent, new AdapterView.ItemSelectedEventArgs (parent, view, position, id));
+        }
 
-		public void OnNothingSelected(Android.Widget.AdapterView parent)
-		{
-//			throw new NotImplementedException ();
-		}
+        public void OnNothingSelected(Android.Widget.AdapterView parent)
+        {
+//          throw new NotImplementedException ();
+        }
 
         void HandleClick (object sender, EventArgs e)
         {
-			System.Diagnostics.Debug.WriteLine ("HandleClick clicked");
+            System.Diagnostics.Debug.WriteLine ("HandleClick clicked");
         }
 
         void HandleItemClick (object sender, AdapterView.ItemClickEventArgs e)
         {
-			System.Diagnostics.Debug.WriteLine ("HandleItemClick clicked");
+            System.Diagnostics.Debug.WriteLine ("HandleItemClick clicked");
         }
     }
 }

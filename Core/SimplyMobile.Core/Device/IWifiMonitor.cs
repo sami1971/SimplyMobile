@@ -21,17 +21,17 @@ namespace SimplyMobile.Device
 {
     public interface IWifiMonitor : IMonitor
     {
-		/// <summary>
-		/// Gets a value indicating whether WiFi is enabled.
-		/// </summary>
-		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        /// <summary>
+        /// Gets a value indicating whether WiFi is enabled.
+        /// </summary>
+        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
         bool Enabled { get; }
 
-		/// <summary>
-		/// Gets the current SSID.
-		/// </summary>
-		/// <value>The current SSID.</value>
-		string CurrentSSID { get; }
+        /// <summary>
+        /// Gets the current SSID.
+        /// </summary>
+        /// <value>The current SSID.</value>
+        string CurrentSSID { get; }
 
         event EventHandler<EventArgs<bool>> OnStatusChange;
 

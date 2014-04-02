@@ -26,76 +26,76 @@ using SimplyMobile.Location;
 
 namespace DeviceTests
 {
-	[Activity (Label = "DeviceApp", MainLauncher = true)]
-	public class MainActivity : ActivityCore
-	{
-		private TextView batteryLevel;
-		private ToggleButton chargerState;
-		private TextView accelerometerStatus;
+    [Activity (Label = "DeviceApp", MainLauncher = true)]
+    public class MainActivity : ActivityCore
+    {
+        private TextView batteryLevel;
+        private ToggleButton chargerState;
+        private TextView accelerometerStatus;
         private TextView textLocation;
         private TextView textPhoneNumber;
-//		private ToggleButton acceleroMeterState;
+//      private ToggleButton acceleroMeterState;
 
-		protected override IEnumerable<MenuAction> MenuActions
-		{
-			get
-			{
-				return new [] 
-				{
-					new MenuAction("AP Networks", ()=> this.StartActivity<ApNetworkActivity>()),
-					new MenuAction("Sensor measurement", ()=> this.StartActivity<SensorDelayActivity>()),
-				};
-			}
-		}
+        protected override IEnumerable<MenuAction> MenuActions
+        {
+            get
+            {
+                return new [] 
+                {
+                    new MenuAction("AP Networks", ()=> this.StartActivity<ApNetworkActivity>()),
+                    new MenuAction("Sensor measurement", ()=> this.StartActivity<SensorDelayActivity>()),
+                };
+            }
+        }
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
+            RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
 
 
             var connect = BTConnector.GetConnectMethod ();
-			var layout = new LinearLayout (this) 
-			{
-				Orientation = Orientation.Vertical
-			};
+            var layout = new LinearLayout (this) 
+            {
+                Orientation = Orientation.Vertical
+            };
 
-			// Set our view from the "main" layout resource
-			SetContentView (layout);
+            // Set our view from the "main" layout resource
+            SetContentView (layout);
 
             // Start logging accelerometer data to database
             DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
 
-			this.batteryLevel = new TextView (this);
+            this.batteryLevel = new TextView (this);
 
-			layout.AddView (this.batteryLevel);
+            layout.AddView (this.batteryLevel);
 
-			chargerState = new ToggleButton (this) 
-			{
-				Enabled = false,
-				TextOff = "Charger disconnected",
-				TextOn = "Charger connected"
-			};
+            chargerState = new ToggleButton (this) 
+            {
+                Enabled = false,
+                TextOff = "Charger disconnected",
+                TextOn = "Charger connected"
+            };
 
-			layout.AddView (chargerState);
+            layout.AddView (chargerState);
 
-			var accelometerLabel = new TextView (this) 
-			{
-				Text = "Accelerometer status"
-			};
+            var accelometerLabel = new TextView (this) 
+            {
+                Text = "Accelerometer status"
+            };
 
-			layout.AddView (accelometerLabel);
+            layout.AddView (accelometerLabel);
 
-			this.accelerometerStatus = new TextView (this);
-			layout.AddView (this.accelerometerStatus);
+            this.accelerometerStatus = new TextView (this);
+            layout.AddView (this.accelerometerStatus);
 
-			var textScreenSize = new TextView (this) 
-			{
-				Text = string.Format ("Screen size is {0}in.", Display.ScreenSizeInches)
-			};
+            var textScreenSize = new TextView (this) 
+            {
+                Text = string.Format ("Screen size is {0}in.", Display.ScreenSizeInches)
+            };
 
-			layout.AddView (textScreenSize);
+            layout.AddView (textScreenSize);
 
             this.textLocation = new TextView(this);
             layout.AddView(this.textLocation);
@@ -136,14 +136,14 @@ namespace DeviceTests
                     bt.OpenSettings ();
                 }
             };
-//			this.acceleroMeterState = new ToggleButton (this) 
-//			{
-//				TextOn = "Accelerometer ON",
-//				TextOff = "Accelerometer OFF"
-//			};
+//          this.acceleroMeterState = new ToggleButton (this) 
+//          {
+//              TextOn = "Accelerometer ON",
+//              TextOff = "Accelerometer OFF"
+//          };
 //
-//			layout.AddView (this.acceleroMeterState);
-		}
+//          layout.AddView (this.acceleroMeterState);
+        }
 
         protected override void OnDestroy()
         {
@@ -151,60 +151,60 @@ namespace DeviceTests
             base.OnDestroy();
         }
 
-		protected override void OnResume ()
-		{
-			base.OnResume ();
+        protected override void OnResume ()
+        {
+            base.OnResume ();
 
-			// Get initial level, 0-100
-			this.batteryLevel.Text = Battery.Level.ToString();
+            // Get initial level, 0-100
+            this.batteryLevel.Text = Battery.Level.ToString();
 
-			// Subscribe to level changes. 
-			Battery.OnLevelChange += HandleOnLevelChange;
+            // Subscribe to level changes. 
+            Battery.OnLevelChange += HandleOnLevelChange;
 
-			// Get the initial charger connection status
-			this.chargerState.Checked = Battery.Charging;
+            // Get the initial charger connection status
+            this.chargerState.Checked = Battery.Charging;
 
-			// Subscribe to charger status changes.
-			Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
+            // Subscribe to charger status changes.
+            Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
 
-			Accelometer.ReadingAvailable += HandleReadingAvailable;
+            Accelometer.ReadingAvailable += HandleReadingAvailable;
 
-			if (Accelometer.LatestStatus != null)
-			{
-				this.accelerometerStatus.Text = Accelometer.LatestStatus.ToString ();
-			}
+            if (Accelometer.LatestStatus != null)
+            {
+                this.accelerometerStatus.Text = Accelometer.LatestStatus.ToString ();
+            }
 
             DependencyResolver.Current.GetService<ILocationMonitor>().LocationChanged += MainActivity_LocationChanged;
-		}
+        }
 
         void MainActivity_LocationChanged(object sender, Coordinates e)
         {
             this.textLocation.Text = string.Format("New location is {0}", e);
         }
 
-		void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
-		{
-			this.accelerometerStatus.Text = e.Value.ToString ();
-		}
+        void HandleReadingAvailable (object sender, EventArgs<AccelometerStatus> e)
+        {
+            this.accelerometerStatus.Text = e.Value.ToString ();
+        }
 
-		void HandleOnChargerStatusChanged (object sender, EventArgs<bool> e)
-		{
-			this.chargerState.Checked = e.Value;
-		}
+        void HandleOnChargerStatusChanged (object sender, EventArgs<bool> e)
+        {
+            this.chargerState.Checked = e.Value;
+        }
 
-		void HandleOnLevelChange (object sender, EventArgs<int> e)
-		{
-			this.batteryLevel.Text = e.Value.ToString();
-		}
+        void HandleOnLevelChange (object sender, EventArgs<int> e)
+        {
+            this.batteryLevel.Text = e.Value.ToString();
+        }
 
-		protected override void OnPause ()
-		{
-			base.OnPause ();
-			Battery.OnLevelChange -= HandleOnLevelChange;
-			Battery.OnChargerStatusChanged -= HandleOnChargerStatusChanged;
-			Accelometer.ReadingAvailable -= HandleReadingAvailable;
-		}
-	}
+        protected override void OnPause ()
+        {
+            base.OnPause ();
+            Battery.OnLevelChange -= HandleOnLevelChange;
+            Battery.OnChargerStatusChanged -= HandleOnChargerStatusChanged;
+            Accelometer.ReadingAvailable -= HandleReadingAvailable;
+        }
+    }
 }
 
 

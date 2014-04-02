@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Web
 {
-	public class JsonClient : IRestClient
-	{
+    public class JsonClient : IRestClient
+    {
         private IJsonSerializer serializer;
         private HttpClient httpClient;
 
@@ -26,11 +26,11 @@ namespace SimplyMobile.Web
             this.serializer = serializer;
         }
 
-		public JsonClient(HttpClient httpClient, IJsonSerializer serializer)
-		{
-			this.httpClient = httpClient;
-			this.serializer = serializer;
-		}
+        public JsonClient(HttpClient httpClient, IJsonSerializer serializer)
+        {
+            this.httpClient = httpClient;
+            this.serializer = serializer;
+        }
 
         /// <summary>
         /// Gets or sets timeout in milliseconds
@@ -69,7 +69,7 @@ namespace SimplyMobile.Web
                 var response = await this.HttpClient.PostAsync(
                     address,
                     new StringContent(content, Encoding.UTF8, "text/json"));
-				return await GetResponse<T>(response, this.serializer);
+                return await GetResponse<T>(response, this.serializer);
             }
             catch (Exception ex)
             {
@@ -84,7 +84,7 @@ namespace SimplyMobile.Web
             try
             {
                 var response = await this.HttpClient.GetAsync(address);
-				return await GetResponse<T>(response, this.serializer);
+                return await GetResponse<T>(response, this.serializer);
             }
             catch (Exception ex)
             {
@@ -96,25 +96,25 @@ namespace SimplyMobile.Web
 
         public async Task<ServiceResponse<T>> GetAsync<T>(string address, Dictionary<string, string> values, Format format = Format.Json)
         {
-			try
-			{
-				var builder = new StringBuilder(address);
-				builder.Append("?");
+            try
+            {
+                var builder = new StringBuilder(address);
+                builder.Append("?");
 
-				foreach (var pair in values)
-				{
-					builder.Append(string.Format("{0}={1}&amp;", pair.Key, pair.Value));
-				}
+                foreach (var pair in values)
+                {
+                    builder.Append(string.Format("{0}={1}&amp;", pair.Key, pair.Value));
+                }
 
-				var response = await this.HttpClient.GetAsync(builder.ToString());
-				return await GetResponse<T>(response, this.serializer);
-			}
-			catch (Exception ex)
-			{
-				return new ServiceResponse<T>(
-					HttpStatusCode.InternalServerError,
-					ex);
-			}
+                var response = await this.HttpClient.GetAsync(builder.ToString());
+                return await GetResponse<T>(response, this.serializer);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResponse<T>(
+                    HttpStatusCode.InternalServerError,
+                    ex);
+            }
         }
 
         public void SetCustomSerializer<T>(ICustomSerializer<T> serializer)

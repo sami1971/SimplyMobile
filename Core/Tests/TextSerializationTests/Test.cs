@@ -25,22 +25,22 @@ namespace TextSerializationTests
     /// The test methods.
     /// </summary>
     public static class TestMethods
-	{
+    {
         public static bool CanSerialize<T>(ITextSerializer serializer, T item, ITextSerializer deserializer)
-		{
-//			person.Pets.Add (new Dog () { Name = "Shorthaired German Pointer" });
-//			person.Pets.Add (new Cat () { Name = "Siamese" });
+        {
+//          person.Pets.Add (new Dog () { Name = "Shorthaired German Pointer" });
+//          person.Pets.Add (new Cat () { Name = "Siamese" });
 
-			var text = serializer.Serialize (item);
+            var text = serializer.Serialize (item);
 
-			Console.WriteLine(text);
+            Console.WriteLine(text);
 
             var obj = deserializer.Deserialize<T>(text);
 
-			Console.WriteLine (obj);
+            Console.WriteLine (obj);
 
-			return obj.Equals(item);
-		}
+            return obj.Equals(item);
+        }
 
         public static bool CanSerializeEnumerable<T>(ITextSerializer serializer, IEnumerable<T> list, ITextSerializer deserializer)
         {
@@ -51,73 +51,73 @@ namespace TextSerializationTests
             return obj.SequenceEqual(list);
         }
 
-		public static long GetSerializationSpeed(int numberOfIterations, ITextSerializer serializer)
-		{
-			var person = new Person () 
-			{
-				Id = 0,
-				FirstName = "First",
-				LastName = "Last"
-			};
+        public static long GetSerializationSpeed(int numberOfIterations, ITextSerializer serializer)
+        {
+            var person = new Person () 
+            {
+                Id = 0,
+                FirstName = "First",
+                LastName = "Last"
+            };
 
-			var stopWatch = new Stopwatch ();
-			stopWatch.Start();
-			for (var n = 0; n < numberOfIterations; n++)
-			{
-				serializer.Serialize (person);
-			}
-			stopWatch.Stop();
-			return stopWatch.ElapsedMilliseconds;
-		}
+            var stopWatch = new Stopwatch ();
+            stopWatch.Start();
+            for (var n = 0; n < numberOfIterations; n++)
+            {
+                serializer.Serialize (person);
+            }
+            stopWatch.Stop();
+            return stopWatch.ElapsedMilliseconds;
+        }
 
-		public static long GetDeserializationSpeed(int numberOfIterations, ITextSerializer serializer, ITextSerializer deserializer)
-		{
-			var person = new Person () 
-			{
-				Id = 0,
-				FirstName = "First",
-				LastName = "Last"
-			};
+        public static long GetDeserializationSpeed(int numberOfIterations, ITextSerializer serializer, ITextSerializer deserializer)
+        {
+            var person = new Person () 
+            {
+                Id = 0,
+                FirstName = "First",
+                LastName = "Last"
+            };
 
-			var str = serializer.Serialize (person);
+            var str = serializer.Serialize (person);
 
-			var stopWatch = new Stopwatch ();
-			stopWatch.Start ();
-			for (var n = 0; n < numberOfIterations; n++)
-			{
+            var stopWatch = new Stopwatch ();
+            stopWatch.Start ();
+            for (var n = 0; n < numberOfIterations; n++)
+            {
                 deserializer.Deserialize<Person>(str);
-			}
-			stopWatch.Stop ();
-			return stopWatch.ElapsedMilliseconds;
-		}
+            }
+            stopWatch.Stop ();
+            return stopWatch.ElapsedMilliseconds;
+        }
 
         public static long GetSerializationSpeed(int numberOfIterations, ITextSerializer serializer, object o, out string text, ITextSerializer deserializer)
-		{
-			text = string.Empty;
+        {
+            text = string.Empty;
 
-			var stopWatch = new Stopwatch ();
-			stopWatch.Start ();
-			for (var n = 0; n < numberOfIterations; n++)
-			{
+            var stopWatch = new Stopwatch ();
+            stopWatch.Start ();
+            for (var n = 0; n < numberOfIterations; n++)
+            {
                 text = deserializer.Serialize(o);
-			}
-			stopWatch.Stop ();
-			return stopWatch.ElapsedMilliseconds;
-		}
+            }
+            stopWatch.Stop ();
+            return stopWatch.ElapsedMilliseconds;
+        }
 
         public static long GetDeserializationSpeed<T>(int numberOfIterations, ITextSerializer serializer, string text, out T deserialized, ITextSerializer deserializer)
-		{
-			deserialized = default(T);
+        {
+            deserialized = default(T);
 
-			var stopWatch = new Stopwatch ();
-			stopWatch.Start ();
-			for (var n = 0; n < numberOfIterations; n++)
-			{
+            var stopWatch = new Stopwatch ();
+            stopWatch.Start ();
+            for (var n = 0; n < numberOfIterations; n++)
+            {
                 deserialized = deserializer.Deserialize<T>(text);
-			}
-			stopWatch.Stop ();
-			return stopWatch.ElapsedMilliseconds;
-		}
-	}
+            }
+            stopWatch.Stop ();
+            return stopWatch.ElapsedMilliseconds;
+        }
+    }
 }
 

@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace NavigationSample
 {
-	[Register ("ButtonViewController")]
-	partial class ButtonViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIWebView webView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (webView != null) {
-				webView.Dispose ();
-				webView = null;
-			}
-		}
-	}
+    [Register ("ButtonViewController")]
+    partial class ButtonViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIWebView webView { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (webView != null) {
+                webView.Dispose ();
+                webView = null;
+            }
+        }
+    }
 }

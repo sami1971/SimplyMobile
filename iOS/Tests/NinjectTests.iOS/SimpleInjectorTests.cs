@@ -12,17 +12,17 @@ using NUnit.Framework;
 namespace NinjectTests
 {
     [TestFixture]
-	public class SimpleInjectorTests : InjectionTests
-	{
-		#region implemented abstract members of InjectionTests
-		protected override SimplyMobile.IoC.IDependencyResolver Resolver
-		{
-			get
-			{
-				return new Resolver ();
-			}
-		}
-		#endregion
-	}
+    public class SimpleInjectorTests : InjectionTests
+    {
+        #region implemented abstract members of InjectionTests
+        protected override SimplyMobile.IoC.IDependencyResolver Resolver
+        {
+            get
+            {
+                return new Resolver ();
+            }
+        }
+        #endregion
+    }
 }
 

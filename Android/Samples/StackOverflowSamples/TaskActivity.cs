@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StackOverflowSamples
 {
-    [Activity (Label = "TaskActivity")]			
+    [Activity (Label = "TaskActivity")]         
     public class TaskActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

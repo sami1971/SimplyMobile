@@ -13,9 +13,9 @@ namespace SimplyMobile.Plugins.WeatherWcfService
             this.service = WeatherForecastServiceClient.Default;
         }
 
-		public async Task<string[]> GetCitiesByCountryAsync(string country, IProgress<Exception> progress = null)
+        public async Task<string[]> GetCitiesByCountryAsync(string country, IProgress<Exception> progress = null)
         {
-			string[] ret = new string[0];
+            string[] ret = new string[0];
 
             await Task.Factory.StartNew(() =>
             {
@@ -44,12 +44,12 @@ namespace SimplyMobile.Plugins.WeatherWcfService
                 e.WaitOne();
             });
 
-			return ret;
+            return ret;
         }
 
-		public async Task<Weather> GetWeatherAsync(string city, string country, IProgress<Exception> progress = null)
+        public async Task<Weather> GetWeatherAsync(string city, string country, IProgress<Exception> progress = null)
         {
-			Weather ret = null;
+            Weather ret = null;
 
             await Task.Factory.StartNew(() =>
             {
@@ -66,27 +66,27 @@ namespace SimplyMobile.Plugins.WeatherWcfService
                     }
                     catch(Exception ex)
                     {
-						if (progress != null)
-						{
-							progress.Report(ex);
-						}
+                        if (progress != null)
+                        {
+                            progress.Report(ex);
+                        }
                     }
-					finally
-					{
-                    	e.Set();
-					}
+                    finally
+                    {
+                        e.Set();
+                    }
                     },
                 null);
                 e.WaitOne();
-			});
+            });
 
-//			await task.ContinueWith(
+//          await task.ContinueWith(
 //                tsk => { return ret; },
 //                TaskContinuationOptions.OnlyOnFaulted);
 
 //            await task;
 
-			return ret;
+            return ret;
         }
     }
 }

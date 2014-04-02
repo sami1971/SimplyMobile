@@ -24,7 +24,7 @@ namespace NinjectTests
         {
             get 
             {
-				return new Resolver();
+                return new Resolver();
             }
         }
     }

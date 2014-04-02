@@ -55,13 +55,13 @@ namespace SimplyMobile.Text.ProtoBuffer
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-		public string Serialize<T>(T obj)
+        public string Serialize<T>(T obj)
         {
             using (var memStream = new MemoryStream())
             {
                 Model.Serialize(memStream, obj);
                 var buffer = new byte[memStream.Length];
-				memStream.Position = 0;
+                memStream.Position = 0;
                 var count = memStream.Read(buffer, 0, buffer.Length);
                 return Encoding.UTF8.GetString(buffer, 0, count);
             }

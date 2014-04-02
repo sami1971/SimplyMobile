@@ -12,22 +12,22 @@ using SimplyMobile.Text.ServiceStack;
 
 namespace StackOverflowSamples
 {
-	[Activity (Label = "SerializationSampleActivity")]			
-	public class SerializationSampleActivity : Activity
-	{
-		protected override void OnCreate(Bundle bundle)
-		{
-			base.OnCreate (bundle);
+    [Activity (Label = "SerializationSampleActivity")]          
+    public class SerializationSampleActivity : Activity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			SetContentView(Resource.Layout.serialization_layout);
+            SetContentView(Resource.Layout.serialization_layout);
 
-			var serializer = new JsonSerializer ();
-			var str = this.Intent.Extras.GetString ("object");
-			var obj = serializer.Deserialize<GenericDto> (str);
+            var serializer = new JsonSerializer ();
+            var str = this.Intent.Extras.GetString ("object");
+            var obj = serializer.Deserialize<GenericDto> (str);
 
-			FindViewById<TextView> (Resource.Id.textCount).Text = 
-				string.Format ("Clicked {0} times.", obj.Count);
-		}
-	}
+            FindViewById<TextView> (Resource.Id.textCount).Text = 
+                string.Format ("Clicked {0} times.", obj.Count);
+        }
+    }
 }
 

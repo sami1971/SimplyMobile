@@ -72,16 +72,16 @@ namespace DeviceTests
 
         }
 
-		private void OnStop()
-		{
+        private void OnStop()
+        {
 
-		}
+        }
 
         internal static string GetPath()
         {
             //Environment.SpecialFolder.ApplicationData
 #if WINDOWS_PHONE
-			var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Shared" + Path.DirectorySeparatorChar + "Media");
+            var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Shared" + Path.DirectorySeparatorChar + "Media");
 #elif __ANDROID__
             var path = "/sdcard/";
 #else

@@ -27,25 +27,25 @@ using NUnit.Framework;
 
 namespace TextSerializationTests
 {
-	[TestFixture ()]
-	public abstract class SanityCheckTests
-	{
-	    /// <summary>
-	    /// Gets the serializer.
-	    /// </summary>
-	    protected abstract ITextSerializer Serializer { get; }
+    [TestFixture ()]
+    public abstract class SanityCheckTests
+    {
+        /// <summary>
+        /// Gets the serializer.
+        /// </summary>
+        protected abstract ITextSerializer Serializer { get; }
 
         /// <summary>
         /// Gets the deserializer.
         /// </summary>
         protected abstract ITextSerializer Deserializer { get; }
 
-		[Test()]
-		public void CanSerializePrimitive()
-		{
-			var p = Primitives.Create (10);
+        [Test()]
+        public void CanSerializePrimitive()
+        {
+            var p = Primitives.Create (10);
             Assert.IsTrue(TestMethods.CanSerialize<Primitives>(this.Serializer, p, this.Deserializer));
-		}
+        }
 
         [Test()]
         public void CanSerializePrimitiveList()
@@ -74,24 +74,24 @@ namespace TextSerializationTests
             Assert.IsTrue(TestMethods.CanSerialize<DateTimeOffset>(this.Serializer, p, this.Deserializer));
         }
 
-		[Test()]
-		public void CanSerializeDates()
-		{
-			var p = DateTimeDto.Create(101);
+        [Test()]
+        public void CanSerializeDates()
+        {
+            var p = DateTimeDto.Create(101);
             Assert.IsTrue(TestMethods.CanSerialize<DateTimeDto>(this.Serializer, p, this.Deserializer));
-		}
+        }
 
-		[Test()]
-		public void CanSerializeSimple ()
-		{
-			var person = new Person () 
-			{
-				Id = 0,
-				FirstName = "First",
-				LastName = "Last"
-			};
+        [Test()]
+        public void CanSerializeSimple ()
+        {
+            var person = new Person () 
+            {
+                Id = 0,
+                FirstName = "First",
+                LastName = "Last"
+            };
             Assert.IsTrue(TestMethods.CanSerialize<Person>(this.Serializer, person, this.Deserializer));
-		}
+        }
 
         [Test()]
         public void CanSerializeInterface()
@@ -122,7 +122,7 @@ namespace TextSerializationTests
 
             Assert.IsTrue(TestMethods.CanSerializeEnumerable(this.Serializer, animals, this.Deserializer));
         }
-	}
+    }
 
     public class PrimitiveList
     {

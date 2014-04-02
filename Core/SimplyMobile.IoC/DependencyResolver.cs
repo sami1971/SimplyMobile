@@ -34,7 +34,7 @@ namespace SimplyMobile.IoC
         /// </summary>
         private readonly Dictionary<Type, List<object>> services;
 
-		private readonly Dictionary<Type, List<Func<IDependencyResolver, object>>> registeredServices;
+        private readonly Dictionary<Type, List<Func<IDependencyResolver, object>>> registeredServices;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
@@ -42,7 +42,7 @@ namespace SimplyMobile.IoC
         public DependencyResolver()
         {
             this.services = new Dictionary<Type, List<object>>();
-			this.registeredServices = new Dictionary<Type, List<Func<IDependencyResolver, object>>>();
+            this.registeredServices = new Dictionary<Type, List<Func<IDependencyResolver, object>>>();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace SimplyMobile.IoC
             get { return instance ?? (instance = new DependencyResolver()); }
             set 
             {
-                if (instance != null)
+                if (instance != null && value != null)
                 {
                     throw new InvalidOperationException("Resolver has already been set!");
                 }
@@ -143,7 +143,7 @@ namespace SimplyMobile.IoC
             where T : class
             where TImpl : class, T
         {
-			return RegisterService<T>(t => Activator.CreateInstance(typeof(TImpl)) as T);
+            return RegisterService<T>(t => Activator.CreateInstance(typeof(TImpl)) as T);
         }
 
         public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
@@ -158,7 +158,7 @@ namespace SimplyMobile.IoC
 
             list.Add(func);
             //this.registeredServices.Add (typeof(T), func);
-			return this;
+            return this;
         }
     }
 }

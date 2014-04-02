@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace ObservableCollectionTest
 {
-	[Register ("EditableTextTableCell")]
-	partial class EditableTextTableCell
-	{
-		[Outlet]
-		MonoTouch.UIKit.UISwitch switchCheck { get; set; }
+    [Register ("EditableTextTableCell")]
+    partial class EditableTextTableCell
+    {
+        [Outlet]
+        MonoTouch.UIKit.UISwitch switchCheck { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITextField textField { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (switchCheck != null) {
-				switchCheck.Dispose ();
-				switchCheck = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UITextField textField { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (switchCheck != null) {
+                switchCheck.Dispose ();
+                switchCheck = null;
+            }
 
-			if (textField != null) {
-				textField.Dispose ();
-				textField = null;
-			}
-		}
-	}
+            if (textField != null) {
+                textField.Dispose ();
+                textField = null;
+            }
+        }
+    }
 }

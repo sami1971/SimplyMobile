@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SimplyMobile.IoC.SimpleInjector
 {
-	public class Resolver : IDependencyResolver
+    public class Resolver : IDependencyResolver
     {
         private Container container;
 
@@ -41,9 +41,9 @@ namespace SimplyMobile.IoC.SimpleInjector
         }
 
         public IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class
-		{
-			this.Container.Register<T> (() => func (this));
-			return this;
-		}
+        {
+            this.Container.Register<T> (() => func (this));
+            return this;
+        }
     }
 }

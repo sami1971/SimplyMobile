@@ -2,11 +2,11 @@
 
 namespace SimplyMobile.Web
 {
-	public enum NetworkStatus
-	{
-		NotReachable,
-		ReachableViaCarrierDataNetwork,
-		ReachableViaWiFiNetwork
-	}
+    public enum NetworkStatus
+    {
+        NotReachable,
+        ReachableViaCarrierDataNetwork,
+        ReachableViaWiFiNetwork
+    }
 }
 

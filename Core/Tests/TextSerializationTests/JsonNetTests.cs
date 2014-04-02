@@ -24,12 +24,12 @@ using NUnit.Framework;
 
 namespace TextSerializationTests
 {
-	[TestFixture ()]
-	public class JsonNetTests : TestBase
-	{
-		protected override ITextSerializer Serializer { get { return new JsonSerializer (); } }
+    [TestFixture ()]
+    public class JsonNetTests : TestBase
+    {
+        protected override ITextSerializer Serializer { get { return new JsonSerializer (); } }
 
         protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
-	}
+    }
 }
 

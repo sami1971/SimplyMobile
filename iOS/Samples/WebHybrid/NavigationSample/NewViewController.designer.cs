@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace NavigationSample
 {
-	[Register ("NewViewController")]
-	partial class NewViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UILabel label { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (label != null) {
-				label.Dispose ();
-				label = null;
-			}
-		}
-	}
+    [Register ("NewViewController")]
+    partial class NewViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UILabel label { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (label != null) {
+                label.Dispose ();
+                label = null;
+            }
+        }
+    }
 }

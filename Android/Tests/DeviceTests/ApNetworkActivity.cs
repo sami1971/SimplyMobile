@@ -15,25 +15,25 @@ using Android.Util;
 
 namespace DeviceTests
 {
-	[Activity (Label = "ApNetworkActivity")]			
-	public class ApNetworkActivity : ActivityCore
-	{
-//		private ObservableDataSource<string> networks = new ObservableDataSource<string> ();
+    [Activity (Label = "ApNetworkActivity")]            
+    public class ApNetworkActivity : ActivityCore
+    {
+//      private ObservableDataSource<string> networks = new ObservableDataSource<string> ();
 
-		protected override void OnCreate(Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			SetContentView (Resource.Layout.ap_networks);
+            SetContentView (Resource.Layout.ap_networks);
 
-			var wifiMonitor = new WifiMonitor ();
+            var wifiMonitor = new WifiMonitor ();
 
-//			Log.Info (wifiMonitor.ToString (), wifiMonitor.WifiApState.ToString());
+//          Log.Info (wifiMonitor.ToString (), wifiMonitor.WifiApState.ToString());
 //
-//			wifiMonitor.SetWifiApConfiguration (new Android.Net.Wifi.WifiConfiguration ());
+//          wifiMonitor.SetWifiApConfiguration (new Android.Net.Wifi.WifiConfiguration ());
 
-			var wifiConfig = wifiMonitor.GetWifiApConfiguration ();
-		}
-	}
+            var wifiConfig = wifiMonitor.GetWifiApConfiguration ();
+        }
+    }
 }
 

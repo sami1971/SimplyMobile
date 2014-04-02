@@ -5,33 +5,33 @@ using System.ComponentModel;
 
 namespace SimplyMobile.Core
 {
-	public static class TextFieldExtensions
-	{
-		public static void SetText(this UITextField textField, object source, PropertyInfo property)
-		{
-			var text = property.GetValue(source).ToString();
+    public static class TextFieldExtensions
+    {
+        public static void SetText(this UITextField textField, object source, PropertyInfo property)
+        {
+            var text = property.GetValue(source).ToString();
 
-			if (textField.Text != text)
-			{
-				textField.Text = text;
-			}
-		}
+            if (textField.Text != text)
+            {
+                textField.Text = text;
+            }
+        }
 
         public static Action Bind(this UITextField textField, INotifyPropertyChanged source, string propertyName)
-		{
-			var property = source.GetProperty(propertyName);
+        {
+            var property = source.GetProperty(propertyName);
 
-			textField.SetText(source, property);
-			var handler = new PropertyChangedEventHandler((s, e) =>
-				{
-					if (e.PropertyName == propertyName)
-					{
-						textField.InvokeOnMainThread(()=>
-							textField.SetText(source, property));
-					}
-				});
+            textField.SetText(source, property);
+            var handler = new PropertyChangedEventHandler((s, e) =>
+                {
+                    if (e.PropertyName == propertyName)
+                    {
+                        textField.InvokeOnMainThread(()=>
+                            textField.SetText(source, property));
+                    }
+                });
 
-			source.PropertyChanged += handler;
+            source.PropertyChanged += handler;
 
             var editHandler = new EventHandler((s, e) =>
                 {
@@ -42,7 +42,7 @@ namespace SimplyMobile.Core
                     }
                 });
 
-			textField.EditingChanged += editHandler;
+            textField.EditingChanged += editHandler;
 
             // create an action to remove the event handlers
             return new Action(() =>
@@ -50,7 +50,7 @@ namespace SimplyMobile.Core
                     textField.EditingChanged -= editHandler;
                     source.PropertyChanged -= handler;
                 });
-		}
-	}
+        }
+    }
 }
 

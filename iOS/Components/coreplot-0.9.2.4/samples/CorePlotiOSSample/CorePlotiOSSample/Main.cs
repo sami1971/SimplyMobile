@@ -27,11 +27,11 @@ using MonoTouch.UIKit;
 
 namespace CorePlotiOSSample
 {
-	public class Application
-	{
-		static void Main (string[] args)
-		{
-			UIApplication.Main (args, null, "AppDelegate");
-		}
-	}
+    public class Application
+    {
+        static void Main (string[] args)
+        {
+            UIApplication.Main (args, null, "AppDelegate");
+        }
+    }
 }

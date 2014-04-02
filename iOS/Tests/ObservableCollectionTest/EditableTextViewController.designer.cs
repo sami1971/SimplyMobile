@@ -9,50 +9,50 @@ using System.CodeDom.Compiler;
 
 namespace ObservableCollectionTest
 {
-	[Register ("EditableTextViewController")]
-	partial class EditableTextViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonAdd { get; set; }
+    [Register ("EditableTextViewController")]
+    partial class EditableTextViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIButton buttonAdd { get; set; }
 
-		[Outlet]
-		ObservableCollectionTest.EditableTextCollectionView collectionView { get; set; }
+        [Outlet]
+        ObservableCollectionTest.EditableTextCollectionView collectionView { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelLastChecked { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelLastChecked { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelLastText { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelLastText { get; set; }
 
-		[Outlet]
-		ObservableCollectionTest.EditableTextTable tableView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (buttonAdd != null) {
-				buttonAdd.Dispose ();
-				buttonAdd = null;
-			}
+        [Outlet]
+        ObservableCollectionTest.EditableTextTable tableView { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (buttonAdd != null) {
+                buttonAdd.Dispose ();
+                buttonAdd = null;
+            }
 
-			if (collectionView != null) {
-				collectionView.Dispose ();
-				collectionView = null;
-			}
+            if (collectionView != null) {
+                collectionView.Dispose ();
+                collectionView = null;
+            }
 
-			if (labelLastChecked != null) {
-				labelLastChecked.Dispose ();
-				labelLastChecked = null;
-			}
+            if (labelLastChecked != null) {
+                labelLastChecked.Dispose ();
+                labelLastChecked = null;
+            }
 
-			if (labelLastText != null) {
-				labelLastText.Dispose ();
-				labelLastText = null;
-			}
+            if (labelLastText != null) {
+                labelLastText.Dispose ();
+                labelLastText = null;
+            }
 
-			if (tableView != null) {
-				tableView.Dispose ();
-				tableView = null;
-			}
-		}
-	}
+            if (tableView != null) {
+                tableView.Dispose ();
+                tableView = null;
+            }
+        }
+    }
 }

@@ -9,74 +9,74 @@ using System.CodeDom.Compiler;
 
 namespace StockQuote
 {
-	[Register ("StockCell")]
-	partial class StockCell
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIActivityIndicatorView activityUpdating { get; set; }
+    [Register ("StockCell")]
+    partial class StockCell
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIActivityIndicatorView activityUpdating { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UIImageView imageTrend { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UIImageView imageTrend { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelHighLow { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelHighLow { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelLast { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelLast { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelPercentageChange { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelPercentageChange { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelStockName { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelStockName { get; set; }
 
-		[Outlet]
-		StockQuote.PlotView plotView { get; set; }
+        [Outlet]
+        StockQuote.PlotView plotView { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UISwitch switchMonitor { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (plotView != null) {
-				plotView.Dispose ();
-				plotView = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UISwitch switchMonitor { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (plotView != null) {
+                plotView.Dispose ();
+                plotView = null;
+            }
 
-			if (activityUpdating != null) {
-				activityUpdating.Dispose ();
-				activityUpdating = null;
-			}
+            if (activityUpdating != null) {
+                activityUpdating.Dispose ();
+                activityUpdating = null;
+            }
 
-			if (imageTrend != null) {
-				imageTrend.Dispose ();
-				imageTrend = null;
-			}
+            if (imageTrend != null) {
+                imageTrend.Dispose ();
+                imageTrend = null;
+            }
 
-			if (labelHighLow != null) {
-				labelHighLow.Dispose ();
-				labelHighLow = null;
-			}
+            if (labelHighLow != null) {
+                labelHighLow.Dispose ();
+                labelHighLow = null;
+            }
 
-			if (labelLast != null) {
-				labelLast.Dispose ();
-				labelLast = null;
-			}
+            if (labelLast != null) {
+                labelLast.Dispose ();
+                labelLast = null;
+            }
 
-			if (labelPercentageChange != null) {
-				labelPercentageChange.Dispose ();
-				labelPercentageChange = null;
-			}
+            if (labelPercentageChange != null) {
+                labelPercentageChange.Dispose ();
+                labelPercentageChange = null;
+            }
 
-			if (labelStockName != null) {
-				labelStockName.Dispose ();
-				labelStockName = null;
-			}
+            if (labelStockName != null) {
+                labelStockName.Dispose ();
+                labelStockName = null;
+            }
 
-			if (switchMonitor != null) {
-				switchMonitor.Dispose ();
-				switchMonitor = null;
-			}
-		}
-	}
+            if (switchMonitor != null) {
+                switchMonitor.Dispose ();
+                switchMonitor = null;
+            }
+        }
+    }
 }

@@ -10,7 +10,7 @@ namespace SimplyMobile.Web
     /// Type of DTO to expect from service
     /// </typeparam>
     public class ServiceResponse<T>
-	{
+    {
         /// <summary>
         /// Gets the status code.
         /// </summary>
@@ -41,10 +41,10 @@ namespace SimplyMobile.Web
         /// The status code.
         /// </param>
         public ServiceResponse (T value, HttpStatusCode statusCode)
-		{
-			this.Value = value;
-			this.StatusCode = statusCode;
-		}
+        {
+            this.Value = value;
+            this.StatusCode = statusCode;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.
@@ -56,10 +56,10 @@ namespace SimplyMobile.Web
         /// The error.
         /// </param>
         public ServiceResponse (HttpStatusCode statusCode, Exception error = null)
-		{
-			this.StatusCode = statusCode;
-			this.Error = error;
-		}
-	}
+        {
+            this.StatusCode = statusCode;
+            this.Error = error;
+        }
+    }
 }
 

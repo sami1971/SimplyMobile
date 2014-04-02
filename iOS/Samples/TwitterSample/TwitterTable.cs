@@ -5,35 +5,35 @@ using MonoTouch.Foundation;
 
 namespace TwitterSample
 {
-	[Register("TwitterTable")]
-	public class TwitterTable : UITableView, ITableCellProvider<Datum>
-	{
-		public TwitterTable ()
-		{
-		}
+    [Register("TwitterTable")]
+    public class TwitterTable : UITableView, ITableCellProvider<Datum>
+    {
+        public TwitterTable ()
+        {
+        }
 
-		public TwitterTable (IntPtr handle) : base(handle)
-		{
-		}
+        public TwitterTable (IntPtr handle) : base(handle)
+        {
+        }
 
-		#region ITableCellProvider implementation
+        #region ITableCellProvider implementation
 
-		public UITableViewCell GetCell (Datum item)
-		{
-			var newCell = this.DequeueReusableCell(TwitterTableCell.Key) 
-				as TwitterTableCell ?? TwitterTableCell.Create();
+        public UITableViewCell GetCell (Datum item)
+        {
+            var newCell = this.DequeueReusableCell(TwitterTableCell.Key) 
+                as TwitterTableCell ?? TwitterTableCell.Create();
 
-			newCell.Bind (item);
+            newCell.Bind (item);
 
-			return newCell;
-		}
+            return newCell;
+        }
 
         public float GetHeightForRow(NSIndexPath indexPath, Datum item)
-		{
-			return 114f;
-		}
+        {
+            return 114f;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

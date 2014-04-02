@@ -7,12 +7,12 @@ using MonoTouch.Foundation;
 
 namespace DeviceTests
 {
-	[Register ("AccelerometerController")]
-	partial class AccelerometerController
-	{
-		void ReleaseDesignerOutlets()
-		{
-		}
-	}
+    [Register ("AccelerometerController")]
+    partial class AccelerometerController
+    {
+        void ReleaseDesignerOutlets()
+        {
+        }
+    }
 }
 

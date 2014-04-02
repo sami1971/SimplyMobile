@@ -4,19 +4,19 @@ using Android.Runtime;
 
 namespace SmsBlockTest
 {
-	public class SmsBlockApp : MobileApp
-	{
-		public SmsBlockApp(IntPtr javaReference, JniHandleOwnership transfer)
-			: base(javaReference, transfer)
-		{
+    public class SmsBlockApp : MobileApp
+    {
+        public SmsBlockApp(IntPtr javaReference, JniHandleOwnership transfer)
+            : base(javaReference, transfer)
+        {
 
-		}
+        }
 
-		public override void OnCreate ()
-		{
-			base.OnCreate ();
+        public override void OnCreate ()
+        {
+            base.OnCreate ();
 
-		}
-	}
+        }
+    }
 }
 

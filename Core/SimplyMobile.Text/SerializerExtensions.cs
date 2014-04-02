@@ -19,58 +19,58 @@ using System.Text;
 
 namespace SimplyMobile.Text
 {
-	/// <summary>
-	/// Json serializer extensions.
-	/// </summary>
-	public static class SerializerExtensions
-	{
-		/// <summary>
-		/// Serializes to stream.
-		/// </summary>
-		/// <param name="obj">Object to serialize.</param>
-		/// <param name="stream">Stream.</param>
-		public static void SerializeToStream (this ITextSerializer serializer, object obj, Stream stream)
-		{
-			using (var streamWriter = new StreamWriter(stream))
-			{
-				streamWriter.Write (serializer.Serialize (obj));
-			}
-		}
+    /// <summary>
+    /// Json serializer extensions.
+    /// </summary>
+    public static class SerializerExtensions
+    {
+        /// <summary>
+        /// Serializes to stream.
+        /// </summary>
+        /// <param name="obj">Object to serialize.</param>
+        /// <param name="stream">Stream.</param>
+        public static void SerializeToStream (this ITextSerializer serializer, object obj, Stream stream)
+        {
+            using (var streamWriter = new StreamWriter(stream))
+            {
+                streamWriter.Write (serializer.Serialize (obj));
+            }
+        }
 
-		/// <summary>
-		/// Deserializes from stream.
-		/// </summary>
-		/// <returns>The from stream.</returns>
-		/// <param name="stream">Stream.</param>
-		/// <typeparam name="T">The type of object to deserialize.</typeparam>
-		public static T DeserializeFromStream<T>(this ITextSerializer serializer, Stream stream) where T : class
-		{
-			using (var streamReader = new StreamReader(stream))
-			{
-				var text = streamReader.ReadToEnd();
-				return serializer.Deserialize<T>(text);
-			}
-		}
+        /// <summary>
+        /// Deserializes from stream.
+        /// </summary>
+        /// <returns>The from stream.</returns>
+        /// <param name="stream">Stream.</param>
+        /// <typeparam name="T">The type of object to deserialize.</typeparam>
+        public static T DeserializeFromStream<T>(this ITextSerializer serializer, Stream stream) where T : class
+        {
+            using (var streamReader = new StreamReader(stream))
+            {
+                var text = streamReader.ReadToEnd();
+                return serializer.Deserialize<T>(text);
+            }
+        }
 
-		/// <summary>
-		/// Serializes to writer.
-		/// </summary>
-		/// <param name="obj">Object to serialize.</param>
-		/// <param name="writer">Writer.</param>
-		public static void SerializeToWriter(this ITextSerializer serializer, object obj, TextWriter writer)
-		{
-			writer.Write (serializer.Serialize (obj));
-		}
+        /// <summary>
+        /// Serializes to writer.
+        /// </summary>
+        /// <param name="obj">Object to serialize.</param>
+        /// <param name="writer">Writer.</param>
+        public static void SerializeToWriter(this ITextSerializer serializer, object obj, TextWriter writer)
+        {
+            writer.Write (serializer.Serialize (obj));
+        }
 
-		/// <summary>
-		/// Deserializes from reader.
-		/// </summary>
-		/// <returns>The serialized object from reader.</returns>
-		/// <param name="reader">Reader to deserialize from.</param>
-		public static T DeserializeFromReader<T>(this ITextSerializer serializer, TextReader reader)
-		{
-			return serializer.Deserialize<T> (reader.ReadToEnd ());
-		}
+        /// <summary>
+        /// Deserializes from reader.
+        /// </summary>
+        /// <returns>The serialized object from reader.</returns>
+        /// <param name="reader">Reader to deserialize from.</param>
+        public static T DeserializeFromReader<T>(this ITextSerializer serializer, TextReader reader)
+        {
+            return serializer.Deserialize<T> (reader.ReadToEnd ());
+        }
 
         public static object DeserializeFromBytes(this ITextSerializer serializer, byte[] data, Type type, 
             Encoding encoding = null)
@@ -87,6 +87,6 @@ namespace SimplyMobile.Text
             var str = serializer.Serialize(obj);
             return encoder.GetBytes(str);
         }
-	}
+    }
 }
 

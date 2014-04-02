@@ -34,6 +34,7 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assembly\IAssemblyService.cs" />
     <Compile Include="Data\AnonymousReadOnlyList.cs" />
     <Compile Include="Data\DatabaseLog.cs" />
     <Compile Include="Data\ExceptionEntry.cs" />

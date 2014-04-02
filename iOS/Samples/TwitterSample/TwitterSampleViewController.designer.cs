@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace TwitterSample
 {
-	[Register ("TwitterSampleViewController")]
-	partial class TwitterSampleViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UITableView table { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (table != null) {
-				table.Dispose ();
-				table = null;
-			}
-		}
-	}
+    [Register ("TwitterSampleViewController")]
+    partial class TwitterSampleViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UITableView table { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (table != null) {
+                table.Dispose ();
+                table = null;
+            }
+        }
+    }
 }

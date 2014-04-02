@@ -5,28 +5,28 @@ using MonoTouch.UIKit;
 
 namespace BitmapTest
 {
-	public partial class BitmapTestViewController : UIViewController
-	{
-		public BitmapTestViewController () : base ("BitmapTestViewController", null)
-		{
-		}
+    public partial class BitmapTestViewController : UIViewController
+    {
+        public BitmapTestViewController () : base ("BitmapTestViewController", null)
+        {
+        }
 
-		public override void DidReceiveMemoryWarning ()
-		{
-			// Releases the view if it doesn't have a superview.
-			base.DidReceiveMemoryWarning ();
-			
-			// Release any cached data, images, etc that aren't in use.
-		}
+        public override void DidReceiveMemoryWarning ()
+        {
+            // Releases the view if it doesn't have a superview.
+            base.DidReceiveMemoryWarning ();
+            
+            // Release any cached data, images, etc that aren't in use.
+        }
 
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-			
-			// Perform any additional setup after loading the view, typically from a nib.
+        public override void ViewDidLoad ()
+        {
+            base.ViewDidLoad ();
+            
+            // Perform any additional setup after loading the view, typically from a nib.
 
-			this.bitmapView.Draw(this.bitmapView.Frame);
-		}
-	}
+            this.bitmapView.Draw(this.bitmapView.Frame);
+        }
+    }
 }
 

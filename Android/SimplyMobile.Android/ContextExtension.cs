@@ -23,17 +23,17 @@ namespace SimplyMobile.Core
     {
         public static Intent RegisterReceiver(this object o, BroadcastReceiver receiver, IntentFilter intentFilter)
         {
-			return Application.Context.RegisterReceiver(receiver, intentFilter);
+            return Application.Context.RegisterReceiver(receiver, intentFilter);
         }
 
-		public static void UnregisterReceiver(this BroadcastReceiver receiver)
+        public static void UnregisterReceiver(this BroadcastReceiver receiver)
         {
-			Application.Context.UnregisterReceiver(receiver);
+            Application.Context.UnregisterReceiver(receiver);
         }
 
-		public static void StartActivity<T>(this Context context)
-		{
-			context.StartActivity(typeof(T));
-		}
+        public static void StartActivity<T>(this Context context)
+        {
+            context.StartActivity(typeof(T));
+        }
     }
 }

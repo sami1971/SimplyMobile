@@ -46,6 +46,10 @@
       <Project>{11AC1268-5A69-45B7-B5BD-5D459B582024}</Project>
       <Name>SimplyMobile.Plugins.WcfStockService.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

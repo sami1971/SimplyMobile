@@ -20,14 +20,14 @@ namespace NavigationSample
         {
             // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning ();
-			
+            
             // Release any cached data, images, etc that aren't in use.
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad ();
-			
+            
             var webHybrid = new WebHybrid (this.webView, new SimplyMobile.Text.ServiceStack.JsonSerializer());
 
             string homePageUrl = NSBundle.MainBundle.BundlePath + "/Content/ButtonClicks.html";

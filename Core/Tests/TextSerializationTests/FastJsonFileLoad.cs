@@ -11,14 +11,14 @@ using NUnit.Framework;
 
 namespace TextSerializationTests
 {
-	[TestFixture()]
-	public class FastJsonFileLoad : FileLoadTests
-	{
-		#region implemented abstract members of FileLoadTests
+    [TestFixture()]
+    public class FastJsonFileLoad : FileLoadTests
+    {
+        #region implemented abstract members of FileLoadTests
 
         protected override ITextSerializer Deserializer { get { return new JsonSerializer(new SimplyMobile.Text.ServiceStack.JsonSerializer()); } }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

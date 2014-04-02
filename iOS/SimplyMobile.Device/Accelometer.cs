@@ -4,8 +4,8 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Device
 {
-	public static partial class Accelometer
-	{
+    public static partial class Accelometer
+    {
         private static AccelerometerInterval interval = AccelerometerInterval.Ui;
 
         public static AccelerometerInterval Interval
@@ -27,20 +27,20 @@ namespace SimplyMobile.Device
         //    set { UIAccelerometer.SharedAccelerometer.UpdateInterval = value; }
         //}
 
-		static partial void StartMonitoring()
-		{
-			UIAccelerometer.SharedAccelerometer.Acceleration += HandleAcceleration;
-		}
+        static partial void StartMonitoring()
+        {
+            UIAccelerometer.SharedAccelerometer.Acceleration += HandleAcceleration;
+        }
 
-		static void HandleAcceleration (object sender, UIAccelerometerEventArgs e)
-		{
-			readingAvailable.Invoke (sender, new AccelometerStatus(e.Acceleration.X, e.Acceleration.Y, e.Acceleration.Z));
-		}
+        static void HandleAcceleration (object sender, UIAccelerometerEventArgs e)
+        {
+            readingAvailable.Invoke (sender, new AccelometerStatus(e.Acceleration.X, e.Acceleration.Y, e.Acceleration.Z));
+        }
 
-		static partial void StopMonitoring()
-		{
-			UIAccelerometer.SharedAccelerometer.Acceleration -= HandleAcceleration;
-		}
-	}
+        static partial void StopMonitoring()
+        {
+            UIAccelerometer.SharedAccelerometer.Acceleration -= HandleAcceleration;
+        }
+    }
 }
 

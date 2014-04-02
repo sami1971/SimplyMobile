@@ -32,7 +32,7 @@ namespace SimplyMobile.Text
         /// </summary>
         /// <param name="obj">Object to serialize</param>
         /// <returns>Serialized string of the object</returns>
-		string Serialize<T>(T obj);
+        string Serialize<T>(T obj);
 
         /// <summary>
         /// Serializes object to a stream

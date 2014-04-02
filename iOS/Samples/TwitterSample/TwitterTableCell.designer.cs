@@ -9,50 +9,50 @@ using System.CodeDom.Compiler;
 
 namespace TwitterSample
 {
-	[Register ("TwitterTableCell")]
-	partial class TwitterTableCell
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonViewComments { get; set; }
+    [Register ("TwitterTableCell")]
+    partial class TwitterTableCell
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIButton buttonViewComments { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UIImageView image { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UIImageView image { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelCaption { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelCaption { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelType { get; set; }
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelType { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelUser { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (image != null) {
-				image.Dispose ();
-				image = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelUser { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (image != null) {
+                image.Dispose ();
+                image = null;
+            }
 
-			if (labelCaption != null) {
-				labelCaption.Dispose ();
-				labelCaption = null;
-			}
+            if (labelCaption != null) {
+                labelCaption.Dispose ();
+                labelCaption = null;
+            }
 
-			if (labelUser != null) {
-				labelUser.Dispose ();
-				labelUser = null;
-			}
+            if (labelUser != null) {
+                labelUser.Dispose ();
+                labelUser = null;
+            }
 
-			if (labelType != null) {
-				labelType.Dispose ();
-				labelType = null;
-			}
+            if (labelType != null) {
+                labelType.Dispose ();
+                labelType = null;
+            }
 
-			if (buttonViewComments != null) {
-				buttonViewComments.Dispose ();
-				buttonViewComments = null;
-			}
-		}
-	}
+            if (buttonViewComments != null) {
+                buttonViewComments.Dispose ();
+                buttonViewComments = null;
+            }
+        }
+    }
 }

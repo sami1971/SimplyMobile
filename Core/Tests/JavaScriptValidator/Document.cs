@@ -6,47 +6,47 @@ using SimplyMobile.Data;
 
 namespace JavaScriptValidator
 {
-	public class Document : INotifyPropertyChanged
-	{
-		public List<string> Validators { get; set; }
+    public class Document : INotifyPropertyChanged
+    {
+        public List<string> Validators { get; set; }
 
-		public ObservableDataSource<DocumentNode> Nodes { get; set; }
+        public ObservableDataSource<DocumentNode> Nodes { get; set; }
 
-		bool isValid;
-		public bool IsValid 
-		{
-			get
-			{
-				return isValid;
-			}
-			set
-			{
-				if (isValid != value)
-				{
-					isValid = value;
-					this.NotifyPropertyChanged();
-				}
-			}
-		}
+        bool isValid;
+        public bool IsValid 
+        {
+            get
+            {
+                return isValid;
+            }
+            set
+            {
+                if (isValid != value)
+                {
+                    isValid = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
 
-		public Document()
-		{
-			Validators = new List<string> ();
-		}
+        public Document()
+        {
+            Validators = new List<string> ();
+        }
 
-		#region INotifyPropertyChanged implementation
+        #region INotifyPropertyChanged implementation
 
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-		#endregion
+        #endregion
 
-		protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
 }
 

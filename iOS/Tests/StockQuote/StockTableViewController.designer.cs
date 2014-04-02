@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace StockQuote
 {
-	[Register ("StockTableViewController")]
-	partial class StockTableViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UITableView tableView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (tableView != null) {
-				tableView.Dispose ();
-				tableView = null;
-			}
-		}
-	}
+    [Register ("StockTableViewController")]
+    partial class StockTableViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UITableView tableView { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (tableView != null) {
+                tableView.Dispose ();
+                tableView = null;
+            }
+        }
+    }
 }

@@ -37,7 +37,7 @@ namespace NavigationSample
 
             // make the window visible
             window.MakeKeyAndVisible ();
-			
+            
             return true;
         }
     }

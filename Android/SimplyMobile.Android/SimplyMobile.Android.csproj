@@ -64,6 +64,7 @@
     <Compile Include="Navigation\NavigationController.cs" />
     <Compile Include="ViewModelActivity.cs" />
     <Compile Include="Extensions\ActivityExtensions.cs" />
+    <Compile Include="Assembly\AssemblyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -81,5 +82,6 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Navigation\" />
+    <Folder Include="Assembly\" />
   </ItemGroup>
 </Project>

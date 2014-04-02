@@ -27,11 +27,11 @@ using NUnit.Framework;
 namespace TextSerializationTests
 {
     [TestFixture()]
-	public class JsonNetSanity : SanityCheckTests
-	{
+    public class JsonNetSanity : SanityCheckTests
+    {
         protected override ITextSerializer Serializer { get { return new JsonSerializer(); } }
 
         protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
-	}
+    }
 }
 

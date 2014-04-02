@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace BitmapTest
 {
-	[Register ("BitmapTestViewController")]
-	partial class BitmapTestViewController
-	{
-		[Outlet]
-		BitmapTest.BitmapView bitmapView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (bitmapView != null) {
-				bitmapView.Dispose ();
-				bitmapView = null;
-			}
-		}
-	}
+    [Register ("BitmapTestViewController")]
+    partial class BitmapTestViewController
+    {
+        [Outlet]
+        BitmapTest.BitmapView bitmapView { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (bitmapView != null) {
+                bitmapView.Dispose ();
+                bitmapView = null;
+            }
+        }
+    }
 }

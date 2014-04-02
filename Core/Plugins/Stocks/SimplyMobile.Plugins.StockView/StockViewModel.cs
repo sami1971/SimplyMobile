@@ -102,7 +102,7 @@ namespace SimplyMobile.Plugins.StockView
             }
             catch (Exception ex)
             {
-				System.Diagnostics.Debug.WriteLine (ex.Message);
+                System.Diagnostics.Debug.WriteLine (ex.Message);
             }
             return quote;
         }

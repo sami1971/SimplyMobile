@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace StreamLocatorTest
 {
-	[Register ("StreamViewController")]
-	partial class StreamViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UITextView textAppFolder { get; set; }
+    [Register ("StreamViewController")]
+    partial class StreamViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UITextView textAppFolder { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITextView textCurrentFolder { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (textAppFolder != null) {
-				textAppFolder.Dispose ();
-				textAppFolder = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UITextView textCurrentFolder { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (textAppFolder != null) {
+                textAppFolder.Dispose ();
+                textAppFolder = null;
+            }
 
-			if (textCurrentFolder != null) {
-				textCurrentFolder.Dispose ();
-				textCurrentFolder = null;
-			}
-		}
-	}
+            if (textCurrentFolder != null) {
+                textCurrentFolder.Dispose ();
+                textCurrentFolder = null;
+            }
+        }
+    }
 }

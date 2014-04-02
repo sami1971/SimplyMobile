@@ -14,7 +14,7 @@ namespace StackOverflowSamples
     [Activity(Label = "StackOverflowSamples", MainLauncher = true, Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
-		private static GenericDto dto = new GenericDto();
+        private static GenericDto dto = new GenericDto();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -28,19 +28,19 @@ namespace StackOverflowSamples
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
             button.Click += delegate 
-			{ 
-				button.Text = string.Format("{0} clicks!", ++dto.Count); 
-				var serializer = new JsonSerializer();
+            { 
+                button.Text = string.Format("{0} clicks!", ++dto.Count); 
+                var serializer = new JsonSerializer();
 
-				var intent = new Intent(this, typeof(SerializationSampleActivity));
+                var intent = new Intent(this, typeof(SerializationSampleActivity));
 
-				var b = new Bundle();
-				b.PutString("object", serializer.Serialize(dto));
-				intent.PutExtras(b);
+                var b = new Bundle();
+                b.PutString("object", serializer.Serialize(dto));
+                intent.PutExtras(b);
 
-				this.StartActivity(intent);
+                this.StartActivity(intent);
 
-			};
+            };
 
 
         }

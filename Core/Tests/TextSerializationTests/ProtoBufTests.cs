@@ -26,10 +26,10 @@ using NUnit.Framework;
 
 namespace TextSerializationTests
 {
-	[TestFixture ()]
-	public class ProtoBufTests : TestBase
-	{
-		protected override ITextSerializer Serializer { get { return new ProtoBufferSerializer (); } }
+    [TestFixture ()]
+    public class ProtoBufTests : TestBase
+    {
+        protected override ITextSerializer Serializer { get { return new ProtoBufferSerializer (); } }
         protected override ITextSerializer Deserializer { get { return new ProtoBufferSerializer(); } }
     }
 }

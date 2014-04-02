@@ -8,11 +8,11 @@ using MonoTouch.Foundation;
 
 namespace ObservableCollectionTest
 {
-	[Register ("DateTimeCollectionCell")]
-	partial class DateTimeCollectionCell
-	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    [Register ("DateTimeCollectionCell")]
+    partial class DateTimeCollectionCell
+    {
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }

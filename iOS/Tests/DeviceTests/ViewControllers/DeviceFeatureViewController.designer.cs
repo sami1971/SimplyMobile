@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace DeviceTests
 {
-	[Register ("DeviceFeatureViewController")]
-	partial class DeviceFeatureViewController
-	{
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonCall { get; set; }
+    [Register ("DeviceFeatureViewController")]
+    partial class DeviceFeatureViewController
+    {
+        [Outlet]
+        MonoTouch.UIKit.UIButton buttonCall { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITextField textPhoneNumber { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (textPhoneNumber != null) {
-				textPhoneNumber.Dispose ();
-				textPhoneNumber = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UITextField textPhoneNumber { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (textPhoneNumber != null) {
+                textPhoneNumber.Dispose ();
+                textPhoneNumber = null;
+            }
 
-			if (buttonCall != null) {
-				buttonCall.Dispose ();
-				buttonCall = null;
-			}
-		}
-	}
+            if (buttonCall != null) {
+                buttonCall.Dispose ();
+                buttonCall = null;
+            }
+        }
+    }
 }

@@ -25,7 +25,7 @@ namespace SimplyMobile.Device
     {
         #region IWifiMonitor Members
 
-		public event EventHandler<EventArgs<bool>> OnActiveChanged;
+        public event EventHandler<EventArgs<bool>> OnActiveChanged;
 
         public event EventHandler<EventArgs<Exception>> OnException;
 
@@ -36,32 +36,32 @@ namespace SimplyMobile.Device
             get { throw new NotImplementedException(); }
         }
 
-		/// <summary>
-		/// Gets the current SSID.
-		/// </summary>
-		/// <value>The current SSID.</value>
-		public string CurrentSSID 
-		{
-			get
-			{
-				NSDictionary dict;
-				var status = CaptiveNetwork.TryCopyCurrentNetworkInfo ("en0", out dict);
-				if (status == StatusCode.NoKey)
-				{
-					return string.Empty;
-				}
+        /// <summary>
+        /// Gets the current SSID.
+        /// </summary>
+        /// <value>The current SSID.</value>
+        public string CurrentSSID 
+        {
+            get
+            {
+                NSDictionary dict;
+                var status = CaptiveNetwork.TryCopyCurrentNetworkInfo ("en0", out dict);
+                if (status == StatusCode.NoKey)
+                {
+                    return string.Empty;
+                }
 
-				var bssid = dict [CaptiveNetwork.NetworkInfoKeyBSSID];
-				var ssid = dict [CaptiveNetwork.NetworkInfoKeySSID];
-				var ssiddata = dict [CaptiveNetwork.NetworkInfoKeySSIDData];
+                var bssid = dict [CaptiveNetwork.NetworkInfoKeyBSSID];
+                var ssid = dict [CaptiveNetwork.NetworkInfoKeySSID];
+                var ssiddata = dict [CaptiveNetwork.NetworkInfoKeySSIDData];
 
-				return ssid.ToString();
-			}
-		}
+                return ssid.ToString();
+            }
+        }
 
         public bool TrySetState(bool enabled)
         {
-			return false;
+            return false;
         }
 
         #endregion

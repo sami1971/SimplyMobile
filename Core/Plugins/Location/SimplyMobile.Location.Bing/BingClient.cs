@@ -8,7 +8,7 @@ namespace SimplyMobile.Location.Bing
     /// The Bing client.
     /// </summary>
     public class BingClient
-	{
+    {
         private const string BaseAddress = "http://dev.virtualearth.net/REST/v1/Locations/";
 
         /// <summary>
@@ -46,11 +46,11 @@ namespace SimplyMobile.Location.Bing
         /// The <see cref="Task"/>.
         /// </returns>
         public async Task<ServiceResponse<BingResponse>> Get(double latitude, double longitude)
-		{
-			return await this.restClient.GetAsync<BingResponse>(
-				string.Format("{3}{0},{1}?o=json&key={2}",  latitude, longitude, this.key, BaseAddress),
-				Format.Json);
-		}
+        {
+            return await this.restClient.GetAsync<BingResponse>(
+                string.Format("{3}{0},{1}?o=json&key={2}",  latitude, longitude, this.key, BaseAddress),
+                Format.Json);
+        }
 
         /// <summary>
         /// The get method.
@@ -62,9 +62,9 @@ namespace SimplyMobile.Location.Bing
         /// The <see cref="Task"/>.
         /// </returns>
         public async Task<ServiceResponse<BingResponse>> Get(Coordinates coordinates)
-		{
-			return await this.Get(coordinates.Latitude, coordinates.Longitude);
-		}
-	}
+        {
+            return await this.Get(coordinates.Latitude, coordinates.Longitude);
+        }
+    }
 }
 

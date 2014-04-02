@@ -12,7 +12,7 @@ using SimplyMobile;
 
 namespace NavigationSample
 {
-    [Activity (Label = "NewViewActivity")]			
+    [Activity (Label = "NewViewActivity")]          
     public class NewViewActivity : ViewModelActivity<NewItemViewModel>
     {
         protected override void OnCreate(Bundle bundle)

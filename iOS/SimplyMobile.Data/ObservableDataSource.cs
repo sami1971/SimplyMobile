@@ -23,10 +23,10 @@ namespace SimplyMobile.Data
 {
     using Core;
 
-	/// <summary>
-	/// Observable data source iOS portion. Implements <see cref="UITableViewDataSource"/>
-	/// </summary>
-	public partial class ObservableDataSource<T> //: NSObject
+    /// <summary>
+    /// Observable data source iOS portion. Implements <see cref="UITableViewDataSource"/>
+    /// </summary>
+    public partial class ObservableDataSource<T> //: NSObject
     {
         private float defaultRowHeight = 22;
 
@@ -75,30 +75,30 @@ namespace SimplyMobile.Data
             }
         }
 
-		private PickerDelegate pickerDelegate;
+        private PickerDelegate pickerDelegate;
 
-		private PickerDelegate PickerDelegate
-		{
-			get
-			{
-				return this.pickerDelegate ?? (this.pickerDelegate = new PickerDelegate ());
-			}
-		}
+        private PickerDelegate PickerDelegate
+        {
+            get
+            {
+                return this.pickerDelegate ?? (this.pickerDelegate = new PickerDelegate ());
+            }
+        }
         /// <summary>
         /// The cell identifier. 
         /// </summary>
         /// <remarks>Default value is "cid"</remarks>
         private string cellId = "cid";
 
-		/// <summary>
-		/// Gets or sets the default height of the row.
-		/// </summary>
-		/// <value>The default height of the row.</value>
-		public float DefaultRowHeight
-		{
-			get { return this.defaultRowHeight; }
-			set { this.defaultRowHeight = value; }
-		}
+        /// <summary>
+        /// Gets or sets the default height of the row.
+        /// </summary>
+        /// <value>The default height of the row.</value>
+        public float DefaultRowHeight
+        {
+            get { return this.defaultRowHeight; }
+            set { this.defaultRowHeight = value; }
+        }
 
         /// <summary>
         /// Gets or sets the cell identifier.
@@ -125,16 +125,16 @@ namespace SimplyMobile.Data
 
             foreach (var tableView in refs.OfType<UITableView>())
             {
-				tableView.InvokeOnMainThread(tableView.ReloadData);
+                tableView.InvokeOnMainThread(tableView.ReloadData);
             }
             foreach (var collectionView in refs.OfType<UICollectionView>())
-			{
-				collectionView.InvokeOnMainThread(collectionView.ReloadData);
-			}
+            {
+                collectionView.InvokeOnMainThread(collectionView.ReloadData);
+            }
             foreach(var pickerView in refs.OfType<UIPickerView>())
-			{
-				pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
-			}
+            {
+                pickerView.InvokeOnMainThread(pickerView.ReloadAllComponents);
+            }
         }
 
         /// <summary>
@@ -158,16 +158,16 @@ namespace SimplyMobile.Data
                     tableView.Delegate = this.TableDelegate;
                     //tableView.WeakDataSource = this;
                     //tableView.WeakDelegate = this;
-					tableView.InvokeOnMainThread (tableView.ReloadData);
+                    tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
                 // TODO: check why only ICollectionCellProvider
                 foreach (var collectionView in refs.OfType<UICollectionView> ().Where(a => a is ICollectionCellProvider<T>))
-				{
+                {
                     collectionView.DataSource = this.CollectionSource;
                     collectionView.Delegate = this.CollectionDelegate;
-					collectionView.InvokeOnMainThread (collectionView.ReloadData);
-				}
+                    collectionView.InvokeOnMainThread (collectionView.ReloadData);
+                }
 
                 //foreach (var pickerView in notifyCollectionChangedEventArgs.NewItems.OfType<UIPickerView>())
                 //{
@@ -182,17 +182,17 @@ namespace SimplyMobile.Data
 
                 foreach (var tableView in refs.OfType<UITableView>())
                 {
-					tableView.DataSource = null;
-					tableView.Delegate = null;
-					tableView.InvokeOnMainThread (tableView.ReloadData);
+                    tableView.DataSource = null;
+                    tableView.Delegate = null;
+                    tableView.InvokeOnMainThread (tableView.ReloadData);
                 }
 
                 foreach (var collectionView in refs.OfType<UICollectionView>())
-				{
-					collectionView.DataSource = null;
-					collectionView.Delegate = null;
-					collectionView.InvokeOnMainThread(collectionView.ReloadData);
-				}
+                {
+                    collectionView.DataSource = null;
+                    collectionView.Delegate = null;
+                    collectionView.InvokeOnMainThread(collectionView.ReloadData);
+                }
 
                 //foreach (var pickerView in notifyCollectionChangedEventArgs.OldItems.OfType<UIPickerView>())
                 //{
@@ -203,97 +203,97 @@ namespace SimplyMobile.Data
             }
         }
 
-		#region UITableView weak delegate
+        #region UITableView weak delegate
         //[Export("tableView:cellForRowAtIndexPath:")]
-		/// <summary>
-		/// Gets cell for UITableView
-		/// </summary>
-		/// <param name="tableView">
-		/// The table view.
-		/// </param>
-		/// <param name="indexPath">
-		/// The index path.
-		/// </param>
-		/// <returns>
-		/// The <see cref="UITableViewCell"/>.
-		/// </returns>
-		public UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
-		{
-			this.InvokeItemRequestedEvent (tableView, indexPath.Row);
+        /// <summary>
+        /// Gets cell for UITableView
+        /// </summary>
+        /// <param name="tableView">
+        /// The table view.
+        /// </param>
+        /// <param name="indexPath">
+        /// The index path.
+        /// </param>
+        /// <returns>
+        /// The <see cref="UITableViewCell"/>.
+        /// </returns>
+        public UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+        {
+            this.InvokeItemRequestedEvent (tableView, indexPath.Row);
 
-			var item = this.Data[indexPath.Row];
+            var item = this.Data[indexPath.Row];
 
             var cellProvider = tableView as ITableCellProvider<T> ?? this.FindProvider(tableView);
 
-			if (cellProvider != null)
-			{
-				return cellProvider.GetCell (item);
-			}
+            if (cellProvider != null)
+            {
+                return cellProvider.GetCell (item);
+            }
 
-			var cell = tableView.DequeueReusableCell(this.CellId) ??
+            var cell = tableView.DequeueReusableCell(this.CellId) ??
                 new UITableViewCell(UITableViewCellStyle.Value1, this.CellId);
 
-			cell.TextLabel.Text = item.ToString();
-			return cell;
-		}
+            cell.TextLabel.Text = item.ToString();
+            return cell;
+        }
 
         //[Export("tableView:numberOfRowsInSection:")]
-		/// <summary>
-		/// The rows in section.
-		/// </summary>
-		/// <param name="tableView">
-		/// The table view.
-		/// </param>
-		/// <param name="section">
-		/// The section.
-		/// </param>
-		/// <returns>
-		/// The <see cref="int"/>.
-		/// </returns>
-		public int RowsInSection(UITableView tableView, int section)
-		{
-			return this.Data.Count;
-		}
+        /// <summary>
+        /// The rows in section.
+        /// </summary>
+        /// <param name="tableView">
+        /// The table view.
+        /// </param>
+        /// <param name="section">
+        /// The section.
+        /// </param>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        public int RowsInSection(UITableView tableView, int section)
+        {
+            return this.Data.Count;
+        }
 
         //[Export("tableView:didSelectRowAtIndexPath:")]
-		public void RowSelected (UITableView tableView, NSIndexPath indexPath)
-		{
-			this.InvokeItemSelectedEvent(tableView, this.Data[indexPath.Item]);
-		}
+        public void RowSelected (UITableView tableView, NSIndexPath indexPath)
+        {
+            this.InvokeItemSelectedEvent(tableView, this.Data[indexPath.Item]);
+        }
 
         //[Export("tableView:heightForRowAtIndexPath:")]
-		public float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
-		{
+        public float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+        {
             var cellProvider = tableView as ITableCellProvider<T> ?? this.FindProvider(tableView);
 
-			return cellProvider != null ? 
+            return cellProvider != null ? 
                 cellProvider.GetHeightForRow (indexPath, this.Data [indexPath.Item]) : 
                 this.DefaultRowHeight;
 
-		}
-		#endregion
+        }
+        #endregion
 
-		#region UICollectionView weak delegate
+        #region UICollectionView weak delegate
         //[Export("collectionView:didSelectItemAtIndexPath:")]
-		public void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
-		{
-			this.InvokeItemSelectedEvent(collectionView, this.Data[indexPath.Item]);
-		}
+        public void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
+        {
+            this.InvokeItemSelectedEvent(collectionView, this.Data[indexPath.Item]);
+        }
 
         //[Export("collectionView:numberOfItemsInSection:")]
-		public int RowsInSection(UICollectionView tableView, int section)
-		{
-			return this.Data.Count;
-		}
+        public int RowsInSection(UICollectionView tableView, int section)
+        {
+            return this.Data.Count;
+        }
 
         //[Export("collectionView:cellForItemAtIndexPath:")]
-		public UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
-		{
-			var cellProvider = collectionView as ICollectionCellProvider<T>;
+        public UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
+        {
+            var cellProvider = collectionView as ICollectionCellProvider<T>;
 
-			return cellProvider.GetCell (this.Data[indexPath.Row], indexPath);
-		}
-		#endregion
+            return cellProvider.GetCell (this.Data[indexPath.Row], indexPath);
+        }
+        #endregion
 
         private class TableDataSource : UITableViewDataSource
         {
@@ -385,14 +385,14 @@ namespace SimplyMobile.Data
 
             public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
             {
- 	             this.onSelected(collectionView, indexPath);
+                 this.onSelected(collectionView, indexPath);
             }
         }
     }
 
     /// <summary>Private UITableViewDelegate to capture row selected events</summary>
-	internal class PickerDelegate : UIPickerViewDelegate
-	{
+    internal class PickerDelegate : UIPickerViewDelegate
+    {
 
-	}
+    }
 }

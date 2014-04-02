@@ -23,51 +23,51 @@ using Stock = SimplyMobile.Plugins.WcfStockService.StockQuote;
 
 namespace StockQuote
 {
-	[Register("StockTableViewComplete")]
-	public class StockTableViewComplete : UITableView, ITableCellProvider
-	{
-		private const string CellId = "StockTableViewComplete";
+    [Register("StockTableViewComplete")]
+    public class StockTableViewComplete : UITableView, ITableCellProvider
+    {
+        private const string CellId = "StockTableViewComplete";
 
-		public StockTableViewComplete ()
-		{
-		}
+        public StockTableViewComplete ()
+        {
+        }
 
-		public StockTableViewComplete (IntPtr handle) : base (handle)
-		{
+        public StockTableViewComplete (IntPtr handle) : base (handle)
+        {
 
-		}
+        }
 
-		#region ITableCellProvider implementation
+        #region ITableCellProvider implementation
 
-		public UITableViewCell GetCell (object item)
-		{
-			var stock = item as Stock;
+        public UITableViewCell GetCell (object item)
+        {
+            var stock = item as Stock;
 
-			if (stock == null)
-			{
-				var cell = new UITableViewCell(UITableViewCellStyle.Value1, "textCell");
-				cell.TextLabel.Text = item.ToString();
-				return cell;
-			}
+            if (stock == null)
+            {
+                var cell = new UITableViewCell(UITableViewCellStyle.Value1, "textCell");
+                cell.TextLabel.Text = item.ToString();
+                return cell;
+            }
 
-			var newCell = this.DequeueReusableCell(StockCell.Key) as StockCell;
+            var newCell = this.DequeueReusableCell(StockCell.Key) as StockCell;
 
-			if (newCell == null)
-			{
-				newCell = StockCell.Create();
-			}
+            if (newCell == null)
+            {
+                newCell = StockCell.Create();
+            }
 
-			newCell.Bind (stock);
+            newCell.Bind (stock);
 
-			return newCell;
-		}
+            return newCell;
+        }
 
-		public float GetHeightForRow (NSIndexPath indexPath)
-		{
-			return 145f;
-		}
+        public float GetHeightForRow (NSIndexPath indexPath)
+        {
+            return 145f;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

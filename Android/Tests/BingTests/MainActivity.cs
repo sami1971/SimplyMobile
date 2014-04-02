@@ -17,21 +17,21 @@ using Android.Util;
 
 namespace BingTests
 {
-	[Activity (Label = "BingTests", MainLauncher = true)]
-	public class MainActivity : Activity, IProgress<string>
-	{
+    [Activity (Label = "BingTests", MainLauncher = true)]
+    public class MainActivity : Activity, IProgress<string>
+    {
         private CancellationTokenSource cancellation;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+            // Set our view from the "main" layout resource
+            SetContentView (Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
+            // Get our button from the layout resource,
+            // and attach an event to it
+            Button button = FindViewById<Button> (Resource.Id.myButton);
 
             this.cancellation = new CancellationTokenSource();
             var reachability = new Reachability();
@@ -52,14 +52,14 @@ namespace BingTests
                     t.GetService<IJsonSerializer>())
             );
 
-			button.Click += async delegate
-			{
-				var bingClient = new BingClient(
-					"Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
-					DependencyResolver.Current.GetService<IRestClient>()
-				);
+            button.Click += async delegate
+            {
+                var bingClient = new BingClient(
+                    "Apcl0Dzk-uwuqlIpDPjGLaA0oHXERDiGBuE3Vzxx3peRCr8gmSRPr-J6cij7U1pZ",
+                    DependencyResolver.Current.GetService<IRestClient>()
+                );
 
-				var response = await bingClient.Get(47.64054,-122.12934);
+                var response = await bingClient.Get(47.64054,-122.12934);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
@@ -70,8 +70,8 @@ namespace BingTests
                 {
                     System.Diagnostics.Debug.WriteLine(response.Error.Message);
                 }
-			};
-		}
+            };
+        }
 
         protected override void OnDestroy()
         {
@@ -80,15 +80,15 @@ namespace BingTests
             cancellation.Cancel();
         }
 
-		private void CreateIntent(BingResponse response)
-		{
-			var nMgr = this.GetSystemService(NotificationService) as NotificationManager;
-			var notification = new Notification(Resource.Drawable.Icon, "Incoming Location Info");
-			var intent = new Intent(this, typeof(NewActivity));
-			var pendingIntent = PendingIntent.GetActivity(this, 0, intent, 0);
-			notification.SetLatestEventInfo(this, "Your location has changed", "Location info", pendingIntent);
-			nMgr.Notify(0, notification);
-		}
+        private void CreateIntent(BingResponse response)
+        {
+            var nMgr = this.GetSystemService(NotificationService) as NotificationManager;
+            var notification = new Notification(Resource.Drawable.Icon, "Incoming Location Info");
+            var intent = new Intent(this, typeof(NewActivity));
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, 0);
+            notification.SetLatestEventInfo(this, "Your location has changed", "Location info", pendingIntent);
+            nMgr.Notify(0, notification);
+        }
 
         public void Report(string value)
         {

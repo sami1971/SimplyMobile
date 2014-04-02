@@ -33,11 +33,11 @@ namespace SimplyMobile.Text
         /// <summary>
         /// Protocol Buffer format
         /// </summary>
-		ProtoBuf,
+        ProtoBuf,
 
-		/// <summary>
-		/// Comma-separated format
-		/// </summary>
+        /// <summary>
+        /// Comma-separated format
+        /// </summary>
         Csv,
 
         CustomBinary

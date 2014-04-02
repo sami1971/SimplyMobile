@@ -21,7 +21,7 @@ namespace SimplyMobile.IoC.Autofac
             }
         }
 
-		public Resolver() : this(new ContainerBuilder()){}
+        public Resolver() : this(new ContainerBuilder()){}
 
         public Resolver(ContainerBuilder builder)
         {

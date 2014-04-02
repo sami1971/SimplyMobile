@@ -6,8 +6,8 @@ obj/
 packages/
 Android/SimplyMobile.Data/Resources/Resource.Designer.cs
 Android/SimplyMobile.Data/Resources/Resource.Designer.cs
-iOS/Components/json.net-4.5.11.png
-iOS/Components/json.net-4.5.11.info
+iOS/Components/*
+Android/Components/*
 Core/Tests/TextSerializationTests/test-results/TextSerializationTests.csproj-Debug-2013-11-07.xml
 
 *.test-cache

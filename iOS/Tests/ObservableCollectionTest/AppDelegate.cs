@@ -16,14 +16,14 @@ namespace ObservableCollectionTest
         // class-level declarations
         UIWindow window;
 
-		UIViewController viewController;
+        UIViewController viewController;
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			viewController = new EditableTextViewController ();
+            viewController = new EditableTextViewController ();
             // If you have defined a view, add it here:
             window.RootViewController  = viewController;
 

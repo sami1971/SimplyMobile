@@ -14,40 +14,40 @@ using System.Diagnostics;
 
 namespace HttpClient
 {
-	public class DotNet {
-		AppDelegate ad;
-		
-		public DotNet (AppDelegate ad)
-		{
-			this.ad = ad;
-		}
-		
-		//
-		// Asynchronous HTTP request
-		//
-		public void HttpSample ()
-		{
-			Application.Busy ();
-			var request = WebRequest.Create (Application.WisdomUrl);
-			request.BeginGetResponse (FeedDownloaded, request);
-		}
-		
-		//
-		// Invoked when we get the stream back from the twitter feed
-		// We parse the RSS feed and push the data into a 
-		// table.
-		//
-		void FeedDownloaded (IAsyncResult result)
-		{
-			Application.Done ();
-			var request = result.AsyncState as HttpWebRequest;
-			
-			try {
-				var response = request.EndGetResponse (result);
-				ad.RenderStream (response.GetResponseStream ());
-			} catch (Exception e) {
-				Debug.WriteLine (e);
-			}
-		}
-	}
+    public class DotNet {
+        AppDelegate ad;
+        
+        public DotNet (AppDelegate ad)
+        {
+            this.ad = ad;
+        }
+        
+        //
+        // Asynchronous HTTP request
+        //
+        public void HttpSample ()
+        {
+            Application.Busy ();
+            var request = WebRequest.Create (Application.WisdomUrl);
+            request.BeginGetResponse (FeedDownloaded, request);
+        }
+        
+        //
+        // Invoked when we get the stream back from the twitter feed
+        // We parse the RSS feed and push the data into a 
+        // table.
+        //
+        void FeedDownloaded (IAsyncResult result)
+        {
+            Application.Done ();
+            var request = result.AsyncState as HttpWebRequest;
+            
+            try {
+                var response = request.EndGetResponse (result);
+                ad.RenderStream (response.GetResponseStream ());
+            } catch (Exception e) {
+                Debug.WriteLine (e);
+            }
+        }
+    }
 }

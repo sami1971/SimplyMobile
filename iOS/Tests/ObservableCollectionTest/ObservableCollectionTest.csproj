@@ -150,6 +150,10 @@
       <Project>{284D992D-0CD6-4A9E-BDF4-16507F9B1C9F}</Project>
       <Name>SimplyMobile.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

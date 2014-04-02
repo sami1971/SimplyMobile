@@ -41,6 +41,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Navigation\" />
+    <Folder Include="Assembly\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -56,6 +57,9 @@
     <Compile Include="Extensions\TextFieldExtensions.cs" />
     <Compile Include="ViewControllers\BindingViewController.cs" />
     <Compile Include="Navigation\NavigationController.cs" />
+    <Compile Include="..\..\Android\SimplyMobile.Android\Assembly\AssemblyService.cs">
+      <Link>Assembly\AssemblyService.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">

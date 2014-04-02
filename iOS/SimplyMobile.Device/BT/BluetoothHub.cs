@@ -19,6 +19,13 @@ namespace SimplyMobile.Device
         }
 
         #region IBluetoothHub implementation
+        public bool Enabled
+        {
+            get
+            {
+                throw new NotImplementedException ();
+            }
+        }
 
         public async Task<IReadOnlyList<IBluetoothDevice>> GetPairedDevices()
         {

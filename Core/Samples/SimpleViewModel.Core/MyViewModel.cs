@@ -4,45 +4,45 @@ using System.Threading;
 
 namespace SimpleViewModel.Core
 {
-	public class MyViewModel : SimplyMobile.Core.ViewModel
-	{
-		private CancellationTokenSource tokenSource;
+    public class MyViewModel : SimplyMobile.Core.ViewModel
+    {
+        private CancellationTokenSource tokenSource;
 
-		private const string ButtonStartText = "Click to start updating";
-		private const string ButtonCancelText = "Click to cancel updating";
+        private const string ButtonStartText = "Click to start updating";
+        private const string ButtonCancelText = "Click to cancel updating";
 
-		string label = string.Empty;
-		public string Label
-		{
-			get
-			{
-				return label;
-			}
-			private set
-			{
-				this.ChangeAndNotify(ref label, value);
-			}
-		}
+        string label = string.Empty;
+        public string Label
+        {
+            get
+            {
+                return label;
+            }
+            private set
+            {
+                this.ChangeAndNotify(ref label, value);
+            }
+        }
 
-		string buttonText = ButtonStartText;
+        string buttonText = ButtonStartText;
 
-		public string ButtonText
-		{
-			get
-			{
-				return buttonText;
-			}
-			private set
-			{
-				this.ChangeAndNotify(ref buttonText, value);
-			}
-		}
+        public string ButtonText
+        {
+            get
+            {
+                return buttonText;
+            }
+            private set
+            {
+                this.ChangeAndNotify(ref buttonText, value);
+            }
+        }
 
-		public async void Toggle(object sender, EventArgs e)
-		{
-			if (this.tokenSource == null)
-			{
-				this.tokenSource = new CancellationTokenSource ();
+        public async void Toggle(object sender, EventArgs e)
+        {
+            if (this.tokenSource == null)
+            {
+                this.tokenSource = new CancellationTokenSource ();
                 this.ButtonText = ButtonCancelText;
 
                 try
@@ -58,20 +58,20 @@ namespace SimpleViewModel.Core
                     this.ButtonText = ButtonStartText;
                     this.tokenSource = null;
                 }
-			}
-			else
-			{
-				Finish();
-			}
-		}
+            }
+            else
+            {
+                Finish();
+            }
+        }
 
-		public void Finish()
-		{
-			if (this.tokenSource != null)
-			{
-				this.tokenSource.Cancel ();
-			}
-		}
+        public void Finish()
+        {
+            if (this.tokenSource != null)
+            {
+                this.tokenSource.Cancel ();
+            }
+        }
 
         private static async Task Update(CancellationToken token, IProgress<string> progress)
         {

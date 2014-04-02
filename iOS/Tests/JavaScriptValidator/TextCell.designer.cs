@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace JavaScriptValidator
 {
-	[Register ("TextCell")]
-	partial class TextCell
-	{
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelCaption { get; set; }
+    [Register ("TextCell")]
+    partial class TextCell
+    {
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelCaption { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UITextField textText { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (labelCaption != null) {
-				labelCaption.Dispose ();
-				labelCaption = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UITextField textText { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (labelCaption != null) {
+                labelCaption.Dispose ();
+                labelCaption = null;
+            }
 
-			if (textText != null) {
-				textText.Dispose ();
-				textText = null;
-			}
-		}
-	}
+            if (textText != null) {
+                textText.Dispose ();
+                textText = null;
+            }
+        }
+    }
 }

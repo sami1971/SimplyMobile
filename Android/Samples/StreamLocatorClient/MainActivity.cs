@@ -27,7 +27,7 @@ namespace StreamLocatorClient
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button> (Resource.Id.myButton);
-			
+            
             var locator = new StreamLocator();
 
             button.Click += delegate

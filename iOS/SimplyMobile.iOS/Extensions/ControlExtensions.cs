@@ -5,12 +5,12 @@ using System.Windows.Input;
 
 namespace SimplyMobile.Core
 {
-	public static class ControlExtensions
-	{
-//		public static PropertyChangedEventHandler Bind(this UIControl control, ICommand command)
-//		{
+    public static class ControlExtensions
+    {
+//      public static PropertyChangedEventHandler Bind(this UIControl control, ICommand command)
+//      {
 //
-//		}
-	}
+//      }
+    }
 }
 

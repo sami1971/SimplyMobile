@@ -9,11 +9,11 @@ using System.CodeDom.Compiler;
 
 namespace ObservableCollectionTest
 {
-	partial class AppDelegate
-	{
-		
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    partial class AppDelegate
+    {
+        
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }

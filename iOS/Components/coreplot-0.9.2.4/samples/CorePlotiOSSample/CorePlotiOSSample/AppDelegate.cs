@@ -33,34 +33,34 @@ using MonoTouch.UIKit;
 
 namespace CorePlotiOSSample
 {
-	[Register ("AppDelegate")]
-	public partial class AppDelegate : UIApplicationDelegate
-	{
-		UINavigationController nav;
-		DialogViewController dvc;
-		UIWindow window;
+    [Register ("AppDelegate")]
+    public partial class AppDelegate : UIApplicationDelegate
+    {
+        UINavigationController nav;
+        DialogViewController dvc;
+        UIWindow window;
 
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			window = new UIWindow (UIScreen.MainScreen.Bounds);
+        public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+        {
+            window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			var root = new RootElement ("CorePlot Samples"){
-				new Section () {
-					new RootElement ("XYGraph", r => new ScatterPlot ()),
-					new RootElement ("BarChart", r => new BarPlot ()),
-					new RootElement ("PieChart", r => new PiePlot ()),
-					new RootElement ("RangePlot", r => new RangePlot ())
-				}
-			};
-			
-			dvc = new DialogViewController (root);
-			nav = new UINavigationController (dvc);
-			
-			window.RootViewController = nav;
-			window.MakeKeyAndVisible ();
-			
-			return true;
-		}
-	}
+            var root = new RootElement ("CorePlot Samples"){
+                new Section () {
+                    new RootElement ("XYGraph", r => new ScatterPlot ()),
+                    new RootElement ("BarChart", r => new BarPlot ()),
+                    new RootElement ("PieChart", r => new PiePlot ()),
+                    new RootElement ("RangePlot", r => new RangePlot ())
+                }
+            };
+            
+            dvc = new DialogViewController (root);
+            nav = new UINavigationController (dvc);
+            
+            window.RootViewController = nav;
+            window.MakeKeyAndVisible ();
+            
+            return true;
+        }
+    }
 }
 

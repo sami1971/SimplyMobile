@@ -5,35 +5,35 @@ using MonoTouch.Foundation;
 
 namespace ObservableCollectionTest
 {
-	[Register("EditableTextTable")]
-	public class EditableTextTable : UITableView, ITableCellProvider<EditableText>
-	{
-		public EditableTextTable ()
-		{
-		}
+    [Register("EditableTextTable")]
+    public class EditableTextTable : UITableView, ITableCellProvider<EditableText>
+    {
+        public EditableTextTable ()
+        {
+        }
 
-		public EditableTextTable (IntPtr handle) : base(handle)
-		{
-		}
+        public EditableTextTable (IntPtr handle) : base(handle)
+        {
+        }
 
-		#region ITableCellProvider implementation
+        #region ITableCellProvider implementation
 
-		public UITableViewCell GetCell (EditableText item)
-		{
-			var newCell = this.DequeueReusableCell(EditableTextTableCell.Key) 
-			              as EditableTextTableCell ?? EditableTextTableCell.Create();
+        public UITableViewCell GetCell (EditableText item)
+        {
+            var newCell = this.DequeueReusableCell(EditableTextTableCell.Key) 
+                          as EditableTextTableCell ?? EditableTextTableCell.Create();
 
-			newCell.Bind (item);
+            newCell.Bind (item);
 
-			return newCell;
-		}
+            return newCell;
+        }
 
         public float GetHeightForRow(NSIndexPath indexPath, EditableText item)
-		{
-			return 67f;
-		}
+        {
+            return 67f;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

@@ -11,18 +11,18 @@ using Android.Widget;
 
 namespace HttpClient.Android
 {
-	[Activity (Label = "Resulting Stream")]			
-	public class ShowStream : Activity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+    [Activity (Label = "Resulting Stream")]         
+    public class ShowStream : Activity
+    {
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
 
-			SetContentView (Resource.Layout.ShowStream);
+            SetContentView (Resource.Layout.ShowStream);
 
-			var textview = FindViewById<TextView> (Resource.Id.html_textView);
-			textview.Text = this.Intent.GetStringExtra ("string") ?? Resources.GetString (Resource.String.no_data);
-		}
-	}
+            var textview = FindViewById<TextView> (Resource.Id.html_textView);
+            textview.Text = this.Intent.GetStringExtra ("string") ?? Resources.GetString (Resource.String.no_data);
+        }
+    }
 }
 

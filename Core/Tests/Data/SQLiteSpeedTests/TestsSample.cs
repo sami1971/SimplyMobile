@@ -4,7 +4,6 @@ using System.IO;
 using ServiceStack.DataAnnotations;
 using System.Diagnostics;
 
-using ServiceStack.OrmLite.Sqlite;
 using ServiceStack.OrmLite;
 using System.Linq;
 using SQLite.Net.Interop;

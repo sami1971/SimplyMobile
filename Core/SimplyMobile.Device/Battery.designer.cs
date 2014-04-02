@@ -28,7 +28,7 @@ namespace SimplyMobile.Device
         {
             add
             {
-				// if this is the first subscriber lets start the monitoring
+                // if this is the first subscriber lets start the monitoring
                 if (onLevelChange == null)
                 {
                     StartLevelMonitoring();
@@ -38,7 +38,7 @@ namespace SimplyMobile.Device
             remove 
             { 
                 onLevelChange -= value;
-				// if this is the last client then we want to stop monitoring
+                // if this is the last client then we want to stop monitoring
                 if (onLevelChange == null)
                 {
                     StopLevelMonitoring();

@@ -102,14 +102,14 @@ namespace TwitterSample
         public User user { get; set; }
         public Videos videos { get; set; }
 
-		public override string ToString()
-		{
-			if (user == null)
-			{
-				return "User is null";
-			}
-			return user.full_name;
-		}
+        public override string ToString()
+        {
+            if (user == null)
+            {
+                return "User is null";
+            }
+            return user.full_name;
+        }
     }
 
     public class TwitterResponse

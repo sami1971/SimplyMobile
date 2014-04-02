@@ -7,12 +7,12 @@ using MonoTouch.Foundation;
 
 namespace BindingTests
 {
-	[Register ("PassBindingController")]
-	partial class PassBindingController
-	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    [Register ("PassBindingController")]
+    partial class PassBindingController
+    {
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }
 

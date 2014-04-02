@@ -9,26 +9,26 @@ using System.CodeDom.Compiler;
 
 namespace JavaScriptValidator
 {
-	[Register ("CheckBoxCell")]
-	partial class CheckBoxCell
-	{
-		[Outlet]
-		MonoTouch.UIKit.UILabel labelCaption { get; set; }
+    [Register ("CheckBoxCell")]
+    partial class CheckBoxCell
+    {
+        [Outlet]
+        MonoTouch.UIKit.UILabel labelCaption { get; set; }
 
-		[Outlet]
-		MonoTouch.UIKit.UISwitch switchChecked { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (labelCaption != null) {
-				labelCaption.Dispose ();
-				labelCaption = null;
-			}
+        [Outlet]
+        MonoTouch.UIKit.UISwitch switchChecked { get; set; }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (labelCaption != null) {
+                labelCaption.Dispose ();
+                labelCaption = null;
+            }
 
-			if (switchChecked != null) {
-				switchChecked.Dispose ();
-				switchChecked = null;
-			}
-		}
-	}
+            if (switchChecked != null) {
+                switchChecked.Dispose ();
+                switchChecked = null;
+            }
+        }
+    }
 }

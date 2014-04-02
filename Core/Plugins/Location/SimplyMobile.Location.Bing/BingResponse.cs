@@ -6,7 +6,7 @@ namespace SimplyMobile.Location.Bing
     /// The bing response.
     /// </summary>
     public class BingResponse
-	{
+    {
         /// <summary>
         /// Gets or sets the authentication result code.
         /// </summary>
@@ -41,13 +41,13 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the trace id.
         /// </summary>
         public string TraceId { get; set; }
-	}
+    }
 
     /// <summary>
     /// The resource set.
     /// </summary>
     public class ResourceSet
-	{
+    {
         /// <summary>
         /// Gets or sets the estimated total.
         /// </summary>
@@ -57,13 +57,13 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the resources.
         /// </summary>
         public List<Resource> Resources { get; set; }
-	}
+    }
 
     /// <summary>
     /// The resource.
     /// </summary>
     public class Resource
-	{
+    {
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -108,13 +108,13 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the match codes.
         /// </summary>
         public List<string> MatchCodes { get; set; }
-	}
+    }
 
     /// <summary>
     /// The geocode point.
     /// </summary>
     public class GeocodePoint
-	{
+    {
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -134,13 +134,13 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the usage types.
         /// </summary>
         public List<string> UsageTypes { get; set; }
-	}
+    }
 
     /// <summary>
     /// The address.
     /// </summary>
     public class Address
-	{
+    {
         /// <summary>
         /// Gets or sets the address line.
         /// </summary>
@@ -175,13 +175,13 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the postal code.
         /// </summary>
         public string PostalCode { get; set; }
-	}
+    }
 
     /// <summary>
     /// The point.
     /// </summary>
     public class Point
-	{
+    {
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -191,6 +191,6 @@ namespace SimplyMobile.Location.Bing
         /// Gets or sets the coordinates.
         /// </summary>
         public List<double> Coordinates { get; set; }
-	}
+    }
 }
 

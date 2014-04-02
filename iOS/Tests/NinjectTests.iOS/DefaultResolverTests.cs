@@ -12,18 +12,18 @@ using NUnit.Framework;
 namespace NinjectTests
 {
     [TestFixture]
-	public class DefaultResolverTests : InjectionTests
-	{
-		#region implemented abstract members of InjectionTests
-		protected override IDependencyResolver Resolver
-		{
-			get
-			{
-				return new DependencyResolver ();
-			}
-		}
+    public class DefaultResolverTests : InjectionTests
+    {
+        #region implemented abstract members of InjectionTests
+        protected override IDependencyResolver Resolver
+        {
+            get
+            {
+                return new DependencyResolver ();
+            }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 

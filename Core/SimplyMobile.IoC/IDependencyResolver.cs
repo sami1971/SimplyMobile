@@ -63,12 +63,12 @@ namespace SimplyMobile.IoC
         /// <returns>Returns the resolver instance for chaining</returns>
         IDependencyResolver RegisterService<T>(Func<IDependencyResolver, T> func) where T : class;
 
-		/// <summary>
-		/// Adds a dynamic getter for the service.
-		/// </summary>
-		/// <returns>The dependency resolver object</returns>
-		/// <param name="getter">Getter func for the service.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
+        /// <summary>
+        /// Adds a dynamic getter for the service.
+        /// </summary>
+        /// <returns>The dependency resolver object</returns>
+        /// <param name="getter">Getter func for the service.</param>
+        /// <typeparam name="T">The 1st type parameter.</typeparam>
         //IDependencyResolver AddDynamic<T>(Func<T> getter) where T : class;
     }
 }

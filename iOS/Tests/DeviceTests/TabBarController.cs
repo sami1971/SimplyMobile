@@ -4,24 +4,24 @@ using SimplyMobile.Core;
 
 namespace DeviceTests
 {
-	public class TabBarController : UITabBarController
-	{
-		UIViewController mainController;
+    public class TabBarController : UITabBarController
+    {
+        UIViewController mainController;
 
-		public TabBarController ()
-		{
+        public TabBarController ()
+        {
 
 
-		}
+        }
 
-		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad ();
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad ();
 
-			this.mainController = new MainViewController () 
-			{
-				TabBarItem = new UITabBarItem (UITabBarSystemItem.Featured, 0)
-			};
+            this.mainController = new MainViewController () 
+            {
+                TabBarItem = new UITabBarItem (UITabBarSystemItem.Featured, 0)
+            };
 
             if (MobileApp.IsPhone)
             {
@@ -44,7 +44,7 @@ namespace DeviceTests
             }
 
 
-		}
-	}
+        }
+    }
 }
 

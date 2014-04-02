@@ -7,11 +7,11 @@ using MonoTouch.Foundation;
 
 namespace BingTests
 {
-	[Register ("BingTestsViewController")]
-	partial class BingTestsViewController
-	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    [Register ("BingTestsViewController")]
+    partial class BingTestsViewController
+    {
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }

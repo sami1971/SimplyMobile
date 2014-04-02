@@ -7,11 +7,11 @@ using MonoTouch.Foundation;
 
 namespace StackOverflowSamples
 {
-	[Register ("StackOverflowSamplesViewController")]
-	partial class StackOverflowSamplesViewController
-	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    [Register ("StackOverflowSamplesViewController")]
+    partial class StackOverflowSamplesViewController
+    {
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }

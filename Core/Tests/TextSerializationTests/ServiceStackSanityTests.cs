@@ -25,20 +25,20 @@ using TestFixture = NUnit.Framework.TestFixtureAttribute;
 
 namespace TextSerializationTests
 {
-	[TestFixture ()]
-	public class ServiceStackSanityTests : SanityCheckTests
-	{
+    [TestFixture ()]
+    public class ServiceStackSanityTests : SanityCheckTests
+    {
         protected override ITextSerializer Serializer { get { return new JsonSerializer(); } }
 
         protected override ITextSerializer Deserializer { get { return new JsonSerializer(); } }
-	}
+    }
 
-	[TestFixture ()]
-	public class ServiceStackXmlSanityTests : SanityCheckTests
-	{
-		protected override ITextSerializer Serializer { get { return new XmlSerializer(); } }
+    [TestFixture ()]
+    public class ServiceStackXmlSanityTests : SanityCheckTests
+    {
+        protected override ITextSerializer Serializer { get { return new XmlSerializer(); } }
 
-		protected override ITextSerializer Deserializer { get { return new XmlSerializer(); } }
-	}
+        protected override ITextSerializer Deserializer { get { return new XmlSerializer(); } }
+    }
 }
 

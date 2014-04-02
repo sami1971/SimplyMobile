@@ -80,6 +80,10 @@
       <Project>{7886EBA5-D091-4AA1-B5BE-37DBC892AD19}</Project>
       <Name>SimplyMobile.Text.ServiceStack</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
