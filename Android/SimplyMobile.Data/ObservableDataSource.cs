@@ -114,7 +114,10 @@ namespace SimplyMobile.Data
 
         public virtual View GetDropDownView(int position, View convertView, ViewGroup parent)
         {
-            return this.GetView(position, convertView, parent);
+            var item = this.Data [position];
+
+            var cellProvider = parent as IDropDownCellProvider<T> ?? this.FindDropDownProvider (parent);
+            return cellProvider != null ? cellProvider.GetDropDownView (item, convertView) : this.GetView (position, convertView, parent);
         }
 
         /// <summary>

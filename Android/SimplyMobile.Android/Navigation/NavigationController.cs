@@ -4,12 +4,17 @@ using Android.Content;
 
 namespace SimplyMobile.Navigation
 {
-    public abstract class NavigationController : INavigationController
+    public abstract class NavigationController : Navigator
     {
         #region INavigationController implementation
 
-        public bool NavigateTo<T>(object sender, T model) where T : ViewModel
+        public override bool NavigateTo<T>(object sender, T model)
         {
+            if (base.NavigateTo<T> (sender, model))
+            {
+                return true;
+            }
+
             Intent intent;
 
             if (TryGetIntent (model, sender, out intent))

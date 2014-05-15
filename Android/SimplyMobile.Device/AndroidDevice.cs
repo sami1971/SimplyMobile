@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Telephony;
 using Android.Bluetooth;
+using Android.OS;
 
 namespace SimplyMobile.Device
 {
@@ -23,6 +24,14 @@ namespace SimplyMobile.Device
             {
                 this.BluetoothHub = new BluetoothHub(BluetoothAdapter.DefaultAdapter);
             }
+
+            this.Screen = new Screen ();
+
+            this.Manufacturer = Build.Manufacturer;
+            this.Name = Build.Model;
+            this.HardwareVersion = Build.Hardware;
+            this.FirmwareVersion = Build.VERSION.Release;
+
         }
 
         public static IDevice CurrentDevice { get { return currentDevice ?? (currentDevice = new AndroidDevice()); } }
@@ -30,6 +39,36 @@ namespace SimplyMobile.Device
         #region IDevice implementation
 
         public IPhone Phone { get; private set; }
+
+        public IScreen Screen
+        {
+            get;
+            private set;
+        }
+
+        public string Name
+        {
+            get;
+            private set;
+        }
+
+        public string FirmwareVersion
+        {
+            get;
+            private set;
+        }
+
+        public string HardwareVersion
+        {
+            get;
+            private set;
+        }
+
+        public string Manufacturer
+        {
+            get;
+            private set;
+        }
 
         public IBluetoothHub BluetoothHub { get; private set; }
         #endregion

@@ -12,5 +12,11 @@ namespace SimplyMobile.Navigation
     public interface INavigationController
     {
         bool NavigateTo<T>(object sender, T model) where T : ViewModel;
+
+        void SetDelegate<T>(Func<T, bool> func) where T : ViewModel;
+        bool RemoveDelegates<T>() where T : ViewModel;
+
+        void SetWeakDelegate<T>(Func<T, bool> func) where T : ViewModel;
+        //bool RemoveWeakDelegate<T>(Func<T, bool> func) where T : ViewModel;
     }
 }

@@ -9,7 +9,7 @@ namespace SimplyMobile.Navigation
 {
     public class NavigationDelegate<T> where T : ViewModel
     {
-        public delegate void NavigateDelegate(T model);
+        public delegate bool NavigateDelegate(T model);
 
         private NavigateDelegate navigationDelegate;
 
@@ -18,9 +18,9 @@ namespace SimplyMobile.Navigation
             this.navigationDelegate = navigationDelegate;
         }
 
-        public void NavigateTo(T model)
+        public bool NavigateTo(T model)
         {
-            this.navigationDelegate.Invoke(model);
+            return this.navigationDelegate.Invoke(model);
         }
     }
 }

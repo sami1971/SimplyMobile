@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{69953254-EE9D-471F-8D94-E7239C68F88C}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -54,6 +52,7 @@
     <Compile Include="WebHybrid.Android.cs" />
     <Compile Include="CustomView.cs" />
     <Compile Include="WebImageCache.cs" />
+    <Compile Include="GenericRestClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Content\" />

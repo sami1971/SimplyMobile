@@ -22,6 +22,7 @@ namespace SimplyMobile.Core
             this.PropertyChanged = null;
         }
 
+        #region Protected methods
         /// <summary>
         /// Changes the property if the value is different and invokes PropertyChangedEventHandler.
         /// </summary>
@@ -29,12 +30,12 @@ namespace SimplyMobile.Core
         /// <param name="value">Value.</param>
         /// <param name="propertyName">Property name.</param>
         /// <typeparam name="T">The 1st type parameter.</typeparam>
-        protected bool ChangeAndNotify<T>(ref T property, T value,  [CallerMemberName] string propertyName = "")
+        protected bool ChangeAndNotify<T>(ref T property, T value, [CallerMemberName] string propertyName = "")
         {
             if (!EqualityComparer<T>.Default.Equals(property, value))
             {
                 property = value;
-                NotifyPropertyChanged (propertyName);
+                NotifyPropertyChanged(propertyName);
                 return true;
             }
 
@@ -56,7 +57,8 @@ namespace SimplyMobile.Core
         protected string GetMemberName([CallerMemberName] string propertyName = "")
         {
             return propertyName;
-        }
+        } 
+        #endregion
     }
 }
 

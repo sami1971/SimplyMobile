@@ -71,6 +71,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>Bin\ARM\Debug\SimplyMobile.WP8.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
     <DebugType>pdbonly</DebugType>
@@ -83,6 +84,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Core\SimplyMobile.Core\Extensions\EnumExtensions.cs">
+      <Link>Extensions\EnumExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\..\Core\SimplyMobile.Core\MobileApp.designer.cs">
       <Link>MobileApp.designer.cs</Link>
     </Compile>
@@ -90,8 +94,12 @@
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="MobileApp.cs" />
     <Compile Include="Navigation\NavigationController.cs" />
+    <Compile Include="Navigation\NavigationItem.cs" />
     <Compile Include="Navigation\ViewModelPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Speech\SpeechToText.cs" />
+    <Compile Include="Speech\SpeechToTextExtensions.cs" />
+    <Compile Include="Speech\TextToSpeech.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">

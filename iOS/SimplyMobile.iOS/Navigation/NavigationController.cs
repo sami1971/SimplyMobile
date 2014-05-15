@@ -4,11 +4,18 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile.Navigation
 {
-    public abstract class NavigationController : INavigationController
+    public abstract class NavigationController : Navigator
     {
         #region INavigationController implementation
-        public bool NavigateTo<T>(object sender, T model) where T : SimplyMobile.Core.ViewModel
+        public override bool NavigateTo<T>(object sender, T model)
         {
+            if (base.NavigateTo (sender, model))
+            {
+                return true;
+            }
+
+            this.LastSender = new WeakReference (sender);
+
             UIViewController newViewController;
             bool animated;
 
@@ -17,7 +24,19 @@ namespace SimplyMobile.Navigation
                 return false;
             }
 
-            var controller = sender as UIViewController;
+            UIViewController controller;
+
+
+            var view = sender as UIView;
+
+            if (view != null)
+            {
+                controller = view.GetController ();
+            } 
+            else
+            {
+                controller = sender as UIViewController;
+            }
 
             if (controller != null)
             {
@@ -44,6 +63,8 @@ namespace SimplyMobile.Navigation
             return false;
         }
         #endregion
+
+        protected WeakReference LastSender;
 
         protected abstract bool TryGetViewController<T>(T model, out UIViewController controller, out bool animated) where T : ViewModel;
     }

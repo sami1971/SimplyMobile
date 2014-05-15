@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplyMobile.Core.Data
+namespace SimplyMobile.Data
 {
-    interface ISyncObject : IEquatable<ISyncObject>
+    public interface ISyncObject : IEquatable<ISyncObject>
     {
         DateTimeOffset Created { get; set; }
 

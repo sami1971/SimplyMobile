@@ -14,6 +14,7 @@ namespace SimplyMobile.Data
         int Update(object obj);
         int Delete<T>(object primaryKey) where T : new();
         int Delete(object objectToDelete);
+        int DeleteAll<T>();
 
         void RunInTransaction(Action action);
     }

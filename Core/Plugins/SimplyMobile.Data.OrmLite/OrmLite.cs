@@ -66,6 +66,13 @@ namespace SimplyMobile.Data
             return 1;
         }
 
+        public int DeleteAll<T>()
+        {
+            var count = this.connection.Count<T> ();
+            this.connection.DeleteAll<T> ();
+            return (int)(count - this.connection.Count<T>());
+        }
+
         public void Dispose()
         {
             if (this.connection.State == ConnectionState.Open)

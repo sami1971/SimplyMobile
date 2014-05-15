@@ -66,7 +66,7 @@ namespace SimplyMobile.Media.Audio
             if (this.streamWriter != null && this.streamWriter.BaseStream.CanWrite)
             {
                 this.WriteHeader();
-                this.streamWriter.Close();
+                this.streamWriter.Dispose();
                 this.streamWriter = null;
             }
 

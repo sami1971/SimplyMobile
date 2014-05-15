@@ -51,6 +51,9 @@ namespace DeviceTests
         {
             base.OnCreate ();
 
+            var device = AndroidDevice.CurrentDevice;
+
+            System.Diagnostics.Debug.WriteLine(device.FirmwareVersion);
             // add Android specific DI services here
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformAndroid>();
             DependencyResolver.Current.RegisterService<IPhone, AndroidPhone> ();

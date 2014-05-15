@@ -51,13 +51,17 @@ namespace DeviceTests
             
             // make the window visible
             this.window.MakeKeyAndVisible();
-
+            DependencyResolver.Current.RegisterService<IDevice>(t => AppleDevice.CurrentDevice ());
             DependencyResolver.Current.RegisterService<ISQLitePlatform, SQLitePlatformIOS>();
-            DependencyResolver.Current.RegisterService<IPhone, ApplePhone> ();
+            DependencyResolver.Current.RegisterService<IPhone, PhoneImplementation> ();
             this.OnStart();
 
             Resolver.GetService<StoreAccelerometerData>().Start();
             Resolver.GetService<StoreLocationChange> ().Start ();
+
+            var device = Resolver.GetService<IDevice> ();
+            System.Diagnostics.Debug.WriteLine (string.Format("Device {0} a phone.", device.Phone != null ? "is" : "is not"));
+            System.Diagnostics.Debug.WriteLine (device.Screen);
             return true;
         }
 

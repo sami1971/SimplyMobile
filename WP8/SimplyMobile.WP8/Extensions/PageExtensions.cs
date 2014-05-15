@@ -22,5 +22,12 @@ namespace SimplyMobile
 
             return null;
         }
+
+        public static bool Navigate<T>(this Page page, string address, UriKind uriKind, T model) where T : ViewModel
+        {
+            var guid = ViewModelContainer.Push(model);
+            var pageAddress = string.Format("{0}?modelId={1}", address, guid);
+            return page.NavigationService.Navigate(new Uri(pageAddress, uriKind));
+        }
     }
 }

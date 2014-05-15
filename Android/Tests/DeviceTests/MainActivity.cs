@@ -58,7 +58,7 @@ namespace DeviceTests
             var connect = BTConnector.GetConnectMethod ();
             var layout = new LinearLayout (this) 
             {
-                Orientation = Orientation.Vertical
+                Orientation = Android.Widget.Orientation.Vertical
             };
 
             // Set our view from the "main" layout resource

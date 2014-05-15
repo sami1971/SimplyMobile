@@ -96,11 +96,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.Text.WP8">
-      <HintPath>..\..\..\libs\ServiceStack\ServiceStack.Text.WP8.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Projects\GitHub\ServiceStack.Text\src\ServiceStack.Text\ServiceStack.Text.WP8.csproj">
+      <Project>{0F6EB1D6-D49D-4D55-8F63-500666DA2E49}</Project>
+      <Name>ServiceStack.Text.WP8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\SimplyMobile.Text\SimplyMobile.Text.csproj">
       <Project>{F367F89E-E79F-4332-AD93-85E7CFF7391C}</Project>
       <Name>SimplyMobile.Text</Name>

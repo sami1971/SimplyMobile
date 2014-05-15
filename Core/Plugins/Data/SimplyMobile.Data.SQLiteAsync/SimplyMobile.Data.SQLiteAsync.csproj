@@ -14,8 +14,6 @@
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,22 +37,25 @@
     <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SQLite.Net">
-      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLite.Net.Async">
-      <HintPath>..\..\..\..\libs\SQLiteNetAsync\SQLite.Net.Async.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.Data.SQLiteSerializers\SimplyMobile.Data.SQLiteSerializers.csproj">
       <Project>{57E9AF44-8FCA-43F1-A416-026AE8448FB3}</Project>
       <Name>SimplyMobile.Data.SQLiteSerializers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\..\..\..\WP8\packages\SQLite.Net-PCL.2.2.0\lib\portable-net4+sl4+wp7+win8+monotouch+MonoAndroid\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\..\..\..\WP8\packages\SQLite.Net.Async-PCL.2.2.0\lib\portable-net4+sl5+wp8+win8+monotouch+monoAndroid\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

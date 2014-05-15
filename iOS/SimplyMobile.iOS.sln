@@ -2990,7 +2990,7 @@ Global
 		{07426FCD-78B9-49B5-9E64-859E5E61FE22} = {83FA6488-B975-4478-9E12-2D3FFA87B4EF}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Samples\WebHybrid\NavigationSample\NavigationSample.csproj
+		StartupItem = Tests\DeviceTests\DeviceTests.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.FileWidth = 120

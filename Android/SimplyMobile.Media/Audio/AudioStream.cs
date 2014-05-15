@@ -63,6 +63,18 @@ namespace SimplyMobile.Media
             }
         }
 
+        /// <summary>
+        /// Gets the average data transfer rate
+        /// </summary>
+        /// <value>The average data transfer rate in bytes per second.</value>
+        public int AverageBytesPerSecond 
+        { 
+            get
+            {
+                return this.SampleRate * this.BitsPerSample / 8 * this.ChannelCount;
+            }
+        }
+
         public bool Active
         {
             get

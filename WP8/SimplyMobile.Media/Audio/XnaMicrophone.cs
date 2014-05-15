@@ -83,5 +83,15 @@ namespace SimplyMobile.Media
             } 
             while (read > 0);
         }
+
+        #region IAudioStream Members
+
+
+        public int AverageBytesPerSecond
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        #endregion
     }
 }

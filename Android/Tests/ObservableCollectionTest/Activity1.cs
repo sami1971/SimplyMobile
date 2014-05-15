@@ -43,6 +43,8 @@ namespace ObservableCollectionTest
                 this.listView,
                 new TableCellDelegate<EditableText> (this.GetView));
 
+            EditableTextViewModel.Instance.Items.SetProvider (this.spinner, new DropDownCellDelegate<EditableText> (this.GetView));
+
             this.buttonAdd.Click += (sender, e) => EditableTextViewModel.Instance.AddItem (new EditableText ());
         }
 
@@ -67,7 +69,7 @@ namespace ObservableCollectionTest
         protected override void OnResume ()
         {
             base.OnResume ();
-            //EditableTextViewModel.Instance.Items.Bind (this.spinner);
+            EditableTextViewModel.Instance.Items.Bind (this.spinner);
             EditableTextViewModel.Instance.Items.Bind (this.listView);
 
             this.textLastText.Text = EditableTextViewModel.Instance.LatestTextChange.Text;

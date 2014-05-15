@@ -3,6 +3,8 @@ using SimplyMobile.Core;
 
 namespace SimplyMobile
 {
+    using Navigation;
+
     public class ViewModelActivity<T> : ActivityCore where T : ViewModel
     {
         private const string ModelId = "modelId";
@@ -21,6 +23,13 @@ namespace SimplyMobile
             base.OnCreate (savedInstanceState);
 
             this.Model = ViewModelContainer.Pull ((savedInstanceState ?? this.Intent.Extras).GetString (ModelId)) as T;
+
+            var activityModel = this.Model as NavigatorViewModel;
+
+            if (activityModel != null)
+            {
+                activityModel.Presenter = this;
+            }
         }
 
         /// <Docs>Bundle in which to place your saved state.</Docs>

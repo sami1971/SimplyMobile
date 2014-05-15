@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F5D68828-C9EA-486E-BD8A-60D1406DCCF7}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -63,6 +61,11 @@
     <Compile Include="Extensions\ListViewBindings.cs" />
     <Compile Include="Security\PasswordStorage.cs" />
     <Compile Include="TableCellDelegate.cs" />
+    <Compile Include="ObservableDataSource.DropdownProvider.cs" />
+    <Compile Include="DropDownCellDelegate.cs" />
+    <Compile Include="IDropDownCellProvider.cs" />
+    <Compile Include="Security\CryptoFactory.cs" />
+    <Compile Include="Security\PasswordActivity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

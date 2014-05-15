@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E51F775C-15CB-4A9D-9278-4F0FB72480A5}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -65,6 +63,11 @@
     <Compile Include="ApplePhone.cs" />
     <Compile Include="BT\BluetoothHub.cs" />
     <Compile Include="BT\BluetoothDevice.cs" />
+    <Compile Include="AppleDevice.cs" />
+    <Compile Include="Screen.cs" />
+    <Compile Include="Pod.cs" />
+    <Compile Include="Pad.cs" />
+    <Compile Include="Simulator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -74,12 +77,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="BT\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
       <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
       <Name>SimplyMobile.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BT\" />
+    <ProjectReference Include="..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
+      <Project>{C0132CB0-F624-49D6-86E3-0EEFD0CEFE09}</Project>
+      <Name>SimplyMobile.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

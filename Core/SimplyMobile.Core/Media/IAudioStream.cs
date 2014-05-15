@@ -32,7 +32,7 @@ namespace SimplyMobile.Media
         /// Gets the sample rate.
         /// </summary>
         /// <value>
-        /// The sample rate.
+        /// The sample rate in hertz.
         /// </value>
         int SampleRate { get; }
 
@@ -48,6 +48,12 @@ namespace SimplyMobile.Media
         /// Gets bits per sample.
         /// </summary>
         int BitsPerSample { get; }
+
+        /// <summary>
+        /// Gets the average data transfer rate
+        /// </summary>
+        /// <value>The average data transfer rate in bytes per second.</value>
+        int AverageBytesPerSecond { get; }
     }
 }
 

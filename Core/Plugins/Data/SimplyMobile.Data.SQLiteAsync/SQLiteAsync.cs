@@ -38,5 +38,10 @@ namespace SimplyMobile.Data
         {
             return base.Delete<T>(primaryKey);
         }
+
+        //public int DeleteAll<T>()
+        //{
+        //    return base.DeleteAll<T>();
+        //}
     }
 }

@@ -226,7 +226,7 @@
     <SDKReference Include="MSAdvertising, Version=6.1">
       <Name>Microsoft Advertising SDK for Windows Phone 8 %28XAML%29</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WP80, Version=3.8.4.2">
+    <SDKReference Include="SQLite.WP80, Version=3.8.4.3">
       <Name>SQLite for Windows Phone</Name>
     </SDKReference>
   </ItemGroup>
