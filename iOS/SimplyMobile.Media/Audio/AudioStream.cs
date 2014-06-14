@@ -30,6 +30,14 @@ namespace SimplyMobile.Media
 
         public event EventHandler<EventArgs<byte[]>> OnBroadcast;
 
+        public int AverageBytesPerSecond
+        {
+            get
+            {
+                throw new NotImplementedException ();
+            }
+        }
+
         public int SampleRate
         {
             get;

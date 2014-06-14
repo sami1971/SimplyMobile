@@ -62,6 +62,9 @@ namespace DeviceTests
             var device = Resolver.GetService<IDevice> ();
             System.Diagnostics.Debug.WriteLine (string.Format("Device {0} a phone.", device.Phone != null ? "is" : "is not"));
             System.Diagnostics.Debug.WriteLine (device.Screen);
+            System.Diagnostics.Debug.WriteLine (device.Name);
+            System.Diagnostics.Debug.WriteLine (device.HardwareVersion);
+            System.Diagnostics.Debug.WriteLine (device.FirmwareVersion);
             return true;
         }
 

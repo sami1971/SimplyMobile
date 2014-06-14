@@ -5,6 +5,7 @@ using System.Drawing;
 using SimplyMobile.Core;
 using SimplyMobile.Data;
 using SimplyMobile.Device;
+using SimplyMobile.IoC;
 
 namespace DeviceTests
 {
@@ -78,6 +79,12 @@ namespace DeviceTests
             Battery.OnChargerStatusChanged += HandleOnChargerStatusChanged;
 
             Accelometer.ReadingAvailable += HandleReadingAvailable;
+
+            var device = Resolver.GetService<IDevice>();
+
+            System.Diagnostics.Debug.WriteLine(string.Format("Device screen width is {0} inches.", device.Screen.ScreenWidthInches()));
+            System.Diagnostics.Debug.WriteLine(string.Format("Device screen height is {0} inches.", device.Screen.ScreenHeightInches()));
+            System.Diagnostics.Debug.WriteLine(string.Format("Device screen size is {0} inches.", device.Screen.ScreenSizeInches()));
         }
 
         public override void ViewDidDisappear (bool animated)

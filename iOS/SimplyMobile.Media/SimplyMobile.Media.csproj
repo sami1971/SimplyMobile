@@ -41,9 +41,6 @@
   <ItemGroup>
     <Compile Include="Audio\AudioStream.cs" />
     <Compile Include="Audio\AccRecorder.cs" />
-    <Compile Include="..\..\Core\SimplyMobile.Core\Media\WaveRecorder.cs">
-      <Link>Audio\WaveRecorder.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Audio\AudioPacketConverter.cs" />

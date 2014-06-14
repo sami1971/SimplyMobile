@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimplyMobile.Device
 {
+    /// <summary>
+    /// Portable interface for device screen information
+    /// </summary>
     public interface IScreen
     {
         /// <summary>

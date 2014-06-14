@@ -41,6 +41,15 @@ namespace DeviceTests
             Battery.OnChargerStatusChanged += BatteryChargerStatusChanged;
         }
 
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var device = Resolver.GetService<IDevice>();
+
+            this.buttonCall.IsEnabled = device.Phone != null;
+        }
+
         private void BatteryChargerStatusChanged(object sender, EventArgs<bool> eventArgs)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
@@ -59,21 +68,12 @@ namespace DeviceTests
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var phone = Resolver.GetService<IPhone>();
-
-            if (phone == null)
-            {
-
-            }
-            else
-            {
-                phone.DialNumber(this.phoneNumber.Text);
-            }
+            Resolver.GetService<IDevice>().Phone.DialNumber(this.phoneNumber.Text);
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var btHub = Resolver.GetService<IBluetoothHub>();
+            var btHub = Resolver.GetService<IDevice>().BluetoothHub;
 
             if (btHub != null)
             {
@@ -86,6 +86,11 @@ namespace DeviceTests
 
                 btHub.OpenSettings();
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new System.Uri("/DeviceInfoPage.xaml", System.UriKind.Relative));
         }
     }
 }

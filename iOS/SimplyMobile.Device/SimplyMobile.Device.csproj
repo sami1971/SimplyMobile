@@ -80,13 +80,13 @@
     <Folder Include="BT\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
-      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
-      <Name>SimplyMobile.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplyMobile.iOS\SimplyMobile.iOS.csproj">
       <Project>{C0132CB0-F624-49D6-86E3-0EEFD0CEFE09}</Project>
       <Name>SimplyMobile.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\SimplyMobile.Core\SimplyMobile.Core.csproj">
+      <Project>{AABBEDCC-499F-42E7-95D2-81360AA6107C}</Project>
+      <Name>SimplyMobile.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

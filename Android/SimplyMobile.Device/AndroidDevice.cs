@@ -8,12 +8,16 @@ namespace SimplyMobile.Device
 {
     public class AndroidDevice : IDevice
     {
+        public bool SupportsSensor<T>() where T : ISensor
+        {
+            throw new NotImplementedException ();
+        }
+
         private static IDevice currentDevice;
 
         private AndroidDevice ()
         {
-            var manager = this.GetSystemService(Context.TelephonyService) 
-                as TelephonyManager;
+            var manager = Context.TelephonyService.GetSystemService() as TelephonyManager;
 
             if (manager != null && manager.PhoneType != PhoneType.None)
             {
@@ -32,6 +36,7 @@ namespace SimplyMobile.Device
             this.HardwareVersion = Build.Hardware;
             this.FirmwareVersion = Build.VERSION.Release;
 
+            this.Battery = new BatteryImpl ();
         }
 
         public static IDevice CurrentDevice { get { return currentDevice ?? (currentDevice = new AndroidDevice()); } }
@@ -71,6 +76,8 @@ namespace SimplyMobile.Device
         }
 
         public IBluetoothHub BluetoothHub { get; private set; }
+
+        public IBattery Battery { get; private set; }
         #endregion
     }
 }

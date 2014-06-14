@@ -15,6 +15,11 @@ namespace SimplyMobile
             return Application.Context.GetSystemService(service);
         }
 
+        public static Java.Lang.Object GetSystemService(this string service)
+        {
+            return Application.Context.GetSystemService(service);
+        }
+
         public static ConnectivityManager GetConnectivityManager(this object o)
         {
             return (ConnectivityManager)o.GetSystemService(Context.ConnectivityService);
@@ -39,18 +44,18 @@ namespace SimplyMobile
             }
         }
 
-        public static void StartActivityForResult(this object o, Intent intent)
-        {
-            var context = o as Context;
-            if (context != null)
-            {
-                context.StartActivityForResult (intent);
-            } 
-            else
-            {
-                intent.SetFlags (ActivityFlags.NewTask);
-                Application.Context.StartActivityForResult (intent);
-            }
-        }
+//        public static void StartActivityForResult2(this object o, Intent intent)
+//        {
+//            var context = o as Activity;
+//            if (context != null)
+//            {
+//                context.StartActivityForResult (intent);
+//            } 
+//            else
+//            {
+//                intent.SetFlags (ActivityFlags.NewTask);
+//                Application.Context.StartActivityForResult (intent);
+//            }
+//        }
     }
 }

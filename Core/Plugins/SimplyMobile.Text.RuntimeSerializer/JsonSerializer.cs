@@ -10,9 +10,16 @@ namespace SimplyMobile.Text.RuntimeSerializer
 {
     public class JsonSerializer : IJsonSerializer
     {
+        private Lazy<List<Type>> types = new Lazy<List<Type>>();
+
         public Format Format
         {
             get { return Format.Json; }
+        }
+
+        public void AddKnownType<T>()
+        {
+            this.types.Value.Add(typeof(T));
         }
 
         public string Serialize<T>(T obj)
@@ -20,7 +27,7 @@ namespace SimplyMobile.Text.RuntimeSerializer
             using (var memoryStream = new MemoryStream())
             using (var reader = new StreamReader(memoryStream))
             {
-                var serializer = new DataContractJsonSerializer(obj.GetType());
+                var serializer = new DataContractJsonSerializer(obj.GetType(), this.types.Value);
                 serializer.WriteObject(memoryStream, obj);
                 memoryStream.Position = 0;
                 return reader.ReadToEnd();

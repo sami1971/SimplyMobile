@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using SimplyMobile.Text.ServiceStack;
 using System.IO;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 
 namespace StackOverflowSamples
 {
@@ -15,6 +17,7 @@ namespace StackOverflowSamples
     public class Activity1 : Activity
     {
         private static GenericDto dto = new GenericDto();
+        private bool wasClicked;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -42,14 +45,56 @@ namespace StackOverflowSamples
 
             };
 
+            Drawable blankDrawable = Resources.GetDrawable (Resource.Drawable.Icon);
+            var blankBitmap = ((BitmapDrawable)blankDrawable).Bitmap;
+            var pixel1 = blankBitmap.GetPixel (100, 100);
 
+            var colorOfPixel = new Color (pixel1);
+            System.Diagnostics.Debug.WriteLine (pixel1);
+            System.Diagnostics.Debug.WriteLine (colorOfPixel);
+
+            var alpha = (byte)(pixel1 >> 3 * 8);
+            var red = (byte)(pixel1 >> 2 * 8);
+            var green = (byte)(pixel1 >> 8);
+            var blue = (byte)pixel1;
+
+            System.Diagnostics.Debug.WriteLine (alpha);
+            System.Diagnostics.Debug.WriteLine (red);
+            System.Diagnostics.Debug.WriteLine (green);
+            System.Diagnostics.Debug.WriteLine (blue);
+
+            button.Click += HandleClick;
+        }
+
+        void HandleClick (object sender, EventArgs e)
+        {
+            this.wasClicked = true;
+            // load image
+        }
+
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutBoolean ("clicked", this.wasClicked);
+            base.OnSaveInstanceState (outState);
+        }
+
+        protected override void OnRestoreInstanceState(Bundle savedInstanceState)
+        {
+            this.wasClicked = savedInstanceState.GetBoolean ("clicked");
+            if (this.wasClicked)
+            {
+                HandleClick (this, null);
+            }
+
+            base.OnRestoreInstanceState (savedInstanceState);
         }
 
         public static void WriteToSdcard(object obj, string fileName)
         {
             if (Directory.Exists ("/sdcard"))
             {
-                using (var writer = new StreamWriter (Path.Combine("/sdcard", fileName)))
+                using (var writer = new StreamWriter (System.IO.Path.Combine("/sdcard", fileName)))
                 {
                     var serializer = new System.Runtime.Serialization.DataContractSerializer (obj.GetType ());
                     serializer.WriteObject (writer.BaseStream, obj);

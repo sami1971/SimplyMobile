@@ -54,8 +54,6 @@ namespace DeviceTests
 
             RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
 
-
-            var connect = BTConnector.GetConnectMethod ();
             var layout = new LinearLayout (this) 
             {
                 Orientation = Android.Widget.Orientation.Vertical
@@ -112,7 +110,7 @@ namespace DeviceTests
 
             layout.AddView (buttonCall);
 
-            buttonCall.Click += (sender, e) => Resolver.GetService<IPhone> ().DialNumber (this.textPhoneNumber.Text);
+            buttonCall.Click += (sender, e) => Resolver.GetService<IDevice> ().Phone.DialNumber (this.textPhoneNumber.Text);
 
 
             var buttonBt = new Button (this) {
@@ -143,10 +141,17 @@ namespace DeviceTests
 //          };
 //
 //          layout.AddView (this.acceleroMeterState);
+
+            System.Diagnostics.Debug.WriteLine (AndroidDevice.CurrentDevice.Phone.CellularProvider);
         }
 
         protected override void OnDestroy()
         {
+            this.batteryLevel.Dispose ();
+            this.chargerState.Dispose ();
+            this.accelerometerStatus.Dispose ();
+            this.textLocation.Dispose ();
+            this.textPhoneNumber.Dispose ();
             DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
             base.OnDestroy();
         }

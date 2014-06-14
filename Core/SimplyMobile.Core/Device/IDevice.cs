@@ -29,6 +29,17 @@ namespace SimplyMobile.Device
         IScreen Screen { get; }
 
         /// <summary>
+        /// Gets the battery.
+        /// </summary>
+        /// <value>The battery.</value>
+        IBattery Battery { get; }
+
+        /// <summary>
+        /// Gets the available sensors
+        /// </summary>
+//        IEnumerable<Type> Sensors { get; }
+
+        /// <summary>
         /// Gets the name of the device.
         /// </summary>
         /// <value>The name.</value>
@@ -39,5 +50,7 @@ namespace SimplyMobile.Device
         string HardwareVersion { get; }
 
         string Manufacturer { get; }
+
+        bool SupportsSensor<T>() where T : ISensor;
     }
 }

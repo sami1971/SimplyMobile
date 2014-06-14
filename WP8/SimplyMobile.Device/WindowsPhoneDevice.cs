@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Phone.Info;
+using Microsoft.Phone.Net.NetworkInformation;
+using Microsoft.Devices.Sensors;
 
 namespace SimplyMobile.Device
 {
@@ -36,6 +38,26 @@ namespace SimplyMobile.Device
         public IScreen Screen
         {
             get { return this.screen; }
+        }
+
+        public IBattery Battery
+        {
+            get { return new BatteryImpl(); }
+        }
+
+        public IEnumerable<ISensor> Sensors
+        {
+            get
+            {
+                var sensors = new List<ISensor>();
+
+                if (Motion.IsSupported)
+                {
+                    sensors.Add(new MotionSensor(TimeSpan.FromMilliseconds(10)));
+                }
+                
+                return sensors;
+            }
         }
 
         public string Name 

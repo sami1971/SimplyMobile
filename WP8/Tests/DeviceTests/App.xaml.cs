@@ -94,19 +94,22 @@ namespace DeviceTests
             var resolver = DependencyResolver.Current;
             resolver.RegisterService<ISQLitePlatform, SQLitePlatformWP8>();
 
-            resolver.RegisterService<IPhone, WindowsPhone>()
-                .RegisterService<IBluetoothHub, BluetoothHub>();
+            //resolver.RegisterService<IPhone, WindowsPhone>()
+            //    .RegisterService<IBluetoothHub, BluetoothHub>();
+
+            resolver.RegisterService<IDevice>(new WindowsPhoneDevice());
 
             DependencyResolver.Current.RegisterService<IAccelerometer, AccelerometerImpl>();
             DependencyResolver.Current.RegisterService<IBattery, BatteryImpl>();
-            DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
+            //DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.ServiceStack.JsonSerializer>();
+            DependencyResolver.Current.RegisterService<IJsonSerializer, SimplyMobile.Text.JsonNet.JsonSerializer>();
             DependencyResolver.Current.RegisterService<IBlobSerializer>(t => t.GetService<IJsonSerializer>().AsBlobSerializer());
 
             DependencyResolver.Current.RegisterService<ICrudProvider>(t =>
                 new SQLiteAsync(
                     t.GetService<ISQLitePlatform>(),
                     new SQLiteConnectionString(
-                        Path.Combine(ApplicationData.Current.LocalFolder.Path, /*"Shared", "Media",*/ "device.db"),
+                        Path.Combine(ApplicationData.Current.LocalFolder.Path, /*"Shared", "Media",*/ "device2.db"),
                         true,
                         t.GetService<IBlobSerializer>())
                     ));
@@ -133,9 +136,9 @@ namespace DeviceTests
                     new LocationMonitorImpl(TimeSpan.FromMilliseconds(100)),
                     DependencyResolver.Current.GetService<ICrudProvider>()));
 
-            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
-            DependencyResolver.Current.GetService<StoreBatteryData>().Start();
-            DependencyResolver.Current.GetService<StoreLocationChange>().Start();
+            //DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
+            //DependencyResolver.Current.GetService<StoreBatteryData>().Start();
+            //DependencyResolver.Current.GetService<StoreLocationChange>().Start();
 
             DependencyResolver.Current.GetService<ILogService>().Info(this, "Application started");
         }
@@ -157,10 +160,9 @@ namespace DeviceTests
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             DependencyResolver.Current.GetService<ILogService>().Info(this, "Application activated, args: {0}", e);
-
-            DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
-            DependencyResolver.Current.GetService<StoreBatteryData>().Start();
-            DependencyResolver.Current.GetService<StoreLocationChange>().Start();
+            //DependencyResolver.Current.GetService<StoreAccelerometerData>().Start();
+            //DependencyResolver.Current.GetService<StoreBatteryData>().Start();
+            //DependencyResolver.Current.GetService<StoreLocationChange>().Start();
         }
 
         // Code to execute when the application is deactivated (sent to background)
@@ -169,9 +171,9 @@ namespace DeviceTests
         {
             DependencyResolver.Current.GetService<ILogService>().Info(this, "Application deactivated, args: {0}", e);
 
-            DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
-            DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
-            DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
+            //DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            //DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
+            //DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
@@ -179,16 +181,16 @@ namespace DeviceTests
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
             DependencyResolver.Current.GetService<ILogService>().Info(this, "Application closing, args: {0}", e);
-            try
-            {
-                DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
-                DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
-                DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
-            }
-            catch (Exception ex)
-            {
-                DependencyResolver.Current.GetService<ILogService>().Exception(this, ex);
-            }
+            //try
+            //{
+            //    DependencyResolver.Current.GetService<StoreAccelerometerData>().Stop();
+            //    DependencyResolver.Current.GetService<StoreBatteryData>().Stop();
+            //    DependencyResolver.Current.GetService<StoreLocationChange>().Stop();
+            //}
+            //catch (Exception ex)
+            //{
+            //    DependencyResolver.Current.GetService<ILogService>().Exception(this, ex);
+            //}
         }
 
         // Code to execute if a navigation fails

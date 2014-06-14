@@ -59,8 +59,9 @@
             <CheckBox x:Name="chargerStatus" Content="Charger connected" HorizontalAlignment="Left" Margin="25,61,0,0" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" Text="Charging %" VerticalAlignment="Top" RenderTransformOrigin="0.058,0.552"/>
             <TextBox x:Name="phoneNumber" HorizontalAlignment="Left" Height="72" Margin="25,138,0,0" TextWrapping="Wrap" Text="+1 (813) 468-5766" VerticalAlignment="Top" Width="402" InputScope="TelephoneNumber" AcceptsReturn="True"/>
-            <Button Content="Call" HorizontalAlignment="Left" Margin="25,210,0,0" VerticalAlignment="Top" Width="402" Click="Button_Click"/>
-            <Button Content="Open BT" HorizontalAlignment="Left" Margin="25,287,0,0" VerticalAlignment="Top" Width="402" Click="Button_Click_1"/>
+            <Button x:Name="buttonCall" Content="Call" HorizontalAlignment="Left" Margin="25,210,0,0" VerticalAlignment="Top" Width="402" Click="Button_Click"/>
+            <Button x:Name="buttonOpenBT" Content="Open BT" HorizontalAlignment="Left" Margin="25,273,0,0" VerticalAlignment="Top" Width="402" Click="Button_Click_1"/>
+            <Button Content="Device Info" HorizontalAlignment="Left" Margin="25,335,0,0" VerticalAlignment="Top" Width="402" Click="Button_Click_2"/>
 
             <!--<local:BatteryStatus HorizontalAlignment="Left" Margin="11,138,0,0" VerticalAlignment="Top" Width="293"/>-->
 

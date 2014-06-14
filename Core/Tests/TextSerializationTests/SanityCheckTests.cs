@@ -92,7 +92,7 @@ namespace TextSerializationTests
             };
             Assert.IsTrue(TestMethods.CanSerialize<Person>(this.Serializer, person, this.Deserializer));
         }
-
+            
         [Test()]
         public void CanSerializeInterface()
         {

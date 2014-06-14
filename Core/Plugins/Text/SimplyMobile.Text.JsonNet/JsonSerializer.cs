@@ -48,6 +48,7 @@ namespace SimplyMobile.Text.JsonNet
         /// <returns>Serialized string of the object</returns>
         public string Serialize<T>(T obj)
         {
+            JsonConvert.DefaultSettings().ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             return JsonConvert.SerializeObject(obj);
         }
 

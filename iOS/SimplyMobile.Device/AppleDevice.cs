@@ -16,6 +16,7 @@ namespace SimplyMobile.Device
         protected AppleDevice()
         {
             this.BluetoothHub = new BluetoothHub ();
+            this.Battery = new BatteryImpl ();
             this.FirmwareVersion = UIDevice.CurrentDevice.SystemVersion;
         }
 
@@ -71,7 +72,18 @@ namespace SimplyMobile.Device
             protected set;
         }
 
+        public bool SupportsSensor<T>() where T : ISensor
+        {
+            throw new NotImplementedException ();
+        }
+
         public IScreen Screen
+        {
+            get;
+            protected set;
+        }
+
+        public IBattery Battery
         {
             get;
             protected set;

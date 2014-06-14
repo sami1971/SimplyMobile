@@ -52,6 +52,7 @@
     <Compile Include="Device\IBattery.cs" />
     <Compile Include="Device\IBluetoothDevice.cs" />
     <Compile Include="Device\IBluetoothHub.cs" />
+    <Compile Include="Device\IOrientationMonitor.cs" />
     <Compile Include="Device\IPhone.cs" />
     <Compile Include="Device\IDevice.cs" />
     <Compile Include="Device\IGyroscope.cs" />
@@ -60,7 +61,9 @@
     <Compile Include="Device\ISensor.cs" />
     <Compile Include="Device\IWifiMonitor.cs" />
     <Compile Include="Device\GyroReading.cs" />
+    <Compile Include="Device\NetworkType.cs" />
     <Compile Include="Device\Orientation.cs" />
+    <Compile Include="Device\OrientationMonitor.cs" />
     <Compile Include="Device\ScreenSize.cs" />
     <Compile Include="Device\Vector3d.cs" />
     <Compile Include="Extensions\MonitorExtensions.cs" />

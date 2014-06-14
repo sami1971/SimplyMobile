@@ -53,11 +53,6 @@ namespace SimplyMobile.Core
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        protected string GetMemberName([CallerMemberName] string propertyName = "")
-        {
-            return propertyName;
-        } 
         #endregion
     }
 }
