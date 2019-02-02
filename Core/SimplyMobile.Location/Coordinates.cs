@@ -12,7 +12,7 @@ namespace SimplyMobile.Location
         /// <summary>
         /// The equator radius.
         /// </summary>
-        public const int EquatorRadius = 6378137;
+        public const double EquatorRadius = 6376500.0;
 
         /// <summary>
         /// Gets or sets the latitude.
@@ -57,12 +57,13 @@ namespace SimplyMobile.Location
         /// <param name="b">Location b</param>
         public static double DistanceBetween(Coordinates a, Coordinates b)
         {
-            double distance = Math.Acos(
-                (Math.Sin(a.Latitude) * Math.Sin(b.Latitude)) +
-                (Math.Cos(a.Latitude) * Math.Cos(b.Latitude)) 
-                * Math.Cos(b.Longitude - a.Longitude));
+            var d1 = a.Latitude * (Math.PI / 180.0);
+            var num1 = a.Longitude * (Math.PI / 180.0);
+            var d2 = b.Latitude * (Math.PI / 180.0);
+            var num2 = b.Longitude * (Math.PI / 180.0) - num1;
+            var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) + Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
 
-            return EquatorRadius * distance;
+            return EquatorRadius * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
         }
 
         /// <summary>
